@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ #map-container {
+   height: 500px;
+   width: 500px;
+ }
+
+ #autocomplete {
+   width: 30%;
+   height: auto;
+ }

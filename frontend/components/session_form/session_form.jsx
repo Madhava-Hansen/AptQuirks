@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -55,7 +54,6 @@ class SessionForm extends React.Component {
           <br/>
           <button type="submit" value="submit">Submit</button>
         </form>
-        <br/>
       </div>
     )
   };
