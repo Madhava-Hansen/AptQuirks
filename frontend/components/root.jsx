@@ -1,11 +1,13 @@
 import React from 'react';
-import Provider from 'react-redux';
+import { Provider } from 'react-redux';
 import App from './app';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
-export const Root = ({ store }) => {
-  return (
+export const Root = ({ store }) => (
     <Provider store={store} >
-      <div>Hello world!</div>
+      <Router>
+        <Route path="/" component={ App }>
+      </Route>
+    </Router>
     </Provider>
-  )
-}
+);
