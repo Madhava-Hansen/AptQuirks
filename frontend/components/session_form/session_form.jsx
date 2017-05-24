@@ -3,7 +3,7 @@ import React from 'react';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: "", password: ""}
+    this.state = {username: "", password: "", currentURL: ""}
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   };
@@ -34,6 +34,7 @@ class SessionForm extends React.Component {
     return (
       <div>
         <h1>{this.props.formType}</h1>
+        <h3>{this.props.errors}</h3>
         <form onSubmit={this.handleSubmit}>
           <label>username
             <br/>

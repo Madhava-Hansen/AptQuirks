@@ -1,7 +1,7 @@
 export const createApartment = apartment => {
   return $.ajax({
-    type: 'POST',
-    url: 'api/apartments',
-    apartment
+    method: 'POST',
+    url: '/api/apartments',
+    data: apartment
   });
 };

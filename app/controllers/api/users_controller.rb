@@ -6,7 +6,9 @@ class Api::UsersController < ApplicationController
     if @user.save
       render 'api/users/show'
     else
-      render @user.errors.full_messages
+      @errors = @user.errors.full_messages
+      debugger
+      render 'api/users/errors'
     end
   end
 
