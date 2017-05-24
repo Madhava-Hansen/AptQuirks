@@ -5,7 +5,8 @@ import { Route, Redirect } from 'react-router-dom';
 class ApartmentSearch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = ({apartment: "", currentURL: ""});
+    this.state = ({apartment: ""});
+    this.currentURL = "";
     this.handleSubmit = this.handleSubmit.bind(this);
     this.formatAddress = this.formatAddress.bind(this);
   }
@@ -18,9 +19,9 @@ class ApartmentSearch extends React.Component {
     if (this.props.location.pathname === "/apartments/show") {
       return;
     }
-    if (this.props.currentApartment && this.state.currentURL === "") {
+    if (this.props.currentApartment && this.currentURL === "") {
       this.props.history.replace("/apartments/show");
-      this.setState({currentURL: "/apartments/show"});
+      this.currentURL = "/apartments/show";
     }
   }
 

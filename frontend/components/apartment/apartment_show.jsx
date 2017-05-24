@@ -9,7 +9,6 @@ class ApartmentShow extends React.Component {
     this.getState = this.getState.bind(this);
     this.getZip = this.getZip.bind(this);
     this.getStreetAddress = this.getStreetAddress.bind(this);
-    debugger;
   }
 
   getCity(finalFullAddress) {
@@ -36,10 +35,6 @@ class ApartmentShow extends React.Component {
     const state = this.getState(finalFullAddress);
     const zipCode = this.getZip(finalFullAddress);
     const streeAddress = this.getStreetAddress(finalFullAddress);
-  }
-
-  componentDidUpdate() {
-    this.setState({ currentApartment: this.props.currentApartment });
   }
 
   render() {
