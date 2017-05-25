@@ -17,7 +17,7 @@ export const Root = ({ store }) => (
           <App />
           <Route path="/login" component={ SessionFormContainer }></Route>
           <Route path="/signup" component={ SessionFormContainer }></Route>
-          <Route path="/apartments/show" component={ ApartmentShowContainer } ></Route>
+          <Route path="/apartments/:id" component={ ApartmentShowContainer } ></Route>
         </div>
     </Router>
     </Provider>

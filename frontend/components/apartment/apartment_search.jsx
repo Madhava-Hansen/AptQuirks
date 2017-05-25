@@ -16,12 +16,13 @@ class ApartmentSearch extends React.Component {
   }
 
   redirectIfApartment() {
-    if (this.props.location.pathname === "/apartments/show") {
-      return;
-    }
-    if (this.props.currentApartment && this.currentURL === "") {
-      this.props.history.replace("/apartments/show");
-      this.currentURL = "/apartments/show";
+    if (this.props.location.pathname.substring(0, 11) != "/apartments" && this.currentURL != "") {
+        return;
+    } else if (this.props.location.pathname === `/apartments/${this.props.apartmentShow.id}`) {
+        return;
+    } else if (this.props.currentApartment) {
+        this.props.history.replace(`/apartments/${this.props.apartmentShow.id}`);
+        this.currentURL = `/apartments/${this.props.apartmentShow.id}`;
     }
   }
 
@@ -33,6 +34,7 @@ class ApartmentSearch extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     const address = this.autocomplete.getPlace();
     const fullAddress = address.formatted_address;
