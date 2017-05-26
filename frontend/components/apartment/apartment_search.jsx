@@ -34,7 +34,6 @@ class ApartmentSearch extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
     e.preventDefault();
     const address = this.autocomplete.getPlace();
     const fullAddress = address.formatted_address;
@@ -42,9 +41,10 @@ class ApartmentSearch extends React.Component {
     const lon = address.geometry.location.lng();
     const finalFullAddress = this.formatAddress(fullAddress);
     const apartment = {street_address: finalFullAddress, lat: lat, lon: lon, longitude: lon, latitude: lat};
+    debugger;
     this.props.createApartment({ apartment }).then(
-        apartment => this.setState({ apartment: apartment }),
-        this.input.value = ""
+      apartment => this.setState({apartment: apartment}),
+      this.input.value = ""
     );
   }
 

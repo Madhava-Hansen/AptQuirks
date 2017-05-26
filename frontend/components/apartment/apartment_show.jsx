@@ -1,5 +1,6 @@
 import React from 'react';
 import ApartmentMap from '../apartment_map/apartment_map';
+import QuirkIndexContainer from '../quirks/quirk_index_container';
 
 class ApartmentShow extends React.Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class ApartmentShow extends React.Component {
         <div>
             <h1>{this.props.currentApartment.street_address}</h1>
             <ApartmentMap currentApartment={this.props.currentApartment} />
+            <QuirkIndexContainer />
         </div>
       )
     }

@@ -6,7 +6,7 @@ class SessionForm extends React.Component {
     this.state = {username: "", password: "", currentURL: ""}
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-  };
+  }
 
   componentDidUpdate() {
     this.redirectIfLoggedIn();
@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
         </form>
       </div>
     )
-  };
+  }
 
 
 }

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ApartmentSearch from './apartment_search';
 import { createApartment } from '../../actions/search_actions';
+import { fetchQuirks } from '../../actions/quirk_actions';
 
 const mapStateToProps = ({ apartmentShow }) => {
   return {
@@ -10,7 +11,8 @@ const mapStateToProps = ({ apartmentShow }) => {
 };
 
 const mapDispatchToProps = (dispatch, { location }) => ({
-  createApartment: apartment => dispatch(createApartment(apartment))
+  createApartment: apartment => dispatch(createApartment(apartment)),
+  fetchQuirks: apartment_id => dispatch(fetchQuirks(apartment_id))
 });
 
 const ApartmentSearchContainer = connect(

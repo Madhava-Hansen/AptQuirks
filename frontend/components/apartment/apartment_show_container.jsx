@@ -8,7 +8,6 @@ const mapStateToProps = ({ apartmentShow }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addQuirk: quirk => dispatch(addQuirk({})),
   addComment: comment => dispatch(addComment({comment}))
 });
 
