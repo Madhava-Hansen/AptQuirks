@@ -12,6 +12,12 @@ class ApartmentShow extends React.Component {
     this.getStreetAddress = this.getStreetAddress.bind(this);
   }
 
+  componentDidMount() {
+      this.props.fetchQuirks(this.props.currentApartment.id).then(
+        quirks => this.setState({quirks: quirks })
+      )
+  }
+
   getCity(finalFullAddress) {
     const city = finalFullAddress.split(",")[1];
     return city;

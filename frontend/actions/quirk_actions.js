@@ -4,7 +4,6 @@ export const RECEIVE_QUIRK_ERRORS = "RECEIVE_QUIRK_ERRORS";
 export const RECEIVE_QUIRK = "RECEIVE_QUIRK";
 
 const receiveQuirks = quirks => {
-  debugger;
   return {
     type: RECEIVE_QUIRKS,
     quirks
@@ -13,7 +12,6 @@ const receiveQuirks = quirks => {
   };
 
   const receiveQuirk = quirk => {
-    debugger;
     return {
       type: RECEIVE_QUIRK,
       quirk

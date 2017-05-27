@@ -8,13 +8,18 @@ class QuirkForm extends React.Component {
     this.update = this.update.bind(this);
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
+    const titleInput = document.getElementById("quirk-form-title");
+    const bodyInput = document.getElementById("quirk-form-body");
     const currentState = this.state;
     const ids = { apartment_id: this.props.apartment_id, user_id: this.props.user_id};
     const quirk = { quirk: Object.assign(currentState, ids) };
     this.props.addQuirk(quirk).then(
-      console.log("add quirk success")
+      quirk => this.setState({ title: quirk.title, body: quirk.body }),
+      titleInput.value = "",
+      bodyInput.value = ""
     );
   }
 
@@ -31,6 +36,7 @@ class QuirkForm extends React.Component {
           <h1>Add Quirk</h1>
           <label>Title
             <input
+              id="quirk-form-title"
               type="text"
               onChange={this.update("title")}
             />
@@ -38,6 +44,7 @@ class QuirkForm extends React.Component {
           <br/>
           <label>Body
             <input
+              id="quirk-form-body"
               type="text"
               onChange={this.update("body")}
             />

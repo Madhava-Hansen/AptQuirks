@@ -4,7 +4,6 @@ import { addQuirk, fetchQuirks } from '../../actions/quirk_actions';
 
 
 const mapStateToProps = ({ quirksIndex, apartmentShow, session }) => {
-  debugger;
 return {
   quirks: quirksIndex,
   apartment_id: apartmentShow.id,
