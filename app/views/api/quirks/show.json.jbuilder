@@ -1,1 +1,1 @@
-json.extract! @quirk, :title, :body, :apt_number, :id
+json.extract! @quirk, :title, :body, :id, :apartment_id
