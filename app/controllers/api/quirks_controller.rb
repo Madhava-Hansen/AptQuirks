@@ -1,12 +1,10 @@
 class Api::QuirksController < ApplicationController
 
   def create
-    debugger
     @quirk = Quirk.new(quirk_params)
     if @quirk.save
       render 'api/quirks/show'
     else
-      debugger
       render @quirk.errors.full_messages
     end
   end
@@ -22,7 +20,6 @@ class Api::QuirksController < ApplicationController
   end
 
   def index
-    debugger
     @quirks = Quirk.all.where("apartment_id = ?", params[:apartment_id])
     if @quirks
       render 'api/quirks/index'
