@@ -1,6 +1,6 @@
 import React from 'react';
 import ApartmentShow from './apartment_show';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 class ApartmentSearch extends React.Component {
   constructor(props) {
@@ -41,10 +41,8 @@ class ApartmentSearch extends React.Component {
     const lon = address.geometry.location.lng();
     const finalFullAddress = this.formatAddress(fullAddress);
     const apartment = {street_address: finalFullAddress, lat: lat, lon: lon, longitude: lon, latitude: lat};
-    this.props.createApartment({ apartment }).then(
-      apartment => this.setState({apartment: apartment}),
-      this.input.value = ""
-    );
+    this.props.createApartment({ apartment });
+    this.input.value = ""
   }
 
   componentDidMount() {
@@ -78,4 +76,4 @@ class ApartmentSearch extends React.Component {
 
 }
 
-export default ApartmentSearch;
+export default withRouter(ApartmentSearch);

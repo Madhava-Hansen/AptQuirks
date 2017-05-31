@@ -8,18 +8,24 @@ class QuirkIndex extends React.Component {
     this.state = { quirks: "" };
   }
 
-  componentDidUpdate() {
-    if (this.props.quirks ){
-      if (this.props.apartment_id != this.props.quirks[0].apartment_id) {
-        this.props.fetchQuirks(this.props.apartment_id).then(
-          this.setState({ quirks: quirks })
-        );
-      }
+  componentWillMount() {
+    if (this.props.apartment_id) {
+      this.props.fetchQuirks(this.props.apartment_id);
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (JSON.stringify(this.props.apartment_id) != JSON.stringify(nextProps.apartment_id)) {
+      this.updateQuirks(nextProps.apartment_id);
+    }
+  }
+
+  updateQuirks(apartment_id) {
+    this.props.fetchQuirks(apartment_id);
+  }
+
   render() {
-    console.log("quirks index render called");
+    debugger;
     const { quirks } = this.props;
     const quirksArray = Object.keys(quirks).map(key => quirks[key] );
     return (

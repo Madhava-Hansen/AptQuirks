@@ -1,6 +1,7 @@
 import React from 'react';
 import ApartmentMap from '../apartment_map/apartment_map';
 import QuirkIndexContainer from '../quirks/quirk_index_container';
+import LikeButtonContainer from '../likes/like_button_container';
 
 class ApartmentShow extends React.Component {
   constructor(props) {
@@ -12,11 +13,6 @@ class ApartmentShow extends React.Component {
     this.getStreetAddress = this.getStreetAddress.bind(this);
   }
 
-  componentDidMount() {
-      this.props.fetchQuirks(this.props.currentApartment.id).then(
-        quirks => this.setState({quirks: quirks })
-      )
-  }
 
   getCity(finalFullAddress) {
     const city = finalFullAddress.split(",")[1];
@@ -44,10 +40,20 @@ class ApartmentShow extends React.Component {
     const streeAddress = this.getStreetAddress(finalFullAddress);
   }
 
+  componentWillMount() {
+    if (JSON.stringify(this.props.currentApartment) === JSON.stringify({})) {
+      const id = this.props.location.pathname.slice(12);
+      const formattedId = {apartment: {id: id}};
+      this.props.fetchApartment(formattedId);
+    }
+  }
+
   render() {
+    const { userId, apartmentId } = this.props;
       return(
         <div>
             <h1>{this.props.currentApartment.street_address}</h1>
+            <LikeButtonContainer />
             <ApartmentMap currentApartment={this.props.currentApartment} />
             <QuirkIndexContainer />
         </div>

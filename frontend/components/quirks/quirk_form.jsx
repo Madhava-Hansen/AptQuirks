@@ -3,23 +3,27 @@ import React from 'react';
 class QuirkForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {title: "", body: ""};
+    this.state = {title: "", body: "", apt_number: ""};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   }
 
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     const titleInput = document.getElementById("quirk-form-title");
     const bodyInput = document.getElementById("quirk-form-body");
+    const aptNumberInput = document.getElementById("quirk-form-apt-number");
     const currentState = this.state;
-    const ids = { apartment_id: this.props.apartment_id, user_id: this.props.user_id};
+    const { username } = this.props;
+    const ids = { apartment_id: this.props.apartment_id, user_id: this.props.user_id, user_name: username };
     const quirk = { quirk: Object.assign(currentState, ids) };
     this.props.addQuirk(quirk).then(
-      quirk => this.setState({ title: quirk.title, body: quirk.body }),
+      quirk => this.setState({ title: quirk.title, body: quirk.body, apt_number: quirk.apt_number }),
       titleInput.value = "",
-      bodyInput.value = ""
+      bodyInput.value = "",
+      aptNumberInput.value = ""
     );
   }
 
@@ -43,10 +47,18 @@ class QuirkForm extends React.Component {
           </label>
           <br/>
           <label>Body
-            <input
+            <textarea
               id="quirk-form-body"
               type="text"
               onChange={this.update("body")}
+            />
+          </label>
+          <br/>
+          <label>Apt number
+            <input
+              id="quirk-form-apt-number"
+              type="text"
+              onChange={this.update("apt_number")}
             />
           </label>
           <br/>

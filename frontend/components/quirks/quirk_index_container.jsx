@@ -4,12 +4,19 @@ import { addQuirk, fetchQuirks } from '../../actions/quirk_actions';
 
 
 const mapStateToProps = ({ quirksIndex, apartmentShow, session }) => {
-return {
-  quirks: quirksIndex,
-  apartment_id: apartmentShow.id,
-  user_id: session.currentUser.id
-};
-
+  if (session.currentUser) {
+    return {
+      quirks: quirksIndex,
+      apartment_id: apartmentShow.id,
+      user_id: session.currentUser.id,
+    }
+  } else {
+    return {
+      quirks: quirksIndex,
+      apartment_id: apartmentShow.id,
+      user_id: "1",
+    }
+  }
 };
 
 const mapDispatchToProps = dispatch => ({

@@ -3,7 +3,7 @@ import ApartmentSearch from './apartment_search';
 import { createApartment } from '../../actions/search_actions';
 import { fetchQuirks } from '../../actions/quirk_actions';
 
-const mapStateToProps = ({ apartmentShow }) => {
+const mapStateToProps = ({ apartmentShow, session }) => {
   return {
     currentApartment: Boolean(apartmentShow.street_address),
     apartmentShow: apartmentShow
