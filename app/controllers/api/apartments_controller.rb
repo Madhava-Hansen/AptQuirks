@@ -16,10 +16,26 @@ class Api::ApartmentsController < ApplicationController
   end
 
   def index
-    @apartments = Apartment.all
+    @apartments = Apartment.where(id: params[:apartment][:ids])
+    if @apartments
+      render 'api/apartments/index'
+    else
+      @errors = @apartments.errors.full_messages
+      render 'api/apartments/errors'
+    end
+  end
+
+  def show
+    @apartment = Apartment.find(params[:apartment][:id])
+    if @apartment
+      render 'api/apartments/show'
+    else
+      @errors = @apartment.errors.full_messages
+      render 'api/apartments/errors'
+    end
   end
 
   def apartment_params
-    params.require(:apartment).permit(:street_address, :lon, :lat, :longitude, :latitude)
+    params.require(:apartment).permit(:street_address, :lon, :lat, :longitude, :latitude, :ids[], :id)
   end
 end

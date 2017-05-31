@@ -5,7 +5,7 @@ class Api::QuirksController < ApplicationController
     if @quirk.save
       render 'api/quirks/show'
     else
-      render @quirk.errors.full_messages
+      render json: ["unable to create quirk, please try again"], statu: 401
     end
   end
 
@@ -15,7 +15,8 @@ class Api::QuirksController < ApplicationController
       @quirk.destroy!
       render 'api/quirks/show'
     else
-      render 'api/quirks/errors'
+      render json: ["you cannot delete this quirk"], statu: 401
+
     end
   end
 
@@ -31,7 +32,7 @@ class Api::QuirksController < ApplicationController
   private
 
   def quirk_params
-    params.require(:quirk).permit(:title, :body, :apartment_id, :user_id, :apt_number)
+    params.require(:quirk).permit(:title, :body, :apartment_id, :user_id, :apt_number, :user_name)
   end
 
 end

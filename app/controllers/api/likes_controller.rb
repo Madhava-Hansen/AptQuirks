@@ -1,48 +1,39 @@
 class Api::LikesController < ApplicationController
 
   def create
-    debugger
     @like = Like.new(like_params)
     if @like.save
       render 'api/likes/show'
     else
-      render @like.errors.full_messages
+      @errors = @like.errors.full_messages
+      render 'api/likes/errors'
     end
   end
 
   def index
-    if params[:like][:status]
-      @likes = Like.where("id =?", params[:like][:apartment_id]).where("id = ?", params[:like][:user_id])
-      debugger
+      @likes = Like.where("apartment_id = ?", params[:like][:apartment_id])
       if @likes
         render 'api/likes/index'
       else
-        render @likes.errors.full_messages
+        @errors = @likes.errors.full_messages
+        render 'api/likes/errors'
       end
-    else
-      @likes = Like.where("id = ?", params[:apartment_id])
-      if @likes
-        render 'api/likes/index'
-      else
-        render @likes.errors.full_messages
-      end
-    end
   end
 
   def destroy
-    debugger
-    @like = Like.find(params[:id])
+    @like = Like.find(params[:like][:id])
     if @like
       @like.destroy!
       render 'api/likes/show'
     else
-      render @like.errors.full_messages
+      @errors = @like.errors.full_messages
+      render 'api/likes/errors'
     end
   end
 
   private
 
   def like_params
-    params.require(:like).permit(:user_id, :apartment_id)
+    params.require(:like).permit(:user_id, :apartment_id, :id)
   end
 end
