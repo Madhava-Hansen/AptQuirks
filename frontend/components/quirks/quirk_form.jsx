@@ -10,14 +10,13 @@ class QuirkForm extends React.Component {
 
 
   handleSubmit(e) {
-    debugger;
     e.preventDefault();
     const titleInput = document.getElementById("quirk-form-title");
     const bodyInput = document.getElementById("quirk-form-body");
     const aptNumberInput = document.getElementById("quirk-form-apt-number");
     const currentState = this.state;
-    const { username } = this.props;
-    const ids = { apartment_id: this.props.apartment_id, user_id: this.props.user_id, user_name: username };
+    const username = this.props.username;
+    const ids = { apartment_id: this.props.apartmentId, user_id: this.props.userId, user_name: username };
     const quirk = { quirk: Object.assign(currentState, ids) };
     this.props.addQuirk(quirk).then(
       quirk => this.setState({ title: quirk.title, body: quirk.body, apt_number: quirk.apt_number }),

@@ -1,27 +1,30 @@
 import { connect } from 'react-redux';
 import QuirkIndex from './quirk_index';
-import { addQuirk, fetchQuirks } from '../../actions/quirk_actions';
+import { addQuirk, fetchQuirks, deleteQuirk } from '../../actions/quirk_actions';
 
 
 const mapStateToProps = ({ quirksIndex, apartmentShow, session }) => {
   if (session.currentUser) {
     return {
       quirks: quirksIndex,
-      apartment_id: apartmentShow.id,
-      user_id: session.currentUser.id,
+      apartmentId: apartmentShow.id,
+      userId: session.currentUser.id,
+      username: session.currentUser.username
     }
   } else {
     return {
       quirks: quirksIndex,
-      apartment_id: apartmentShow.id,
-      user_id: "1",
+      apartmentId: apartmentShow.id,
+      userId: "1",
+      username: session.currentUser.username
     }
   }
 };
 
 const mapDispatchToProps = dispatch => ({
   addQuirk: quirk => dispatch(addQuirk(quirk)),
-  fetchQuirks: apartment_id => dispatch(fetchQuirks(apartment_id))
+  fetchQuirks: apartment_id => dispatch(fetchQuirks(apartment_id)),
+  deleteQuirk: quirk => dispatch(deleteQuirk(quirk))
 });
 
 const QuirkIndexContainer = connect(

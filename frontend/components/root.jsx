@@ -7,6 +7,7 @@ import ApartmentSearch from './apartment/apartment_search';
 import ApartmentShowContainer from './apartment/Apartment_show_container';
 import SessionFormContainer from './session_form/session_form_container';
 import Home from './greeting/home';
+import Footer from './footer/footer';
 
 
 export const Root = ({ store }) => (
@@ -18,6 +19,8 @@ export const Root = ({ store }) => (
           <Route path="/login" component={ SessionFormContainer }></Route>
           <Route path="/signup" component={ SessionFormContainer }></Route>
           <Route path="/apartments/:id" component={ ApartmentShowContainer } ></Route>
+          <br/>
+          <Route path="/" component={ Footer } ></Route>
         </div>
     </Router>
     </Provider>

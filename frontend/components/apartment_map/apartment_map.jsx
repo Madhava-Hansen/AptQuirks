@@ -11,18 +11,16 @@ class ApartmentMap extends React.Component {
   }
 
   componentDidUpdate() {
-    let lat = this.props.currentApartment.latitude;
-    let lng = this.props.currentApartment.longitude;
-    const myLatLng = new google.maps.LatLng(lat, lng);
-    this.map.setCenter(myLatLng);
-    let marker = new MarkerManager(this.map);
-    marker.createMarkerFromApartment(this.props.currentApartment);
+      const { latitude, longitude } = this.props.currentApartment;
+      const myLatLng = new google.maps.LatLng(latitude, longitude);
+      this.map.setCenter(myLatLng);
+      let marker = new MarkerManager(this.map);
+      marker.createMarkerFromApartment(this.props.currentApartment);
   }
 
   createMap() {
-    console.log("createmap");
       this.mapOptions = {
-        center: { lat: this.lat, lng: this.lng },
+        center: new google.maps.LatLng(this.lat, this.lng),
         zoom: 14
       };
 
@@ -32,9 +30,6 @@ class ApartmentMap extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.lat);
-    console.log(this.lng);
-    console.log("componentDidMount");
     this.createMap();
   };
 

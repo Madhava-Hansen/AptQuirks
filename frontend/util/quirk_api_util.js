@@ -9,7 +9,7 @@ export const addQuirk = quirk => {
 export const deleteQuirk = quirk => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/apartments/${quirk.apartment_id}/quirks`,
+    url: `/api/apartments/${quirk.apartment_id}/quirks/${quirk.id}`,
     data: quirk
   });
 };
