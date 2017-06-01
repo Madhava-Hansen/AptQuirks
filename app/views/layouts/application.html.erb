@@ -3,8 +3,7 @@
   <head>
     <title>AptQuirks</title>
     <%= csrf_meta_tags %>
-
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCxb0f4XTVx52WFpNIiXBw3202VOKqw230&libraries=places" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['maps_key']}&libraries=places" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>

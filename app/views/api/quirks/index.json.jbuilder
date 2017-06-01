@@ -3,6 +3,6 @@ json.array! (@quirks) do |quirk|
   json.body quirk.body
   json.id quirk.id
   json.apartment_id quirk.apartment_id
-  json.created_at quirk.created_at.to_date
+  json.created_at time_ago_in_words(quirk.created_at)
   json.user_name quirk.user_name
 end
