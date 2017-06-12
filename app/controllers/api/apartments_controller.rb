@@ -9,19 +9,17 @@ class Api::ApartmentsController < ApplicationController
         if @apartment.save
           render 'api/apartments/show'
         else
-          @errors = @apartment.errors.full_messages
-          render 'api/apartments/errors'
+          render json: @apartment.errors.full_messages, status: 404
         end
     end
   end
 
   def index
-    @apartments = Apartment.where(id: params[:apartment][:ids])
+    @apartments = Apartment.where(id: (params[:apartment][:id]).split(""))
     if @apartments
       render 'api/apartments/index'
     else
-      @errors = @apartments.errors.full_messages
-      render 'api/apartments/errors'
+      render json: @apartments.errors.full_messages, status: 404
     end
   end
 
@@ -30,12 +28,13 @@ class Api::ApartmentsController < ApplicationController
     if @apartment
       render 'api/apartments/show'
     else
-      @errors = @apartment.errors.full_messages
-      render 'api/apartments/errors'
+      render json: @apartment.errors.full_messages, status: 404
     end
   end
 
+  private
+
   def apartment_params
-    params.require(:apartment).permit(:street_address, :lon, :lat, :longitude, :latitude, :ids[], :id)
+    params.require(:apartment).permit(:street_address, :lon, :lat, :longitude, :latitude, :id)
   end
 end

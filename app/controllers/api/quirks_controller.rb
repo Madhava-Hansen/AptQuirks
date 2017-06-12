@@ -5,7 +5,7 @@ class Api::QuirksController < ApplicationController
     if @quirk.save
       render 'api/quirks/show'
     else
-      render json: ["unable to create quirk, please try again"], statu: 401
+      render json: @quirk.errors.full_mesages, statu: 401
     end
   end
 
@@ -15,24 +15,24 @@ class Api::QuirksController < ApplicationController
       @quirk.destroy!
       render 'api/quirks/show'
     else
-      render json: ["you cannot delete this quirk"], statu: 401
+      render json: @quirk.errors.full_mesages, statu: 401
 
     end
   end
 
   def index
-    @quirks = Quirk.all.where("apartment_id = ?", params[:apartment_id])
+    @quirks = Quirk.where("apartment_id = ?", params[:apartment_id])
     if @quirks
       render 'api/quirks/index'
     else
-      render json: ["quirk index load error"], statu: 401
+      render json: @quirks.errors.full_mesages, statu: 401
     end
   end
 
   private
 
   def quirk_params
-    params.require(:quirk).permit(:title, :body, :apartment_id, :user_id, :apt_number, :user_name)
+    params.require(:quirk).permit(:title, :body, :apartment_id, :user_id, :apt_number, :user_name, :user_pic)
   end
 
 end
