@@ -1,0 +1,110 @@
+@import '../base/colors';
+
+.nav-left li {
+  float: left;
+  padding: 9px;
+  margin-right: 6%;
+}
+
+.nav-left h1 {
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 3px;
+  display: block;
+  float: left;
+}
+
+.nav-left img {
+  width: 33px;
+  display: block;
+  float: left;
+  margin-top: 3px;
+}
+
+
+.nav-middle li {
+ width: 600px;
+ padding: 14px;
+ float: left;
+}
+
+.nav-right {
+  display: inline-block;
+  text-align: center;
+  height: 45px;
+  float: right;
+  margin-right: 10px;
+}
+
+
+.nav-link {
+  float: right;
+  text-align: center;
+  margin-left: 5px;
+  margin-top: 14px;
+  padding: 8px;
+  border-radius: 3px;
+}
+
+.nav-link-pic {
+  float: right;
+  margin-top: 4px;
+  margin-left: 5px;
+  padding: 7px;
+}
+
+.nav {
+  list-style: none;
+}
+
+.nav-right button {
+  margin-top: 6px;
+}
+
+.nav-right img {
+  border-radius: 100%;
+}
+
+#autocomplete {
+  height: 30px;
+  border: solid 1px lightgrey;
+  border-radius: 5px;
+  float: left;
+  width: 80%;
+  padding-right: 0px;
+  margin-right: 0px;
+  font-size: 18px;
+}
+
+.header-profile-pic {
+  width: 40px;
+}
+
+.header {
+  background-color: $green;
+  height: 60px;
+  color: $dark-green;
+  margin-bottom: 17px;
+  box-shadow: 1px 1px 1px #ccc;
+}
+
+.fa-search {
+  color: white;
+  height: 10px;
+  padding-left: 2px;
+}
+
+.search-button {
+  border-radius: 0px 5px 5px 0px;
+  width: 25px;
+  height: 20px;
+  margin-left: 0px;
+  padding-left: 0px;
+  background-color: $green;
+  margin-top: -3px;
+}
+
+.nav-link:hover {
+  background-color: $light-green;
+}

@@ -14,12 +14,8 @@
  *= require_self
  */
 
- #map-container {
-   height: 500px;
-   width: 500px;
- }
-
- #autocomplete {
-   width: 30%;
-   height: auto;
- }
+/* reset */
+ @import "base/reset";
+ @import "base/colors";
+ @import "base/fonts";
+ @import "base/layout";

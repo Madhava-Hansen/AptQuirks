@@ -1,0 +1,72 @@
+@import '../base/colors';
+
+.home-text-container {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 250px;
+}
+
+.home-main-text {
+  text-align: center;
+  margin-bottom: 100px;
+  margin-top: 150px;
+  font-size: 60px;
+  color: $green;
+  border-bottom: $green;
+  font-weight: bolder;
+}
+
+.apartment-index-container {
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 200px;
+}
+
+.apartment-index-item {
+  display: block;
+  float: left;
+  width: 21%;
+  padding: 5%;
+  background-color: $grey;
+  margin: 1%;
+  border-radius: 5px;
+}
+
+.apartment-index-item:hover {
+  cursor: pointer;
+}
+
+.featured-apartments-text {
+  text-align: center;
+  margin: 50px;
+  font-size: 40px;
+}
+
+.search-bar-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.search-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.search-input-home {
+  height: 35px;
+  border: solid 1px red;
+}
+
+#home-magnifine-glass {
+  color: $green;
+}
+
+.search-button-home {
+  height: 19px;
+  width: 55px;
+}
+
+.search-button-home:hover {
+  border: solid 2px $light-green;
+}

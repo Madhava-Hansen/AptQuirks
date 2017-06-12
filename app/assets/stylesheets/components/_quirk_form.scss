@@ -1,0 +1,10 @@
+@import './base/colors';
+
+.quirk-form input {
+  border: solid 1px $green;
+  border-radius: 3px;
+}
+
+.quirk-form {
+  padding: 10px;
+}

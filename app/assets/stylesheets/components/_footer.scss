@@ -1,0 +1,33 @@
+@import '../base/colors';
+
+footer {
+  background-color: $light-grey;
+  height: 300px;
+}
+
+.footer-logo img {
+  width: 100px;
+}
+
+.footer-pic {
+  display: inline-block;
+}
+
+.footer-logo-text {
+  display: inline-block;
+  color: #ececec;
+  font-size: 100px;
+}
+
+.footer-logo {
+  text-align: center;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: #b9b9b9;
+}
+
+.footer-content {
+  padding-top: 80px;
+}

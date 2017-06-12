@@ -1,0 +1,43 @@
+@import './base/colors';
+
+.profile-explanation {
+  font-size: 40px;
+  color: $green;
+  text-align: center;
+  margin: 20px;
+}
+
+.profile-pic {
+  width: 50px;
+  border-radius: 100px;
+  display: block;
+  float: left;
+  padding: 2%;
+}
+
+img {
+  border-radius: 100%;
+}
+
+.profile-show {
+  background-color: $light-grey;
+  width: 40%;
+  margin: 0 auto;
+  padding: 10px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 1px #ccc;
+  border-radius: 5px;
+}
+
+.profile-show h1 {
+  padding: 10px;
+}
+
+.user-profile-heading {
+  margin-top: 2%;
+}
+
+.profile-main-content {
+  padding: 5%;
+}
