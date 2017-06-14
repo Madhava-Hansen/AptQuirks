@@ -30,3 +30,9 @@ export const logout = () => dispatch => (
   .then(() => dispatch(receiveCurrentUser(null)),
   err => dispatch(receiveErrors(err.responseJSON)))
 );
+
+export const addPhoto = user => dispatch => (
+  APIUtil.addPhoto(user)
+  .then(user => dispatch(receiveCurrentUser(user)),
+  err => dispatch(receiveErrors(err.responseJSON)))
+);

@@ -7,56 +7,48 @@ class ApartmentShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = ({currentApartment: ""});
-    this.getCity = this.getCity.bind(this);
-    this.getState = this.getState.bind(this);
-    this.getZip = this.getZip.bind(this);
-    this.getStreetAddress = this.getStreetAddress.bind(this);
-  }
-
-
-  getCity(finalFullAddress) {
-    const city = finalFullAddress.split(",")[1];
-    return city;
-  }
-
-  getState(finalFullAddress) {
-    const state = finalFullAddress.split(",")[2].split(" ")[1];
-    return state;
-  }
-
-  getZip(finalFullAddress) {
-    const zipCode = finalFullAddress.split(",")[2].split(" ")[2];
-    return zipCode;
-  }
-
-  getStreetAddress(finalFullAddress) {
-    const streeAddress = finalFullAddress.split(",")[0];
-  }
-
-  formatAddress(currentApartment) {
-    const city = this.getCity(finalFullAddress);
-    const state = this.getState(finalFullAddress);
-    const zipCode = this.getZip(finalFullAddress);
-    const streeAddress = this.getStreetAddress(finalFullAddress);
+    this.formattAddress = this.formattAddress.bind(this);
   }
 
   componentWillMount() {
     if (JSON.stringify(this.props.currentApartment) === JSON.stringify({})) {
-      const id = this.props.location.pathname.slice(12);
+      const id = this.props.location.pathname.split("/").pop();
       const formattedId = {apartment: {id: id}};
       this.props.fetchApartment(formattedId);
     }
   }
 
+  formattAddress() {
+    let addressArray = this.props.currentApartment.street_address.split(",");
+    this.streetAddress = addressArray[0];
+    this.cityStateZip = [addressArray[1], addressArray[2]].join(",");
+  }
+
   render() {
     const { userId, apartmentId } = this.props;
+    if (apartmentId) {
+      this.formattAddress();
+    }
+
+    let classes = "group apartment-show-container"
       return(
-        <div>
-            <h1>{this.props.currentApartment.street_address}</h1>
-            <LikeButtonContainer />
-            <ApartmentMap currentApartment={this.props.currentApartment} />
-            <QuirkIndexContainer />
-        </div>
+        <section className={classes}>
+            <article className="apartment-show">
+              <div className="address">
+                <h1>{this.streetAddress}</h1>
+                <h3 className="city-state-zip">{this.cityStateZip}</h3>
+              </div>
+            <div className="apartment-map">
+              <ApartmentMap currentApartment={this.props.currentApartment} />
+            </div>
+            <div className="group">
+              <LikeButtonContainer />
+            </div>
+            </article>
+            <aside className="quirks-index">
+              <QuirkIndexContainer />
+            </aside>
+        </section>
       )
     }
 }

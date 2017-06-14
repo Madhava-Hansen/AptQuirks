@@ -20,3 +20,13 @@ export const logout = () => {
       url: '/api/session'
   });
 };
+
+export const addPhoto = photoParams => {
+  
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/users/${photoParams.user.id}`,
+    data: photoParams
+
+  })
+}

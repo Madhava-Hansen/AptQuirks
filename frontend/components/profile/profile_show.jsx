@@ -9,36 +9,38 @@ class ProfileShow extends React.Component {
     super(props);
   }
 
-  componentWillReceiveProps(nextProps) {
-    debugger;
-  }
-
   render() {
     const { addPhoto, currentUser } = this.props;
-    const photoUploadTitle = currentUser.url ? "Update" : "Add";
+    const photoUploadTitle = currentUser.thumbnail_url ? "Update" : "Add";
     const cityTitle = currentUser.city ? "Update" : "Add";
-    const picturePath = currentUser.url ? currentUser.thumbnail_url : "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
-    debugger;
+    const picturePath = currentUser.thumbnail_url ? currentUser.thumbnail_url : "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
       return (
-        <div>
-          <h1>Hi there, {currentUser.username}!</h1>
-          <img src={picturePath} alt="profile picture"></img>
-          <p>This where you can update your profile or add a profile picture</p>
-          <br/>
-          <div className="photo-upload">
-            <h3>{photoUploadTitle} your profile picture</h3>
-            <UploadButton
-              currentUser={currentUser}
-              addPhoto={addPhoto}
-             />
+        <section className="profile-container">
+          <h1 className="profile-explanation">Complete your profile!</h1>
+          <div className="divider"></div>
+          <div className="profile-main-content">
+            <div className="user-profile-heading">
+              <figure className="profile-pic">
+                <img src={picturePath} alt="profile picture"></img>
+              </figure>
+              <h1 className="username">Hi there, {currentUser.username}!</h1>
+            </div>
+
+            <br/>
+            <div className="photo-upload">
+              <h3>{photoUploadTitle} profile picture</h3>
+              <UploadButton
+                currentUser={currentUser}
+                addPhoto={addPhoto}
+               />
+            </div>
+
+            <br/>
+            <h3>{cityTitle} City:</h3>
+            <button>{cityTitle} City</button>
           </div>
 
-          <br/>
-          <h3>{cityTitle} what city you live in!</h3>
-          <button>{cityTitle} City</button>
-
-          <p>Use the search bar at the top of the page to search for apartments.</p>
-        </div>
+        </section>
       )
 
 

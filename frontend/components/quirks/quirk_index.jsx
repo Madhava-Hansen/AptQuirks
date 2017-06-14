@@ -1,41 +1,67 @@
 import React from 'react';
 import QuirkIndexItem from './quirk_index_item';
 import QuirkForm from './quirk_form';
+import { Link, withRouter } from 'react-router-dom';
 
 class QuirkIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { quirks: "" };
+    this.state = { quirks: "", errorMessage: "" };
+    this.redirectToAddQuirk = this.redirectToAddQuirk.bind(this);
   }
 
   componentWillMount() {
-    if (this.props.apartmentId) {
-      this.props.fetchQuirks(this.props.apartmentId);
+    if (this.props.apartmentId === undefined) {
+      this.apartmentId = this.props.location.pathname.split("/").pop();
+    } else {
+      this.apartmentId = this.props.apartmentId;
+    }
+
+    this.props.fetchQuirks(this.apartmentId).then(quirks => {
+            this.setState({ quirks: quirks });
+      }
+    );
+  }
+
+  redirectToAddQuirk() {
+    if (this.props.currentUser) {
+      this.props.history.push(`/addquirk/${this.props.apartmentId}`)
+    } else {
+      this.setState({ errorMessage: "You must be logged in to add a quirk" });
+      return;
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (JSON.stringify(this.props.apartmentId) != JSON.stringify(nextProps.apartmentId)) {
-      this.updateQuirks(nextProps.apartmentId);
-    }
-    if (nextProps.quirks.newQuirk === null) {
-      this.updateQuirks(nextProps.apartmentId);
-    }
-  }
+    const { fetchQuirks, apartmentId } = this.props;
 
-  updateQuirks(apartmentId) {
-    this.props.fetchQuirks(apartmentId);
+    if (apartmentId != nextProps.apartmentId) {
+      fetchQuirks(nextProps.apartmentId);
+    }
+    if (nextProps.newQuirk === null) {
+      fetchQuirks(nextProps.apartmentId);
+    }
+    if (JSON.stringify(this.props.quirks) != JSON.stringify(nextProps.quirks)) {
+      fetchQuirks(nextProps.apartmentId);
+    }
   }
 
   render() {
-    const { quirks, deleteQuirk, userId } = this.props;
+    const { quirks, deleteQuirk, userId,
+    apartmentId, currentUser, addQuirk,
+    username } = this.props;
+
     if (quirks["newQuirk"] === null) {
       delete quirks.newQuirk;
     };
     const quirksArray = Object.keys(quirks).map(key => quirks[key]);
-
+    let quirksHeader = "quirks-header group"
     return (
-      <div>
+      <aside className="quirks-index-container">
+        <div className={quirksHeader}>
+          <button className="add-quirk-button" onClick={this.redirectToAddQuirk}>add quirk</button>
+          <p className="add-quirk-error-message">{this.state.errorMessage}</p>
+        </div>
         <ul>
           {quirksArray
             .map((quirk, idx) => <QuirkIndexItem
@@ -46,15 +72,9 @@ class QuirkIndex extends React.Component {
            />)}
 
         </ul>
-        <QuirkForm
-          addQuirk={this.props.addQuirk}
-          apartmentId={this.props.apartmentId}
-          userId={this.props.userId}
-          username={this.props.username}
-         />
-      </div>
+      </aside>
     )
   }
 }
 
-export default QuirkIndex;
+export default withRouter(QuirkIndex);

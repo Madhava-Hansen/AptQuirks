@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class QuirkForm extends React.Component {
   constructor(props) {
@@ -8,21 +9,29 @@ class QuirkForm extends React.Component {
     this.update = this.update.bind(this);
   }
 
+  componentWillMount() {
+    if (this.props.apartmentId) {
+      return;
+    } else {
+      this.apartmentId = this.props.location.pathname.split("/").pop();
+     }
+  }
 
   handleSubmit(e) {
     e.preventDefault();
-    const titleInput = document.getElementById("quirk-form-title");
-    const bodyInput = document.getElementById("quirk-form-body");
-    const aptNumberInput = document.getElementById("quirk-form-apt-number");
+    if (this.props.apartmentId) {
+      const { currentUser } = this.props;
+      this.apartmentId = this.props.apartmentId;
+    } else {
+      const { currentUser } = this.props;
+    }
     const currentState = this.state;
-    const username = this.props.username;
-    const ids = { apartment_id: this.props.apartmentId, user_id: this.props.userId, user_name: username };
-    const quirk = { quirk: Object.assign(currentState, ids) };
+    
+    const userPic = currentUser.thumbnail_url ? currentUser.thumbnail_url : "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
+    const idsAndPic = { apartment_id: this.apartmentId, user_id: currentUser.id, user_name: currentUser.username, user_pic: userPic };
+    const quirk = { quirk: Object.assign(currentState, idsAndPic) };
     this.props.addQuirk(quirk).then(
-      quirk => this.setState({ title: quirk.title, body: quirk.body, apt_number: quirk.apt_number }),
-      titleInput.value = "",
-      bodyInput.value = "",
-      aptNumberInput.value = ""
+      this.props.history.replace(`/apartments/${this.apartmentId}`)
     );
   }
 
@@ -31,15 +40,17 @@ class QuirkForm extends React.Component {
       [type]: e.currentTarget.value
     });
   }
-
   render() {
+    let classNames = "form-container containers";
+
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <section className={classNames}>
+        <form onSubmit={this.handleSubmit} className="form">
           <h1>Add Quirk</h1>
-          <label>Title
+          <label id="form-label">Title
             <input
               id="quirk-form-title"
+              className="form-input"
               type="text"
               onChange={this.update("title")}
             />
@@ -48,14 +59,16 @@ class QuirkForm extends React.Component {
           <label>Body
             <textarea
               id="quirk-form-body"
+              className="form-input"
               type="text"
               onChange={this.update("body")}
             />
           </label>
           <br/>
-          <label>Apt number
+          <label id="form-label">Apt
             <input
               id="quirk-form-apt-number"
+              className="form-input"
               type="text"
               onChange={this.update("apt_number")}
             />
@@ -63,9 +76,9 @@ class QuirkForm extends React.Component {
           <br/>
           <button type="submit">Add Quirk</button>
         </form>
-      </div>
+        </section>
     )
   }
 }
 
-export default QuirkForm;
+export default withRouter(QuirkForm);

@@ -1,9 +1,10 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: "", password: "", currentURL: ""}
+    this.state = {username: "", password: "", currentURL: ""};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   }
@@ -14,7 +15,11 @@ class SessionForm extends React.Component {
 
   redirectIfLoggedIn() {
     if (this.props.loggedIn) {
-      this.props.history.push("/home");
+      if (this.props.location.pathname === "/login") {
+        this.props.history.push("/home");
+      } else {
+        this.props.history.push("/profile");
+      }
     }
   }
 
@@ -31,23 +36,27 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const { currentUser, addPhoto, formType, errors } = this.props;
+    let classNames = "form-container containers"
     return (
-      <div>
-        <h1>{this.props.formType}</h1>
-        <h3>{this.props.errors}</h3>
-        <form onSubmit={this.handleSubmit}>
-          <label>username
+      <section className={classNames}>
+        <h3>{errors}</h3>
+        <form className="form" onSubmit={this.handleSubmit}>
+          <h1>{formType}</h1>
+          <label className="form-label">username
             <br/>
             <input
+              className="form-input"
               type="text"
               onChange={this.update("username")}
             />
           </label>
           <br/>
           <br/>
-          <label>password
+          <label className="form-label">password
             <br/>
             <input
+              className="form-input"
               type="password"
               onChange={this.update("password")}
             />
@@ -55,11 +64,11 @@ class SessionForm extends React.Component {
           <br/>
           <button type="submit" value="submit">Submit</button>
         </form>
-      </div>
+      </section>
     )
   }
 
 
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

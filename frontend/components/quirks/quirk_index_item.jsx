@@ -2,17 +2,26 @@ import React from 'react';
 
 const QuirkIndexItem = ({ quirk, deleteQuirk, userId }) => {
   const quirkIds = {id: quirk.id, apartment_id: quirk.apartment_id };
+  let classes = "group quirk-index-item";
+  let quirkDeleteClass = userId === quirk.id ? "quirk-button" : "hidden";
   return (
-    <div>
+    <aside className={classes}>
       <li>
-        <h1>{quirk.title}</h1>
-        <p>{quirk.body}</p>
-        <p>by {quirk.user_name}</p>
-        <p>{quirk.created_at} ago</p>
-        <button onClick={() => deleteQuirk(quirkIds)}>Delete Quirk</button>
+        <section className="quirk-user-info">
+        <figure className="quirk-pic">
+          <img className="quirk-pic" src={quirk.user_pic}></img>
+        </figure>
+        <p className="quirk-username">{quirk.user_name}</p>
+        <p className="timestamp">{quirk.created_at} ago</p>
+        </section>
+        <section className="quirk-main-content">
+        <h4 className="quirk-title">{quirk.title}</h4>
+        <p className="quirk-body">{quirk.body}</p>
+        <button className="quirk-button" onClick={() => deleteQuirk(quirkIds)}>Delete</button>
+        <div className="divider"></div>
+        </section>
       </li>
-
-    </div>
+    </aside>
   )
 
 }
@@ -40,4 +49,4 @@ export default QuirkIndexItem;
 //   key = "months";
 //   timeStamp = "months ago"
 // }
-// debugger;
+// 

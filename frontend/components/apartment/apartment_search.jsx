@@ -1,6 +1,7 @@
 import React from 'react';
 import ApartmentShow from './apartment_show';
 import { Route, withRouter } from 'react-router-dom';
+import FontAwesome from 'react-fontawesome';
 
 class ApartmentSearch extends React.Component {
   constructor(props) {
@@ -11,18 +12,9 @@ class ApartmentSearch extends React.Component {
     this.formatAddress = this.formatAddress.bind(this);
   }
 
-  componentDidUpdate() {
-    this.redirectIfApartment();
-  }
-
-  redirectIfApartment() {
-    if (this.props.location.pathname.substring(0, 11) != "/apartments" && this.currentURL != "") {
-        return;
-    } else if (this.props.location.pathname === `/apartments/${this.props.apartmentShow.id}`) {
-        return;
-    } else if (this.props.currentApartment) {
-        this.props.history.replace(`/apartments/${this.props.apartmentShow.id}`);
-        this.currentURL = `/apartments/${this.props.apartmentShow.id}`;
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentApartment) {
+      nextProps.history.push(`/apartments/${nextProps.apartmentShow.id}`);
     }
   }
 
@@ -40,8 +32,8 @@ class ApartmentSearch extends React.Component {
     const lat = address.geometry.location.lat();
     const lon = address.geometry.location.lng();
     const finalFullAddress = this.formatAddress(fullAddress);
-    const apartment = {street_address: finalFullAddress, lat: lat, lon: lon, longitude: lon, latitude: lat};
-    this.props.createApartment({ apartment });
+    const apartmentParams = {apartment: {street_address: finalFullAddress, lat: lat, lon: lon, longitude: lon, latitude: lat}};
+    this.props.createApartment(apartmentParams);
     this.input.value = ""
   }
 
@@ -60,17 +52,35 @@ class ApartmentSearch extends React.Component {
   }
 
   render() {
+    let atHome = this.props.location.pathname === '/home' ? true : false;
+    let buttonClass;
+    let inputClass;
+    let maginifineGlassId;
+    let formClass;
+    if (atHome) {
+      buttonClass = "search-button-home";
+      inputClass = "search-input-home";
+      maginifineGlassId = "home-magnifine-glass"
+      formClass = "search-form-home"
+
+    } else {
+      buttonClass = "search-button";
+      inputClass = "search-input";
+      maginifineGlassId = "maginifine-glass";
+      formClass = "search-form";
+    }
       return (
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <label>Apartment Search
-              <br/>
-            <input id="autocomplete" type="text"></input>
-            </label>
-            <br/>
-            <button type="submit" value="submit">Search</button>
+        <div className="search-bar-container">
+          <form className={formClass} onSubmit={this.handleSubmit}>
+            <label>
+            <input className={inputClass} id="autocomplete" type="text"></input>
+          </label>
+            <button className={buttonClass} type="submit" value="submit">
+              <FontAwesome id={maginifineGlassId} className="fa fa-search" size="2x" name="search" />
+            </button>
           </form>
         </div>
+
       )
   };
 

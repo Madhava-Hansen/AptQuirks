@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import ApartmentSearchContainer from '../apartment/apartment_search_container';
+import Logo from './logo';
 
 class Header extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Header extends React.Component {
   }
 
   redirectHome() {
-    debugger;
+
     this.props.history.push('/home');
   }
 
@@ -21,18 +22,10 @@ class Header extends React.Component {
       return (
         <header className={classes}>
           <nav className="nav">
-            <ul onClick={console.log('clicked')} className="nav-left">
-              <li>
-                <img src="assets/quirks-logo.png" alt="logo"/>
-                <h1>Apartment Quirks</h1>
-              </li>
+            <ul className="nav-left">
+                <Logo />
             </ul>
-            <ul className="nav-middle">
-              <li></li>
-            </ul>
-            <ul className="nav-right">
-              <li><GreetingContainer /></li>
-            </ul>
+            <GreetingContainer className="nav-right" />
           </nav>
         </header>
       )
@@ -41,15 +34,12 @@ class Header extends React.Component {
         <header className={classes}>
           <nav className="nav">
             <ul className="nav-left">
-              <li>
-                <img src="assets/quirks-logo.png" alt="logo"/>
-                <h1>Apartment Quirks</h1>
-              </li>
+                <Logo />
             </ul>
             <ul className="nav-middle">
               <li><ApartmentSearchContainer /></li>
             </ul>
-              <GreetingContainer />
+              <GreetingContainer className="nav-right"  />
           </nav>
         </header>
       )

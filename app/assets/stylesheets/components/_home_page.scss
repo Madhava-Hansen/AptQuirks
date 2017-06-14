@@ -1,19 +1,22 @@
 @import '../base/colors';
 
 .home-text-container {
-  width: 80%;
+  width: 100%;
+  padding-bottom: 250px;
+  padding-top: 150px;
+  background-color: $light-grey;
   margin: 0 auto;
-  margin-bottom: 250px;
 }
 
 .home-main-text {
   text-align: center;
-  margin-bottom: 100px;
-  margin-top: 150px;
   font-size: 60px;
   color: $green;
   border-bottom: $green;
   font-weight: bolder;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 100px;
 }
 
 .apartment-index-container {
@@ -23,50 +26,96 @@
   margin-bottom: 200px;
 }
 
+
+
+
+
+//search bar and button
+
+.search-bar-container {
+  width: 100%;
+}
+
+.search-input-home {
+  display: block;
+  float: left;
+  height: 42px;
+  width: 600px;
+  margin: 0 auto;
+  border-radius: 5px 0px 0px 5px;
+  font-size: 18px;
+  margin-left: 45px;
+  padding-left: 10px;
+}
+
+.search-button-home {
+  display: block;
+  float: left;
+  height: 35px;
+  width: 55px;
+  padding: 0;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-right: 10px;
+  border-radius: 0px 5px 5px 0px;
+  border-left: none;
+  background-color: $green;
+  margin: 0 auto;
+}
+
+#home-magnifine-glass {
+  padding-bottom: 20px;
+  color: white;
+}
+
+
+
+.search-form-home {
+  width: 60%;
+  margin: 0 auto;
+}
+
+// Apartment index section
+
 .apartment-index-item {
   display: block;
   float: left;
-  width: 21%;
-  padding: 5%;
+  width: 29%;
+  height: 200px;
+  padding: 10px;
   background-color: $grey;
   margin: 1%;
   border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
 }
 
 .apartment-index-item:hover {
   cursor: pointer;
 }
 
+.apartment-index {
+  margin-top: 50px;
+}
+
 .featured-apartments-text {
   text-align: center;
   margin: 50px;
-  font-size: 40px;
-}
-
-.search-bar-container {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.search-form {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.search-input-home {
-  height: 35px;
-  border: solid 1px red;
-}
-
-#home-magnifine-glass {
   color: $green;
+  font-weight: bold;
+  font-size: 55px;
 }
 
-.search-button-home {
-  height: 19px;
-  width: 55px;
+.street-address-index {
+  font-size: 25px;
 }
 
-.search-button-home:hover {
-  border: solid 2px $light-green;
+.city-state-zip-index {
+}
+
+.apartment-index-image {
+  paggin: 10px;
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
 }

@@ -12,12 +12,12 @@ class ApartmentIndex extends React.Component {
   redirectToAptShow(apartmentId) {
     const formattedId = {apartment: {id: apartmentId}}
     this.props.fetchApartment(formattedId).then(
-      () => this.props.history.replace(`/apartments/${apartmentId}`)
+      () => this.props.history.push(`/apartments/${apartmentId}`)
     )
   }
 
   componentWillMount() {
-    const ids = {apartment: {ids: ['1', '2', '3', '4', '5', '6', '7', '8']}};
+    const ids = {apartment: {id: '12345678'}};
     this.props.fetchApartments(ids);
   }
 
@@ -25,8 +25,8 @@ class ApartmentIndex extends React.Component {
     const { apartmentIndex } = this.props;
     const apartments = Object.keys(apartmentIndex).map(key => apartmentIndex[key]);
     return (
-      <div>
-        <ul>
+      <div className="group">
+        <ul className="apartment-index">
           {apartments.map((apartment, idx) =>
             <ApartmentIndexItem
               apartment={apartment}

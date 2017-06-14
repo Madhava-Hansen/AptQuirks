@@ -12,7 +12,6 @@ const mapStateToProps = ({ likes, apartmentShow, session }) => {
   } else {
     return {
       apartmentId: apartmentShow.id,
-      userId: "1",
       likesIndex: likes
     }
   }

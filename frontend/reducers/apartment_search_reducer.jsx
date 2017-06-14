@@ -1,5 +1,6 @@
 import merge from 'lodash/merge';
-import { RECEIVE_APARTMENT, RECEIVE_APARTMENT_ERRORS, RECEIVE_APARTMENTS } from '../actions/search_actions';
+import { RECEIVE_APARTMENT, RECEIVE_APARTMENT_ERRORS,
+RECEIVE_APARTMENTS } from '../actions/search_actions';
 
 const apartmentSearchReducer = (state = {}, action) => {
   Object.freeze(state);

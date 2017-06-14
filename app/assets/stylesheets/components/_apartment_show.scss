@@ -1,0 +1,68 @@
+@import './base/colors';
+
+.apartment-show {
+  display: block;
+  float: left;
+  width: 25%;
+  background-color: white;
+  margin-right: 17px;
+  margin-left: 12%;
+  padding: 15px;
+  box-shadow: 1px 1px 1px #ccc;
+  border-radius: 10px 0px 0px 10px;
+  margin-top: 17px;
+  min-width: 350px;
+
+}
+
+.apartment-show h1 {
+  font-weight: bold;
+  width: 70%;
+  color: $dark-green;
+  padding-left: 10px;
+}
+
+.city-state-zip {
+  font-weight: bold;
+  width: 70%;
+  margin-bottom: 10px;
+  color: $dark-green;
+  padding: 10px;
+}
+
+.like-button,
+.like-count {
+  display: block;
+  float: left;
+  padding-right: 5px;
+}
+
+.apartment-map {
+  margin-bottom: 10px;
+}
+
+.like-count {
+  margin-top: 5px;
+  color: $green;
+}
+
+.liked-button {
+  background-color: $green;
+  color: white;
+}
+
+.liked-button:hover {
+  font-size: 14px;
+}
+
+#map-container {
+  height: 300px;
+  width: 300px;
+  padding-bottom: 20px;
+  border: solid 5px $light-grey;
+  padding: 15px;
+}
+
+.apartment-show-container {
+  min-width: 950px;
+}

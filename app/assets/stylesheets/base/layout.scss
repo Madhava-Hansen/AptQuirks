@@ -23,7 +23,7 @@ button {
 	transition: 0.25s;
 	font-family: $sans-serif;
 	text-transform: none;
-	font-size: 15px;
+	font-size: 13px;
 	text-align: center;
 }
 
@@ -35,4 +35,18 @@ button:hover {
 	background-color: $light-grey;
 	margin: 0 auto;
   border-radius: 10px;
+	box-shadow: 1px 1px 1px #ccc;
+
+}
+
+.hidden {
+	display: none;
+}
+
+.divider {
+  width: 95%;
+  border-bottom: solid 2px #f6f6f6;
+	margin: 0 auto;
+  margin-top: 20px;
+
 }

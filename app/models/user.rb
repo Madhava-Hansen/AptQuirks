@@ -8,16 +8,26 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  url             :string
 #
 
 class User < ApplicationRecord
 
-  validates :username, :password_digest, :session_token, presence: true
-  # validates :password, length: { minimum: 6 }
+  validates :password_digest, :session_token, presence: true
+  validates :username, uniqueness: true, presence: true
+  validates :password, length: { minimum: 6, allow_nil: true }
 
   after_initialize :ensure_session_token
 
-  has_many :quirks
+  has_many :quirks,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: "Quirk"
+
+  has_many :likes,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: "Like"
 
   attr_reader :password
 
