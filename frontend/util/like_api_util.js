@@ -1,7 +1,7 @@
 export const like = like => {
   return $.ajax({
     method: 'POST',
-    url: `api/apartments/${like.apartment_id}/likes`,
+    url: `https://apartmentquirks.herokuapp.com/api/apartments/${like.apartment_id}/likes`,
     data: like
   });
 };
@@ -9,7 +9,7 @@ export const like = like => {
 export const unlike = like => {
   return $.ajax({
     method: 'DELETE',
-    url: `api/apartments/${like.apartment_id}/likes/${like.id}`,
+    url: `https://apartmentquirks.herokuapp.com/api/apartments/${like.apartment_id}/likes/${like.id}`,
     data: like
   });
 };
@@ -17,7 +17,7 @@ export const unlike = like => {
 export const fetchLikes = like => {
   return $.ajax({
     method: 'GET',
-    url: `/api/apartments/${like.apartment_id}/likes`,
+    url: `https://apartmentquirks.herokuapp.com/api/apartments/${like.apartment_id}/likes`,
     data: like
   });
 };
