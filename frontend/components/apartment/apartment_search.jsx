@@ -1,7 +1,6 @@
 import React from 'react';
 import ApartmentShow from './apartment_show';
 import { Route, withRouter } from 'react-router-dom';
-import FontAwesome from 'react-fontawesome';
 
 class ApartmentSearch extends React.Component {
   constructor(props) {
@@ -76,7 +75,7 @@ class ApartmentSearch extends React.Component {
             <input className={inputClass} id="autocomplete" type="text"></input>
           </label>
             <button className={buttonClass} type="submit" value="submit">
-              <FontAwesome id={maginifineGlassId} className="fa fa-search" size="2x" name="search" />
+              <img src="assets/magnifine-glass.png" id={maginifineGlassId} alt="magnifine glass"></img>
             </button>
           </form>
         </div>

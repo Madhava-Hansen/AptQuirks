@@ -26,10 +26,6 @@
   margin-bottom: 200px;
 }
 
-
-
-
-
 //search bar and button
 
 .search-bar-container {
@@ -44,7 +40,7 @@
   margin: 0 auto;
   border-radius: 5px 0px 0px 5px;
   font-size: 18px;
-  margin-left: 45px;
+  margin-left: 75px;
   padding-left: 10px;
 }
 
@@ -64,11 +60,11 @@
 }
 
 #home-magnifine-glass {
-  padding-bottom: 20px;
-  color: white;
+  width: 70%;
+  height: auto;
+  margin-top: -5px;
+  margin-left: 5px;
 }
-
-
 
 .search-form-home {
   width: 60%;

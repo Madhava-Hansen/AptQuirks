@@ -4,7 +4,7 @@ import App from './app';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import ApartmentMap from './apartment_map/apartment_map';
 import ApartmentSearch from './apartment/apartment_search';
-import ApartmentShowContainer from './apartment/Apartment_show_container';
+import ApartmentShowContainer from './apartment/apartment_show_container';
 import SessionFormContainer from './session_form/session_form_container';
 import ProfileShowContainer from './profile/profile_show_container';
 import Home from './greeting/home';
