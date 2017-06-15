@@ -1,7 +1,7 @@
 export const signup = user => {
   return $.ajax({
     method: 'POST',
-    url: 'https://apartmentquirks.herokuapp.com/api/users',
+    url: '/api/users',
     data: user
   });
 };
@@ -9,7 +9,7 @@ export const signup = user => {
 export const login = user => {
   return $.ajax({
     method: 'POST',
-    url: 'https://apartmentquirks.herokuapp.com/api/session',
+    url: '/api/session',
     data: user
   });
 };
@@ -17,7 +17,7 @@ export const login = user => {
 export const logout = () => {
   return $.ajax({
       method: 'DELETE',
-      url: 'https://apartmentquirks.herokuapp.com/api/session'
+      url: '/api/session'
   });
 };
 
@@ -25,7 +25,7 @@ export const addPhoto = photoParams => {
 
   return $.ajax({
     method: 'PATCH',
-    url: `https://apartmentquirks.herokuapp.com/api/users/${photoParams.user.id}`,
+    url: `/api/users/${photoParams.user.id}`,
     data: photoParams
 
   })
