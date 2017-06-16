@@ -28,10 +28,8 @@ class ApartmentSearch extends React.Component {
     e.preventDefault();
     const address = this.autocomplete.getPlace();
     const fullAddress = address.formatted_address;
-    const lat = address.geometry.location.lat();
-    const lon = address.geometry.location.lng();
     const finalFullAddress = this.formatAddress(fullAddress);
-    const apartmentParams = {apartment: {street_address: finalFullAddress, lat: lat, lon: lon, longitude: lon, latitude: lat}};
+    const apartmentParams = {apartment: {street_address: finalFullAddress, longitude: lon, latitude: lat}};
     this.props.createApartment(apartmentParams);
     this.input.value = ""
   }
