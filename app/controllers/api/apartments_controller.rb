@@ -5,9 +5,7 @@ class Api::ApartmentsController < ApplicationController
       if @apartment
         render 'api/apartments/show'
       else
-        debugger
         @apartment = Apartment.new(apartment_params)
-        debugger
         if @apartment.save
           render 'api/apartments/show'
         else
