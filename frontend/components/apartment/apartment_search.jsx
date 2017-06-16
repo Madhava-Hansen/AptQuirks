@@ -75,7 +75,9 @@ class ApartmentSearch extends React.Component {
             <input className={inputClass} id="autocomplete" type="text"></input>
           </label>
             <button className={buttonClass} type="submit" value="submit">
-              <img src="assets/magnifine-glass.png" id={maginifineGlassId} alt="magnifine glass"></img>
+              <img
+                src="http://res.cloudinary.com/aptquirks/image/upload/v1497653777/c0hrzxnw4ss1lvazuyui.png"
+                id={maginifineGlassId} alt="magnifine glass"></img>
             </button>
           </form>
         </div>
