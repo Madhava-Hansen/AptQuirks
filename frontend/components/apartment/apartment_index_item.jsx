@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'react';
 
 const ApartmentIndexItem = ({ apartment, redirect }) => {
   let streetAddress = "";

@@ -28,7 +28,7 @@ class ProfileShow extends React.Component {
 
             <br/>
             <div className="photo-upload">
-              <h3>{photoUploadTitle} profile picture</h3>
+              <h3 className="picture-title">{photoUploadTitle} profile picture</h3>
               <UploadButton
                 currentUser={currentUser}
                 addPhoto={addPhoto}
@@ -36,7 +36,7 @@ class ProfileShow extends React.Component {
             </div>
 
             <br/>
-            <h3>{cityTitle} City:</h3>
+            <h3 className="city-title">{cityTitle} City:</h3>
             <button>{cityTitle} City</button>
           </div>
 
