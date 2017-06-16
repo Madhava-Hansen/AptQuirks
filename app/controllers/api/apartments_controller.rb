@@ -5,7 +5,9 @@ class Api::ApartmentsController < ApplicationController
       if @apartment
         render 'api/apartments/show'
       else
+        debugger
         @apartment = Apartment.new(apartment_params)
+        debugger
         if @apartment.save
           render 'api/apartments/show'
         else
@@ -35,6 +37,6 @@ class Api::ApartmentsController < ApplicationController
   private
 
   def apartment_params
-    params.require(:apartment).permit(:street_address, :lon, :lat, :longitude, :latitude, :id)
+    params.require(:apartment).permit(:street_address, :longitude, :latitude, :id)
   end
 end
