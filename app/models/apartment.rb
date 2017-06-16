@@ -15,7 +15,7 @@
 class Apartment < ApplicationRecord
 
   validates :street_address, presence: true, uniqueness: true
-  validates :lon, :lat, :latitude, :latitude, presence: true
+  validates :latitude, :longitude, presence: true
 
   has_many :quirks,
     primary_key: :id,
