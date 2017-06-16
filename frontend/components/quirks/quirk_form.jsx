@@ -19,14 +19,14 @@ class QuirkForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    let currentUser;
     if (this.props.apartmentId) {
-      const { currentUser } = this.props;
+      currentUser = this.props.currentUser;
       this.apartmentId = this.props.apartmentId;
     } else {
-      const { currentUser } = this.props;
+      currentUser = this.props.currentUser;
     }
     const currentState = this.state;
-    
     const userPic = currentUser.thumbnail_url ? currentUser.thumbnail_url : "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
     const idsAndPic = { apartment_id: this.apartmentId, user_id: currentUser.id, user_name: currentUser.username, user_pic: userPic };
     const quirk = { quirk: Object.assign(currentState, idsAndPic) };
