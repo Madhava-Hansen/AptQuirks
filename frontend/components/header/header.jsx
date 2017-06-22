@@ -11,7 +11,6 @@ class Header extends React.Component {
   }
 
   redirectHome() {
-
     this.props.history.push('/home');
   }
 
@@ -23,7 +22,7 @@ class Header extends React.Component {
         <header className={classes}>
           <nav className="nav">
             <ul className="nav-left">
-                <Logo />
+                <Logo redirectHome={this.redirectHome} />
             </ul>
             <GreetingContainer className="nav-right" />
           </nav>
@@ -34,7 +33,7 @@ class Header extends React.Component {
         <header className={classes}>
           <nav className="nav">
             <ul className="nav-left">
-                <Logo />
+                <Logo redirectHome={this.redirectHome} />
             </ul>
             <ul className="nav-middle">
               <li><ApartmentSearchContainer /></li>
