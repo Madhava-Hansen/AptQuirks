@@ -1,1 +1,1 @@
-json.extract! @user, :username, :id, :thumbnail_url
+json.extract! @user, :username, :id, :thumbnail_url, :city

@@ -19,9 +19,20 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = current_user
+    if @user
+      debugger
+      @user.update_attributes(user_params)
+      render 'api/users/show'
+    else
+      render json: ["unable to update user"], status: 401
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :url, :thumbnail_url)
+    params.require(:user).permit(:username, :password, :url, :thumbnail_url, :id, :city)
   end
 end
