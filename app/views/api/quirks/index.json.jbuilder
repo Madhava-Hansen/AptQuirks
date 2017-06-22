@@ -6,4 +6,5 @@ json.array! (@quirks) do |quirk|
   json.created_at time_ago_in_words(quirk.created_at)
   json.user_name quirk.user_name
   json.user_pic quirk.user_pic
+  json.apt_number quirk.apt_number
 end
