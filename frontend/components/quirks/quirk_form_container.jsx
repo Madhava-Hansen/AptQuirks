@@ -7,7 +7,8 @@ const mapStateToProps = ({ session, apartmentShow }) => {
     apartmentId: apartmentShow.id,
     username: session.currentUser.username,
     userId: session.currentUser.id,
-    currentUser: session.currentUser
+    currentUser: session.currentUser,
+    currentApartment: apartmentShow
   }
 
 };
