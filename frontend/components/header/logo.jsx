@@ -7,7 +7,6 @@ class Logo extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <li className="logo"  onClick={this.props.redirectHome}>
         <img
