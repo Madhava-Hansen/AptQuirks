@@ -42,11 +42,11 @@ class QuirkForm extends React.Component {
   }
   render() {
     let classNames = "form-container containers";
-
     return (
       <section className={classNames}>
         <form onSubmit={this.handleSubmit} className="form">
           <h1>Add Quirk</h1>
+          <p>{this.props.currentApartment.street_address}</p>
           <label id="form-label">Title
             <input
               id="quirk-form-title"
