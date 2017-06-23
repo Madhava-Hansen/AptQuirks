@@ -1,8 +1,13 @@
-import React form 'react';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class ConversationIndex extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    this.props.fetchConversations(this.props.currentUser.id);
   }
 
   render() {
@@ -14,4 +19,4 @@ class ConversationIndex extends React.Component {
   }
 }
 
-export default ConversationIndex;
+export default withRouter(ConversationIndex);

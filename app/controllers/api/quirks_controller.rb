@@ -16,7 +16,6 @@ class Api::QuirksController < ApplicationController
       render 'api/quirks/show'
     else
       render json: @quirk.errors.full_mesages, statu: 401
-
     end
   end
 

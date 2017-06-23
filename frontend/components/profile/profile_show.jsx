@@ -7,6 +7,23 @@ import Home from '../greeting/home';
 class ProfileShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {city: ""};
+    this.handleAddCity = this.handleAddCity.bind(this);
+    this.update = this.update.bind(this);
+  }
+
+  handleAddCity(e) {
+    e.preventDefault();
+    const user = { user: { id: this.props.currentUser.id, city: this.state.city } };
+    this.props.updateUser(user).then(
+      this.setState({city: ""})
+    )
+  }
+
+  update(city) {
+    return e => this.setState({
+      [city]: e.currentTarget.value
+    });
   }
 
   render() {
@@ -36,8 +53,21 @@ class ProfileShow extends React.Component {
             </div>
 
             <br/>
-            <h3 className="city-title">{cityTitle} City:</h3>
-            <button>{cityTitle} City</button>
+            <form>
+                <label className="city-title">City: {this.props.currentUser.city} </label>
+                <input
+                  className="form-input"
+                  onChange={this.update("city")}
+                  value={this.state.city}>
+
+                </input>
+              <button
+                id="city-button"
+                onClick={this.handleAddCity}
+                className="button"
+                type="submit">{cityTitle} City</button>
+            </form>
+
           </div>
 
         </section>

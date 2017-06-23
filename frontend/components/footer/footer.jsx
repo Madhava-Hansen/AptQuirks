@@ -4,7 +4,8 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-content">
-        <p className="footer-copyright">(c) 2017 Apartment Quirks LLC</p>
+        <p className="footer-copyright">
+          (c) Apartment Quirks Inc.</p>
         <section className="footer-logo">
           <img
             className="footer-pic"

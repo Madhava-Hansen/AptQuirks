@@ -31,6 +31,12 @@ export const logout = () => dispatch => (
   err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+export const updateUser = user => dispatch => (
+  APIUtil.updateUser(user)
+  .then(user => dispatch(receiveCurrentUser(user)),
+  errors => dispatch(receiveErrors(errors.responseJSON)))
+);
+
 export const addPhoto = user => dispatch => (
   APIUtil.addPhoto(user)
   .then(user => dispatch(receiveCurrentUser(user)),

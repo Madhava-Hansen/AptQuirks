@@ -68,7 +68,7 @@ class QuirkIndex extends React.Component {
              deleteQuirk={deleteQuirk}
              quirk={quirk}
              key={idx}
-             userId={userId}
+             currentUser={currentUser}
            />)}
 
         </ul>

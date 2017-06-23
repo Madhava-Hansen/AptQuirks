@@ -21,8 +21,15 @@ export const logout = () => {
   });
 };
 
-export const addPhoto = photoParams => {
+export const updateUser = user => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/users/${user.id}`,
+    data: user
+  });
+};
 
+export const addPhoto = photoParams => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/users/${photoParams.user.id}`,

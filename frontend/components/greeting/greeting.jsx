@@ -7,6 +7,7 @@ class Greeting extends React.Component {
   constructor(props) {
     super(props);
     this.setProfilePic = this.setProfilePic.bind(this);
+    this.routeToMessages = this.routeToMessages.bind(this);
   }
 
   componentWillMount() {
@@ -33,6 +34,10 @@ class Greeting extends React.Component {
     }
   }
 
+  routeToMessages() {
+    this.props.history.push(`/messages/${this.props.currentUser.id}`);
+  }
+
   render() {
     const { currentUser, logout } = this.props;
       if (currentUser) {
@@ -46,8 +51,9 @@ class Greeting extends React.Component {
             <li className="nav-link">
               <Link to="/home" onClick={ logout }>logout</Link>
             </li>
-            <li className="nav-link" ><Link to="/home">search</Link></li>
-            <li className="nav-link" ><Link to="/profile">profile</Link></li>
+            <li onClick={this.routeToMessages} className="nav-link">messages</li>
+            <li className="nav-link" > <Link to="/home">search</Link> </li>
+            <li className="nav-link" > <Link to="/profile">profile</Link> </li>
           </ul>
       )
 
