@@ -2,12 +2,24 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Home from './home';
 
+
 class Greeting extends React.Component {
 
   constructor(props) {
     super(props);
     this.setProfilePic = this.setProfilePic.bind(this);
-    this.routeToMessages = this.routeToMessages.bind(this);
+    this.routeToConversations = this.routeToConversations.bind(this);
+    this.handleDropdownReveal = this.handleDropdownReveal.bind(this);
+    this.logout = this.logout.bind(this);
+    this.state = { dropdown: "hidden" };
+  }
+
+  handleDropdownReveal() {
+    if (this.state.dropdown === "hidden") {
+      this.setState({ dropdown: "dropdown-class group" });
+    } else {
+      this.setState({ dropdown: "hidden" });
+    }
   }
 
   componentWillMount() {
@@ -15,6 +27,12 @@ class Greeting extends React.Component {
       this.props.history.push("/home");
     }
     this.setProfilePic();
+  }
+
+  logout() {
+    const { logout } = this.props;
+    this.handleDropdownReveal();
+    window.setTimeout(logout, 500);
   }
 
   setProfilePic() {
@@ -34,24 +52,30 @@ class Greeting extends React.Component {
     }
   }
 
-  routeToMessages() {
-    this.props.history.push(`/messages/${this.props.currentUser.id}`);
+  routeToConversations() {
+    this.props.history.push('/inbox');
   }
 
   render() {
-    const { currentUser, logout } = this.props;
+    const { currentUser } = this.props;
       if (currentUser) {
     return (
           <ul className="nav-right">
             <li className="nav-link-pic">
-              <figure className="header-profile-pic">
+              <figure
+                onClick={ this.handleDropdownReveal }
+                 className="header-profile-pic">
                 <img src={this.picturePath} alt="profile pic"></img>
               </figure>
+              <div
+                className={ this.state.dropdown }>
+                <img className="dropdown-image" src={ this.picturePath } alt="profile pic"></img>
+                <h3 className="dropdown-username">{currentUser.username}</h3>
+                <Link className="dropdown-logout-button" to="/home" onClick={ this.logout }>logout</Link>
+              </div>
             </li>
-            <li className="nav-link">
-              <Link to="/home" onClick={ logout }>logout</Link>
-            </li>
-            <li onClick={this.routeToMessages} className="nav-link">messages</li>
+
+            <li className="nav-link" onClick={this.routeToConversations}>messages</li>
             <li className="nav-link" > <Link to="/home">search</Link> </li>
             <li className="nav-link" > <Link to="/profile">profile</Link> </li>
           </ul>
