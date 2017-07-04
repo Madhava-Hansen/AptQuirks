@@ -10,7 +10,9 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   apartmentShow: apartmentSearchReducer,
   quirksIndex: quirksReducer,
-  likes: likesReducer
+  likes: likesReducer,
+  conversationsIndex: conversationsReducer,
+  messagesIndex: messagesReducer,
 });
 
 export default rootReducer;
