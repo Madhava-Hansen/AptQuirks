@@ -1,6 +1,7 @@
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const RECEIVE_MESSAGE_ERRORS = "RECEIVE_MESSAGE_ERRORS";
+export const RECEIVE_USERS = "RECEIVE_USERS";
 import * as APIUtil from '../util/message_api_util';
 
 const receiveMessages = messages => ({
@@ -18,6 +19,11 @@ const receiveMessageErrors = errors => ({
   errors
 });
 
+export const receiveUsers = users => ({
+  type: RECEIVE_USERS,
+  users
+})
+
 export const fetchMessages = userId => dispatch => (
   APIUtil.fetchMessages(userId).then(
     messages => dispatch(receiveMessages(messages)),
@@ -30,4 +36,11 @@ export const createMessage = ids => dispatch => (
     message => dispatch(receiveMessage(message)),
     errors => dispatch(receiveMessageErrors(errors.responseJSON))
     )
+)
+
+export const fetchUsers = userName => dispatch => (
+  APIUtil.fetchUsers(userName)
+  .then( users => dispatch(receiveUsers(users)),
+  errors => dispatch(receiveMessageErrors(errors.responseJSON))
+)
 )

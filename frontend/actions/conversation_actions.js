@@ -8,7 +8,7 @@ const receiveConversations = conversations => ({
   conversations
 });
 
-const receiveConversation = conversation => ({
+export const receiveConversation = conversation => ({
   type: RECEIVE_CONVERSATION,
   conversation
 });
@@ -18,8 +18,8 @@ const receiveConversationErrors = errors => ({
   errors
 });
 
-export const fetchConversations = userId => dispatch => (
-  APIUtil.fetchConversations(userId).then(
+export const fetchConversations = () => dispatch => (
+  APIUtil.fetchConversations().then(
     conversations => dispatch(receiveConversations(conversations)),
   errors => dispatch(receiveConversationErrors(errors.responseJSON))
   )
@@ -29,5 +29,12 @@ export const createConversation = ids => dispatch => (
   APIUtil.createConversation(ids).then(
     conversation => dispatch(receiveConversation(conversation)),
     errors => dispatch(receiveConversationErrors(errors.responseJSON))
-    )
+  )
+)
+
+export const fetchConversation = id => dispatch => (
+  APIUtil.fetchConversation(id).then(
+    conversation => dispatch(receiveConversation(conversation)),
+    errors => dispatch(receiveConversationErrors(errors.responseJSON))
+  )
 )
