@@ -10,12 +10,12 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def update
-    @user = User.find(params[:user][:id])
-    if @user.update(user_params)
+  def show
+    @user = User.where("username = ?", params[:user][:username])
+    if @user
       render 'api/users/show'
     else
-      render json: @user.errors.full_messages, status: 404
+      render json: ['unable to find user'], status: 404
     end
   end
 
@@ -26,6 +26,15 @@ class Api::UsersController < ApplicationController
       render 'api/users/show'
     else
       render json: ["unable to update user"], status: 401
+    end
+  end
+
+  def index
+    @users = User.where("username ~ ?", params[:user][:username]).limit(5)
+    if @users
+      render 'api/users/index'
+    else
+      render json: ["no user with that username"], status: 404
     end
   end
 
