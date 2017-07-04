@@ -1,8 +1,7 @@
-export const fetchConversations = userId => {
+export const fetchConversations = () => {
   return $.ajax({
     method: 'GET',
-    url: `/api/conversations/${userId}`,
-    data: userId
+    url: `/api/conversations`
   });
 };
 
@@ -13,3 +12,11 @@ export const createConversation = ids => {
     data: ids
   });
 };
+
+export const fetchConversation = id => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/conversations/${id}`,
+    data: id
+  })
+}
