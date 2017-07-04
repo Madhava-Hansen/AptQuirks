@@ -75,11 +75,12 @@
 
 .apartment-index-item {
   display: block;
+  color: white;
   float: left;
   width: 29%;
-  height: 200px;
+  height: 100px;
   padding: 10px;
-  background-color: $grey;
+  background-color: $green;
   margin: 1%;
   border-radius: 5px;
   font-size: 18px;
@@ -88,6 +89,10 @@
 
 .apartment-index-item:hover {
   cursor: pointer;
+  background-color: white;
+  color: $green;
+  border: 2px solid $green;
+  padding: 8px;
 }
 
 .apartment-index {
@@ -103,7 +108,8 @@
 }
 
 .street-address-index {
-  font-size: 25px;
+  font-size: 30px;
+  margin-top: 20px;
 }
 
 .city-state-zip-index {
@@ -114,4 +120,8 @@
   width: 80%;
   height: auto;
   margin: 0 auto;
+}
+
+#featured-apartments-divider {
+  background-color: red
 }
