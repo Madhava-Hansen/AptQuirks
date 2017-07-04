@@ -10,11 +10,16 @@ class Api::MessagesController < ApplicationController
   end
 
   def index
+    @conversation = Conversation.find(message_params[:conversation_id])
+    @messages = @conversation.messages
+    if @messages
+      render 'api/messages/index'
+    end
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:sender_id, :receiver_id, :conversation_id)
+    params.require(:message).permit(:user_id, :conversation_id, :body, :read)
   end
 end
