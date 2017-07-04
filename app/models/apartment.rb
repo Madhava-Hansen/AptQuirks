@@ -25,7 +25,12 @@ class Apartment < ApplicationRecord
   has_many :likes,
     primary_key: :id,
     foreign_key: :apartment_id,
-    class_name: :Like
+    class_name: "Like"
+
+  has_many :images,
+    primary_key: :id,
+    foreign_key: :apartment_id,
+    class_name: "Image"
 
 
 end

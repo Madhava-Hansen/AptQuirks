@@ -19,15 +19,9 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :quirks,
-    primary_key: :id,
-    foreign_key: :user_id,
-    class_name: "Quirk"
-
-  has_many :likes,
-    primary_key: :id,
-    foreign_key: :user_id,
-    class_name: "Like"
+  has_many :quirks
+  has_many :likes
+  has_many :messages
 
   attr_reader :password
 
