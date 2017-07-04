@@ -11,7 +11,6 @@ const mapStateToProps = ({ apartmentShow, quirksIndex, session, likes }) => {
       userId: session.currentUser.id,
       apartmentId: apartmentShow.id,
       currentLike: likes.currentLike,
-      fetchImages: fetchImages,
     }
   } else {
       return {
@@ -20,7 +19,6 @@ const mapStateToProps = ({ apartmentShow, quirksIndex, session, likes }) => {
         userId: "1",
         apartmentId: apartmentShow.id,
         currentLike: likes.currentLike,
-        fetchImages: fetchImages
     }
   }
 
