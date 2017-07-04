@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622231146) do
+ActiveRecord::Schema.define(version: 20170701175556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,25 @@ ActiveRecord::Schema.define(version: 20170622231146) do
   end
 
   create_table "conversations", force: :cascade do |t|
-    t.integer  "sender_id",   null: false
-    t.integer  "receiver_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "sender_id",          null: false
+    t.integer  "receiver_id",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "receiver_username"
+    t.string   "receiver_image_url"
+    t.string   "sender_username"
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id", using: :btree
     t.index ["sender_id"], name: "index_conversations_on_sender_id", using: :btree
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "apartment_id",  null: false
+    t.integer  "user_id",       null: false
+    t.string   "url",           null: false
+    t.string   "thumbnail_url", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["apartment_id"], name: "index_images_on_apartment_id", using: :btree
   end
 
   create_table "likes", force: :cascade do |t|
@@ -44,12 +57,12 @@ ActiveRecord::Schema.define(version: 20170622231146) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer  "conversation_id",                 null: false
-    t.integer  "sender_id",                       null: false
-    t.text     "body",                            null: false
-    t.boolean  "read",            default: false, null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer  "conversation_id", null: false
+    t.text     "body",            null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "user_id",         null: false
+    t.string   "read",            null: false
   end
 
   create_table "quirks", force: :cascade do |t|
@@ -75,6 +88,8 @@ ActiveRecord::Schema.define(version: 20170622231146) do
     t.string   "url"
     t.string   "thumbnail_url"
     t.string   "city"
+    t.integer  "receiver_id"
+    t.integer  "sender_id"
     t.index ["username"], name: "index_users_on_username", using: :btree
   end
 
