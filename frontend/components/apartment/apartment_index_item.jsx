@@ -16,8 +16,6 @@ const ApartmentIndexItem = ({ apartment, redirect }) => {
       onClick={ () => redirect(apartment.id) }>
       <h1 className="street-address-index">{streetAddress}</h1>
       <h3 className="city-state-zip-index">{cityStateZip}</h3>
-      <img src="http://res.cloudinary.com/aptquirks/image/upload/v1497654268/fepioyozfto35nvgwsnw.jpg"
-      className='apartment-index-image' alt="apartment image"></img>
     </li>
   )
 }
