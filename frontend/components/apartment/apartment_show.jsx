@@ -16,6 +16,7 @@ class ApartmentShow extends React.Component {
       const formattedId = {apartment: {id: id}};
       this.props.fetchApartment(formattedId);
     }
+    window.scrollTo(0, 0);
   }
 
   formattAddress() {

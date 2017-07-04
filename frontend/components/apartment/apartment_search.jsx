@@ -72,7 +72,8 @@ class ApartmentSearch extends React.Component {
         <div className="search-bar-container">
           <form className={formClass} onSubmit={this.handleSubmit}>
             <label>
-            <input className={inputClass} id="autocomplete" type="text"></input>
+            <input placeholder="Enter a street address..."
+              className={inputClass} id="autocomplete" type="text"></input>
           </label>
             <button className={buttonClass} type="submit" value="submit">
               <img

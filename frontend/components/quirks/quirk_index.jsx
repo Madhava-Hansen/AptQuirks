@@ -6,7 +6,9 @@ import { Link, withRouter } from 'react-router-dom';
 class QuirkIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { quirks: "", errorMessage: "" };
+    this.state = { quirks: "", errorMessage: "", revealQuirk: "hidden" };
+    this.revealQuirk = "hidden";
+    this.revealQuirkInfo = this.revealQuirkInfo.bind(this);
     this.redirectToAddQuirk = this.redirectToAddQuirk.bind(this);
   }
 
@@ -23,6 +25,14 @@ class QuirkIndex extends React.Component {
     );
   }
 
+  revealQuirkInfo() {
+    if (this.state.revealQuirk === "hidden") {
+      this.setState({revealQuirk: "reveal-quirk-info group" });
+    } else {
+      this.setState({revealQuirk: "hidden" });
+    }
+  }
+
   redirectToAddQuirk() {
     if (this.props.currentUser) {
       this.props.history.push(`/addquirk/${this.props.apartmentId}`)
@@ -34,14 +44,11 @@ class QuirkIndex extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { fetchQuirks, apartmentId } = this.props;
-
     if (apartmentId != nextProps.apartmentId) {
       fetchQuirks(nextProps.apartmentId);
-    }
-    if (nextProps.newQuirk === null) {
+    } else if (nextProps.newQuirk === null) {
       fetchQuirks(nextProps.apartmentId);
-    }
-    if (JSON.stringify(this.props.quirks) != JSON.stringify(nextProps.quirks)) {
+    } else if (JSON.stringify(this.props.quirks) != JSON.stringify(nextProps.quirks)) {
       fetchQuirks(nextProps.apartmentId);
     }
   }
@@ -60,7 +67,17 @@ class QuirkIndex extends React.Component {
       <aside className="quirks-index-container">
         <div className={quirksHeader}>
           <button className="add-quirk-button" onClick={this.redirectToAddQuirk}>add quirk</button>
+          <p className="whats-a-quirk" onClick={this.revealQuirkInfo}> - What's a quirk?</p>
           <p className="add-quirk-error-message">{this.state.errorMessage}</p>
+          <div className={this.state.revealQuirk}>
+            <div className="quirk-info-absolute">
+              <p onClick={this.revealQuirkInfo} className="close-quirk-info">close</p>
+              <p className="whats-a-quirk-text">
+                A quirk is just like a review on Yelp...but for an apartment.
+                Let everyone know what it was like living at your last place by adding a quirk!
+              </p>
+            </div>
+          </div>
         </div>
         <ul>
           {quirksArray

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import ApartmentShow from './apartment_show';
 import { fetchQuirks } from '../../actions/quirk_actions';
 import { fetchApartment } from '../../actions/search_actions';
+import { fetchImages, addImage } from '../../actions/image_actions';
 
 const mapStateToProps = ({ apartmentShow, quirksIndex, session, likes }) => {
   if (session.currentUser) {
@@ -10,7 +11,8 @@ const mapStateToProps = ({ apartmentShow, quirksIndex, session, likes }) => {
       quirks: quirksIndex,
       userId: session.currentUser.id,
       apartmentId: apartmentShow.id,
-      currentLike: likes.currentLike
+      currentLike: likes.currentLike,
+      fetchImages: fetchImages,
     }
   } else {
       return {
@@ -18,7 +20,8 @@ const mapStateToProps = ({ apartmentShow, quirksIndex, session, likes }) => {
         quirks: quirksIndex,
         userId: "1",
         apartmentId: apartmentShow.id,
-        currentLike: likes.currentLike
+        currentLike: likes.currentLike,
+        fetchImages: fetchImages
     }
   }
 

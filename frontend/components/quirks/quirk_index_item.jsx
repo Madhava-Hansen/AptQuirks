@@ -3,7 +3,12 @@ import React from 'react';
 const QuirkIndexItem = ({ quirk, deleteQuirk, currentUser }) => {
   const quirkIds = {id: quirk.id, apartment_id: quirk.apartment_id };
   let classes = "group quirk-index-item";
-  let quirkDeleteClass = currentUser.username === quirk.user_name ? "quirk-button" : "hidden";
+  let quirkDeleteClass;
+  if (currentUser === undefined) {
+    quirkDeleteClass = "hidden";;
+  } else {
+    quirkDeleteClass = "quirk-button"
+  }
   return (
     <aside className={classes}>
       <li>
