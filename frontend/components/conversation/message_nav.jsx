@@ -9,7 +9,6 @@ class MessageNav extends React.Component {
   }
 
   redirectToNewMessage() {
-    debugger;
     this.props.history.push("/message/new");
   }
 
