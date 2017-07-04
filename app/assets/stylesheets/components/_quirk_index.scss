@@ -126,3 +126,48 @@
   float: left;
   margin-left: 10px;
 }
+
+.whats-a-quirk-text {
+  display: block;
+  float: left;
+  padding: 5px;
+}
+
+.reveal-quirk-info {
+  position: relative;
+}
+
+.quirk-info-absolute {
+  position: absolute;
+  left: 250px;
+  top: -10px;
+  width: 300px;
+  box-shadow: 0px 2px 5px lightgrey;
+
+}
+
+.close-quirk-info {
+  display: block;
+  float: right;
+  text-decoration: underline;
+  color: $green;
+  padding-right: 5px;
+}
+
+.close-quirk-info:hover {
+  color: $light-green;
+  cursor: pointer;
+}
+
+.whats-a-quirk {
+  color: $green;
+  cursor: pointer;
+  padding-top: 13px;
+  margin-left: 10px;
+  display: block;
+  float: left;
+}
+
+.whats-a-quirk:hover {
+  color: $light-green;
+}
