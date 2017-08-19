@@ -2,7 +2,7 @@
 
 ### About
 
-##### Apartment Quirks is a web application built using Ruby, Ruby on Rails, JavaScript, React.js and Redux. Its purpose is to help people get to know an apartment before they rent it by reading and writing reviews for the places they've lived in before. It's a single page application that utilized Ajax requests to deliver data without sending new page requests.
+Apartment Quirks is a web application built using Ruby, Ruby on Rails, JavaScript, React.js and Redux. Its purpose is to help people get to know an apartment before they rent it by reading and writing reviews for the places they've lived in before. It's a single page application that utilized Ajax requests to deliver data without sending new page requests.
 
 ## Apartment Quirks allows user to:
 
@@ -18,11 +18,11 @@
 # Structure
 
 ## Back end
-##### I developed the app using Ruby on Rails with postgreSQL to store the data. The back end structure is RESTful...
+I developed the app using Ruby on Rails with postgreSQL to store the data. The back end structure is RESTful...
 
 ## Front end
 
-##### The front end is handled using React/Redux to received data from Rails and render React Components...
+The front end is handled using React/Redux to received data from Rails and render React Components...
 
 ## Libraries
 
