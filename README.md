@@ -18,11 +18,11 @@ Apartment Quirks is a web application built using Ruby, Ruby on Rails, JavaScrip
 # Structure
 
 ## Back end
-I developed the app using Ruby on Rails with postgreSQL to store the data. The back end structure is RESTful...
+I developed the apps backend using Ruby on Rails with postgreSQL to store the data. The back end structure is RESTful and uses Active Record to prefetch data in order to limit database queries when users make large data requests. I render JSON objects using JBuilder which I then pass to the front end.
 
 ## Front end
 
-The front end is handled using React/Redux to received data from Rails and render React Components...
+The front end is handled using React/Redux. As the user interacts with the app, React updates it's virtual DOM and then runs a diff on the actual DOM which allows only the parts of the DOM that have changed to be updated. This makes for very fast re-rendering and a smooth user experience. I use Redux to keep track of and update the state of the app. As the back end passes JSON objects to the front end, Redux accepts the new data and makes updates where necessary.
 
 ## Libraries
 
@@ -37,13 +37,17 @@ The front end is handled using React/Redux to received data from Rails and rende
 
 #Code Guide
 
-check out these sections of my code....
+If you'd like to check out my code, these are some good sections to look through.
+
+1. Controllers
+2. Components
+3. Routes
 
 
 ##Components
 
-#####Apartment Show
+1. Apartment Show
 
-#####Conversation
+2. Conversation
 
-#####log in
+3. log in
