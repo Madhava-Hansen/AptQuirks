@@ -33,7 +33,6 @@ The front end is handled using React/Redux. As the user interacts with the app, 
 5. Gems
   a. JBuilder
   b. BCrypt
-6.
 
 #Code Guide
 
