@@ -22,7 +22,7 @@ I developed the apps backend using Ruby on Rails with postgreSQL to store the da
 
 ## Front end
 
-The front end is handled using React/Redux. As the user interacts with the app, React updates it's virtual DOM and then runs a diff on the actual DOM which allows only the parts of the DOM that have changed to be updated. This makes for very fast re-rendering and a smooth user experience. I use Redux to keep track of and update the state of the app. As the back end passes JSON objects to the front end, Redux accepts the new data and makes updates where necessary.
+The front end is handled using React/Redux. As the user interacts with the app, I use React to update it's virtual DOM which then allows updates to the browsers DOM to only make changes that are necessary. This makes for very fast re-rendering and a smooth user experience. I use Redux to keep track of and update the state of the app. As the back end passes JSON objects to the front end, Redux accepts the new data and makes updates where necessary.
 
 ## Libraries
 
