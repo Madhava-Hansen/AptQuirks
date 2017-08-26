@@ -17,10 +17,10 @@ Apartment Quirks is a web application built using Ruby, Ruby on Rails, JavaScrip
 
 # Customized User Authentication
 
-My app has a custo built user authentication system that uses BCrypt password hashing to verify a users password without saving the password in the database. 
+My app has a custo built user authentication system that uses BCrypt password hashing to verify a users password without saving the password in the database.
 
 ## Back end
-I developed the apps backend using Ruby on Rails with postgreSQL to store the data. The back end structure is RESTful and uses Active Record to prefetch data in order to limit database queries when users make large data requests. I render JSON objects using JBuilder which I then pass to the front end.
+I developed the apps backend using Ruby on Rails with postgreSQL to store the data. The back end structure is RESTful.
 
 ## Front end
 
