@@ -6,6 +6,7 @@ import merge from 'lodash/merge';
 
 const conversationsReducer = (state = {}, action) => {
   Object.freeze(state);
+  let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_CONVERSATIONS:
       const conversations = action.conversations;
