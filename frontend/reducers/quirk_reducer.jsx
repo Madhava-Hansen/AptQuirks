@@ -3,6 +3,7 @@ import merge from 'lodash/merge';
 
 const quirksReducer = (state = {}, action) => {
   Object.freeze(state);
+  let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_QUIRKS:
       const quirks = action.quirks;
