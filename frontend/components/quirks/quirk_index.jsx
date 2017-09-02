@@ -10,19 +10,20 @@ class QuirkIndex extends React.Component {
     this.revealQuirk = "hidden";
     this.revealQuirkInfo = this.revealQuirkInfo.bind(this);
     this.redirectToAddQuirk = this.redirectToAddQuirk.bind(this);
+    this.setApartmentId = this.setApartmentId.bind(this);
   }
 
   componentWillMount() {
+    this.setApartmentId();
+    this.props.fetchQuirks(this.apartmentId);
+  }
+
+  setApartmentId() {
     if (this.props.apartmentId === undefined) {
       this.apartmentId = this.props.location.pathname.split("/").pop();
     } else {
       this.apartmentId = this.props.apartmentId;
     }
-
-    this.props.fetchQuirks(this.apartmentId).then(quirks => {
-            this.setState({ quirks: quirks });
-      }
-    );
   }
 
   revealQuirkInfo() {
@@ -43,13 +44,9 @@ class QuirkIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { fetchQuirks, apartmentId } = this.props;
-    if (apartmentId != nextProps.apartmentId) {
-      fetchQuirks(nextProps.apartmentId);
-    } else if (nextProps.newQuirk === null) {
-      fetchQuirks(nextProps.apartmentId);
-    } else if (JSON.stringify(this.props.quirks) != JSON.stringify(nextProps.quirks)) {
-      fetchQuirks(nextProps.apartmentId);
+    this.setApartmentId();
+    if (this.apartmentId != nextProps.apartmentId) {
+      this.props.fetchQuirks(nextProps.apartmentId);
     }
   }
 
