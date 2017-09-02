@@ -1,5 +1,6 @@
 import React from 'react';
 import LikeCountComponenet from './like_count_component';
+import { withRouter } from 'react-router-dom';
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -10,23 +11,27 @@ class LikeButton extends React.Component {
     this.formattedLike = this.formattedLike.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.handleUnlike = this.handleUnlike.bind(this);
+    this.unliked = false;
   }
 
-  createIdsObjectForLike(nextProps = this.props) {
-    const { apartmentId, userId } = nextProps;
+  createIdsObjectForLike() {
+    let { userId } = this.props;
+    let apartmentId = this.props.location.pathname.split("").pop();
     this.ids = {like: {apartment_id: apartmentId, user_id: userId, status: "true" }};
   }
 
   likeStatusChecker(likesIndex) {
-    const that = this;
-    const likesArray = Object.keys(likesIndex).map(key => likesIndex[key]);
-    that.likeStatus = false;
-    that.likeCount = likesArray.length;
-    for (let i = 0; i < likesArray.length; i ++) {
-      if (likesArray[i].user_id === that.props.userId) {
-        that.likeStatus = true;
-        that.currentLike = likesArray[i];
-        break;
+    if (likesIndex.likes) {
+      let likes = likesIndex.likes;
+      const that = this;
+      that.likeStatus = false;
+      that.likeCount = likes.length;
+      for (let i = 0; i < likes.length; i ++) {
+        if (likes[i].user_id === that.props.userId) {
+          that.likeStatus = true;
+          that.currentLike = likes[i];
+          break;
+        }
       }
     }
   }
@@ -38,16 +43,8 @@ class LikeButton extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.createIdsObjectForLike(nextProps);
-    if (nextProps.likesIndex.currentLike === null) {
-      this.props.fetchLikes(this.ids);
-      return;
-    }
-    if (JSON.stringify(this.props.likesIndex) != JSON.stringify(nextProps.likesIndex)) {
-      this.likeStatusChecker(nextProps.likesIndex);
-    }
     if (this.props.apartmentId != nextProps.apartmentId) {
-      this.props.fetchLikes(this.ids);
+      this.props.fetchLikes({like: {apartment_id: nextProps.apartmentId} });
     }
   }
 
@@ -70,10 +67,10 @@ class LikeButton extends React.Component {
   componentWillMount() {
     this.createIdsObjectForLike();
     this.props.fetchLikes(this.ids);
-    this.likeStatusChecker(this.props.likesIndex);
   }
 
   render() {
+    this.likeStatusChecker(this.props.likesIndex);
     if (this.likeStatus) {
       this.formattedLike();
     }
@@ -82,7 +79,7 @@ class LikeButton extends React.Component {
       return (
         <ul className="like">
           <li className="like-button">
-            <button className="liked-button" onClick={ this.handleUnlike }>like</button>
+            <button className="liked-button" onClick={ this.handleUnlike }>unlike</button>
           </li>
           <li className="like-count">
             <LikeCountComponenet count={this.likeCount} likeStatus={this.likeStatus} />
@@ -110,4 +107,4 @@ class LikeButton extends React.Component {
 
 
 
-export default LikeButton;
+export default withRouter(LikeButton);
