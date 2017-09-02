@@ -7,17 +7,10 @@ class LikeButton extends React.Component {
     super(props);
     this.state = {errorMessage: ""};
     this.likeStatusChecker = this.likeStatusChecker.bind(this);
-    this.createIdsObjectForLike = this.createIdsObjectForLike.bind(this);
     this.formattedLike = this.formattedLike.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.handleUnlike = this.handleUnlike.bind(this);
     this.unliked = false;
-  }
-
-  createIdsObjectForLike() {
-    let { userId } = this.props;
-    let apartmentId = this.props.location.pathname.split("").pop();
-    this.ids = {like: {apartment_id: apartmentId, user_id: userId, status: "true" }};
   }
 
   likeStatusChecker(likesIndex) {
@@ -65,7 +58,9 @@ class LikeButton extends React.Component {
   }
 
   componentWillMount() {
-    this.createIdsObjectForLike();
+    let { userId } = this.props;
+    let apartmentId = this.props.location.pathname.split("").pop();
+    this.ids = {like: {apartment_id: apartmentId, user_id: userId, status: "true" }};
     this.props.fetchLikes(this.ids);
   }
 
@@ -101,10 +96,6 @@ class LikeButton extends React.Component {
       )
     }
   }
-
-
 }
-
-
 
 export default withRouter(LikeButton);
