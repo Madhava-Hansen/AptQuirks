@@ -2,11 +2,12 @@ import React from 'react';
 import QuirkIndexItem from './quirk_index_item';
 import QuirkForm from './quirk_form';
 import { Link, withRouter } from 'react-router-dom';
+import { receiveQuirks } from '../../actions/quirk_actions';
 
 class QuirkIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { quirks: "", errorMessage: "", revealQuirk: "hidden" };
+    this.state = { quirks: [], errorMessage: "", revealQuirk: "hidden" };
     this.revealQuirk = "hidden";
     this.revealQuirkInfo = this.revealQuirkInfo.bind(this);
     this.redirectToAddQuirk = this.redirectToAddQuirk.bind(this);
@@ -15,7 +16,9 @@ class QuirkIndex extends React.Component {
 
   componentWillMount() {
     this.setApartmentId();
-    this.props.fetchQuirks(this.apartmentId);
+    if (!this.props.quirksIndex.quirks) {
+      this.props.fetchQuirks(this.apartmentId);
+    }
   }
 
   setApartmentId() {
@@ -43,22 +46,31 @@ class QuirkIndex extends React.Component {
     }
   }
 
+  deleteQuirk(ids, that) {
+    let { deleteQuirk } = that.props;
+    deleteQuirk(ids);
+    let quirksClone = that.props.quirksIndex.quirks.slice(0);
+    debugger;
+    let property = ids.id;
+    delete quirksClone.property;
+    debugger;
+    let dispatchObj = {type: "RECEIVE_QUIRKS", data: quirksClone };
+    that.props.dispatch(receiveQuirks(dispatchObj));
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setApartmentId();
+    debugger;
     if (this.apartmentId != nextProps.apartmentId) {
       this.props.fetchQuirks(nextProps.apartmentId);
+    } else if (JSON.stringify(this.props.quirksIndex) != JSON.stringify(nextProps.quirksIndex)) {
+      this.setState({ quirks: nextProps.quirksIndex.quirks });
     }
   }
 
   render() {
-    const { quirks, deleteQuirk, userId,
-    apartmentId, currentUser, addQuirk,
-    username } = this.props;
-
-    if (quirks["newQuirk"] === null) {
-      delete quirks.newQuirk;
-    };
-    const quirksArray = Object.keys(quirks).map(key => quirks[key]);
+    const { userId, apartmentId, currentUser, addQuirk, username } = this.props;
+    debugger;
     let quirksHeader = "quirks-header group"
     return (
       <aside className="quirks-index-container">
@@ -77,9 +89,10 @@ class QuirkIndex extends React.Component {
           </div>
         </div>
         <ul>
-          {quirksArray
+          {this.state.quirks
             .map((quirk, idx) => <QuirkIndexItem
-             deleteQuirk={deleteQuirk}
+             deleteQuirk={this.deleteQuirk}
+             that={this}
              quirk={quirk}
              key={idx}
              currentUser={currentUser}
