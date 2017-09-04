@@ -64,9 +64,11 @@ class QuirkIndex extends React.Component {
     if (this.apartmentId != nextProps.apartmentId) {
       this.props.fetchQuirks(nextProps.apartmentId);
     }
-    if (nextProps.quirksIndex.quirks.length != this.props.quirksIndex.length) {
-      this.setState({ quirks: nextProps.quirksIndex.quirks });
-    }
+
+      if (nextProps.quirksIndex.quirks) {
+        this.setState({ quirks: nextProps.quirksIndex.quirks });
+      }
+
   }
 
   render() {
