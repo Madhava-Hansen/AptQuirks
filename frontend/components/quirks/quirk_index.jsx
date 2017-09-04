@@ -47,30 +47,30 @@ class QuirkIndex extends React.Component {
   }
 
   deleteQuirk(ids, that) {
-    let { deleteQuirk } = that.props;
+    let { deleteQuirk, dispatch } = that.props;
     deleteQuirk(ids);
     let quirksClone = that.props.quirksIndex.quirks.slice(0);
-    debugger;
-    let property = ids.id;
-    delete quirksClone.property;
-    debugger;
-    let dispatchObj = {type: "RECEIVE_QUIRKS", data: quirksClone };
-    that.props.dispatch(receiveQuirks(dispatchObj));
+    quirksClone.map((quirk, idx) => {
+      if (quirk.id === ids.id) {
+        quirksClone.splice(idx, 1);
+        dispatch(receiveQuirks(quirksClone));
+        return;
+      }
+    })
   }
 
   componentWillReceiveProps(nextProps) {
     this.setApartmentId();
-    debugger;
     if (this.apartmentId != nextProps.apartmentId) {
       this.props.fetchQuirks(nextProps.apartmentId);
-    } else if (JSON.stringify(this.props.quirksIndex) != JSON.stringify(nextProps.quirksIndex)) {
+    }
+    if (nextProps.quirksIndex.quirks.length != this.props.quirksIndex.length) {
       this.setState({ quirks: nextProps.quirksIndex.quirks });
     }
   }
 
   render() {
     const { userId, apartmentId, currentUser, addQuirk, username } = this.props;
-    debugger;
     let quirksHeader = "quirks-header group"
     return (
       <aside className="quirks-index-container">
