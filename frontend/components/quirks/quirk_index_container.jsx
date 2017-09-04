@@ -6,16 +6,18 @@ import { addQuirk, fetchQuirks, deleteQuirk } from '../../actions/quirk_actions'
 const mapStateToProps = ({ quirksIndex, apartmentShow, session }) => {
   if (session.currentUser) {
     return {
-      quirks: quirksIndex,
+      quirksIndex: quirksIndex,
       apartmentId: apartmentShow.id,
       userId: session.currentUser.id,
-      currentUser: session.currentUser
+      currentUser: session.currentUser,
+      dispatch: store.dispatch
     }
   } else {
     return {
       quirks: quirksIndex,
       apartmentId: apartmentShow.id,
       userId: "1",
+      dispatch: store.dispatch
     }
   }
 };
