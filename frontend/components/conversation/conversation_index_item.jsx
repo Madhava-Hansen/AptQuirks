@@ -12,5 +12,4 @@ const ConversationIndexItem = ({ conversation, fetchMessages, currentUser }) => 
   )
 }
 
-
 export default ConversationIndexItem;
