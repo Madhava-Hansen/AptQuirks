@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuirkIndexItem = ({ quirk, deleteQuirk, currentUser }) => {
+const QuirkIndexItem = ({ that, quirk, deleteQuirk, currentUser }) => {
   const quirkIds = {id: quirk.id, apartment_id: quirk.apartment_id };
   let classes = "group quirk-index-item";
   let quirkDeleteClass;
@@ -25,7 +25,7 @@ const QuirkIndexItem = ({ quirk, deleteQuirk, currentUser }) => {
         <p className="apartment-number">- apt {quirk.apt_number}</p>
         </div>
         <p className="quirk-body">{quirk.body}</p>
-        <button className={quirkDeleteClass} onClick={() => deleteQuirk(quirkIds)}>Delete</button>
+        <button className={quirkDeleteClass} onClick={() => deleteQuirk(quirkIds, that)}>Delete</button>
         <div className="divider"></div>
         </section>
       </li>
@@ -35,26 +35,3 @@ const QuirkIndexItem = ({ quirk, deleteQuirk, currentUser }) => {
 }
 
 export default QuirkIndexItem;
-
-
-
-
-
-
-
-// let timeStamp;
-// let key;
-// if (date.days === 0) {
-//   key = null;
-//   timeStamp = "today";
-// } else if (date.days === 1) {
-//   key = "days";
-//   timeStamp = "day ago"
-// } else if (date.days) {
-//   key = "days";
-//   timeStamp = "days ago";
-// } else {
-//   key = "months";
-//   timeStamp = "months ago"
-// }
-//
