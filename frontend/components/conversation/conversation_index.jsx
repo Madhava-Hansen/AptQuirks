@@ -23,6 +23,8 @@ class ConversationIndex extends React.Component {
   }
 
   fetchMessages(conversation) {
+    let { dispatch } = this.props;
+    dispatch(receiveConversation(conversation));
     const fetchMessagesObject = {message: { conversation_id: conversation.id }};
     this.props.fetchMessages(fetchMessagesObject);
     this.props.history.push(`/messages/${conversation.id}`);
