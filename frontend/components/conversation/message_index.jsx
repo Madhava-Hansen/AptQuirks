@@ -6,11 +6,11 @@ import MessageNav from './message_nav';
 class MessageIndex extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { message: "" };
-    this.url = "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
+    this.state = { messages: [], username: "", url: "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png" };
     this.update = this.update.bind(this);
     this.handleMessageSend = this.handleMessageSend.bind(this);
     this.fetchMessages = this.fetchMessages.bind(this);
+    this.setUserDetails = this.setUserDetails.bind(this);
   }
 
   fetchMessages(conversationId) {
@@ -19,24 +19,43 @@ class MessageIndex extends React.Component {
   }
 
   componentWillMount() {
-    if (this.props.conversationsIndex.currentConversation === undefined) {
+    if (this.props.currentConversation === undefined) {
       this.conversationId = this.props.location.pathname.split("/").pop();
       this.props.fetchConversation({ conversation: { id: this.conversationId } });
     } else {
-      this.conversationId = this.props.conversationsIndex.currentConversation.id;
+      this.conversationId = this.props.currentConversation.id;
     }
     this.fetchMessages(this.conversationId);
+  }
+
+  setUserDetails(nextProps) {
+    let { currentConversation, currentUser } = nextProps;
+    let username = currentConversation.receiver_username === currentUser.username ?
+    currentConversation.sender_username : currentConversation.receiver_username;
+    let url = currentConversation.receiver_image_url ?
+    currentConversation.receiver_image_url :
+      "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
+      this.setState({username: username, url: url });
   }
 
   componentDidMount() {
     this.input = document.getElementById("message-form-input");
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.messagesIndex.messages) {
+      this.setState({messages: nextProps.messagesIndex.messages});
+    }
+    if (nextProps.currentConversation) {
+      this.setUserDetails(nextProps);
+    }
+  }
+
   handleMessageSend(e) {
     e.preventDefault();
-    const { createMessage, currentUser, conversationsIndex } = this.props;
-    const receiver_id = conversationsIndex.currentConversation.receiver_id;
-    const conversationId = conversationsIndex.currentConversation.id;
+    const { createMessage, currentUser, currentConversation } = this.props;
+    const receiver_id = currentConversation.receiver_id;
+    const conversationId = currentConversation.id;
     const createMessageObject = { message: { read: false, user_id: currentUser.id,
        conversation_id: conversationId, body: this.state.message }};
     createMessage(createMessageObject);
@@ -48,18 +67,10 @@ class MessageIndex extends React.Component {
   }
 
   render() {
-    const { conversationsIndex, fetchMessages, messagesIndex,
-      currentConversation, currentUser } = this.props;
-    if (conversationsIndex.currentConversation) {
-        this.username = conversationsIndex.currentConversation.receiver.username;
-        this.url = conversationsIndex.currentConversation.receiver.thumbnail_url ?
-        conversationsIndex.currentConversation.receiver.thumbnail_url :
-        "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
-    }
+    const { fetchMessages, messagesIndex, currentUser } = this.props;
     let messages;
-    if (messagesIndex.messages) {
-      const messagesArray = Object.keys(messagesIndex.messages).map(key => messagesIndex.messages[key]);
-      messages = messagesArray.map((message, idx) => {
+    if (this.state.messages.length > 0) {
+      messages = this.state.messages.map((message, idx) => {
         return (
           <MessageIndexItem
             message={message}
@@ -68,15 +79,15 @@ class MessageIndex extends React.Component {
         )
         });
       } else {
-        messages = (<h3>No messages</h3>);
+        messages = [];
       }
         return (
           <div>
             <div className="message-index-container">
               <MessageNav />
               <div className="group messages-header-container">
-                <img className="message-profile-pic" src={this.url} alt="profile picture"></img>
-                <h1 className="messages-index-header">{this.username}</h1>
+                <img className="message-profile-pic" src={this.state.url} alt="profile picture"></img>
+                <h1 className="messages-index-header">{this.state.username}</h1>
               </div>
 
               <ul className="messages-index">
