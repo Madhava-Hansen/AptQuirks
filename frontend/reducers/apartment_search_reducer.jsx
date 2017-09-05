@@ -4,7 +4,6 @@ RECEIVE_APARTMENTS } from '../actions/search_actions';
 
 const apartmentSearchReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_APARTMENT:
       const curentApartment = action.apartment;
