@@ -5,11 +5,12 @@ import { createConversation, fetchConversation } from '../../actions/conversatio
 import { createMessage, fetchMessages } from '../../actions/message_actions';
 
 
-const mapStateToProps = ({ session, messagesIndex, conversationsIndex}) => {
+const mapStateToProps = ({ session, messagesIndex, conversationsIndex }) => {
+  debugger;
   return {
     currentUser: session.currentUser,
     messagesIndex: messagesIndex,
-    conversationsIndex: conversationsIndex
+    currentConversation: conversationsIndex.currentConversation
   }
 };
 
