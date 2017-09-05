@@ -7,7 +7,7 @@ from '../actions/message_actions';
 import merge from 'lodash/merge';
 
 const messagesReducer = (state = {messages: {}}, action) => {
-  Object.freeze(state);
+  Object.freeze(state); 
   let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_MESSAGES:

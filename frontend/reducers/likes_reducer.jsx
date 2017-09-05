@@ -6,14 +6,15 @@ const likesReducer = (state = {}, action) => {
   let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_CURRENT_LIKE:
-      const currentLike = action.like;
-      return merge({}, state, { currentLike });
+      let likeId = newState.likes.length;
+      newState["likes"][likeId] = action.like;
+      return newState;
     case RECEIVE_LIKES:
-      const likesIndex = action.likes;
-      return likesIndex;
+      newState["likes"] = action.likes;
+      return newState;
     case RECEIVE_LIKE_ERRORS:
-      const errors = action.errors;
-      return merge({}, state, { errors });
+      newState["errors"] = action.errors;
+      return newState;
     default:
       return state;
   }

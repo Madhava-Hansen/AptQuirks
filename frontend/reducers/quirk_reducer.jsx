@@ -6,14 +6,15 @@ const quirksReducer = (state = {}, action) => {
   let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_QUIRKS:
-      const quirks = action.quirks;
-      return quirks;
+      newState["quirks"] = action.quirks;
+      return newState;
     case RECEIVE_QUIRK:
-      const newQuirk = action.quirk;
-      return merge({}, state, { newQuirk });
+      let index = newState.quirks.length;
+      newState["quirks"][index] = action.quirk;
+      return newState;
     case RECEIVE_QUIRK_ERRORS:
-      const errors = action.errors;
-      return errors;
+      newState["errors"] = action.errors;
+      return newState;
     default:
       return state;
   }
