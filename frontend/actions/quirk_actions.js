@@ -3,7 +3,7 @@ export const RECEIVE_QUIRKS = "RECEIVE_QUIRKS";
 export const RECEIVE_QUIRK_ERRORS = "RECEIVE_QUIRK_ERRORS";
 export const RECEIVE_QUIRK = "RECEIVE_QUIRK";
 
-const receiveQuirks = quirks => ({
+export const receiveQuirks = quirks => ({
     type: RECEIVE_QUIRKS,
     quirks
   });
@@ -34,7 +34,7 @@ export const fetchQuirks = apartment_id => dispatch => (
 
 export const deleteQuirk = quirk => dispatch => (
   APIUtil.deleteQuirk(quirk)
-  .then(() => dispatch(receiveQuirk(null)),
+  .then(() => {},
   errors => dispatch(receiveQuirkErrors(errors.responseJSON))
   )
 );
