@@ -8,7 +8,7 @@ const receiveCurrentLike = like => ({
   like
 });
 
-const receiveLikes = likes => ({
+export const receiveLikes = likes => ({
   type: RECEIVE_LIKES,
   likes
 });
@@ -28,7 +28,7 @@ export const like = like => dispatch => (
 
 export const unlike = currentLike => dispatch => (
   APIUtil.unlike(currentLike).then(
-    () => dispatch(receiveCurrentLike(null)),
+    () => () => {},
     errors => dispatch(receiveQuirkErrors(errors.responseJSON))
   )
 );
