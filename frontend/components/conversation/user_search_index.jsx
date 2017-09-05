@@ -6,7 +6,6 @@ class UserSearchIndex extends React.Component {
     super(props);
   }
 
-
   render() {
     const { users, handleUserSelection, currentUser } = this.props;
     let usersIndex;
@@ -24,9 +23,7 @@ class UserSearchIndex extends React.Component {
               />
           )
         }
-
       });
-
     } else {
       usersIndex = "";
     }
