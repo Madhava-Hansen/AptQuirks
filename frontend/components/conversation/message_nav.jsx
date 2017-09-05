@@ -12,7 +12,6 @@ class MessageNav extends React.Component {
     this.props.history.push("/message/new");
   }
 
-
   render() {
     return (
       <ul className="inbox-nav group">
@@ -27,7 +26,5 @@ class MessageNav extends React.Component {
     )
   }
 }
-
-
 
 export default withRouter(MessageNav);
