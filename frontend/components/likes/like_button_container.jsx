@@ -7,12 +7,14 @@ const mapStateToProps = ({ likes, apartmentShow, session }) => {
     return {
       apartmentId: apartmentShow.id,
       userId: session.currentUser.id,
-      likesIndex: likes
+      likesIndex: likes,
+      dispatch: store.dispatch
     }
   } else {
     return {
       apartmentId: apartmentShow.id,
-      likesIndex: likes
+      likesIndex: likes,
+      dispatch: store.dispatch
     }
   }
 
