@@ -1,13 +1,5 @@
 @import '../base/colors';
 
-.home-text-container {
-  width: 100%;
-  padding-bottom: 250px;
-  padding-top: 150px;
-  background-color: $light-grey;
-  margin: 0 auto;
-}
-
 .home-main-text {
   text-align: center;
   font-size: 60px;
@@ -124,4 +116,16 @@
 
 #featured-apartments-divider {
   background-color: red
+}
+
+.home-text-container {
+  width: 100%;
+  padding-bottom: 250px;
+  padding-top: 150px;
+  background-image: url('http://res.cloudinary.com/aptquirks/image/upload/v1504648066/skyline_eteixd.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  margin: 0 auto;
 }
