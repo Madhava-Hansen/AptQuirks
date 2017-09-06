@@ -48,7 +48,7 @@ If you'd like to check out my code, these are some good sections to look through
 ##Components
 
 1. Apartment Show
-  * Shows address and pins the location on google maps. 
+  * Shows address and pins the location on google maps.
 2. Conversation
-
+  * Handles sending private messages to other users. 
 3. log in
