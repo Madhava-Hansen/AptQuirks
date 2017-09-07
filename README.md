@@ -41,7 +41,9 @@ The front end is handled using React/Redux. As the user interacts with the app, 
 If you'd like to check out my code, these are some good sections to look through.
 
 1. Controllers
+  * link to controller code
 2. Components
+  *
 3. Routes
 
 
@@ -50,5 +52,5 @@ If you'd like to check out my code, these are some good sections to look through
 1. Apartment Show
   * Shows address and pins the location on google maps.
 2. Conversation
-  * Handles sending private messages to other users. 
+  * Handles sending private messages to other users.
 3. log in
