@@ -18,7 +18,6 @@ class LikeButton extends React.Component {
 
   likeStatusChecker() {
       let likesClone = this.state.likes.slice(0);
-      debugger;
       const that = this;
       that.likeStatus = false;
       for (let i = 0; i < likesClone.length; i ++) {
@@ -38,7 +37,6 @@ class LikeButton extends React.Component {
     if (this.unlikTrigger) {
       likesClone.splice(idx, 1);
       this.likeCount = likesClone.length;
-      debugger;
       this.dispatchAfterDelete(likesClone);
       this.unlikTrigger = false;
       this.currentLike = null;
@@ -46,7 +44,6 @@ class LikeButton extends React.Component {
       this.likeCount = likesClone.length;
       this.likeStatus = true;
       this.currentLike = likesClone[idx];
-      debugger;
     }
   }
 
@@ -66,8 +63,9 @@ class LikeButton extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setApartmentId();
-    if (this.apartmentId != nextProps.apartmentId) {
+    if (this.props.apartmentId != nextProps.apartmentId) {
       this.props.fetchLikes({like: {apartment_id: nextProps.apartmentId} });
+      this.ids = {like: {apartment_id: nextProps.apartmentId, user_id: nextProps.userId, status: "true" }};
     }
 
     if (nextProps.likesIndex.likes) {
@@ -91,15 +89,9 @@ class LikeButton extends React.Component {
     } else {
       this.setState({errorMessage: "login to like things!"});
     }
-    debugger;
   }
 
   componentWillMount() {
-    let { userId } = this.props;
-    let apartmentId = this.props.location.pathname.split("").pop();
-    this.ids = {like: {apartment_id: apartmentId, user_id: userId, status: "true" }};
-    this.setApartmentId();
-    this.props.fetchLikes(this.ids);
   }
 
   render() {
