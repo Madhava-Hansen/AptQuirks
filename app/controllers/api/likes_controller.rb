@@ -11,7 +11,7 @@ class Api::LikesController < ApplicationController
   end
 
   def index
-      @likes = Like.where("apartment_id = ?", params[:like][:apartment_id])
+      @likes = Like.where("apartment_id = ?", params[:apartment_id])
       if @likes
         render 'api/likes/index'
       else
