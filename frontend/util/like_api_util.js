@@ -1,4 +1,5 @@
 export const like = like => {
+  debugger;
   return $.ajax({
     method: 'POST',
     url: `/api/apartments/${like.apartment_id}/likes`,
@@ -14,10 +15,9 @@ export const unlike = like => {
   });
 };
 
-export const fetchLikes = like => {
+export const fetchLikes = apartment_id => {
   return $.ajax({
     method: 'GET',
-    url: `/api/apartments/${like.apartment_id}/likes`,
-    data: like
+    url: `/api/apartments/${apartment_id}/likes`
   });
 };
