@@ -14,6 +14,7 @@ class LikeButton extends React.Component {
     this.likeStatusSubFunc = this.likeStatusSubFunc.bind(this);
     this.unlikTrigger = false;
     this.likeCount = 0;
+    this.likesFetched = false;
   }
 
   likeStatusChecker() {
@@ -63,19 +64,23 @@ class LikeButton extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setApartmentId();
-    if (this.props.apartmentId != nextProps.apartmentId) {
-      this.props.fetchLikes({like: {apartment_id: nextProps.apartmentId} });
-      this.ids = {like: {apartment_id: nextProps.apartmentId, user_id: nextProps.userId, status: "true" }};
+    if (this.apartmentId != nextProps.apartmentId) {
+      this.props.fetchLikes(nextProps.apartmentId);
     }
-
     if (nextProps.likesIndex.likes) {
       this.setState({likes: nextProps.likesIndex.likes});
     }
   }
 
+  componentWillUpdate() {
+    debugger;
+  }
+
   handleLike() {
     if (this.props.userId) {
-      this.props.like(this.ids);
+      let { apartmentId, userId } = this.props;
+      let ids = {like: {apartment_id: apartmentId, user_id: userId } };
+      this.props.like(ids);
     } else {
       this.setState({errorMessage: "please login to like things!"});
     }
@@ -92,6 +97,8 @@ class LikeButton extends React.Component {
   }
 
   componentWillMount() {
+    this.setApartmentId();
+    this.props.fetchLikes(this.apartmentId);
   }
 
   render() {
@@ -99,6 +106,7 @@ class LikeButton extends React.Component {
     if (this.likeStatus) {
       this.formattedLike();
     }
+    debugger;
     const { currentLike, like, unlike} = this.props;
     if (this.likeStatus) {
       return (
