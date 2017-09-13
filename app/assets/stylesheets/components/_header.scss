@@ -184,3 +184,11 @@
 .logo:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 480px) {
+
+  .nav-left h1 {
+    font-size: 30px;
+  }
+
+}
