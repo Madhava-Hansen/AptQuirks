@@ -129,3 +129,21 @@
   background-color: white;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 480px) {
+  .home-main-text {
+    font-size: 20px;
+  }
+
+  .search-input-home {
+    height: 20px;
+    width: 100px;
+    margin-left: 0px;
+  }
+
+  .search-button-home {
+    height: 15px;
+    width: 25px;
+    float: left;
+  }
+}
