@@ -36,3 +36,13 @@ footer {
 .copyright {
   font-family: arial;
 }
+
+@media screen and (max-width: 480px) {
+  .footer-logo-text {
+    font-size: 40px;
+  }
+
+  .footer-logo img {
+    width: 40px;
+  }
+}
