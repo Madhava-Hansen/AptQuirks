@@ -127,9 +127,11 @@
 }
 
 @media screen and (max-width: 480px) {
+
   .home-main-text {
     font-size: 30px;
     margin-bottom: 30px;
+    width: 90%;
   }
 
   .search-input-home {
@@ -137,6 +139,7 @@
     width: 180px;
     margin-left: 0px;
     font-size: 13px;
+    padding: 0px;
   }
 
   .search-button-home {
@@ -151,16 +154,25 @@
 
   .featured-apartments-text {
     font-size: 25px;
-    margin: 0;
+    margin: 0 auto;
     margin-top: 20px;
+
   }
 
   .street-address-index {
     font-size: 15px;
   }
 
-  .apartment-index-item {
+  .apartment-index-container {
     width: 480px;
+  }
+
+  .apartment-index-item {
+    margin: 0 auto;
+    width: 200px;
+    float: none;
+    margin-left: 80px;
+    margin-bottom: 20px;
   }
 
   .quirks-index-container {
@@ -178,4 +190,23 @@
   .quirk-index-item {
     width: 480px;
   }
+
+  .footer-content {
+    margin-top: 10px;
+  }
+
+  .featured-apartments-text {
+    width: 380px;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .apartment-index-container {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 200px;
+  }
+
 }
