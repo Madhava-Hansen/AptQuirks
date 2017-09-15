@@ -176,5 +176,95 @@
   margin-bottom: 10px;
   margin-top: 5px;
   border-bottom: 1px solid $light-green;
+}
 
+@media screen and (max-width: 480px) {
+  .message-container {
+    width: 90%;
+  }
+
+  .message-index-container {
+    width: 90%;
+  }
+
+  .new-message {
+    width: 90%;
+  }
+
+  .conversation-index-item:hover {
+    cursor: pointer;
+    background-color: $light-green;
+    color: $green;
+  }
+
+  .new-message-button {
+    display: block;
+    float: right;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30%;
+    box-shadow: 1px 1px 1px #ccc;
+  }
+
+
+  .messages-index {
+    width: 90%;
+  }
+
+  .message-profile-pic {
+    display: block;
+    float: left;
+    width: 50px;
+    height: auto;
+    border-radius: 100%;
+    border: 2px solid $light-green;
+    margin-right: 5px;
+    text-align: center;
+    margin-left: 15px;
+  }
+
+  #message-form-input {
+    display: block;
+    float: left;
+    width: 66%;
+    margin: 0px;
+    border-radius: 0px;
+    box-shadow: 1px 1px 1px #ccc;
+    margin-bottom: 30px;
+    margin-top: 0px;
+  }
+
+  #message-send-button {
+    height: 28px;
+    width: 19.5%;
+    border-radius: 0px;
+    margin: 0;
+    border: none;
+    margin-bottom: 5px;
+    display: block;
+    float: left;
+    border: 1px solid $light-green;
+    box-shadow: 1px 1px 1px #ccc;
+  }
+
+  .send-message-section {
+    margin: 0 auto;
+    padding: 0px;
+  }
+
+  .message-form {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-left: 17px;
+    margin-right: 17px;
+  }
+
+  .footer-content {
+    margin-top: 250px;
+  }
+
+  .message-index-div {
+    margin-bottom: 100px;
+  }
 }
