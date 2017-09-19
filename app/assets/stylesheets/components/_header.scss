@@ -190,5 +190,10 @@
   .nav-left h1 {
     font-size: 30px;
   }
+}
 
+@media screen and (max-width: 1000px) {
+  .header {
+    min-width: 700px;
+  }
 }
