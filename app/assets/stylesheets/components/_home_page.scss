@@ -129,7 +129,7 @@
 @media screen and (max-width: 480px) {
 
   .home-main-text {
-    font-size: 30px;
+    font-size: 10px;
     margin-bottom: 30px;
     width: 90%;
   }
@@ -156,7 +156,6 @@
     font-size: 25px;
     margin: 0 auto;
     margin-top: 20px;
-
   }
 
   .street-address-index {
@@ -177,11 +176,11 @@
 
   .quirks-index-container {
     width: 480px;
-}
+  }
 
   .quirks-header {
     width: 480px;
-}
+  }
 
   .quirk-main-content {
     width: 20%;
@@ -209,8 +208,25 @@
     margin-bottom: 200px;
   }
 
-  @media screen and (max-width: 1000px) {
-    
+
   }
 
-}
+  @media screen and (max-width: 1280px) {
+
+    .home-main-text {
+      font-size: 60px;
+    }
+
+    #autocomplete {
+      width: 60%;
+    }
+
+    .home-main-text {
+      font-size: 45px;
+    }
+
+    .home-text-container {
+      padding-top: 75px;
+    }
+
+  }
