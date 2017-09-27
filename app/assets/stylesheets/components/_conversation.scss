@@ -268,3 +268,11 @@
     margin-bottom: 100px;
   }
 }
+
+@media only screen and (max-width: 1280px) and (min-width: 480px) {
+
+  .message-container {
+    width: 480px;
+  }
+
+}
