@@ -213,20 +213,30 @@
 }
 
 @media only screen and (min-width: 480px) and (max-width: 950px) {
-  
+
 }
 
-@media only screen and (min-width: 950px) and (max-width: 1080px) {
+@media only screen and (min-width: 480px) and (max-width: 1080px) {
 
   .quirks-index {
-    min-width: 480px;
+    width: 480px;
+    margin: 0 auto;
+    float: none;
     border-radius: 10px;
   }
 
   .quirks-index-container {
     border-radius: 10px;
     min-width: 0px;
-    width: 450px;
+    width: 480px;
+  }
+
+  .quirks-index-item {
+    width: 380px;
+  }
+
+  .quirks-header {
+    width: 380px;
   }
 
   .quirk-pic {
