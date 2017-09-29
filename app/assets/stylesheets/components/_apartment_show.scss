@@ -67,6 +67,7 @@
 }
 
 @media screen and (max-width: 480px) {
+
   #map-container {
     height: 250px;
     width: 250px;
@@ -98,6 +99,88 @@
     min-width: 100%;
     width: 380px;
 }
+
+  .search-form {
+    display: none;
+  }
+
+  .apartment-show-container {
+    min-width: 480px;
+  }
+
+}
+
+@media only screen and (min-width: 480px) and (max-width: 950px) {
+
+  #map-container {
+    height: 350px;
+    width: 350px;
+    margin-bottom: 10px;
+  }
+
+  .apartment-map {
+    width: 350px;
+    margin: 0px;
+  }
+
+  .apartment-show {
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  .address {
+    width: 250px;
+  }
+
+  .quirks-index-container {
+    min-width: 100%;
+    width: 380px;
+  }
+
+  .search-form {
+    display: none;
+  }
+
+  .apartment-show-container {
+    min-width: 480px;
+  }
+}
+
+
+@media only screen and (min-width: 950px) and (max-width: 1080px) {
+
+  #map-container {
+    height: 250px;
+    width: 250px;
+    margin-bottom: 10px;
+  }
+
+  .apartment-map {
+    width: 250px;
+    margin: 0px;
+  }
+
+  .apartment-show {
+    width: 200px;
+    margin-left: 80px;
+    min-width: 310px;
+    border-radius: 10px;
+  }
+
+  .city-state-zip {
+    width: 150px;
+    margin-right: 0px;
+  }
+
+  .address {
+    width: 250px;
+  }
+
+  .quirks-index-container {
+    min-width: 100%;
+    width: 380px;
+  }
 
   .search-form {
     display: none;
