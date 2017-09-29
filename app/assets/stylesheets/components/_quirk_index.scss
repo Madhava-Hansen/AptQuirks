@@ -211,3 +211,36 @@
       top: 500px;
     }
 }
+
+@media only screen and (min-width: 480px) and (max-width: 950px) {
+  
+}
+
+@media only screen and (min-width: 950px) and (max-width: 1080px) {
+
+  .quirks-index {
+    min-width: 480px;
+    border-radius: 10px;
+  }
+
+  .quirks-index-container {
+    border-radius: 10px;
+    min-width: 0px;
+    width: 450px;
+  }
+
+  .quirk-pic {
+    width: 40px;
+  }
+
+  .quirk-user-info {
+    min-width: 0px;
+    width: 100px;
+  }
+
+  .quirk-main-content {
+    min-width: 0px;
+    width: 200px;
+  }
+
+}
