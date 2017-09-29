@@ -148,22 +148,24 @@
 }
 
 
-@media only screen and (min-width: 950px) and (max-width: 1080px) {
+@media only screen and (min-width: 480px) and (max-width: 1080px) {
 
   #map-container {
-    height: 250px;
-    width: 250px;
+    height: 400px;
+    width: 400px;
     margin-bottom: 10px;
   }
 
   .apartment-map {
-    width: 250px;
+    width: 350px;
     margin: 0px;
   }
 
   .apartment-show {
-    width: 200px;
-    margin-left: 80px;
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 17px;
+    float: none;
     min-width: 310px;
     border-radius: 10px;
   }
