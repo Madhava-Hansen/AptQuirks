@@ -1,12 +1,12 @@
 @import '../base/colors';
 
 footer {
-  background-color: $light-grey;
+  background-color: $light-green;
   height: 300px;
 }
 
 .footer-logo img {
-  width: 100px;
+  display: none;
 }
 
 .footer-pic {
@@ -15,17 +15,24 @@ footer {
 
 .footer-logo-text {
   display: inline-block;
-  color: #ececec;
-  font-size: 100px;
+  color: $green;
+  font-size: 50px;
 }
 
 .footer-logo {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
 .footer-copyright {
   text-align: center;
-  color: #b9b9b9;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+  color: $green;
 }
 
 .footer-content {
@@ -35,6 +42,28 @@ footer {
 
 .copyright {
   font-family: arial;
+}
+
+.footer-nav {
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  background-color: red;
+}
+
+.footer-nav li {
+  display: block;
+  float: left;
+  margin-left: 25px;
+  padding: 8px;
+  font-size: 15px;
+}
+
+.footer-nav li:hover {
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: $green;
+  color: white;
 }
 
 @media screen and (max-width: 480px) {
