@@ -111,6 +111,7 @@
 .message-form {
   width: 60%;
   margin: 0 auto;
+  margin-top: 15px;
 }
 
 #message-form-input {
@@ -178,15 +179,6 @@
   border-bottom: 1px solid $light-green;
 }
 
-@media screen and (max-width: 600px) {
-  .message-container {
-    width: 450px;
-  }
-
-  .message-index-container {
-    width: 450px;
-  }
-}
 
 @media screen and (max-width: 480px) {
   .message-container {
@@ -287,6 +279,27 @@
 
   .message-index-container {
     width: 480px;
+  }
+
+  #message-form-input {
+    width: 78%;
+    margin: 0 auto;
+  }
+
+  #message-send-button {
+    width: 17%;
+    margin: 0 auto;
+  }
+
+
+
+  .message-form {
+    width: 481px;
+    margin-top: 15px;
+  }
+
+  .send-message-section {
+    margin: 0 auto;
   }
 
 }
