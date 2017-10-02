@@ -10,8 +10,9 @@ class Greeting extends React.Component {
     this.setProfilePic = this.setProfilePic.bind(this);
     this.routeToConversations = this.routeToConversations.bind(this);
     this.handleDropdownReveal = this.handleDropdownReveal.bind(this);
+    this.handleMobileDropdown = this.handleMobileDropdown.bind(this);
     this.logout = this.logout.bind(this);
-    this.state = { dropdown: "hidden" };
+    this.state = { dropdown: "hidden", navRight: "nav-right" };
   }
 
   handleDropdownReveal() {
@@ -19,6 +20,14 @@ class Greeting extends React.Component {
       this.setState({ dropdown: "dropdown-class group" });
     } else {
       this.setState({ dropdown: "hidden" });
+    }
+  }
+
+  handleMobileDropdown() {
+    if (this.state.navRight === "nav-right") {
+      this.setState({ navRight: "nav-right-reveal" });
+    } else {
+      this.setState({ navRight: "nav-right" });
     }
   }
 
@@ -60,7 +69,9 @@ class Greeting extends React.Component {
     const { currentUser } = this.props;
       if (currentUser) {
     return (
-          <ul className="nav-right">
+      <div>
+        <img onClick={this.handleMobileDropdown} className="nav-icon" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
+          <ul className={this.state.navRight}>
             <li className="nav-link-pic">
               <figure
                 onClick={ this.handleDropdownReveal }
@@ -79,15 +90,20 @@ class Greeting extends React.Component {
             <li className="nav-link" > <Link to="/home">search</Link> </li>
             <li className="nav-link" > <Link to="/profile">profile</Link> </li>
           </ul>
+        </div>
       )
 
       } else {
         return (
-            <ul className="nav-right">
+          <div>
+            <img onClick={this.handleMobileDropdown} className="nav-icon" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
+            <ul className={this.state.navRight}>
               <li className="nav-link" ><Link to="/home">search</Link></li>
               <li className="nav-link" ><Link to="/signup">Signup</Link></li>
               <li className="nav-link" ><Link to="/login">Login</Link></li>
             </ul>
+          </div>
+
         )
       }
   }
