@@ -1,5 +1,4 @@
 export const like = like => {
-  debugger;
   return $.ajax({
     method: 'POST',
     url: `/api/apartments/${like.apartment_id}/likes`,
