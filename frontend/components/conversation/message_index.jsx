@@ -82,7 +82,7 @@ class MessageIndex extends React.Component {
         messages = [];
       }
         return (
-          <div>
+          <div className="message-index-div">
             <div className="message-index-container">
               <MessageNav />
               <div className="group messages-header-container">
@@ -94,6 +94,7 @@ class MessageIndex extends React.Component {
                 {messages}
               </ul>
             </div>
+
               <form className="message-form">
                 <div className="send-message-section">
                   <label className="form-label">
