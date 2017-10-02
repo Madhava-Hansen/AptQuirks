@@ -6,7 +6,6 @@ import { createMessage, fetchMessages } from '../../actions/message_actions';
 
 
 const mapStateToProps = ({ session, messagesIndex, conversationsIndex }) => {
-  debugger;
   return {
     currentUser: session.currentUser,
     messagesIndex: messagesIndex,
