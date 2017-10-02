@@ -72,10 +72,6 @@ class LikeButton extends React.Component {
     }
   }
 
-  componentWillUpdate() {
-    debugger;
-  }
-
   handleLike() {
     if (this.props.userId) {
       let { apartmentId, userId } = this.props;
@@ -106,7 +102,6 @@ class LikeButton extends React.Component {
     if (this.likeStatus) {
       this.formattedLike();
     }
-    debugger;
     const { currentLike, like, unlike} = this.props;
     if (this.likeStatus) {
       return (
