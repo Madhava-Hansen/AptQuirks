@@ -194,6 +194,10 @@
     font-size: 30px;
   }
 
+  .nav-link-pic {
+    display: none;
+  }
+
 }
 
 @media only screen and (max-width: 750px) {
@@ -219,6 +223,10 @@
 
   .nav-link:hover {
     background-color: $green;
+  }
+
+  .nav-link-pic {
+    display: none;
   }
 
   .nav-link {
