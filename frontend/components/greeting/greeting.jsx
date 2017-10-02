@@ -11,6 +11,7 @@ class Greeting extends React.Component {
     this.routeToConversations = this.routeToConversations.bind(this);
     this.handleDropdownReveal = this.handleDropdownReveal.bind(this);
     this.handleMobileDropdown = this.handleMobileDropdown.bind(this);
+    this.hideNavDropdown = this.hideNavDropdown.bind(this);
     this.logout = this.logout.bind(this);
     this.state = { dropdown: "hidden", navRight: "nav-right" };
   }
@@ -55,6 +56,10 @@ class Greeting extends React.Component {
 
   }
 
+  hideNavDropdown() {
+    this.setState({ navRight: "nav-right" });
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser) {
       this.setProfilePic();
@@ -86,9 +91,10 @@ class Greeting extends React.Component {
               </div>
             </li>
 
-            <li className="nav-link" onClick={this.routeToConversations}>messages</li>
-            <li className="nav-link" > <Link to="/home">search</Link> </li>
-            <li className="nav-link" > <Link to="/profile">profile</Link> </li>
+            <li onClick={this.hideNavDropdown} className="nav-link" onClick={this.routeToConversations}>messages</li>
+            <li onClick={this.hideNavDropdown} className="nav-link" > <Link to="/home">search</Link> </li>
+            <li onClick={this.hideNavDropdown} className="nav-link" > <Link to="/profile">profile</Link> </li>
+            <Link className="logout" to="/home" onClick={ this.logout }>logout</Link>
           </ul>
         </div>
       )
@@ -98,9 +104,9 @@ class Greeting extends React.Component {
           <div>
             <img onClick={this.handleMobileDropdown} className="nav-icon" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
             <ul className={this.state.navRight}>
-              <li className="nav-link" ><Link to="/home">search</Link></li>
-              <li className="nav-link" ><Link to="/signup">Signup</Link></li>
-              <li className="nav-link" ><Link to="/login">Login</Link></li>
+              <li onClick={this.hideNavDropdown} className="nav-link" ><Link to="/home">search</Link></li>
+              <li onClick={this.hideNavDropdown} className="nav-link" ><Link to="/signup">Signup</Link></li>
+              <li onClick={this.hideNavDropdown} className="nav-link" ><Link to="/login">Login</Link></li>
             </ul>
           </div>
 
