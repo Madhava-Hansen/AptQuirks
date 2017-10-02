@@ -24,7 +24,7 @@ class Header extends React.Component {
             <ul className="nav-left">
                 <Logo redirectHome={this.redirectHome} />
             </ul>
-            <GreetingContainer className="nav-right" />
+            <GreetingContainer />
           </nav>
         </header>
       )
@@ -38,7 +38,7 @@ class Header extends React.Component {
             <ul className="nav-middle">
               <li><ApartmentSearchContainer /></li>
             </ul>
-              <GreetingContainer className="nav-right"  />
+              <GreetingContainer />
           </nav>
         </header>
       )
