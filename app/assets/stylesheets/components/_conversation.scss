@@ -178,6 +178,16 @@
   border-bottom: 1px solid $light-green;
 }
 
+@media screen and (max-width: 600px) {
+  .message-container {
+    width: 450px;
+  }
+
+  .message-index-container {
+    width: 450px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .message-container {
     width: 90%;
@@ -272,6 +282,10 @@
 @media only screen and (max-width: 1280px) and (min-width: 480px) {
 
   .message-container {
+    width: 480px;
+  }
+
+  .message-index-container {
     width: 480px;
   }
 
