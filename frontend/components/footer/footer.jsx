@@ -16,6 +16,7 @@ const Footer = () => {
             alt="logo"/>
           <h1 className="footer-logo-text">Apartment Quirks</h1>
         </section>
+        <img className="social-icons" src="http://res.cloudinary.com/aptquirks/image/upload/v1506985694/apt_quirks_social_icons_zlnudw.png" atl="social-icons"></img>
         <p className="footer-copyright">
           (c) 2017 Apartment Quirks Inc.</p>
       </div>
