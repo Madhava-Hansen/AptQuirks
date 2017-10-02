@@ -16,7 +16,8 @@ footer {
 .footer-logo-text {
   display: inline-block;
   color: $green;
-  font-size: 50px;
+  font-size: 40px;
+  display: none;
 }
 
 .footer-logo {
@@ -31,7 +32,7 @@ footer {
   text-align: center;
   width: 300px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 30px;
   color: $green;
 }
 
@@ -66,9 +67,21 @@ footer {
   color: white;
 }
 
+.social-icons {
+  width: 140px;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 0px;
+}
+
+.social-icons:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 480px) {
   .footer-logo-text {
     font-size: 40px;
+    display: none;
   }
 
   .footer-logo img {
