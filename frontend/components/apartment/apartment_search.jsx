@@ -56,20 +56,23 @@ class ApartmentSearch extends React.Component {
     let inputClass;
     let maginifineGlassId;
     let formClass;
+    let searchBarClass
     if (atHome) {
       buttonClass = "search-button-home";
       inputClass = "search-input-home";
-      maginifineGlassId = "home-magnifine-glass"
-      formClass = "search-form-home"
+      maginifineGlassId = "home-magnifine-glass";
+      formClass = "search-form-home";
+      searchBarClass = "search-bar-container";
 
     } else {
       buttonClass = "search-button";
       inputClass = "search-input";
       maginifineGlassId = "maginifine-glass";
       formClass = "search-form";
+      searchBarClass = "header-search-bar-container"
     }
       return (
-        <div className="search-bar-container">
+        <div className={searchBarClass}>
           <form className={formClass} onSubmit={this.handleSubmit}>
             <label>
             <input placeholder="Enter a street address..."
