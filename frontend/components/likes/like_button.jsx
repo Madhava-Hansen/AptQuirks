@@ -107,7 +107,7 @@ class LikeButton extends React.Component {
       return (
         <ul className="like">
           <li className="like-button">
-            <button className="liked-button" onClick={ this.handleUnlike }>unlike</button>
+            <button className="liked-button" onClick={ this.handleUnlike }>like</button>
           </li>
           <li className="like-count">
             <LikeCountComponenet count={this.likeCount} likeStatus={this.likeStatus} />
