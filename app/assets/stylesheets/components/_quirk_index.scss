@@ -56,6 +56,7 @@
   border-radius: 0px 10px 10px 0px;
   margin-top: 17px;
   min-width: 550px;
+  min-height: 150px;
 
 }
 
@@ -131,6 +132,7 @@
   display: block;
   float: left;
   padding: 5px;
+  z-index: 1;
 }
 
 .reveal-quirk-info {
@@ -144,7 +146,7 @@
   width: 300px;
   padding: 10px;
   box-shadow: 0px 2px 5px lightgrey;
-
+  z-index: 1;
 }
 
 .close-quirk-info {
