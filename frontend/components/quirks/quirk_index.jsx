@@ -82,8 +82,9 @@ class QuirkIndex extends React.Component {
             <div className="quirk-info-absolute">
               <p onClick={this.revealQuirkInfo} className="close-quirk-info">close</p>
               <p className="whats-a-quirk-text">
-                A quirk is just like a review on Yelp...but for an apartment.
-                Let everyone know what it was like living at your last place by adding a quirk!
+                Tell us about living at an apartment. Was the super helpful? did you get your security
+                deposit back? Was it loud at night? Help other people make a good apartment choice with your
+                first hand account!
               </p>
             </div>
           </div>
