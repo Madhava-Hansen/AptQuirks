@@ -126,10 +126,6 @@
   border-radius: 100%;
 }
 
-#autocomplete {
-  border: solid 1px $green;
-}
-
 .header-profile-pic {
   width: 40px;
 }
@@ -142,6 +138,10 @@
 }
 
 //search bar
+
+#autocomplete {
+  border: solid 1px $green;
+}
 
 .fa-search {
   color: white;
@@ -164,7 +164,7 @@
 }
 
 .search-input {
-  width: 290px;
+  width: 280px;
   height: 30px;
   border-radius: 5px;
   margin-bottom: 3px;
@@ -176,7 +176,8 @@
 }
 
 .search-form {
-  margin-top: 7px;
+  width: 350px;
+  margin-top: 11px;
   padding-left: 100px;
 }
 
@@ -276,11 +277,16 @@
     cursor: pointer;
   }
 
-  // .nav-div {
-  //   width: 200px;
-  //   height: 50px;
-  //   display: block;
-  //   float: right;
-  // }
+  .search-form {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 1050px) {
+
+  .home-search-bar-container {
+    display: none;
+  }
 
 }
