@@ -21,26 +21,35 @@
 //search bar and button
 
 .search-bar-container {
-  width: 100%;
+  width: 70%;
+  max-width: 800px;
+  height: 50px;
+  margin: 0 auto;
 }
 
 .search-input-home {
   display: block;
   float: left;
   height: 42px;
-  width: 600px;
-  margin: 0 auto;
   border-radius: 5px 0px 0px 5px;
   font-size: 18px;
-  margin-left: 75px;
   padding-left: 10px;
+  margin-left: 0px;
+  width: 80%;
+  margin-left: 3%;
+}
+
+.search-form-home {
+  width: 85%;
+  margin: 0 auto;
+  height: 150px;
 }
 
 .search-button-home {
   display: block;
   float: left;
   height: 35px;
-  width: 55px;
+  width: 7%;
   padding: 0;
   padding-left: 10px;
   padding-top: 5px;
@@ -48,18 +57,11 @@
   border-radius: 0px 5px 5px 0px;
   border-left: none;
   background-color: $green;
-  margin: 0 auto;
 }
 
 #home-magnifine-glass {
-  width: 70%;
+  width: 35px;
   height: auto;
-  margin-top: -5px;
-  margin-left: 5px;
-}
-
-.search-form-home {
-  width: 60%;
   margin: 0 auto;
 }
 
@@ -126,6 +128,25 @@
   margin: 0 auto;
 }
 
+@media screen and (max-width: 700px) {
+
+  .search-input-home {
+    width: 76%;
+  }
+
+  #home-magnifine-glass {
+  }
+
+  .search-button-home {
+    width: 30px;
+  }
+
+  .search-bar-container {
+    width: 100%;
+  }
+
+}
+
 @media screen and (max-width: 480px) {
 
   .home-main-text {
@@ -134,19 +155,18 @@
     width: 90%;
   }
 
-  .search-input-home {
-    height: 25px;
-    width: 190px;
-    margin-left: 0px;
-    font-size: 13px;
-    padding: 0px;
-  }
+  // .search-input-home {
+  //   height: 25px;
+  //   width: 68%;
+  //   font-size: 13px;
+  //   padding: 0px;
+  // }
 
-  .search-button-home {
-    height: 18px;
-    width: 20px;
-    float: left;
-  }
+  // .search-button-home {
+  //   height: 18px;
+  //   width: 29%;
+  //   float: left;
+  // }
 
   .home-text-container {
     padding-top: 50px;
@@ -213,10 +233,10 @@
 
   @media only screen and (max-width: 1280px) and (min-width: 480px) {
 
-    #autocomplete {
-      width: 70%;
-      margin-left: 0px;
-    }
+    // #autocomplete {
+    //   width: 70%;
+    //   margin-left: 0px;
+    // }
 
     .home-main-text {
       font-size: 50px;
