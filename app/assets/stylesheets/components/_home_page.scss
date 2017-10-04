@@ -71,22 +71,19 @@
   display: block;
   color: white;
   float: left;
-  width: 29%;
-  height: 100px;
+  width: 390px;
+  height: 350px;
   padding: 10px;
-  background-color: $green;
-  margin: 1%;
+  background-image: url("http://res.cloudinary.com/aptquirks/image/upload/v1507081372/nyc_buildings_copy_aidvwd.jpg");
   border-radius: 5px;
-  font-size: 18px;
-  text-align: center;
+  font-size: 25px;
+  margin-left: 47px;
+  margin-bottom: 30px;
+
 }
 
 .apartment-index-item:hover {
   cursor: pointer;
-  background-color: white;
-  color: $green;
-  border: 2px solid $green;
-  padding: 8px;
 }
 
 .apartment-index {
@@ -102,8 +99,9 @@
 }
 
 .street-address-index {
-  font-size: 30px;
-  margin-top: 20px;
+  font-size: 40px;
+  margin-top: 150px;
+  box-shadow: 5px 5px 5px black;
 }
 
 .city-state-zip-index {
@@ -150,30 +148,18 @@
 @media screen and (max-width: 480px) {
 
   .home-main-text {
-    font-size: 30px;
+    font-size: 40px;
     margin-bottom: 30px;
     width: 90%;
   }
 
-  // .search-input-home {
-  //   height: 25px;
-  //   width: 68%;
-  //   font-size: 13px;
-  //   padding: 0px;
-  // }
-
-  // .search-button-home {
-  //   height: 18px;
-  //   width: 29%;
-  //   float: left;
-  // }
-
   .home-text-container {
     padding-top: 50px;
+    padding-bottom: 120px;
   }
 
   .featured-apartments-text {
-    font-size: 25px;
+    font-size: 35px;
     margin: 0 auto;
     margin-top: 20px;
   }
@@ -188,10 +174,11 @@
 
   .apartment-index-item {
     margin: 0 auto;
-    width: 200px;
+    width: 320px;
     float: none;
     margin-left: 80px;
     margin-bottom: 20px;
+    margin: 0 auto;
   }
 
   .quirks-index-container {
@@ -233,17 +220,20 @@
 
   @media only screen and (max-width: 1280px) and (min-width: 480px) {
 
-    // #autocomplete {
-    //   width: 70%;
-    //   margin-left: 0px;
-    // }
-
     .home-main-text {
-      font-size: 50px;
+      font-size: 47px;
     }
 
     .home-text-container {
-      padding-top: 75px;
+      // padding-top: 75px;
     }
 
+  }
+
+  @media screen and (max-width: 1307px) {
+    .apartment-index-item {
+      float: none;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
   }
