@@ -9,7 +9,8 @@ const mapStateToProps = ({ session, messagesIndex, conversationsIndex }) => {
   return {
     currentUser: session.currentUser,
     messagesIndex: messagesIndex,
-    currentConversation: conversationsIndex.currentConversation
+    currentConversation: conversationsIndex.currentConversation,
+    dispatch: store.dispatch
   }
 };
 

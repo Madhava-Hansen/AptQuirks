@@ -10,9 +10,9 @@ const mapStateToProps = ({ session, messagesIndex, conversationsIndex }) => {
     currentUser: session.currentUser,
     users: messagesIndex.users,
     messages: messagesIndex,
-    conversationsIndex: conversationsIndex
+    conversationsIndex: conversationsIndex,
+    dispatch: store.dispatch
   }
-
 };
 
 const mapDispatchToProps = dispatch => ({

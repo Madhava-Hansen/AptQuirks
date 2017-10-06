@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { receiveConversation } from '../../actions/conversation_actions';
 
 class MessageNav extends React.Component {
 
@@ -9,6 +10,7 @@ class MessageNav extends React.Component {
   }
 
   redirectToNewMessage() {
+    this.props.dispatch(receiveConversation(null));
     this.props.history.push("/message/new");
   }
 

@@ -67,7 +67,7 @@ class MessageIndex extends React.Component {
   }
 
   render() {
-    const { fetchMessages, messagesIndex, currentUser } = this.props;
+    const { fetchMessages, messagesIndex, currentUser, dispatch } = this.props;
     let messages;
     if (this.state.messages.length > 0) {
       messages = this.state.messages.map((message, idx) => {
@@ -84,7 +84,9 @@ class MessageIndex extends React.Component {
         return (
           <div className="message-index-div">
             <div className="message-index-container">
-              <MessageNav />
+              <MessageNav
+                dispatch={dispatch}
+               />
               <div className="group messages-header-container">
                 <img className="message-profile-pic" src={this.state.url} alt="profile picture"></img>
                 <h1 className="messages-index-header">{this.state.username}</h1>

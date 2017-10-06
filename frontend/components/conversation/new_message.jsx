@@ -14,7 +14,7 @@ class NewMessage extends React.Component {
   }
 
   findUser() {
-    this.props.fetchUsers({user: {username: this.state.username}});
+    this.props.fetchUsers({ user: { username: this.state.username } });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -48,11 +48,13 @@ class NewMessage extends React.Component {
   }
 
   render() {
-    const { users, currentUser, currentConversation } = this.props;
+    const { users, currentUser, currentConversation, dispatch } = this.props;
       return (
         <div className="message-container">
-          <MessageNav />
-          <form className="new-message-form">
+          <MessageNav
+            dispatch={dispatch}
+           />
+          <form onSubmit={this.handleUserSelection} className="new-message-form">
             <label className="user-search-label">
               To:
               <input

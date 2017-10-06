@@ -16,11 +16,11 @@ class UserSearchIndex extends React.Component {
           return;
         } else {
           return (
-              <UserSearchIndexItem
-                user={user}
-                key={idx}
-                handleUserSelection={handleUserSelection}
-              />
+            <UserSearchIndexItem
+              user={user}
+              key={idx}
+              handleUserSelection={handleUserSelection}
+            />
           )
         }
       });
