@@ -10,7 +10,7 @@ class Logo extends React.Component {
     return (
       <li className="logo"  onClick={this.props.redirectHome}>
         <img
-          src="http://res.cloudinary.com/aptquirks/image/upload/v1497653286/lrbahix2swlowj946cpi.png"
+          src="http://res.cloudinary.com/aptquirks/image/upload/v1507407412/quirks-logo_hsygfd.gif"
           alt="logo"/>
         <h1>Apartment Quirks</h1>
       </li>
