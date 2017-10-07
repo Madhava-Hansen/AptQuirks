@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { login } from '../../actions/session_actions';
+
 import Home from './home';
 
 
@@ -10,6 +12,7 @@ class Greeting extends React.Component {
     this.routeToConversations = this.routeToConversations.bind(this);
     this.handleDropdownReveal = this.handleDropdownReveal.bind(this);
     this.handleMobileDropdown = this.handleMobileDropdown.bind(this);
+    this.logInGuest = this.logInGuest.bind(this);
     this.setProfilePic = this.setProfilePic.bind(this);
     this.hideNavDropdown = this.hideNavDropdown.bind(this);
     this.logout = this.logout.bind(this);
@@ -37,6 +40,12 @@ class Greeting extends React.Component {
     if (this.props.location.pathname === "/") {
       this.props.history.push("/home");
     }
+  }
+
+  logInGuest() {
+    debugger;
+    this.setState({ navRight: "nav-right" });
+    this.props.login({ user: { username: "guest", password: "password" } });
   }
 
   logout() {
@@ -83,9 +92,9 @@ class Greeting extends React.Component {
               </div>
             </li>
 
-            <li onClick={this.hideNavDropdown} className="nav-link" onClick={this.routeToConversations}>messages</li>
-            <li onClick={this.hideNavDropdown} className="nav-link" > <Link to="/home">search</Link> </li>
-            <li onClick={this.hideNavDropdown} className="nav-link" > <Link to="/profile">profile</Link> </li>
+            <li onClick={ this.hideNavDropdown } className="nav-link" onClick={ this.routeToConversations }>messages</li>
+            <li onClick={ this.hideNavDropdown } className="nav-link" > <Link to="/home">search</Link> </li>
+            <li onClick={ this.hideNavDropdown } className="nav-link" > <Link to="/profile">profile</Link> </li>
             <Link className="logout" to="/home" onClick={ this.logout }>logout</Link>
           </ul>
         </div>
@@ -94,11 +103,12 @@ class Greeting extends React.Component {
       } else {
         return (
           <div className="nav-div">
-            <img onClick={this.handleMobileDropdown} className="nav-icon group" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
-            <ul className={this.state.navRight}>
-              <li onClick={this.hideNavDropdown} className="nav-link" ><Link to="/home">search</Link></li>
-              <li onClick={this.hideNavDropdown} className="nav-link" ><Link to="/signup">Signup</Link></li>
-              <li onClick={this.hideNavDropdown} className="nav-link" ><Link to="/login">Login</Link></li>
+            <img onClick={ this.handleMobileDropdown } className="nav-icon group" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
+            <ul className={ this.state.navRight }>
+              <li onClick={ this.logInGuest }className="nav-link guest">guest</li>
+              <li onClick={ this.hideNavDropdown } className="nav-link" ><Link to="/home">search</Link></li>
+              <li onClick={ this.hideNavDropdown } className="nav-link" ><Link to="/signup">Signup</Link></li>
+              <li onClick={ this.hideNavDropdown } className="nav-link" ><Link to="/login">Login</Link></li>
             </ul>
           </div>
 
