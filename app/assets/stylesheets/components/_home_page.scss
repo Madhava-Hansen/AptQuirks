@@ -74,7 +74,8 @@
   width: 390px;
   height: 350px;
   padding: 10px;
-  background-image: url("http://res.cloudinary.com/aptquirks/image/upload/v1507081372/nyc_buildings_copy_aidvwd.jpg");
+  background-image: url("http://res.cloudinary.com/aptquirks/image/upload/v1507407948/apartment_building_drawing_zneqbz.gif");
+  background-position: center;
   border-radius: 5px;
   font-size: 25px;
   margin-left: 47px;
@@ -93,18 +94,21 @@
 .featured-apartments-text {
   text-align: center;
   margin: 50px;
-  color: $green;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  color: darkgrey;
   font-weight: bold;
-  font-size: 55px;
+  font-size: 65px;
 }
 
 .street-address-index {
   font-size: 40px;
   margin-top: 150px;
-  box-shadow: 5px 5px 5px black;
+  color: black;
 }
 
 .city-state-zip-index {
+  color: black;
 }
 
 .apartment-index-image {
