@@ -10,6 +10,7 @@ class Greeting extends React.Component {
     this.routeToConversations = this.routeToConversations.bind(this);
     this.handleDropdownReveal = this.handleDropdownReveal.bind(this);
     this.handleMobileDropdown = this.handleMobileDropdown.bind(this);
+    this.setProfilePic = this.setProfilePic.bind(this);
     this.hideNavDropdown = this.hideNavDropdown.bind(this);
     this.logout = this.logout.bind(this);
     this.state = { dropdown: "hidden", navRight: "nav-right" };
@@ -48,10 +49,15 @@ class Greeting extends React.Component {
     this.setState({ navRight: "nav-right" });
   }
 
-  componentWillReceiveProps(nextProps) {
+  setProfilePic() {
+    if (this.props.currentUser) {
       if (this.props.currentUser.thumbnail_url) {
-        this.picturePath = nextProps.currentUser.thumbnail_url;
+        this.picturePath = this.props.currentUser.thumbnail_url;
       }
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
   }
 
   routeToConversations() {
@@ -59,6 +65,7 @@ class Greeting extends React.Component {
   }
 
   render() {
+    this.setProfilePic();
     const { currentUser } = this.props;
       if (currentUser) {
     return (
