@@ -24,9 +24,11 @@ class LikeButton extends React.Component {
       for (let i = 0; i < likesClone.length; i ++) {
         if (likesClone[i].user_id === that.props.userId) {
           that.likeStatusSubFunc(likesClone, i);
-          break;
+          return;
         }
     }
+
+    this.likeCount = likesClone.length;
   }
 
   dispatchAfterDelete(likesClone) {
@@ -68,7 +70,7 @@ class LikeButton extends React.Component {
       this.props.fetchLikes(nextProps.apartmentId);
     }
     if (nextProps.likesIndex.likes) {
-      this.setState({likes: nextProps.likesIndex.likes});
+      this.setState({ likes: nextProps.likesIndex.likes });
     }
   }
 
@@ -110,9 +112,9 @@ class LikeButton extends React.Component {
             <button className="liked-button" onClick={ this.handleUnlike }>like</button>
           </li>
           <li className="like-count">
-            <LikeCountComponenet count={this.likeCount} likeStatus={this.likeStatus} />
+            <LikeCountComponenet count={ this.likeCount } likeStatus={ this.likeStatus } />
           </li>
-          <p>{this.state.errorMessage}</p>
+          <p>{ this.state.errorMessage }</p>
         </ul>
       )
     } else {
@@ -122,9 +124,9 @@ class LikeButton extends React.Component {
             <button onClick={ this.handleLike }>like</button>
           </li>
           <li className="like-count">
-            <LikeCountComponenet count={this.likeCount} likeStatus={this.likeStatus} />
+            <LikeCountComponenet count={ this.likeCount } likeStatus={ this.likeStatus } />
           </li>
-          <p>{this.state.errorMessage}</p>
+          <p>{ this.state.errorMessage }</p>
         </ul>
       )
     }
