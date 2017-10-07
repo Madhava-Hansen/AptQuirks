@@ -57,9 +57,6 @@ class Greeting extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-  }
-
   routeToConversations() {
     this.props.history.push('/inbox');
   }
