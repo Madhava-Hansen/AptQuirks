@@ -87,10 +87,11 @@
   padding: 7px;
   color: white;
   background-color: $green;
-  margin-top: 14px;
+  margin-top: 0px;
   margin-right: 10px;
   display: block;
   float: right;
+  clear: both;
 }
 
 .dropdown-logout-button:hover {
