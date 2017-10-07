@@ -22,7 +22,6 @@ class MessageNav extends React.Component {
         <li className="inbox-nav-item">
           <p onClick={ this.redirectToNewMessage }>new message</p>
         </li>
-        <div className="divider"></div>
       </ul>
     )
   }
