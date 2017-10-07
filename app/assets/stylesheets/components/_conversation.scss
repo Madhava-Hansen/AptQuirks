@@ -34,6 +34,7 @@
   display: block;
   float: left;
   margin-left: 5px;
+  margin-top: 8px;
 }
 
 .conversation-index-list {
@@ -43,14 +44,15 @@
 .conversation-index-username {
   display: block;
   float: left;
-  margin-top: 6px;
+  margin-top: 15px;
+  margin-left: 10px;
 }
 
 .conversation-index-item {
   border: 1px solid lightgrey;
   border-radius: 5px;
   display: block;
-  height: 30px;
+  height: 45px;
   margin-right: 15px;
 }
 
@@ -167,7 +169,7 @@
   padding: 8px;
   border-radius: 5px;
   color: $green;
-  margin-top: 10px;
+  margin-top: 17px;
   margin-left: 8px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -175,7 +177,7 @@
 
 .inbox-nav {
   margin-bottom: 10px;
-  margin-top: 5px;
+  margin-top: 17px;
   border-bottom: 1px solid $light-green;
 }
 
