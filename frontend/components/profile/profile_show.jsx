@@ -12,6 +12,10 @@ class ProfileShow extends React.Component {
     this.update = this.update.bind(this);
   }
 
+  componentWillMount() {
+    window.scrollTo(0, 0);
+  }
+
   handleAddCity(e) {
     e.preventDefault();
     const user = { user: { id: this.props.currentUser.id, city: this.state.city } };
@@ -45,7 +49,7 @@ class ProfileShow extends React.Component {
 
             <br/>
             <div className="photo-upload">
-              <h3 className="picture-title">{photoUploadTitle} profile picture</h3>
+              <h3 className="picture-title">{ photoUploadTitle } profile picture</h3>
               <UploadButton
                 currentUser={currentUser}
                 addPhoto={addPhoto}
