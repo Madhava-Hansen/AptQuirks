@@ -17,13 +17,6 @@ class NewMessage extends React.Component {
     this.props.fetchUsers({ user: { username: this.state.username } });
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { conversationsIndex } = nextProps;
-    if (conversationsIndex.currentConversation) {
-      this.props.history.push(`/messages/${conversationsIndex.currentConversation.id}`);
-    }
-  }
-
   componentDidMount() {
     if (this.props.users) {
       if (this.props.users.length > 0) {
@@ -44,7 +37,10 @@ class NewMessage extends React.Component {
      {conversation: {receiver_id: user.id, sender_id: currentUser.id,
        receiver_username: user.username, sender_username:
        currentUser.username, receiver_image_url: url }};
-    createConversation(createConversationObject);
+    createConversation(createConversationObject).then(conversationObj => {
+      this.props.history.push(`/messages/${conversationObj.conversation.id}`);
+      }
+    )
   }
 
   render() {
