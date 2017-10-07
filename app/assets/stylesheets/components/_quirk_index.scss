@@ -77,7 +77,7 @@
 
 .quirks-header {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   width: 50%;
   min-width: 550px;
 }
@@ -144,9 +144,9 @@
   left: 250px;
   top: -10px;
   width: 300px;
-  padding: 10px;
+  padding: 5px;
   box-shadow: 0px 2px 5px lightgrey;
-  z-index: 1;
+  z-index: 9999;
 }
 
 .close-quirk-info {
