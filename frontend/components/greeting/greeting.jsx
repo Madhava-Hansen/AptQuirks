@@ -7,13 +7,13 @@ class Greeting extends React.Component {
 
   constructor(props) {
     super(props);
-    this.setProfilePic = this.setProfilePic.bind(this);
     this.routeToConversations = this.routeToConversations.bind(this);
     this.handleDropdownReveal = this.handleDropdownReveal.bind(this);
     this.handleMobileDropdown = this.handleMobileDropdown.bind(this);
     this.hideNavDropdown = this.hideNavDropdown.bind(this);
     this.logout = this.logout.bind(this);
     this.state = { dropdown: "hidden", navRight: "nav-right" };
+    this.picturePath = "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
   }
 
   handleDropdownReveal() {
@@ -36,7 +36,6 @@ class Greeting extends React.Component {
     if (this.props.location.pathname === "/") {
       this.props.history.push("/home");
     }
-    this.setProfilePic();
   }
 
   logout() {
@@ -45,25 +44,14 @@ class Greeting extends React.Component {
     window.setTimeout(logout, 500);
   }
 
-  setProfilePic() {
-    if (this.props.currentUser) {
-      this.picturePath = this.props.currentUser.thumbnail_url ?
-      this.props.currentUser.thumbnail_url
-      : "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
-    } else {
-      this.picturePath = "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
-    }
-
-  }
-
   hideNavDropdown() {
     this.setState({ navRight: "nav-right" });
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser) {
-      this.setProfilePic();
-    }
+      if (this.props.currentUser.thumbnail_url) {
+        this.picturePath = nextProps.currentUser.thumbnail_url;
+      }
   }
 
   routeToConversations() {
@@ -74,8 +62,8 @@ class Greeting extends React.Component {
     const { currentUser } = this.props;
       if (currentUser) {
     return (
-      <div>
-        <img onClick={this.handleMobileDropdown} className="nav-icon" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
+      <div className="nav-div">
+        <img onClick={this.handleMobileDropdown} className="nav-icon group" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
           <ul className={this.state.navRight}>
             <li className="nav-link-pic">
               <figure
@@ -101,8 +89,8 @@ class Greeting extends React.Component {
 
       } else {
         return (
-          <div>
-            <img onClick={this.handleMobileDropdown} className="nav-icon" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
+          <div className="nav-div">
+            <img onClick={this.handleMobileDropdown} className="nav-icon group" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
             <ul className={this.state.navRight}>
               <li onClick={this.hideNavDropdown} className="nav-link" ><Link to="/home">search</Link></li>
               <li onClick={this.hideNavDropdown} className="nav-link" ><Link to="/signup">Signup</Link></li>
