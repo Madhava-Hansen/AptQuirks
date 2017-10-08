@@ -140,7 +140,8 @@
   background-color: $green;
   height: 60px;
   color: $dark-green;
-  box-shadow: 1px 1px 1px grey;
+  border-bottom: 1px solid $light-green;
+  box-shadow: 5px 0px 2px black;
 }
 
 //search bar
