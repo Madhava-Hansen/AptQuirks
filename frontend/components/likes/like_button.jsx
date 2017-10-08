@@ -80,7 +80,10 @@ class LikeButton extends React.Component {
       let ids = {like: {apartment_id: apartmentId, user_id: userId } };
       this.props.like(ids);
     } else {
-      this.setState({errorMessage: "please login to like things!"});
+      this.setState( { errorMessage: "please login to like things!" } );
+      window.setTimeout(() => {
+        this.setState( { errorMessage: "" } );
+      }, 4000);
     }
   }
 
@@ -114,7 +117,7 @@ class LikeButton extends React.Component {
           <li className="like-count">
             <LikeCountComponenet count={ this.likeCount } likeStatus={ this.likeStatus } />
           </li>
-          <p>{ this.state.errorMessage }</p>
+          <p class="like-error-message">{ this.state.errorMessage }</p>
         </ul>
       )
     } else {
@@ -126,7 +129,7 @@ class LikeButton extends React.Component {
           <li className="like-count">
             <LikeCountComponenet count={ this.likeCount } likeStatus={ this.likeStatus } />
           </li>
-          <p>{ this.state.errorMessage }</p>
+          <p className="like-error-message">{ this.state.errorMessage }</p>
         </ul>
       )
     }
