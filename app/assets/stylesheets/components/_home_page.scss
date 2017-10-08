@@ -79,9 +79,11 @@
   background-position: center;
   border-radius: 5px;
   font-size: 25px;
-  margin-left: 9%;
+  margin-left: 8%;
   margin-bottom: 30px;
   text-align: center;
+  border: 5px solid darkgrey;
+  box-shadow: 5px 5px 5px lightgrey;
 }
 
 .apartment-index-item:hover {
@@ -103,13 +105,16 @@
 }
 
 .street-address-index {
-  font-size: 40px;
-  margin-top: 150px;
+  font-size: 45px;
+  margin-top: 100px;
   color: black;
+  font-weight: bold;
 }
 
 .city-state-zip-index {
   color: black;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 .apartment-index-image {
