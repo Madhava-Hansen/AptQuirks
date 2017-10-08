@@ -14,7 +14,7 @@ const mapStateToProps = ({ quirksIndex, apartmentShow, session }) => {
     }
   } else {
     return {
-      quirks: quirksIndex,
+      quirksIndex: quirksIndex,
       apartmentId: apartmentShow.id,
       userId: "1",
       dispatch: store.dispatch
