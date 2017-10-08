@@ -39,8 +39,10 @@ class QuirkIndex extends React.Component {
     if (this.props.currentUser) {
       this.props.history.push(`/addquirk/${this.props.apartmentId}`)
     } else {
-      this.setState({ errorMessage: "You must be logged in to add a quirk" });
-      return;
+      this.setState({ errorMessage: "You must be logged in to add a quirk." });
+      window.setTimeout(() => {
+        this.setState( { errorMessage: "" } );
+      }, 5000);
     }
   }
 
@@ -59,10 +61,8 @@ class QuirkIndex extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setApartmentId();
-    debugger;
     if (this.apartmentId != nextProps.apartmentId) {
       this.props.fetchQuirks(nextProps.apartmentId).then(quirks => {
-        debugger;
         this.setState( { quirks: nextProps.quirksIndex.quirks } );
         return;
       })
