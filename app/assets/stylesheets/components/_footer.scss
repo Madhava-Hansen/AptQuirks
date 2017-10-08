@@ -1,7 +1,7 @@
 @import '../base/colors';
 
 footer {
-  background-color: $light-green;
+  background-color: $green;
   height: 300px;
 }
 
@@ -15,53 +15,51 @@ footer {
 
 .footer-logo-text {
   display: inline-block;
-  color: $green;
+  color: $light-green;
   font-size: 40px;
-  display: none;
 }
 
 .footer-logo {
-  width: 400px;
-  margin: 0 auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
+  display: none;
 }
 
 .footer-copyright {
   text-align: center;
   width: 300px;
   margin: 0 auto;
-  margin-top: 30px;
-  color: $green;
-}
-
-.footer-content {
-  padding-top: 80px;
-  margin-top: 200px;
+  margin-top: 20px;
+  padding-top: 30px;
+  color: $light-green;
 }
 
 .copyright {
   font-family: arial;
 }
 
-.footer-nav {
-  width: 300px;
+.footer-nav-container {
+  width: 100%;
   margin: 0 auto;
-  margin-bottom: 60px;
-  background-color: red;
 }
 
-.footer-nav li {
+.footer-nav {
   display: block;
-  float: left;
-  margin-left: 25px;
-  padding: 8px;
-  font-size: 15px;
+  float: center;
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  padding-top: 50px;
+  margin-bottom: 0px;
 }
 
-.footer-nav li:hover {
+.nav-link-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.footer-nav a:hover {
   cursor: pointer;
+  text-align: center;
   border-radius: 3px;
   background-color: $green;
   color: white;
@@ -76,6 +74,24 @@ footer {
 
 .social-icons:hover {
   cursor: pointer;
+}
+
+.back-to-top {
+  text-align: center;
+  height: 40px;
+  background-color: $light-green;
+  margin-top: 60px;
+}
+
+.back-to-top-text {
+  color: $green;
+  text-align: center;
+  border-top: 12px solid $light-green;
+}
+
+.back-to-top-text:hover {
+  cursor: pointer;
+  color: $dark-green;
 }
 
 @media screen and (max-width: 480px) {
