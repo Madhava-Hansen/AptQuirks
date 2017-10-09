@@ -1,0 +1,159 @@
+@media screen and (max-width: 1307px) {
+  .apartment-index-item {
+    float: none;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 480px) {
+
+  .home-main-text {
+    font-size: 47px;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .home-text-container {
+  }
+}
+
+@media screen and (max-width: 700px) {
+
+  .search-input-home {
+    width: 76%;
+  }
+
+  #home-magnifine-glass {
+  }
+
+  .search-button-home {
+    width: 30px;
+  }
+
+  .search-bar-container {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+
+  .home-main-text {
+    font-size: 32px;
+    margin-bottom: 30px;
+    width: 90%;
+    padding-bottom: 50px;
+  }
+
+  .home-text-container {
+    padding-bottom: 120px;
+    width: 100%;
+    max-width: 425px;
+    min-width: 380px;
+    padding-top: 100px;
+    background-image: url("http://res.cloudinary.com/aptquirks/image/upload/v1507565877/skyline_mobile_f2hwzj.gif");
+    background-position: cover;
+  }
+
+  .header {
+    min-width: 380px;
+  }
+
+  .nav-left h1 {
+    font-size: 25px;
+  }
+
+  .featured-apartments-text {
+    font-size: 35px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .street-address-index {
+    font-size: 15px;
+  }
+
+  .apartment-index-container {
+    max-width: 450px;
+    min-width: 380px;
+  }
+
+  .apartment-index-item {
+    margin: 0 auto;
+    width: 320px;
+    float: none;
+    margin-left: 80px;
+    margin-bottom: 20px;
+    margin: 0 auto;
+  }
+
+  .quirks-index-container {
+    max-width: 450px;
+  }
+
+  .quirks-header {
+    width: 480px;
+  }
+
+  .quirk-main-content {
+    width: 20%;
+  }
+
+  .quirk-index-item {
+    width: 480px;
+  }
+
+  .footer-content {
+    margin-top: 10px;
+  }
+
+  .featured-apartments-text {
+    width: 380px;
+    margin: 0;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .apartment-index-container {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 200px;
+    max-width: 425px;
+  }
+
+  .search-form-home {
+    padding-bottom: 40px;
+  }
+
+  .street-address-index {
+    font-size: 35px;
+    margin-top: 100px;
+    color: black;
+    font-weight: bold;
+  }
+
+  .city-state-zip-index {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  html div {
+    min-width: 380px;
+  }
+
+
+
+
+}
+
+  @media screen and (max-width: 320px) {
+
+    .nav-right-reveal {
+      right: -55px;
+    }
+
+  }
