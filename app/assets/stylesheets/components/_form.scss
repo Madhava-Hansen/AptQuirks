@@ -35,8 +35,26 @@
   margin-top: 30px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 426px) {
   .form-container {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  #user-search-input {
+    max-width: 235px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .form-container {
+    width: 90%;
+  }
+
+  #user-search-input {
     width: 80%;
+    max-width: 200px;
   }
 }
