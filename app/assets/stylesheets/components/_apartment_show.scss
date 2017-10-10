@@ -123,7 +123,7 @@
 
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 1080px) {
 
   #map-container {
     height: 350px;
@@ -196,7 +196,7 @@
   .apartment-show-container {
     width: 80%;
     max-width: 425px;
-    min-width: 320px;
+    min-width: 300px;
     display: block;
     margin: 0 auto;
     margin-top: 17px;
@@ -205,6 +205,7 @@
   .apartment-show {
     width: 280px;
     max-width: 280px;
+    min-width: 280px;
     border-radius: 10px;
     height: 430px;
     margin: 0 auto;
@@ -214,18 +215,30 @@
     margin: 0px;
   }
 
+  .like-button {
+    margin-top: 60px;
+    margin-right: 0px;
+  }
+
+  .like-count {
+    margin: 0px;
+    margin-top: 66px;
+    margin-left: 5px;
+  }
+
 }
 
 @media screen and (max-width: 321px) {
 
   .apartment-show-container {
-    width: 80%;
+    width: 100%;
     max-width: 320px;
   }
 
   .apartment-show {
-    width: 80%;
-    max-width: 250px;
+    width: 20%;
+    max-width: 300px;
+    min-width: 280px;
   }
 
   .address {
