@@ -50,7 +50,7 @@ class NewMessage extends React.Component {
           <MessageNav
             dispatch={dispatch}
            />
-          <form onSubmit={this.handleUserSelection} className="new-message-form">
+          <form autoComplete="off" onSubmit={this.handleUserSelection} className="new-message-form">
             <label className="user-search-label">
               To:
               <input
