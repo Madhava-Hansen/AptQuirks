@@ -57,6 +57,7 @@
   margin-top: 17px;
   min-width: 550px;
   min-height: 150px;
+  max-width: 800px;
 
 }
 
@@ -108,7 +109,7 @@
 .quirk-main-content {
   display: block;
   float: left;
-  width: 60%;
+  width: 25%;
   min-width: 350px;
   min-height: 100px;
 }
@@ -190,7 +191,9 @@
   .quirks-index-container {
     border-radius: 10px;
     min-width: 0px;
-    width: 480px;
+    width: 429px;
+    margin: 0 auto;
+    margin-top: 17px;
   }
 
   .quirks-index-item {
@@ -212,43 +215,64 @@
 
   .quirk-main-content {
     min-width: 0px;
-    width: 200px;
+    width: 240px;
+    margin-left: 20px;
   }
 
 }
 
 @media screen and (max-width: 425px) {
 
-    .quirks-index-container {
-      width: 100%;
-      max-width: 380px;
-      border-radius: 10px;
-      min-width: 300px;
-      margin: 0 auto;
-      margin-top: 17px;
+  .quirks-index-container {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 10px;
+    min-width: 310px;
+    margin: 0 auto;
+    margin-top: 17px;
+  }
 
-    }
+  .apartment-show {
+    width: 100%;
+    max-width: 313px;
+  }
 
-    .quirks-index {
-      min-width: 320px;
-      width: 80%;
-      border-radius: 10px;
-      margin: 0 auto;
-    }
+  .quirks-index {
+    min-width: 320px;
+    width: 80%;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
 
-    .quirk-index-item {
-      width: 250px;
-      max-width: 250px;
-      overflow: none;
-    }
+  .quirk-index-item {
+    width: 250px;
+    max-width: 250px;
+    overflow: none;
+  }
 
     .quirk-main-content {
-      width: 150px;
+      width: 175px;
     }
 
     .quirks-header {
       max-width: 100px;
     }
+
+    .apartment-show-container {
+      width: 100%;
+    }
+}
+
+@media screen and (max-width: 376px) {
+
+  .apartment-show-container {
+    width: 100%;
+  }
+
+  .apartment-show {
+    width: 80%;
+    max-width: 313px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -256,7 +280,7 @@
     width: 80%;
     max-width: 380px;
     border-radius: 10px;
-    min-width: 300px;
+    min-width: 310px;
     margin: 0 auto;
     margin-top: 17px;
 
