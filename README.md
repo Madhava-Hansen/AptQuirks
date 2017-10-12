@@ -4,7 +4,7 @@
 
 Apartment Quirks is a web application built using Ruby, Ruby on Rails, JavaScript, React.js and Redux. Its purpose is to help people get to know an apartment before they rent it by reading and writing reviews for the places they've lived in before. It's a single page application that utilized Ajax requests to deliver data without sending new page requests.
 
-![show page screenshot](https://github.com/Madhava-Hansen/AptQuirks/app/assets/images/show_page_screen_shot.jpg)
+![show page screenshot](https://github.com/Madhava-Hansen/AptQuirks/blob/master/app/assets/images/show_page_screen_shot.jpg)
 
 ## Apartment Quirks allows user to:
 
