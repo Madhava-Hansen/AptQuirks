@@ -46,7 +46,8 @@ If you'd like to check out my code, these are some good sections to look through
   * [Controllers](https://github.com/Madhava-Hansen/AptQuirks/tree/master/app/controllers/api)
 2. Components
   * [Components](https://github.com/Madhava-Hansen/AptQuirks/tree/master/frontend/components)
-3. Routes
+3. Models
+  * [Models](https://github.com/Madhava-Hansen/AptQuirks/tree/master/app/models)
 
 
 ##Components
