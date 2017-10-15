@@ -52,13 +52,13 @@ If you'd like to check out my code, these are some good sections to look through
 
 ## Components
 
-1. Apartment Show
-  Renders the address text and a Google Map with the address location marked with a pin.
-2. Conversation
-  Handles the sending and receiving of private messages to other users.
-3. login
-  Take in the users username and password and sends an Ajax request to Rails for authentication.
-4. Logout
-  Sends an Ajax request to the Rails SessionController which then dispatches null as the currentUser.
-5. Apartment Search
-  Utilizes the Google Places API address search feature. Pulls out the street address, city, state and zip from the address object after the user submits an address search.
+### Apartment Show
+  * Renders the address text and a Google Map with the address location marked with a pin.
+### Conversation
+  * Handles the sending and receiving of private messages to other users.
+### login
+  * Take in the users username and password and sends an Ajax request to Rails for authentication.
+### Logout
+  * Sends an Ajax request to the Rails SessionController which then dispatches null as the currentUser.
+### Apartment Search
+  * Utilizes the Google Places API address search feature. Pulls out the street address, city, state and zip from the address object after the user submits an address search.
