@@ -39,7 +39,7 @@ The front end is handled using React/Redux. As the user interacts with the app, 
   * JBuilder
   * BCrypt
 
-#Code Guide
+## Code Guide
 
 If you'd like to check out my code, these are some good sections to look through.
 
@@ -62,4 +62,4 @@ If you'd like to check out my code, these are some good sections to look through
 4. Logout
   * Sends an Ajax request to the Rails SessionController which then dispatches null as the currentUser.
 5. Apartment Search
-  * 
+  * Utilizes the Google Places API address search feature. Pulls out the street address, city, state and zip from the address object after the user submits an address search.
