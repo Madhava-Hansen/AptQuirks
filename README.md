@@ -19,14 +19,14 @@ Apartment Quirks is a single-page web application built using Rails, React/Redux
 
 # Customized User Authentication
 
-My app has a custom built user authentication system that uses the Ruby BCrypt Gem password hashing to verify a users password without saving the password to database.
+My app has a custom built user authentication system that Utilizes the Ruby BCrypt Gem. Passwords are sent to Rails and then put through the BCrypt hashing function for security. Each users hashed password is saved in the database for authentication comparison upon logging in.
 
 ## Back end
-I developed the apps backend using Ruby on Rails with postgreSQL to store the data. The back end structure is RESTful.
+The back end is handle with Ruby on Rails. The MVC structure allows me to route requests to the appropriate controllers, check validations on the model level and passes SQL queries to postgreSQL. Rails receives data back from posgres and converts it to JSON, using jBuilder, before passing it back to the front end.
 
 ## Front end
 
-The front end is handled using React/Redux. As the user interacts with the app, I use React to update it's virtual DOM which then allows updates to the browsers DOM to only make changes that are necessary. This makes for very fast re-rendering and a smooth user experience. I use Redux to keep track of and update the state of the app. As the back end passes JSON objects to the front end, Redux accepts the new data and makes updates where necessary.
+The front end is handled using React.js and Redux. My app interacts with rails by sending Ajax requests and receiving JSON objects back. Redux holds all the data as objects in its Store and passes the data down to the appropriate components so they can correctly render information back to the user.
 
 ## Libraries
 
