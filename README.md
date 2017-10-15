@@ -43,12 +43,11 @@ The front end is handled using React/Redux. As the user interacts with the app, 
 
 If you'd like to check out my code, these are some good sections to look through.
 
-1. Controllers
-  * [Controllers](https://github.com/Madhava-Hansen/AptQuirks/tree/master/app/controllers/api)
-2. Components
-  * [Components](https://github.com/Madhava-Hansen/AptQuirks/tree/master/frontend/components)
-3. Models
-  * [Models](https://github.com/Madhava-Hansen/AptQuirks/tree/master/app/models)
+1. [Controllers](https://github.com/Madhava-Hansen/AptQuirks/tree/master/app/controllers/api)
+
+2. [Components](https://github.com/Madhava-Hansen/AptQuirks/tree/master/frontend/components)
+
+3. [Models](https://github.com/Madhava-Hansen/AptQuirks/tree/master/app/models)
 
 
 ##Components
