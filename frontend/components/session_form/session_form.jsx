@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { receiveErrors } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class SessionForm extends React.Component {
     this.state = {username: "", password: "", currentURL: ""};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.wipeOutErrors = this.wipeOutErrors.bind(this);
   }
 
   componentDidUpdate() {
@@ -35,13 +37,23 @@ class SessionForm extends React.Component {
 		});
   }
 
+  wipeOutErrors() {
+      window.setTimeout(() => {
+        this.props.dispatch(receiveErrors(null));
+      }, 5000)
+  }
+
   render() {
     const { currentUser, addPhoto, formType, errors } = this.props;
     let classNames = "form-container containers"
+    this.errorClass = errors ? 'session-errors' : 'no errors';
+    if (this.errorClass === 'session-errors') {
+      this.wipeOutErrors();
+    }
     return (
       <section className={classNames}>
-        <h3>{errors}</h3>
         <form className="form" onSubmit={this.handleSubmit}>
+          <h3 className={ this.errorClass }>{ errors }</h3>
           <h1>{formType}</h1>
           <label className="form-label">username
             <br/>
