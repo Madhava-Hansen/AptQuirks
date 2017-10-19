@@ -14,14 +14,17 @@
 }
 
 .form {
+  position: relative;
   text-align: center;
   padding: 20px;
   margin-bottom: 70px;
   margin-top: 70px;
+  height: 400px;
 }
 
 .form h1 {
   margin-bottom: 20px;
+  margin-top: 50px;
   font-size: 60px;
 }
 
@@ -33,6 +36,24 @@
   width: 30%;
   height: 25px;
   margin-top: 30px;
+}
+
+.session-errors {
+  position: absolute;
+  width: 230px;
+  margin: 0 auto;
+  top: 12px;
+  left: 65px;
+  background-color: #ffe5e5;
+  border: 1px solid #ff7f7f;
+  color: #ff7f7f;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (max-width: 426px) {
