@@ -74,29 +74,37 @@
   left: -175px;
   top: 60px;
   border-radius: 5px;
-  width: 200px;
-  height: 130px;
+  width: 220px;
+  height: 140px;
   box-shadow: 1px 1px 1px #ccc;
-  padding: 10px;
 }
 
-.logout-button-background {
+.dropdown-user-info {
+  width: 100%;
+  height: 70%;
+}
+
+.dropdown-logout-section {
   display: block;
+  height: 41.5px;
+  width: 100%;
   background-color: red;
-  width: 100px;
+  margin-bottom: 0px;
+  border-radius: 0px 0px 5px 5px;
+  background-color: #fafafa;
+  border-top: 1px solid #f1f1f1;
 }
 
 .dropdown-logout-button {
-  border: 2px solid $green;
-  border-radius: 5px;
-  padding: 7px;
-  color: white;
-  background-color: $green;
-  margin-top: 0px;
-  margin-right: 10px;
+  border: 2px solid #f1f1f1;
+  border-radius: 0px;
+  padding: 6px;
+  color: grey;
+  background-color: white;
+  margin-top: 4.5px;
+  margin-right: 5.5px;
   display: block;
   float: right;
-  clear: both;
 }
 
 .dropdown-logout-button:hover {
@@ -111,9 +119,26 @@
   color: $green;
   font-size: 20px;
   padding-bottom: 5px;
-  margin-top: 20px;
+  margin-top: 15px;
   cursor: default;
+}
 
+.dropdown-my-profile {
+  position: relative;
+  top: -35px;
+  left: 93px;
+  padding: 8px;
+  background-color: $green;
+  border: 1px solid $light-green;
+  border-radius: 5px;
+  display: block;
+  float: left;
+  clear: both;
+  color: white;
+}
+
+.dropdown-my-profile:hover {
+  color: $light-green;
 }
 
 .dropdown-image {
@@ -123,6 +148,9 @@
   height: auto;
   margin-top: 5px;
   cursor: default;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .dropdown-triangle {
@@ -132,8 +160,8 @@
   display: block;
   float: right;
   position: relative;
-  top: -25px;
-  left: 5px;
+  top: -14px;
+  left: -4px;
 }
 
 .nav {
