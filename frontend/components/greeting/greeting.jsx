@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { login } from '../../actions/session_actions';
-
 import Home from './home';
 
 class Greeting extends React.Component {
@@ -16,28 +15,22 @@ class Greeting extends React.Component {
     this.setProfilePic = this.setProfilePic.bind(this);
     this.hideNavDropdown = this.hideNavDropdown.bind(this);
     this.logout = this.logout.bind(this);
-    this.break = false;
     this.state = { dropdown: "hidden", navRight: "nav-right" };
     this.picturePath = "https://res.cloudinary.com/aptquirks/image/upload/v1507410965/ksuq2q0estyfuw3y93rj.jpg"
   }
 
-  handleDropdownReveal() {
-    if (this.break === true) {
-      this.break = false;
-      return;
-    }
+  handleDropdownReveal(e) {
     if (this.state.dropdown === "hidden") {
       this.setState({ dropdown: "dropdown-class group" });
     }
   }
 
-  hideDropdownOnBodyClick() {
-    if (this.break === true) { this.break = false; };
+  hideDropdownOnBodyClick(e) {
     if (this.state.dropdown === "hidden") {
       return;
     } else if (this.state.dropdown === "dropdown-class group") {
       this.setState({ dropdown: "hidden" });
-      this.break = true;
+      e.stopPropagation();
     }
   }
 
@@ -98,13 +91,13 @@ class Greeting extends React.Component {
               <figure
                 onClick={ this.handleDropdownReveal }
                  className="header-profile-pic">
-                <img src={this.picturePath} alt="profile pic"></img>
+                <img src={ this.picturePath } alt="profile pic"></img>
               </figure>
               <div
                 className={ this.state.dropdown }>
                 <img className="dropdown-triangle" src="https://res.cloudinary.com/aptquirks/image/upload/v1521063568/triangle_butk5x.gif"></img>
                 <img className="dropdown-image" src={ this.picturePath } alt="profile pic"></img>
-                <h3 className="dropdown-username">{currentUser.username}</h3>
+                <h3 className="dropdown-username">{ currentUser.username }</h3>
                 <Link className="dropdown-logout-button" to="/home" onClick={ this.logout }>logout</Link>
               </div>
             </li>
