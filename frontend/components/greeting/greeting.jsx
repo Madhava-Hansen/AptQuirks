@@ -18,7 +18,7 @@ class Greeting extends React.Component {
     this.logout = this.logout.bind(this);
     this.break = false;
     this.state = { dropdown: "hidden", navRight: "nav-right" };
-    this.picturePath = "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
+    this.picturePath = "https://res.cloudinary.com/aptquirks/image/upload/v1507410965/ksuq2q0estyfuw3y93rj.jpg"
   }
 
   handleDropdownReveal() {
