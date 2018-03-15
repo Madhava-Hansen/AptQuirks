@@ -31,7 +31,7 @@ class Footer extends React.Component {
             <section className="footer-logo">
               <img
                 className="footer-pic"
-                src="http://res.cloudinary.com/aptquirks/image/upload/v1497653286/lrbahix2swlowj946cpi.png"
+                src="https://res.cloudinary.com/aptquirks/image/upload/v1497653286/lrbahix2swlowj946cpi.png"
                 alt="logo"/>
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
@@ -57,7 +57,7 @@ class Footer extends React.Component {
             <section className="footer-logo">
               <img
                 className="footer-pic"
-                src="http://res.cloudinary.com/aptquirks/image/upload/v1497653286/lrbahix2swlowj946cpi.png"
+                src="https://res.cloudinary.com/aptquirks/image/upload/v1497653286/lrbahix2swlowj946cpi.png"
                 alt="logo"/>
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
