@@ -4,7 +4,6 @@ import { login } from '../../actions/session_actions';
 
 import Home from './home';
 
-
 class Greeting extends React.Component {
 
   constructor(props) {
@@ -12,6 +11,7 @@ class Greeting extends React.Component {
     this.routeToConversations = this.routeToConversations.bind(this);
     this.handleDropdownReveal = this.handleDropdownReveal.bind(this);
     this.handleMobileDropdown = this.handleMobileDropdown.bind(this);
+    this.hideDropdownOffClick = this.hideDropdownOffClick.bind(this);
     this.logInGuest = this.logInGuest.bind(this);
     this.setProfilePic = this.setProfilePic.bind(this);
     this.hideNavDropdown = this.hideNavDropdown.bind(this);
@@ -28,6 +28,14 @@ class Greeting extends React.Component {
     }
   }
 
+  hideDropdownOffClick() {
+    if (this.state.dropdown === "hidden") {
+      return;
+    } else if (this.state.dropdown === "dropdown-class group") {
+      this.setState({ dropdown: "hidden" });
+    }
+  }
+
   handleMobileDropdown() {
     if (this.state.navRight === "nav-right") {
       this.setState({ navRight: "nav-right-reveal" });
@@ -40,6 +48,10 @@ class Greeting extends React.Component {
     if (this.props.location.pathname === "/") {
       this.props.history.push("/home");
     }
+  }
+
+  componentDidMount() {
+    document.body.addEventListener("click", this.hideDropdownOffClick);
   }
 
   logInGuest() {
@@ -74,7 +86,7 @@ class Greeting extends React.Component {
     const { currentUser } = this.props;
       if (currentUser) {
     return (
-      <div className="nav-div">
+      <div className="nav-div" onClick={ this.hideNavDropdown }>
         <img onClick={this.handleMobileDropdown} className="nav-icon group" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
           <ul className={this.state.navRight}>
             <li className="nav-link-pic">
@@ -85,9 +97,12 @@ class Greeting extends React.Component {
               </figure>
               <div
                 className={ this.state.dropdown }>
+                <img className="dropdown-triangle" src="https://res.cloudinary.com/aptquirks/image/upload/v1521063568/triangle_butk5x.gif"></img>
                 <img className="dropdown-image" src={ this.picturePath } alt="profile pic"></img>
                 <h3 className="dropdown-username">{currentUser.username}</h3>
+                <div className="logout-button-background">
                 <Link className="dropdown-logout-button" to="/home" onClick={ this.logout }>logout</Link>
+                </div>
               </div>
             </li>
 
@@ -101,7 +116,7 @@ class Greeting extends React.Component {
 
       } else {
         return (
-          <div className="nav-div">
+          <div className="nav-div" onClick={ this.hideNavDropdown }>
             <img onClick={ this.handleMobileDropdown } className="nav-icon group" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
             <ul className={ this.state.navRight }>
               <li onClick={ this.logInGuest }className="nav-link guest">guest</li>
@@ -114,7 +129,6 @@ class Greeting extends React.Component {
         )
       }
   }
-
 
 }
 
