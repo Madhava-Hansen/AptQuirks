@@ -18,7 +18,7 @@ class Greeting extends React.Component {
     this.logout = this.logout.bind(this);
     this.break = false;
     this.state = { dropdown: "hidden", navRight: "nav-right" };
-    this.picturePath = "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
+    this.picturePath = "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
   }
 
   handleDropdownReveal() {
@@ -92,7 +92,7 @@ class Greeting extends React.Component {
       if (currentUser) {
     return (
       <div className="nav-div" onClick={ this.hideNavDropdown }>
-        <img onClick={this.handleMobileDropdown} className="nav-icon group" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
+        <img onClick={this.handleMobileDropdown} className="nav-icon group" src="https://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
           <ul className={this.state.navRight}>
             <li className="nav-link-pic">
               <figure
@@ -105,9 +105,7 @@ class Greeting extends React.Component {
                 <img className="dropdown-triangle" src="https://res.cloudinary.com/aptquirks/image/upload/v1521063568/triangle_butk5x.gif"></img>
                 <img className="dropdown-image" src={ this.picturePath } alt="profile pic"></img>
                 <h3 className="dropdown-username">{currentUser.username}</h3>
-                <div className="logout-button-background">
                 <Link className="dropdown-logout-button" to="/home" onClick={ this.logout }>logout</Link>
-                </div>
               </div>
             </li>
 
@@ -122,7 +120,7 @@ class Greeting extends React.Component {
       } else {
         return (
           <div className="nav-div" onClick={ this.hideNavDropdown }>
-            <img onClick={ this.handleMobileDropdown } className="nav-icon group" src="http://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
+            <img onClick={ this.handleMobileDropdown } className="nav-icon group" src="https://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
             <ul className={ this.state.navRight }>
               <li onClick={ this.logInGuest }className="nav-link guest">guest</li>
               <li onClick={ this.hideNavDropdown } className="nav-link" ><Link to="/home">search</Link></li>
