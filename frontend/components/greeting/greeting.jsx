@@ -11,28 +11,33 @@ class Greeting extends React.Component {
     this.routeToConversations = this.routeToConversations.bind(this);
     this.handleDropdownReveal = this.handleDropdownReveal.bind(this);
     this.handleMobileDropdown = this.handleMobileDropdown.bind(this);
-    this.hideDropdownOffClick = this.hideDropdownOffClick.bind(this);
+    this.hideDropdownOnBodyClick = this.hideDropdownOnBodyClick.bind(this);
     this.logInGuest = this.logInGuest.bind(this);
     this.setProfilePic = this.setProfilePic.bind(this);
     this.hideNavDropdown = this.hideNavDropdown.bind(this);
     this.logout = this.logout.bind(this);
+    this.break = false;
     this.state = { dropdown: "hidden", navRight: "nav-right" };
     this.picturePath = "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
   }
 
   handleDropdownReveal() {
+    if (this.break === true) {
+      this.break = false;
+      return;
+    }
     if (this.state.dropdown === "hidden") {
       this.setState({ dropdown: "dropdown-class group" });
-    } else {
-      this.setState({ dropdown: "hidden" });
     }
   }
 
-  hideDropdownOffClick() {
+  hideDropdownOnBodyClick() {
+    if (this.break === true) { this.break = false; };
     if (this.state.dropdown === "hidden") {
       return;
     } else if (this.state.dropdown === "dropdown-class group") {
       this.setState({ dropdown: "hidden" });
+      this.break = true;
     }
   }
 
@@ -51,7 +56,7 @@ class Greeting extends React.Component {
   }
 
   componentDidMount() {
-    document.body.addEventListener("click", this.hideDropdownOffClick);
+    document.body.addEventListener("click", this.hideDropdownOnBodyClick);
   }
 
   logInGuest() {
