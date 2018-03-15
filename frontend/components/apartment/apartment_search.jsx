@@ -80,7 +80,7 @@ class ApartmentSearch extends React.Component {
           </label>
             <button className={buttonClass} type="submit" value="submit">
               <img
-                src="http://res.cloudinary.com/aptquirks/image/upload/v1497653777/c0hrzxnw4ss1lvazuyui.png"
+                src="https://res.cloudinary.com/aptquirks/image/upload/v1497653777/c0hrzxnw4ss1lvazuyui.png"
                 id={maginifineGlassId} alt="magnifine glass"></img>
             </button>
           </form>
