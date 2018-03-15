@@ -41,7 +41,6 @@
   margin-right: 10px;
 }
 
-
 .nav-link {
   float: right;
   text-align: center;
@@ -72,13 +71,17 @@
   position: absolute;
   background-color: white;
   border: 1px solid lightgrey;
-  left: -155px;
-  top: 55px;
+  left: -175px;
+  top: 60px;
   border-radius: 5px;
   width: 200px;
-  height: 110px;
+  height: 130px;
   box-shadow: 1px 1px 1px #ccc;
   padding: 10px;
+}
+
+.logout-button-background {
+  background-color: red;
 }
 
 .dropdown-logout-button {
@@ -118,6 +121,17 @@
   height: auto;
   margin-top: 5px;
   cursor: default;
+}
+
+.dropdown-triangle {
+  border-radius: 0;
+  width: 30px;
+  height: 18px;
+  display: block;
+  float: right;
+  position: relative;
+  top: -25px;
+  left: 5px;
 }
 
 .nav {
