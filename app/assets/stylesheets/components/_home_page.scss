@@ -6,9 +6,9 @@
   color: $green;
   border-bottom: $green;
   font-weight: bolder;
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
   max-width: 1100px;
 }
 
@@ -127,12 +127,12 @@
 
 .home-text-container {
   width: 100%;
-  height: 100%;
+  height: 38vh;
   padding-bottom: 250px;
   padding-top: 150px;
-  background-image: url('https://res.cloudinary.com/aptquirks/image/upload/v1507412332/skyline_ssuuh6.gif');
+  background-image: url('https://res.cloudinary.com/aptquirks/image/upload/v1521318611/nycdrawing-2_mkbmbl.gif');
   background-size: contain;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
   background-color: white;
   margin: 0 auto;
@@ -150,6 +150,7 @@
 
   .home-main-text {
     font-size: 47px;
+
   }
 
 }
@@ -160,6 +161,13 @@
 }
 
 @media screen and (max-width: 700px) {
+
+  .home-main-text {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 90%;
+    font-size: 40px;
+  }
 
   .search-input-home {
     width: 76%;
@@ -183,7 +191,7 @@
   .home-main-text {
     font-size: 32px;
     margin-bottom: 30px;
-    width: 90%;
+    width: 100%;
     padding-bottom: 50px;
   }
 
@@ -193,7 +201,7 @@
     max-width: 425px;
     min-width: 320px;
     padding-top: 100px;
-    background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1507565877/skyline_mobile_f2hwzj.gif");
+    background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1521318611/nycdrawing-2_mkbmbl.gif");
     background-position: cover;
   }
 
