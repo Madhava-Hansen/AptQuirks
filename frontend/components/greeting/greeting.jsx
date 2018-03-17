@@ -14,9 +14,9 @@ class Greeting extends React.Component {
     this.setProfilePic = this.setProfilePic.bind(this);
     this.hideNavDropdown = this.hideNavDropdown.bind(this);
     this.logout = this.logout.bind(this);
-    this.state = { dropdown: "hidden", navRight: "nav-right" };
+    this.state = { dropdown: "hidden", navRight: "nav-right-reveal" };
     this.picturePath = "https://res.cloudinary.com/aptquirks/image/upload/v1507410965/ksuq2q0estyfuw3y93rj.jpg"
-    this.bodyClick = false;
+    this.triggered = false;
   }
 
   handleDropdownReveal(e) {
@@ -37,9 +37,13 @@ class Greeting extends React.Component {
 
   handleMobileDropdown() {
     if (this.state.navRight === "nav-right") {
-      this.setState({ navRight: "nav-right-reveal" });
-    } else {
-      this.setState({ navRight: "nav-right" });
+      this.setState({ navRight: "nav-right-reveal" }, () => {
+        console.log(this.state.navRight)
+      });
+    } else if (this.state.navRight === "nav-right-reveal") {
+      this.setState({ navRight: "nav-right" }, () => {
+        console.log(this.state.navRight)
+      });
     }
   }
 
@@ -56,6 +60,7 @@ class Greeting extends React.Component {
   }
 
   logInGuest() {
+    debugger;
     this.setState({ navRight: "nav-right" });
     this.props.login({ user: { username: "guest", password: "password" } });
   }
@@ -67,7 +72,7 @@ class Greeting extends React.Component {
   }
 
   hideNavDropdown() {
-    this.setState({ navRight: "nav-right" });
+    // this.setState({ navRight: "nav-right" });
   }
 
   setProfilePic() {
