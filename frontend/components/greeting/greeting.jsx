@@ -10,25 +10,28 @@ class Greeting extends React.Component {
     this.routeToConversations = this.routeToConversations.bind(this);
     this.handleDropdownReveal = this.handleDropdownReveal.bind(this);
     this.handleMobileDropdown = this.handleMobileDropdown.bind(this);
-    this.hideDropdownOnBodyClick = this.hideDropdownOnBodyClick.bind(this);
     this.logInGuest = this.logInGuest.bind(this);
     this.setProfilePic = this.setProfilePic.bind(this);
     this.hideNavDropdown = this.hideNavDropdown.bind(this);
     this.logout = this.logout.bind(this);
     this.state = { dropdown: "hidden", navRight: "nav-right" };
     this.picturePath = "https://res.cloudinary.com/aptquirks/image/upload/v1507410965/ksuq2q0estyfuw3y93rj.jpg"
-    this.break = false;
+    this.bodyClick = false;
   }
 
   handleDropdownReveal(e) {
-  if (this.state.dropdown === "hidden") {
-      this.setState({ dropdown: "dropdown-class group" });
+    if (this.triggered === true) {
+      this.triggered = false;
+      return;
     }
-  }
-
-  hideDropdownOnBodyClick(e) {
-    if (this.state.dropdown === "dropdown-class group") {
+    if (e === undefined && this.state.dropdown === "dropdown-class group") {
       this.setState({ dropdown: "hidden" });
+    } else if (this.state.dropdown === "hidden" && e !== undefined) {
+      this.setState({ dropdown: "dropdown-class group" });
+      this.triggered = true;
+    } else if (this.state.dropdown === "dropdown-class group" && e !== undefined) {
+      this.setState({ dropdown: "hidden" });
+      this.triggered = true;
     }
   }
 
@@ -47,6 +50,9 @@ class Greeting extends React.Component {
   }
 
   componentDidMount() {
+    document.addEventListener("click", () => {
+      this.handleDropdownReveal();
+        });
   }
 
   logInGuest() {
