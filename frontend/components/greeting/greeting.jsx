@@ -60,7 +60,6 @@ class Greeting extends React.Component {
   }
 
   logInGuest() {
-    debugger;
     this.setState({ navRight: "nav-right" });
     this.props.login({ user: { username: "guest", password: "password" } });
   }
