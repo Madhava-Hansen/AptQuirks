@@ -20,10 +20,10 @@ class Greeting extends React.Component {
   }
 
   handleDropdownReveal(event) {
-    if (event.target.id === "pic") {
+    if (event.target.href) {
+       return;
+     } else if (event.target.id === "pic") {
       this.toggleDropdown();
-    } else if (event.target.href) {
-      return;
     } else if (this.state.dropdown === "dropdown-class group") {
       this.setState({ dropdown: "hidden" });
     }
@@ -64,7 +64,6 @@ class Greeting extends React.Component {
 
   logout() {
     const { logout } = this.props;
-    this.handleDropdownReveal();
     window.setTimeout(logout, 500);
   }
 
