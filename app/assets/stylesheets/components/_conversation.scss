@@ -120,10 +120,13 @@
   margin-left: 16.7%;
   width: 56.5%;
   margin-top: 0px;
-  border-radius: 0px;
+  border-radius: 15px;
   display: block;
   float: left;
   box-shadow: 1px 1px 1px #ccc;
+  background-color: white;
+  border: 1px solid lightgrey;
+
 }
 
 #message-send-button {
@@ -135,8 +138,14 @@
   margin-bottom: 5px;
   display: block;
   float: left;
-  border: 1px solid $light-green;
-  box-shadow: 1px 1px 1px #ccc;
+  font-weight: bold;
+  font-size: 22px;
+  color: grey;
+  background-color: #e0e0e0;
+}
+
+#message-send-button:hover {
+  font-size: 23px;
 }
 
 .send-message-section {
@@ -232,7 +241,7 @@
     float: left;
     width: 66%;
     margin: 0px;
-    border-radius: 0px;
+    border-radius: 15px;
     box-shadow: 1px 1px 1px #ccc;
     margin-bottom: 30px;
     margin-top: 0px;
@@ -247,8 +256,14 @@
     margin-bottom: 5px;
     display: block;
     float: left;
-    border: 1px solid $light-green;
-    box-shadow: 1px 1px 1px #ccc;
+    background-color: #e0e0e0;
+    font-weight: bold;
+    font-size: 22px;
+    color: grey;
+  }
+
+  #message-send-button:hover {
+    font-size: 23px;
   }
 
   .send-message-section {

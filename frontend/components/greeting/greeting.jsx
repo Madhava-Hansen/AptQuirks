@@ -106,7 +106,6 @@ class Greeting extends React.Component {
                 </div>
               </div>
             </li>
-
             <li onClick={ this.hideNavDropdown } className="nav-link" onClick={ this.routeToConversations }>messages</li>
             <li onClick={ this.hideNavDropdown } className="nav-link" > <Link to="/home">search</Link> </li>
             <li onClick={ this.hideNavDropdown } className="nav-link" > <Link to="/profile">profile</Link> </li>
