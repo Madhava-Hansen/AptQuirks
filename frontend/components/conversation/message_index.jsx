@@ -6,7 +6,7 @@ import MessageNav from './message_nav';
 class MessageIndex extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { messages: [], username: "", url: "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png" };
+    this.state = { messages: [], username: "", url: "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png" };
     this.update = this.update.bind(this);
     this.handleMessageSend = this.handleMessageSend.bind(this);
     this.fetchMessages = this.fetchMessages.bind(this);
@@ -34,7 +34,7 @@ class MessageIndex extends React.Component {
     currentConversation.sender_username : currentConversation.receiver_username;
     let url = currentConversation.receiver_image_url ?
     currentConversation.receiver_image_url :
-      "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
+      "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
       this.setState({username: username, url: url });
   }
 
@@ -52,6 +52,7 @@ class MessageIndex extends React.Component {
   }
 
   handleMessageSend(e) {
+    if (this.input.value === "") { return; };
     e.preventDefault();
     const { createMessage, currentUser, currentConversation } = this.props;
     const receiver_id = currentConversation.receiver_id;
