@@ -12,7 +12,8 @@
     <script type="text/javascript">
         window.cloudinary_options = {
           cloud_name: '<%= ENV['cloud_name'] %>',
-          upload_preset: '<%= ENV['upload_presets']  %>'
+          upload_preset: '<%= ENV['upload_presets']  %>',
+          secure: true
         }
     </script>
   </head>
