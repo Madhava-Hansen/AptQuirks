@@ -12,7 +12,7 @@ class ConversationIndex extends React.Component {
     super(props);
     this.redirectToNewMessage = this.redirectToNewMessage.bind(this);
     this.fetchMessages = this.fetchMessages.bind(this);
-    this.conversationsIndex;
+    this.state = { conversations: [] };
   }
 
   componentWillMount() {
@@ -27,8 +27,9 @@ class ConversationIndex extends React.Component {
     const { conversations, fetchMessages, currentUser } = nextProps;
     let classes = "group message-container";
     let conversationsArray;
+    let conversationsIndex;
       conversationsArray = Object.keys(conversations).map(key => conversations[key]);
-      this.conversationsIndex = conversationsArray.map((conversation, idx) => {
+      conversationsIndex = conversationsArray.map((conversation, idx) => {
         return (
           <ConversationIndexItem
             conversation={ conversation }
@@ -38,6 +39,8 @@ class ConversationIndex extends React.Component {
           />
         )
       })
+
+      this.setState({ conversations: conversationsIndex });
   }
 
   fetchMessages(conversation) {
@@ -57,7 +60,7 @@ class ConversationIndex extends React.Component {
               dispatch={ dispatch }
              />
             <ul className="conversation-index-list">
-              { this.conversationsIndex }
+              { this.state.conversations }
             </ul>
           </div>
         )
