@@ -12,7 +12,6 @@ class ConversationIndex extends React.Component {
     super(props);
     this.redirectToNewMessage = this.redirectToNewMessage.bind(this);
     this.fetchMessages = this.fetchMessages.bind(this);
-    this.state = { conversations: [] };
   }
 
   componentWillMount() {
@@ -24,23 +23,7 @@ class ConversationIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { conversations, fetchMessages, currentUser } = nextProps;
-    let classes = "group message-container";
-    let conversationsArray;
-    let conversationsIndex;
-      conversationsArray = Object.keys(conversations).map(key => conversations[key]);
-      conversationsIndex = conversationsArray.map((conversation, idx) => {
-        return (
-          <ConversationIndexItem
-            conversation={ conversation }
-            fetchMessages={ () => this.fetchMessages(conversation) }
-            currentUser={ currentUser }
-            key={ idx }
-          />
-        )
-      })
 
-      this.setState({ conversations: conversationsIndex });
   }
 
   fetchMessages(conversation) {
@@ -52,15 +35,31 @@ class ConversationIndex extends React.Component {
   }
 
   render() {
-    const { dispatch } = this.props;
+    const { conversationsIndex, fetchMessages, currentUser, dispatch } = this.props;
     let classes = "group message-container";
+    let conversationsArray;
+    let conversationsIndexRender;
+    if (conversationsIndex.conversations) {
+      conversationsArray = Object.keys(conversationsIndex.conversations)
+      .map(key => conversationsIndex.conversations[key]);
+      conversationsIndexRender = conversationsArray.map((conversation, idx) => {
+        return (
+          <ConversationIndexItem
+            conversation={ conversation }
+            fetchMessages={ () => this.fetchMessages(conversation) }
+            currentUser={ currentUser }
+            key={ idx }
+          />
+        )
+      })
+    }
         return (
           <div className={ classes }>
             <MessageNav
               dispatch={ dispatch }
              />
             <ul className="conversation-index-list">
-              { this.state.conversations }
+              { conversationsIndexRender }
             </ul>
           </div>
         )

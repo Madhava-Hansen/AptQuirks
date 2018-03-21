@@ -8,7 +8,7 @@ import { fetchMessages } from '../../actions/message_actions';
 
 const mapStateToProps = ({ conversationsIndex, messages, session }) => {
   return {
-    conversations: conversationsIndex.conversations,
+    conversationsIndex: conversationsIndex,
     newConversation: conversationsIndex.newConversation,
     currentUser: session.currentUser,
     dispatch: store.dispatch
