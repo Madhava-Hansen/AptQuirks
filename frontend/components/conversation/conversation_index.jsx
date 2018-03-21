@@ -12,6 +12,7 @@ class ConversationIndex extends React.Component {
     super(props);
     this.redirectToNewMessage = this.redirectToNewMessage.bind(this);
     this.fetchMessages = this.fetchMessages.bind(this);
+    this.conversationsIndex = null;
   }
 
   componentWillMount() {
@@ -20,6 +21,23 @@ class ConversationIndex extends React.Component {
 
   redirectToNewMessage() {
     this.props.history.push("/message/new");
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { conversations, fetchMessages, currentUser } = nextProps;
+    let classes = "group message-container";
+    let conversationsArray;
+      conversationsArray = Object.keys(conversations).map(key => conversations[key]);
+      this.conversationsIndex = conversationsArray.map((conversation, idx) => {
+        return (
+          <ConversationIndexItem
+            conversation={ conversation }
+            fetchMessages={ () => this.fetchMessages(conversation) }
+            currentUser={ currentUser }
+            key={ idx }
+          />
+        )
+      })
   }
 
   fetchMessages(conversation) {
@@ -31,33 +49,19 @@ class ConversationIndex extends React.Component {
   }
 
   render() {
-    const { conversations, fetchMessages, currentUser, dispatch } = this.props;
+    const { dispatch } = this.props;
     let classes = "group message-container";
-    let conversationsArray;
-    let conversationsIndex;
-    if (conversations) {
-      conversationsArray = Object.keys(conversations).map(key => conversations[key]);
-      conversationsIndex = conversationsArray.map((conversation, idx) => {
-        return (
-          <ConversationIndexItem
-            conversation={ conversation }
-            fetchMessages={ () => this.fetchMessages(conversation) }
-            currentUser={ currentUser }
-            key={ idx }
-          />
-        )
-      })
         return (
           <div className={ classes }>
             <MessageNav
               dispatch={ dispatch }
              />
             <ul className="conversation-index-list">
-              { conversationsIndex }
+              { this.conversationsIndex }
             </ul>
           </div>
         )
-    }
+    // }
   }
 }
 

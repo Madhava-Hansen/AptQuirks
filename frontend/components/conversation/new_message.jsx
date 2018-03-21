@@ -32,7 +32,7 @@ class NewMessage extends React.Component {
 
   handleUserSelection(user) {
     const { currentUser, createConversation } = this.props;
-    const url = user.thumbnail_url ? user.thumbnail_url : "http://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
+    const url = user.thumbnail_url ? user.thumbnail_url : "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
     let createConversationObject =
      {conversation: {receiver_id: user.id, sender_id: currentUser.id,
        receiver_username: user.username, sender_username:
