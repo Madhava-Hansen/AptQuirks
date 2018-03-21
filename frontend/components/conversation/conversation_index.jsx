@@ -37,12 +37,9 @@ class ConversationIndex extends React.Component {
   render() {
     const { conversationsIndex, fetchMessages, currentUser, dispatch } = this.props;
     let classes = "group message-container";
-    let conversationsArray;
     let conversationsIndexRender;
     if (conversationsIndex.conversations) {
-      conversationsArray = Object.keys(conversationsIndex.conversations)
-      .map(key => conversationsIndex.conversations[key]);
-      conversationsIndexRender = conversationsArray.map((conversation, idx) => {
+      conversationsIndexRender = conversationsIndex.conversations.map((conversation, idx) => {
         return (
           <ConversationIndexItem
             conversation={ conversation }
@@ -53,6 +50,7 @@ class ConversationIndex extends React.Component {
         )
       })
     }
+    debugger;
         return (
           <div className={ classes }>
             <MessageNav
