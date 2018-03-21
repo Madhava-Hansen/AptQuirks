@@ -50,7 +50,6 @@ class ConversationIndex extends React.Component {
         )
       })
     }
-    debugger;
         return (
           <div className={ classes }>
             <MessageNav
