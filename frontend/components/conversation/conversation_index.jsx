@@ -12,7 +12,7 @@ class ConversationIndex extends React.Component {
     super(props);
     this.redirectToNewMessage = this.redirectToNewMessage.bind(this);
     this.fetchMessages = this.fetchMessages.bind(this);
-    this.conversationsIndex = null;
+    this.conversationsIndex;
   }
 
   componentWillMount() {
