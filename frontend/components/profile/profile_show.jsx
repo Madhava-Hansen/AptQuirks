@@ -58,9 +58,11 @@ class ProfileShow extends React.Component {
 
             <br/>
             <form>
-                <label className="city-title">City: {this.props.currentUser.city} </label>
+                <label id="city-input" className="city-title">Current city: {this.props.currentUser.city} </label>
                 <input
+                  id="profile-form-input"
                   className="form-input"
+                  placeholder="enter your city..."
                   onChange={this.update("city")}
                   value={this.state.city}>
 
