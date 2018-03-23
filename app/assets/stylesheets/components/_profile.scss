@@ -20,7 +20,7 @@
 }
 
 .profile-container {
-  background-color: $light-grey;
+  background-color: white;
   width: 40%;
   height: 500px;
   margin: 0 auto;
@@ -73,6 +73,11 @@
   border: 2px solid $green;
   margin-left: 6px;
   margin-top: 20px;
+}
+
+#profile-form-input {
+  box-shadow: 1px 1px 3px lightgrey;
+  border: 1px solid lightgrey;
 }
 
 #city-button {
