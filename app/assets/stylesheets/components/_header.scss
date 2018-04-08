@@ -186,6 +186,10 @@
   height: 60px;
   color: $dark-green;
   box-shadow: 5px 0px 2px black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 //search bar
