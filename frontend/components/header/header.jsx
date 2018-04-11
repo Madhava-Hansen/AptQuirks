@@ -8,6 +8,24 @@ class Header extends React.Component {
   constructor(props) {
     super(props)
     this.redirectHome = this.redirectHome.bind(this);
+    this.addScrollEvent = this.addScrollEvent.bind(this);
+    this.state = { classes: "group header" };
+  }
+
+  componentDidMount() {
+    let that = this;
+    this.addScrollEvent(that);
+  }
+
+  addScrollEvent(that) {
+    document.addEventListener("scroll", () => {
+      let header = document.getElementById("header");
+      if (window.scrollY > 200) {
+        that.setState({ classes: "group opacity" });
+      } else if (window.scrollY < 200) {
+        that.setState({ classes: "group header" });
+      }
+    })
   }
 
   redirectHome() {
@@ -16,13 +34,12 @@ class Header extends React.Component {
 
   render() {
     let hidden = this.props.location.pathname === "/home" ? true : false;
-    let classes = "group header";
     if (hidden) {
       return (
-        <header className={classes}>
+        <header className={ this.state.classes } id="header">
           <nav className="nav">
             <ul className="nav-left">
-                <Logo redirectHome={this.redirectHome} />
+                <Logo redirectHome={ this.redirectHome } />
             </ul>
             <GreetingContainer />
           </nav>
@@ -30,10 +47,10 @@ class Header extends React.Component {
       )
     } else {
       return (
-        <header className={classes}>
+        <header className={ this.state.classes } id="header">
           <nav className="nav">
             <ul className="nav-left">
-                <Logo redirectHome={this.redirectHome} />
+                <Logo redirectHome={ this.redirectHome } />
             </ul>
             <ul className="nav-middle">
               <li><ApartmentSearchContainer /></li>
