@@ -36,7 +36,7 @@ class Footer extends React.Component {
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
             <p className="footer-copyright">
-              (c) 2017 Apartment Quirks Inc.</p>
+              (c) 2018 Apartment Quirks Inc.</p>
           </div>
         </footer>
       )
@@ -62,7 +62,7 @@ class Footer extends React.Component {
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
             <p className="footer-copyright">
-              (c) 2017 Apartment Quirks Inc.</p>
+              (c) 2018 Apartment Quirks Inc.</p>
           </div>
         </footer>
       )
