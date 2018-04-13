@@ -2,7 +2,7 @@
 
 ### About
 
-Apartment Quirks is a single-page web application built using Ruby on Rails, React.js, JavaScript, Redux and postgreSQL. Its purpose is to help people get to know an apartment before they sign a lease.
+Apartment Quirks is a single-page web application built using Ruby on Rails, React.js, JavaScript, Redux and postgreSQL. It's a place for people to tell their story about living at an apartment, so that others who are looking for a new one can be more informed. 
 
 ![show page screenshot](https://github.com/Madhava-Hansen/AptQuirks/blob/master/app/assets/images/show_page_screen_shot.jpg)
 
@@ -21,10 +21,10 @@ Apartment Quirks is a single-page web application built using Ruby on Rails, Rea
 
 My app has a custom built user authentication system that Utilizes the Ruby BCrypt Gem. Passwords are sent to Rails and then put through the BCrypt hashing function for security. Each users hashed password is saved in the database for authentication comparison upon logging in.
 
-## Back end
+## Server side
 The back end is handle with Ruby on Rails. The MVC structure allows me to route requests to the appropriate controllers, check validations on the model level and passes SQL queries to postgreSQL. Rails receives data back from posgres and converts it to JSON, using jBuilder, before passing it back to the front end.
 
-## Front end
+## Client side
 
 The front end is handled using React.js and Redux. My app interacts with rails by sending Ajax requests and receiving JSON objects back. Redux holds all the data as objects in its Store and passes the data down to the appropriate components so they can correctly render information back to the user.
 
@@ -33,7 +33,6 @@ The front end is handled using React.js and Redux. My app interacts with rails b
 1. React.js
 2. Redux
 3. jQuery
-4. Google API
 
 ## Gems
   * JBuilder
