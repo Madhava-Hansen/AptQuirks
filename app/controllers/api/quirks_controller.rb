@@ -5,7 +5,7 @@ class Api::QuirksController < ApplicationController
     if @quirk.save
       render 'api/quirks/show'
     else
-      render json: @quirk.errors.full_mesages, statu: 401
+      render json: @quirk.errors.full_messages
     end
   end
 
@@ -15,7 +15,7 @@ class Api::QuirksController < ApplicationController
       @quirk.destroy!
       render 'api/quirks/show'
     else
-      render json: @quirk.errors.full_mesages, statu: 401
+      render json: @quirk.errors.full_messages
     end
   end
 
@@ -24,7 +24,7 @@ class Api::QuirksController < ApplicationController
     if @quirks
       render 'api/quirks/index'
     else
-      render json: @quirks.errors.full_mesages, statu: 401
+      render json: @quirks.errors.full_messages
     end
   end
 
