@@ -9,7 +9,7 @@ class Api::ApartmentsController < ApplicationController
         if @apartment.save
           render 'api/apartments/show'
         else
-          render json: @apartment.errors.full_messages, status: 404
+          render json: @apartment.errors.full_messages, status: 500
         end
     end
   end
