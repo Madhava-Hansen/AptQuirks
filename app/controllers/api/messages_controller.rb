@@ -5,7 +5,7 @@ class Api::MessagesController < ApplicationController
     if @message.save
       render 'api/messages/show'
     else
-      render json: @message.errors.full_messages
+      render json: @message.errors.full_messages, status: 500
     end
   end
 
@@ -14,6 +14,7 @@ class Api::MessagesController < ApplicationController
     @messages = @conversation.messages
     if @messages
       render 'api/messages/index'
+    else render json: @messages.errors.full_messages, status: 404
     end
   end
 
