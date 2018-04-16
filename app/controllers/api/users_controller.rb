@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
       login(@user)
       render 'api/users/show'
     else
-      render json: ["Invalid username or password, please try again"], status: 404
+      render json: ["Invalid username or password, please try again"], status: 401
     end
   end
 
@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
     if @user
       render 'api/users/show'
     else
-      render json: ['unable to find user'], status: 404
+      render json: ['unable to find user'], status: 401
     end
   end
 
@@ -34,7 +34,7 @@ class Api::UsersController < ApplicationController
     if @users
       render 'api/users/index'
     else
-      render json: ["no user with that username"], status: 404
+      render json: ["no users with that username"], status: 404
     end
   end
 
