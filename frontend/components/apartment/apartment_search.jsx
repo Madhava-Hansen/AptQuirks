@@ -45,7 +45,6 @@ class ApartmentSearch extends React.Component {
     const options = {
       bounds: defaultBounds
     };
-    //
     this.input = document.getElementById('autocomplete');
     this.autocomplete = new google.maps.places.Autocomplete(this.input, options);
   }
@@ -72,13 +71,13 @@ class ApartmentSearch extends React.Component {
       searchBarClass = "header-search-bar-container"
     }
       return (
-        <div className={searchBarClass}>
-          <form className={formClass} onSubmit={this.handleSubmit}>
+        <div className={ searchBarClass }>
+          <form className={ formClass } onSubmit={ this.handleSubmit }>
             <label>
             <input placeholder="Enter a street address..."
-              className={inputClass} id="autocomplete" type="text"></input>
+              className={ inputClass } id="autocomplete" type="text"></input>
           </label>
-            <button className={buttonClass} type="submit" value="submit">
+            <button className={ buttonClass } type="submit" value="submit">
               <img
                 src="https://res.cloudinary.com/aptquirks/image/upload/v1497653777/c0hrzxnw4ss1lvazuyui.png"
                 id={maginifineGlassId} alt="magnifine glass"></img>
