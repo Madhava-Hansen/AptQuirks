@@ -2,6 +2,7 @@ import React from 'react';
 import ApartmentMap from '../apartment_map/apartment_map';
 import QuirkIndexContainer from '../quirks/quirk_index_container';
 import LikeButtonContainer from '../likes/like_button_container';
+import ImageIndexContainer from '../images/image_index_container';
 
 class ApartmentShow extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class ApartmentShow extends React.Component {
     let classes = "group apartment-show-container"
       return(
         <section className={classes}>
+          <div className="apartment-image-container">
             <article className="apartment-show">
               <div className="address">
                 <h1>{this.streetAddress}</h1>
@@ -46,9 +48,15 @@ class ApartmentShow extends React.Component {
               <LikeButtonContainer />
             </div>
             </article>
+            <ImageIndexContainer />
+          </div>
+
             <aside className="quirks-index">
               <QuirkIndexContainer />
             </aside>
+
+
+
         </section>
       )
     }
