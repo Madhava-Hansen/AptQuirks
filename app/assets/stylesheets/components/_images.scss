@@ -1,7 +1,34 @@
 .image-index {
-  background-color: red;
-  display: block;
-  float: left;
-  width: 30%;
+  padding: 15px;
+  margin: 0 auto;
   min-height: 200px;
+  margin-top: 17px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #ccc;
+}
+
+.image-index-item {
+  width: 100px;
+  height: auto;
+}
+
+@media screen and (max-width: 1090px) {
+  .image-index {
+    width: 450px;
+    padding: 15px;
+    margin: 0 auto;
+    min-height: 200px;
+    margin-top: 17px;
+    background-color: white;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 515px) {
+
+  .image-index {
+    width: 83%;
+  }
+
 }
