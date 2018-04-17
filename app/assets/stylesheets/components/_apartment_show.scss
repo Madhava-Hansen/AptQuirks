@@ -2,16 +2,11 @@
 
 .apartment-show {
   display: block;
-  float: left;
-  width: 25%;
   background-color: white;
-  margin-right: 17px;
-  margin-left: 12%;
   padding: 15px;
   box-shadow: 1px 1px 1px #ccc;
   border-radius: 10px 0px 0px 10px;
   margin-top: 17px;
-  min-width: 350px;
 }
 
 .apartment-show h1 {
@@ -51,7 +46,8 @@
 }
 
 .like-count {
-  margin-top: 5px;
+  margin-top: 6.1px;
+  margin-left: 5px;
   color: $green;
 }
 
@@ -73,21 +69,19 @@
 }
 
 .apartment-show-container {
-  min-width: 950px;
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  grid-column-gap: 17px;
+  max-width: 1000px;
+  margin: 0 auto;
   margin-top: 60px;
 }
 
 
-@media only screen and (max-width: 1080px) {
-
-  #map-container {
-    height: 400px;
-    width: 400px;
-    margin-bottom: 10px;
-  }
+@media only screen and (max-width: 1090px) {
 
   .apartment-map {
-    width: 350px;
+    width: 400px;
     margin: 0px;
   }
 
@@ -95,8 +89,6 @@
     width: 450px;
     margin: 0 auto;
     margin-top: 17px;
-    float: none;
-    min-width: 310px;
     border-radius: 10px;
   }
 
@@ -109,64 +101,35 @@
     width: 250px;
   }
 
-  .quirks-index-container {
-    min-width: 100%;
-    width: 380px;
-  }
-
   .search-form {
     display: none;
   }
 
   .apartment-show-container {
-    min-width: 480px;
+    grid-template-columns: 1fr;
   }
-
-}
-
-@media only screen and (max-width: 1080px) {
 
   #map-container {
-    height: 350px;
-    width: 350px;
-    margin-bottom: 10px;
-  }
-
-  .apartment-map {
-    width: 350px;
-    margin: 0px;
-  }
-
-  .apartment-show {
+    height: 400px;
     width: 400px;
-    margin: 0 auto;
-    border-radius: 10px;
+    margin-bottom: 10px;
   }
 
-  .address {
-    width: 250px;
-  }
-
-  .quirks-index-container {
-    min-width: 100%;
-    width: 380px;
-  }
-
-  .search-form {
-    display: none;
-  }
-
-  .apartment-show-container {
-    min-width: 480px;
-    margin-top: 77px;
-  }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 515px) {
+
+  body {
+    max-width: 515px;
+  }
+
+  .apartment-image-container {
+    max-width: 515px;
+  }
 
   #map-container {
-    height: 250px;
-    width: 250px;
+    height: 90%;
+    width: 90%;
     margin-bottom: 10px;
   }
 
@@ -185,30 +148,20 @@
     width: 250px;
   }
 
-  .quirks-index-container {
-    min-width: 100%;
-    width: 380px;
-}
-
   .search-form {
     display: none;
   }
 
   .apartment-show-container {
-    width: 80%;
-    max-width: 425px;
-    min-width: 300px;
-    display: block;
+    max-width: 515px;
     margin: 0 auto;
     margin-top: 77px;
   }
 
   .apartment-show {
-    width: 280px;
-    max-width: 280px;
-    min-width: 280px;
+    width: 83%;
     border-radius: 10px;
-    height: 430px;
+    height: 400px;
     margin: 0 auto;
   }
 
@@ -217,33 +170,14 @@
   }
 
   .like-button {
-    margin-top: 60px;
+    margin-top: 36px;
     margin-right: 0px;
   }
 
   .like-count {
     margin: 0px;
-    margin-top: 66px;
+    margin-top: 43px;
     margin-left: 5px;
-  }
-
-}
-
-@media screen and (max-width: 321px) {
-
-  .apartment-show-container {
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .apartment-show {
-    width: 20%;
-    max-width: 300px;
-    min-width: 280px;
-  }
-
-  .address {
-    margin-right: 0px;
   }
 
 }
