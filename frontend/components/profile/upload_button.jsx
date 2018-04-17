@@ -12,7 +12,6 @@ class UploadButton extends React.Component {
     const { currentUser } = this.props;
     cloudinary.openUploadWidget(window.cloudinary_options, (error, images) => {
       if (error === null) {
-        debugger;
         const photoParams = { user: { id: currentUser.id, url: images[0].secure_url, thumbnail_url: images[0].thumbnail_url } };
         this.props.addPhoto(photoParams);
       };
