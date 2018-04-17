@@ -117,7 +117,7 @@ class LikeButton extends React.Component {
           <li className="like-count">
             <LikeCountComponenet count={ this.likeCount } likeStatus={ this.likeStatus } />
           </li>
-          <p class="like-error-message">{ this.state.errorMessage }</p>
+          <p className="like-error-message">{ this.state.errorMessage }</p>
         </ul>
       )
     } else {
