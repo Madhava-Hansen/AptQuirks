@@ -6,17 +6,12 @@
 }
 
 .quirks-index {
-  display: block;
-  float: left;
-  width: 45%;
   margin-bottom: 50px;
-  min-width: 400px;
 }
 
 .quirk-index-item {
   padding: 15px 15px 20px 15px;
   margin-top: 15px;
-  min-width: 550px;
 }
 
 .quirk-index-item h4 {
@@ -55,10 +50,6 @@
   overflow-y: scroll;
   border-radius: 0px 10px 10px 0px;
   margin-top: 17px;
-  min-width: 550px;
-  min-height: 150px;
-  max-width: 800px;
-
 }
 
 .timestamp {
@@ -80,7 +71,6 @@
   margin-top: 20px;
   margin-bottom: 50px;
   width: 50%;
-  min-width: 550px;
 }
 
 .quirks-header a {
@@ -150,6 +140,7 @@
   width: 300px;
   padding: 5px;
   box-shadow: 0px 2px 5px lightgrey;
+  background-color: white;
   z-index: 9999;
 }
 
@@ -179,21 +170,19 @@
   color: $light-green;
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1090px) {
 
   .quirks-index {
-    width: 480px;
-    margin: 0 auto;
-    float: none;
     border-radius: 10px;
   }
 
   .quirks-index-container {
     border-radius: 10px;
-    min-width: 0px;
-    width: 429px;
+    margin-top: 17px;
+    width: 450px;
     margin: 0 auto;
     margin-top: 17px;
+    padding: 15px;
   }
 
   .quirks-index-item {
@@ -221,89 +210,48 @@
 
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 515px) {
 
   .quirks-index-container {
-    width: 100%;
-    max-width: 380px;
+    width: 83%;
     border-radius: 10px;
-    min-width: 310px;
-    margin: 0 auto;
-    margin-top: 17px;
-  }
-
-  .apartment-show {
-    width: 100%;
-    max-width: 313px;
   }
 
   .quirks-index {
-    min-width: 320px;
-    width: 80%;
     border-radius: 10px;
     margin: 0 auto;
   }
 
   .quirk-index-item {
-    width: 250px;
-    max-width: 250px;
     overflow: none;
-  }
-
-    .quirk-main-content {
-      width: 175px;
-    }
-
-    .quirks-header {
-      max-width: 100px;
-    }
-
-    .apartment-show-container {
-      width: 100%;
-    }
-}
-
-@media screen and (max-width: 376px) {
-
-  .apartment-show-container {
-    width: 100%;
-  }
-
-  .apartment-show {
-    width: 80%;
-    max-width: 313px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .quirks-index-container {
-    width: 80%;
-    max-width: 380px;
-    border-radius: 10px;
-    min-width: 310px;
-    margin: 0 auto;
-    margin-top: 17px;
-
-  }
-
-  .quirks-index {
-    min-width: 320px;
-    width: 80%;
-    border-radius: 10px;
-    margin: 0 auto;
-  }
-
-  .quirk-index-item {
-    width: 250px;
-    max-width: 250px;
-    overflow: none;
+    margin-right: none;
+    padding: 5px;
   }
 
   .quirk-main-content {
-    width: 150px;
+    width: 100%;
+    margin-left: 0px;
   }
 
   .quirks-header {
-    max-width: 100px;
+    width: 100%;
   }
+
+  .quirk-user-info {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 0px;
+  }
+
+  .add-quirk-button {
+    margin-left: 0px;
+  }
+
+  .quirk-info-absolute {
+    left: 40px;
+    z-index: 2;
+    width: 200px;
+    height: 150px;
+  }
+
 }
