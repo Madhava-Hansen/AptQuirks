@@ -1,10 +1,5 @@
 @import '../base/colors';
 
-body {
-  height: 100%;
-  width: 100%;
-}
-
 .home-main-text {
   text-align: center;
   font-size: 60px;
@@ -220,7 +215,6 @@ body {
 
   .header {
     width: 100%;
-    max-width: 425px;
     min-width: 320px;
   }
 
@@ -290,15 +284,6 @@ body {
     color: black;
     font-weight: bold;
     font-size: 25px;
-  }
-
-  #map-container {
-    width: 250px;
-    max-width: 250px;
-  }
-
-  .apartment-map {
-    width: 200px;
   }
 
 }
