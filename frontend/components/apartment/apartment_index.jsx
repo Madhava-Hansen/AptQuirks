@@ -17,7 +17,7 @@ class ApartmentIndex extends React.Component {
   }
 
   componentWillMount() {
-    const ids = {apartment: {id: '1234'}};
+    const ids = { apartment: { id: '2,3,4,47' } };
     this.props.fetchApartments(ids);
   }
 
