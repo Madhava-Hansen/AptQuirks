@@ -21,9 +21,13 @@ class Header extends React.Component {
     document.addEventListener("scroll", () => {
       let header = document.getElementById("header");
       if (window.scrollY > 200) {
-        that.setState({ classes: "group opacity" });
+        if (this.state.classes != "group opacity") {
+          that.setState({ classes: "group opacity" });
+        }
       } else if (window.scrollY < 200) {
-        that.setState({ classes: "group header" });
+        if (this.state.classes != "group header") {
+          that.setState({ classes: "group header" });
+        }
       }
     })
   }
