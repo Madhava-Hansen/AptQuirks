@@ -20,7 +20,9 @@ class AddImageButton extends React.Component {
 
   render() {
     return (
-      <button className="add-image-button" onClick={this.upload}>add image</button>
+      <div className="image-button-background">
+        <button className="add-image-button" onClick={this.upload}>add image</button>
+      </div>
     )
   }
 }
