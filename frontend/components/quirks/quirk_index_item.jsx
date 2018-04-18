@@ -22,7 +22,7 @@ const QuirkIndexItem = ({ that, quirk, deleteQuirk, currentUser }) => {
         <section className="quirk-main-content">
         <div className="group">
         <h4 className="quirk-title">{quirk.title}</h4>
-        <p className="apartment-number">- apt {quirk.apt_number}</p>
+        <p className="apartment-number">Apt {quirk.apt_number}</p>
         </div>
         <p className="quirk-body">{quirk.body}</p>
         {/* <button className={quirkDeleteClass} onClick={() => deleteQuirk(quirkIds, that)}>Delete</button> */}
