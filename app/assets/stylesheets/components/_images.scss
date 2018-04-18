@@ -8,6 +8,7 @@
   background-color: white;
   border-radius: 0px 0px 0px 10px;
   box-shadow: 1px 1px 1px #ccc;
+  display: none;
 }
 
 .image-index {
@@ -17,10 +18,12 @@
   background-color: lightgrey;
   border-radius: 10px;
   padding: 10px;
+  display: none;
 }
 
 .image-index-item {
   border-image-repeat: repeat;
+  display: none;
 }
 
 .add-image-button {
@@ -33,6 +36,7 @@
   font-weight: bold;
   width: 70px;
   height: 25px;
+  display: none;
 }
 
 .add-image-button:hover {
@@ -47,10 +51,12 @@
     margin-top: 17px;
     background-color: white;
     border-radius: 10px;
+    display: none;
   }
 
   .image-index-container {
     width: 450px;
+    display: none;
   }
 }
 
@@ -58,10 +64,12 @@
 
   .image-index {
     width: 90%;
+    display: none;
   }
 
   .image-index-container {
     width: 83%;
+    display: none;
   }
 
 }
