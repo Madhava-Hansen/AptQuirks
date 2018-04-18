@@ -14,7 +14,7 @@ class ImageIndex extends React.Component {
       const idsObject = {image: {apartment_id: aptId }};
       this.props.fetchImages(idsObject);
     } else {
-      this.props.fetchImages(this.props.apartmentId);
+      this.props.fetchImages(this.props.apartmentShow.id);
     }
   }
 
