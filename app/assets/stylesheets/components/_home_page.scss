@@ -64,7 +64,7 @@
 
 .apartment-index-item {
   color: white;
-  width: 390px;
+  width: 350px;
   height: 350px;
   background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1507407948/apartment_building_drawing_zneqbz.gif");
   background-position: center;
@@ -104,9 +104,16 @@
   color: $green;
 }
 
+.apt-index-text-container {
+  height: 110px;
+  background-color: rgba(128, 128, 128, 0.2 );
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-top: 100px;
+}
+
 .street-address-index {
   font-size: 30px;
-  margin-top: 100px;
   color: black;
   font-weight: bold;
   padding: 5px;
@@ -135,7 +142,6 @@
   background-color: white;
   margin: 0 auto;
 }
-
 
 @media screen and (max-width: 1090px) {
 
