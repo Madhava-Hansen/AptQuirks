@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170701175556) do
+ActiveRecord::Schema.define(version: 20180418170504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,12 @@ ActiveRecord::Schema.define(version: 20170701175556) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.integer  "apartment_id",  null: false
-    t.integer  "user_id",       null: false
     t.string   "url",           null: false
     t.string   "thumbnail_url", null: false
+    t.integer  "user_id",       null: false
+    t.integer  "apartment_id",  null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["apartment_id"], name: "index_images_on_apartment_id", using: :btree
   end
 
   create_table "likes", force: :cascade do |t|
