@@ -19,7 +19,7 @@ class ImageIndex extends React.Component {
   }
 
   render() {
-    const { imageIndex, addImage, userId, apartmentId } = this.props;
+    const { imageIndex, addImage, currentUser, apartmentShow } = this.props;
     let images;
     if (imageIndex) {
       images = imageIndex.map((image, idx) => {
@@ -35,13 +35,16 @@ class ImageIndex extends React.Component {
     }
 
     return (
-      <div className="image-index">
+      <div className="image-index-container">
         <AddImageButton
           addImage={ addImage }
-          apartmentId={ apartmentId }
-          userId={ userId }
+          apartmentShow={ apartmentShow }
+          currentUser={ currentUser }
          />
-        { images }
+        <section className="image-index">
+          { images }
+        </section>
+
       </div>
     )
 
