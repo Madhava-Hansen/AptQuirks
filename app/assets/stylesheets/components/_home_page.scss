@@ -70,22 +70,16 @@
 }
 
 .apartment-index-item {
-  display: block;
-  float: left;
   color: white;
   width: 390px;
   height: 350px;
-  padding: 10px;
   background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1507407948/apartment_building_drawing_zneqbz.gif");
   background-position: center;
   border-radius: 5px;
-  font-size: 25px;
-  margin-left: 8%;
-  margin-bottom: 30px;
   text-align: center;
-  border: 5px solid darkgrey;
+  border: 1px solid lightgrey;
   box-shadow: 5px 5px 5px lightgrey;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .apartment-index-item:hover {
@@ -94,6 +88,15 @@
 
 .apartment-index {
   margin-top: 50px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
+  width: 830px;
+}
+
+#featured-apartments-divider {
+  margin-bottom: 50px;
 }
 
 .featured-apartments-text {
@@ -101,25 +104,25 @@
   margin: 50px;
   margin-top: 100px;
   margin-bottom: 100px;
-  color: darkgrey;
   font-weight: bold;
   font-size: 85px;
-  font-family: cursive;
+  font-family: serif;
   font-weight: bolder;
-  color: darkgrey;
+  color: $green;
 }
 
 .street-address-index {
-  font-size: 45px;
+  font-size: 30px;
   margin-top: 100px;
   color: black;
   font-weight: bold;
+  padding: 5px;
 }
 
 .city-state-zip-index {
   color: black;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .apartment-index-image {
@@ -138,6 +141,14 @@
   background-repeat: no-repeat;
   background-color: white;
   margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1090px) {
+  .apartment-index {
+    grid-template-columns: 1fr;
+    width: 400px;
+  }
 }
 
 @media screen and (max-width: 1307px) {
