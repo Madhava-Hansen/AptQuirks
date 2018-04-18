@@ -9,10 +9,10 @@ class AddImageButton extends React.Component {
 
   upload(e) {
     e.preventDefault();
-    const { currentUser, apartmentShow } = this.props;
+    const { currentUser, apartmentShow, addImage } = this.props;
     cloudinary.openUploadWidget(window.cloudinary_options, (error, images) => {
       if (error === null) {
-        const photoParams = {image: {user_id: currentUser.id, apartment_id: apartmentShow, url: images[0].url, thumbnail_url: images[0].thumbnail_url}};
+        const photoParams = {image: {user_id: currentUser.id, apartment_id: apartmentShow.id, url: images[0].secure_url, thumbnail_url: images[0].thumbnail_url}};
         this.props.addImage(photoParams);
       };
     });
