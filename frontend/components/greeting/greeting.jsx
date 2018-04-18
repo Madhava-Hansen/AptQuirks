@@ -20,12 +20,14 @@ class Greeting extends React.Component {
   }
 
   handleDropdownReveal(event) {
-    if (event.target.href) {
-       return;
-     } else if (event.target.id === "pic") {
+  if (event.target.id === "pic") {
       this.toggleDropdown();
+    } else if (event.target.id === "mobile-nav") {
+      this.handleMobileDropdown();
     } else if (this.state.dropdown === "dropdown-class group") {
       this.setState({ dropdown: "hidden" });
+    } else if (this.state.navRight === "nav-right-reveal") {
+      this.setState({ navRight: 'nav-right' });
     }
   }
 
@@ -84,8 +86,8 @@ class Greeting extends React.Component {
     const { currentUser } = this.props;
       if (currentUser) {
     return (
-      <div className="nav-div" onClick={ this.hideNavDropdown }>
-        <img onClick={this.handleMobileDropdown} className="nav-icon group" src="https://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
+      <div className="nav-div">
+        <img id="mobile-nav" className="nav-icon group" src="https://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
           <ul className={this.state.navRight}>
             <li className="nav-link-pic">
               <figure
@@ -106,9 +108,9 @@ class Greeting extends React.Component {
                 </div>
               </div>
             </li>
-            <li onClick={ this.hideNavDropdown } className="nav-link" onClick={ this.routeToConversations }>messages</li>
-            <li onClick={ this.hideNavDropdown } className="nav-link" > <Link to="/home">search</Link> </li>
-            <li onClick={ this.hideNavDropdown } className="nav-link" > <Link to="/profile">profile</Link> </li>
+            <li className="nav-link" onClick={ this.routeToConversations }>messages</li>
+            <li className="nav-link" > <Link to="/home">search</Link> </li>
+            <li className="nav-link" > <Link to="/profile">profile</Link> </li>
             <Link className="logout" to="/home" onClick={ this.logout }>logout</Link>
           </ul>
         </div>
@@ -116,13 +118,13 @@ class Greeting extends React.Component {
 
       } else {
         return (
-          <div className="nav-div" onClick={ this.hideNavDropdown }>
-            <img onClick={ this.handleMobileDropdown } className="nav-icon group" src="https://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
+          <div className="nav-div">
+            <img id="mobile-nav" className="nav-icon group" src="https://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
             <ul className={ this.state.navRight }>
               <li onClick={ this.logInGuest }className="nav-link guest">guest</li>
-              <li onClick={ this.hideNavDropdown } className="nav-link" ><Link to="/home">search</Link></li>
-              <li onClick={ this.hideNavDropdown } className="nav-link" ><Link to="/signup">Signup</Link></li>
-              <li onClick={ this.hideNavDropdown } className="nav-link" ><Link to="/login">Login</Link></li>
+              <li className="nav-link" ><Link to="/home">search</Link></li>
+              <li className="nav-link" ><Link to="/signup">Signup</Link></li>
+              <li className="nav-link" ><Link to="/login">Login</Link></li>
             </ul>
           </div>
 
