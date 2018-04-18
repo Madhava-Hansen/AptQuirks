@@ -98,7 +98,7 @@ class Greeting extends React.Component {
                 <img className="dropdown-triangle" src="https://res.cloudinary.com/aptquirks/image/upload/v1521063568/triangle_butk5x.gif"></img>
                 <div className="dropdown-user-info">
                   <img className="dropdown-image" src={ this.picturePath } alt="profile pic"></img>
-                  <h3 className="dropdown-username">{ currentUser.username }</h3>
+                  <h3 className="dropdown-username">{ currentUser.username.slice(0, 6) + "..." }</h3>
                   <Link className="dropdown-my-profile" to="/profile">My Profile</Link>
                 </div>
                 <div className="dropdown-logout-section">
