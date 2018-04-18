@@ -10,7 +10,8 @@ const imageReducer = ( state = {}, action ) => {
   let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_IMAGE:
-      newState['currentImage'] = action.image;
+      let length = newState['imageIndex'].length;
+      newState['imageIndex'][length] = action.image;
       return newState;
     case RECEIVE_IMAGES:
       newState['imageIndex'] = action.images;
