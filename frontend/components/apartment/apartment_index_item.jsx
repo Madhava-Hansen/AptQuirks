@@ -14,8 +14,10 @@ const ApartmentIndexItem = ({ apartment, redirect }) => {
   return (
     <li className={classes}
       onClick={ () => redirect(apartment.id) }>
-      <h1 className="street-address-index">{streetAddress}</h1>
-      <h3 className="city-state-zip-index">{cityStateZip}</h3>
+      <div className="apt-index-text-container">
+        <h1 className="street-address-index">{streetAddress}</h1>
+        <h3 className="city-state-zip-index">{cityStateZip}</h3>
+      </div>
     </li>
   )
 }
