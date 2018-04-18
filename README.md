@@ -2,7 +2,7 @@
 
 ### About
 
-Apartment Quirks is a single-page web application built using Ruby on Rails, React.js, JavaScript, Redux and postgreSQL. It's a place for people to tell their story about living at an apartment, so that others who are looking for a new one can be more informed. 
+Apartment Quirks is a single-page web application built using Ruby on Rails, React.js, JavaScript, Redux and postgreSQL. It's a place for people to tell their story about living at an apartment, so that others who are looking for a new one can be more informed.
 
 ![show page screenshot](https://github.com/Madhava-Hansen/AptQuirks/blob/master/app/assets/images/show_page_screen_shot.jpg)
 
@@ -16,17 +16,18 @@ Apartment Quirks is a single-page web application built using Ruby on Rails, Rea
 6. Update reviews
 7. Create and update a user profile
 8. Send private messages to other users
+9. Upload images of apartments
 
 # Customized User Authentication
 
-My app has a custom built user authentication system that Utilizes the Ruby BCrypt Gem. Passwords are sent to Rails and then put through the BCrypt hashing function for security. Each users hashed password is saved in the database for authentication comparison upon logging in.
+My app has a custom built user authentication system that Utilizes the Ruby BCrypt Gem. Encrypted passwords are sent to Rails and then put through the BCrypt hashing function. Hashed passwords are stored in the Users table and then retrieved whenever a user logs in. If the users hashed password from the Users table matches the incoming login password hash, the user has been successfully authenticated and a session is created.
 
 ## Server side
-The back end is handle with Ruby on Rails. The MVC structure allows me to route requests to the appropriate controllers, check validations on the model level and passes SQL queries to postgreSQL. Rails receives data back from posgres and converts it to JSON, using jBuilder, before passing it back to the front end.
+I chose to use Ruby on Rails to handle my server side code for this project. Not only do I love the Ruby programming language but Rails is an excellent MVC framework for getting server side code up and running quickly. Incoming requests are processed by the Routes.rb file which sends requests to the appropriate controller. The controller uses the Active Record ORM that is built into Rails to persist or request data from my database. I use jbuilder to format the data before sending the JSON response back to the client side for rendering in the browser.  
 
 ## Client side
 
-The front end is handled using React.js and Redux. My app interacts with rails by sending Ajax requests and receiving JSON objects back. Redux holds all the data as objects in its Store and passes the data down to the appropriate components so they can correctly render information back to the user.
+The frontend is handled using React.js and Redux. My app interacts with Rails by sending Ajax requests and receiving JSON objects back. The Redux Store maintains and updates the state of my application as well as passing state down to the appropriate components so they can correctly render information back to the user.
 
 ## Libraries
 
@@ -34,9 +35,14 @@ The front end is handled using React.js and Redux. My app interacts with rails b
 2. Redux
 3. jQuery
 
+## API
+
+1. Google Places
+2. Google Maps
+
 ## Gems
-  * JBuilder
-  * BCrypt
+1. JBuilder
+2. BCrypt
 
 ## Code Guide
 
@@ -52,12 +58,12 @@ If you'd like to check out my code, these are some good sections to look through
 ## Components
 
 ### Apartment Show
-  * Renders the address text and a Google Map with the address location marked with a pin.
+  * Each time a user searches for an address, the apartmentShow component will be rendered. This component sends Ajax requests to the database for likes, quirks and images associated with the current apartment id. It then renders the address, Google Map with location pin, likes, quirks and images for the current apartment.  
 ### Conversation
-  * Handles the sending and receiving of private messages to other users.
+  * When this component mounts, it sends an Ajax request for all the conversations that are associated with the current user. Each conversation has an event listener which links the user to that particular conversation.
 ### login
-  * Take in the users username and password and sends an Ajax request to Rails for authentication.
+  * Take in the users username and password and sends an Ajax request to Rails for authentication, upon success the user will be redirected to the home page so they can start searching. Upon failure, an error message will be rendered letting the user know they have not been authenticated and they should try again.
 ### Logout
-  * Sends an Ajax request to the Rails SessionController which then dispatches null as the currentUser.
+  * Sends an Ajax request to the Rails #SessionController. The session controller sets the current_user to nil, sets the users session_token to nil. Then I dispatch an action to the Redux store with null as the currentUser. 
 ### Apartment Search
-  * Utilizes the Google Places API address search feature. Pulls out the street address, city, state and zip from the address object after the user submits an address search.
+  * Utilizes the Google Places API address search feature. Pulls out the street address, city, state and zip from the address object after the user submits an address search and then redirects the user to the apartmentShow component.
