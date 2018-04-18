@@ -15,7 +15,7 @@ class Api::ApartmentsController < ApplicationController
   end
 
   def index
-    @apartments = Apartment.where(id: (params[:apartment][:id]).split(""))
+    @apartments = Apartment.where(id: (params[:apartment][:id]).split(","))
     if @apartments
       render 'api/apartments/index'
     else
