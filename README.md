@@ -61,9 +61,9 @@ If you'd like to check out my code, these are some good sections to look through
   * Each time a user searches for an address, the apartmentShow component will be rendered. This component sends Ajax requests to the database for likes, quirks and images associated with the current apartment id. It then renders the address, Google Map with location pin, likes, quirks and images for the current apartment.  
 ### Conversation
   * When this component mounts, it sends an Ajax request for all the conversations that are associated with the current user. Each conversation has an event listener which links the user to that particular conversation.
-### login
+### Login
   * Take in the users username and password and sends an Ajax request to Rails for authentication, upon success the user will be redirected to the home page so they can start searching. Upon failure, an error message will be rendered letting the user know they have not been authenticated and they should try again.
 ### Logout
-  * Sends an Ajax request to the Rails #SessionController. The session controller sets the current_user to nil, sets the users session_token to nil. Then I dispatch an action to the Redux store with null as the currentUser. 
+  * Sends an Ajax request to the Rails #SessionController. The session controller sets the current_user to nil, sets the users session_token to nil. Then I dispatch an action to the Redux store with null as the currentUser.
 ### Apartment Search
   * Utilizes the Google Places API address search feature. Pulls out the street address, city, state and zip from the address object after the user submits an address search and then redirects the user to the apartmentShow component.
