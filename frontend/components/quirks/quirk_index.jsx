@@ -75,7 +75,7 @@ class QuirkIndex extends React.Component {
   }
 
   render() {
-    const { userId, apartmentId, currentUser, addQuirk, username } = this.props;
+    const { userId, apartmentId, currentUser, addQuirk, username, apartmentShow } = this.props;
     let quirksHeader = "quirks-header group"
     return (
       <aside className="quirks-index-container">
@@ -87,9 +87,8 @@ class QuirkIndex extends React.Component {
             <div className="quirk-info-absolute">
               <p onClick={this.revealQuirkInfo} className="close-quirk-info">close</p>
               <p className="whats-a-quirk-text">
-                Tell us about living at an apartment. Was the super helpful? did you get your security
-                deposit back? Was it loud at night? Help other people make a good apartment choice with your
-                first hand account!
+                A quirk is a story about what it was like living at a house or apartment. Help other people out
+                 by telling your story about living at { apartmentShow.street_address }!
               </p>
             </div>
           </div>
