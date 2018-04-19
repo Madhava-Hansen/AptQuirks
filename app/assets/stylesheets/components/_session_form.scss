@@ -1,0 +1,31 @@
+.session-form {
+  display: grid;
+  margin-top: 77px;
+  height: 400px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.session-form-header {
+  margin: 0 auto;
+  font-size: 50px;
+  margin-bottom: 30px;
+  margin-top: 55px;
+}
+
+.session-errors {
+  position: absolute;
+  width: 230px;
+  margin: 0 auto;
+  top: 12px;
+  left: 65px;
+  background-color: #ffe5e5;
+  border: 1px solid #ff7f7f;
+  color: #ff7f7f;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+#session-form-section {
+  position: relative;
+}
