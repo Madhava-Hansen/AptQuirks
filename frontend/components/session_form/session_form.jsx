@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
+    this.props.processForm({ user });
   }
 
   update(label) {
@@ -51,30 +51,23 @@ class SessionForm extends React.Component {
       this.wipeOutErrors();
     }
     return (
-      <section className={classNames}>
-        <form className="form" onSubmit={this.handleSubmit}>
-          <h3 className={ this.errorClass }>{ errors }</h3>
-          <h1>{formType}</h1>
-          <label className="form-label">username
-            <br/>
+      <section id="session-form-section" className={classNames}>
+        <h3 className={ this.errorClass }>{ errors }</h3>
+        <form className="session-form" onSubmit={this.handleSubmit}>
+          <h1 className="session-form-header">{formType}</h1>
             <input
               className="form-input"
               type="text"
+              placeholder="username..."
               onChange={this.update("username")}
             />
-          </label>
-          <br/>
-          <br/>
-          <label className="form-label">password
-            <br/>
             <input
               className="form-input"
               type="password"
+              placeholder="password..."
               onChange={this.update("password")}
             />
-          </label>
-          <br/>
-          <button type="submit" value="submit">Submit</button>
+          <button className="form-button" type="submit" value="submit">Submit</button>
         </form>
       </section>
     )
