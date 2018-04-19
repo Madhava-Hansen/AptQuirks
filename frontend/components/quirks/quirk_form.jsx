@@ -44,37 +44,32 @@ class QuirkForm extends React.Component {
     let classNames = "form-container containers";
     return (
       <section className={classNames}>
-        <form onSubmit={this.handleSubmit} className="form">
-          <h1>Add Quirk</h1>
-          <p>{this.props.currentApartment.street_address}</p>
-          <label id="form-label">Title
+        <form onSubmit={this.handleSubmit} className="quirk-form">
+          <h1 className="form-title">Add Quirk</h1>
+          <p className="form-address">{this.props.currentApartment.street_address}</p>
             <input
               id="quirk-form-title"
               className="form-input"
               type="text"
+              placeholder="title..."
               onChange={this.update("title")}
             />
-          </label>
-          <br/>
-          <label>Body
             <textarea
               id="quirk-form-body"
               className="form-input"
               type="text"
+              placeholder="body..."
               onChange={this.update("body")}
             />
-          </label>
-          <br/>
-          <label id="form-label">Apt
             <input
               id="quirk-form-apt-number"
               className="form-input"
               type="text"
+              placeholder="apt..."
+
               onChange={this.update("apt_number")}
             />
-          </label>
-          <br/>
-          <button type="submit">Add Quirk</button>
+          <button className="form-button" type="submit">Submit</button>
         </form>
         </section>
     )
