@@ -16,6 +16,10 @@
   padding-left: 10px;
 }
 
+.street-address {
+  width: 100%;
+}
+
 .city-state-zip {
   font-weight: bold;
   width: 70%;
@@ -98,7 +102,7 @@
   }
 
   .address {
-    width: 250px;
+    width: 100%;
   }
 
   .search-form {
@@ -144,10 +148,6 @@
     margin-right: 0px;
   }
 
-  .address {
-    width: 250px;
-  }
-
   .search-form {
     display: none;
   }
@@ -167,6 +167,10 @@
 
   .address {
     margin: 0px;
+  }
+
+  .street-address {
+    font-size: 20px;
   }
 
   .like-button {
