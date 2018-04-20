@@ -19,6 +19,13 @@
           cropping_aspect_ratio: 1,
           cropping_show_dimensions: true
         }
+
+        window.cloudinary_options_no_crop = {
+          cloud_name: '<%= ENV['cloud_name'] %>',
+          upload_preset: '<%= ENV['upload_presets']  %>',
+          secure: true,
+          theme: "minimal",
+        }
     </script>
   </head>
 
