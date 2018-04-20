@@ -13,11 +13,11 @@
   font-weight: bold;
   width: 100%;
   color: $dark-green;
-  padding-left: 10px;
 }
 
 .street-address {
   width: 100%;
+  padding-left: 0px;
 }
 
 .city-state-zip {
@@ -26,6 +26,7 @@
   margin-bottom: 10px;
   color: $dark-green;
   padding: 10px;
+  padding-left: 0px;
 }
 
 .like-button,
@@ -160,7 +161,7 @@
 
   .apartment-show {
     width: 83%;
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 0px;
     height: 400px;
     margin: 0 auto;
   }
@@ -170,11 +171,13 @@
   }
 
   .street-address {
-    font-size: 20px;
+    font-size: 25px;
+    padding-left: 0px;
+
   }
 
   .like-button {
-    margin-top: 36px;
+    margin-top: 30px;
     margin-right: 0px;
   }
 
@@ -184,4 +187,11 @@
     margin-left: 5px;
   }
 
+}
+
+@media screen and (max-width: 400px) {
+  .street-address {
+    font-size: 20px;
+    padding-left: 0px;
+  }
 }
