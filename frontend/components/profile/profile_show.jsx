@@ -37,8 +37,7 @@ class ProfileShow extends React.Component {
     const picturePath = currentUser.thumbnail_url ? currentUser.thumbnail_url : "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
       return (
         <section className="profile-container">
-          <h1 className="profile-explanation">Complete your profile!</h1>
-          <div className="divider"></div>
+          <h1 className="profile-explanation">Welcome to your profile</h1>
           <div className="profile-main-content">
             <div className="user-profile-heading">
               <figure className="profile-pic">
@@ -46,8 +45,6 @@ class ProfileShow extends React.Component {
               </figure>
               <h1 className="username">Hi there, {currentUser.username}!</h1>
             </div>
-
-            <br/>
             <div className="photo-upload">
               <h3 className="picture-title">{ photoUploadTitle } profile picture</h3>
               <UploadButton
@@ -55,8 +52,6 @@ class ProfileShow extends React.Component {
                 addPhoto={addPhoto}
                />
             </div>
-
-            <br/>
             <form>
                 <label id="city-input" className="city-title">Current city: {this.props.currentUser.city} </label>
                 <input
