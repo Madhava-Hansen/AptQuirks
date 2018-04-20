@@ -66,8 +66,19 @@
 
   .image-index-container {
     width: 90%;
+    border-radius: 0px;
   }
 
+}
 
+@media screen and (max-width: 400px) {
+  .image-index-container {
+    width: 91%;
+  }
+}
 
+@media screen and (max-width: 320px) {
+  .image-index-container {
+    width: 92.5%;
+  }
 }
