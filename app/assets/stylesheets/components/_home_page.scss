@@ -207,11 +207,12 @@
   }
 
   .apartment-index-item {
+    display: block;
     margin: 0 auto;
-    width: 320px;
+    width: 280px;
     float: none;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .apartment-index {
@@ -223,6 +224,7 @@
   }
 
   .apartment-index-container {
+    display: block;
     text-align: center;
     width: 90%;
     margin: 0 auto;
@@ -235,8 +237,11 @@
   }
 
   .featured-apartments-text {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
     font-size: 50px;
-    margin: 30px;
+    text-align: center;
   }
 
 }
