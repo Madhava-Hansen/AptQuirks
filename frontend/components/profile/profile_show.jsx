@@ -34,22 +34,23 @@ class ProfileShow extends React.Component {
     const { addPhoto, currentUser } = this.props;
     const photoUploadTitle = currentUser.thumbnail_url ? "Update" : "Add";
     const cityTitle = currentUser.city ? "Update" : "Add";
-    const picturePath = currentUser.thumbnail_url ? currentUser.thumbnail_url : "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
+    const picturePath = currentUser.url ? currentUser.url : "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
+    debugger;
       return (
         <section className="profile-container">
           <h1 className="profile-explanation">Welcome to your profile</h1>
           <div className="profile-main-content">
             <div className="user-profile-heading">
               <figure className="profile-pic">
-                <img src={picturePath} alt="profile picture"></img>
+                <img src={ picturePath } alt="profile picture"></img>
               </figure>
               <h1 className="username">Hi there, {currentUser.username}!</h1>
             </div>
             <div className="photo-upload">
               <h3 className="picture-title">{ photoUploadTitle } profile picture</h3>
               <UploadButton
-                currentUser={currentUser}
-                addPhoto={addPhoto}
+                currentUser={ currentUser }
+                addPhoto={ addPhoto }
                />
             </div>
             <form>
@@ -58,15 +59,15 @@ class ProfileShow extends React.Component {
                   id="profile-form-input"
                   className="form-input"
                   placeholder="enter your city..."
-                  onChange={this.update("city")}
-                  value={this.state.city}>
+                  onChange={ this.update("city") }
+                  value={ this.state.city }>
 
                 </input>
               <button
                 id="city-button"
-                onClick={this.handleAddCity}
+                onClick={ this.handleAddCity }
                 className="button"
-                type="submit">{cityTitle} City</button>
+                type="submit">{ cityTitle } City</button>
             </form>
 
           </div>
