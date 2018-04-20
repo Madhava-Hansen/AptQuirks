@@ -35,7 +35,6 @@ class ProfileShow extends React.Component {
     const photoUploadTitle = currentUser.thumbnail_url ? "Update" : "Add";
     const cityTitle = currentUser.city ? "Update" : "Add";
     const picturePath = currentUser.url ? currentUser.url : "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
-    debugger;
       return (
         <section className="profile-container">
           <h1 className="profile-explanation">Welcome to your profile</h1>
