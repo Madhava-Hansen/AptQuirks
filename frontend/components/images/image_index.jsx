@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 class ImageIndex extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentWillMount() {
@@ -16,6 +16,9 @@ class ImageIndex extends React.Component {
     } else {
       this.props.fetchImages(this.props.apartmentShow.id);
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
   }
 
   render() {
