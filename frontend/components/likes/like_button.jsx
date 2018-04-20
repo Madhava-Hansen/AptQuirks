@@ -6,7 +6,7 @@ import { receiveLikes } from '../../actions/like_actions';
 class LikeButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {errorMessage: "", likes: []};
+    this.state = { likes: [] };
     this.likeStatusChecker = this.likeStatusChecker.bind(this);
     this.formattedLike = this.formattedLike.bind(this);
     this.handleLike = this.handleLike.bind(this);
@@ -15,6 +15,14 @@ class LikeButton extends React.Component {
     this.unlikTrigger = false;
     this.likeCount = 0;
     this.likesFetched = false;
+  }
+
+  revealLikeErrorMessage() {
+    let errors = document.getElementById("like-error-message");
+    errors.className = "like-error-message";
+    window.setTimeout(() => {
+      errors.className = "hidden";
+    }, 3000);
   }
 
   likeStatusChecker() {
@@ -80,10 +88,7 @@ class LikeButton extends React.Component {
       let ids = {like: {apartment_id: apartmentId, user_id: userId } };
       this.props.like(ids);
     } else {
-      this.setState( { errorMessage: "please login to like things!" } );
-      window.setTimeout(() => {
-        this.setState( { errorMessage: "" } );
-      }, 4000);
+      this.revealLikeErrorMessage();
     }
   }
 
@@ -93,7 +98,7 @@ class LikeButton extends React.Component {
       this.props.unlike(this.formattedLikeObject);
       this.likeStatusChecker();
     } else {
-      this.setState({errorMessage: "login to like things!"});
+      this.revealLikeErrorMessage();
     }
   }
 
@@ -117,7 +122,7 @@ class LikeButton extends React.Component {
           <li className="like-count">
             <LikeCountComponenet count={ this.likeCount } likeStatus={ this.likeStatus } />
           </li>
-          <p className="like-error-message">{ this.state.errorMessage }</p>
+          <p id="like-error-message" className="hidden">Please login to like things!</p>
         </ul>
       )
     } else {
@@ -129,7 +134,7 @@ class LikeButton extends React.Component {
           <li className="like-count">
             <LikeCountComponenet count={ this.likeCount } likeStatus={ this.likeStatus } />
           </li>
-          <p className="like-error-message">{ this.state.errorMessage }</p>
+          <p id="like-error-message" className="hidden">Please login to like things!</p>
         </ul>
       )
     }
