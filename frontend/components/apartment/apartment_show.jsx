@@ -38,7 +38,7 @@ class ApartmentShow extends React.Component {
           <div className="apartment-image-container">
             <article className="apartment-show">
               <div className="address">
-                <h1>{this.streetAddress}</h1>
+                <h1 className="street-address">{this.streetAddress}</h1>
                 <h3 className="city-state-zip">{this.cityStateZip}</h3>
               </div>
             <div className="apartment-map">
