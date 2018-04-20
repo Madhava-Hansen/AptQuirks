@@ -215,14 +215,14 @@
 @media screen and (max-width: 515px) {
 
   .quirks-index-container {
-    border-radius: 10px;
-    width: 90%;
+    border-radius: 0px 0px 10px 10px;
+    width: 83%;
   }
 
   .quirks-index {
-    width: 90%;
-    border-radius: 10px;
+    width: 100%;
     margin: 0 auto;
+    margin-bottom: 40px;
   }
 
   .quirk-index-item {
@@ -257,4 +257,10 @@
     height: 180px;
   }
 
+}
+
+@media screen and (max-width: 375px) {
+  .quirks-index-container {
+    width: 83%;
+  }
 }
