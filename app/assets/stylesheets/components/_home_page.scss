@@ -206,16 +206,22 @@
     font-size: 25px;
   }
 
+
+  .apartment-index-container {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 200px;
+    max-width: 425px;
+  }
+
   .apartment-index-item {
-    display: block;
+    width: 330px;
     margin: 0 auto;
-    width: 280px;
-    float: none;
-    margin: 0 auto;
-    margin-bottom: 10px;
   }
 
   .apartment-index {
+    grid-gap: 20px;
     width: 100%;
   }
 
@@ -223,14 +229,6 @@
     margin-top: 10px;
   }
 
-  .apartment-index-container {
-    display: block;
-    text-align: center;
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 200px;
-    max-width: 425px;
-  }
 
   .search-form-home {
     padding-bottom: 40px;
@@ -255,6 +253,12 @@
     .search-input-home {
       width: 70%;
       font-size: 14px;
+    }
+
+    .apartment-index-item {
+      width: 280px;
+      height: 300px;
+      margin: 0 auto;
     }
 
 
