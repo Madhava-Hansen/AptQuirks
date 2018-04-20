@@ -222,17 +222,18 @@
   width: 280px;
   height: 30px;
   border-radius: 5px;
-  margin-bottom: 3px;
   padding-left: 5px;
 }
 
-#magnifine-glass {
-  margin-top: 10px;
+#maginifine-glass {
+  margin-top: -5px;
 }
 
 .search-form {
+  display: grid;
+  grid-template-columns: 4.5fr 1fr;
   width: 350px;
-  margin-top: 11px;
+  margin-top: 14.5px;
   padding-left: 100px;
 }
 
