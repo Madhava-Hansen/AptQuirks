@@ -35,7 +35,7 @@ The frontend is handled using React.js and Redux. My app interacts with Rails by
 2. Redux
 3. jQuery
 
-## API
+## Third party APIs
 
 1. Google Places
 2. Google Maps
