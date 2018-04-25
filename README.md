@@ -33,7 +33,6 @@ The frontend is handled using React.js and Redux. My app interacts with Rails by
 
 1. React.js
 2. Redux
-3. jQuery
 
 ## Third party APIs
 
