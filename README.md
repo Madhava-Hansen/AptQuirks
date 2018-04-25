@@ -43,6 +43,7 @@ The frontend is handled using React.js and Redux. My app interacts with Rails by
 ## Gems
 1. JBuilder
 2. BCrypt
+3. figaro
 
 ## Code Guide
 
