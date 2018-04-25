@@ -18,7 +18,7 @@ Apartment Quirks is a single-page web application built using Ruby on Rails, Rea
 8. Send private messages to other users
 9. Upload images of apartments
 
-# Customized User Authentication
+## Customized User Authentication
 
 My app has a custom built user authentication system that Utilizes the Ruby BCrypt Gem. Encrypted passwords are sent to Rails and then put through the BCrypt hashing function. Hashed passwords are stored in the Users table and then retrieved whenever a user logs in. If the users hashed password from the Users table matches the incoming login password hash, the user has been successfully authenticated and a session is created.
 
