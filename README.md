@@ -23,7 +23,7 @@ Apartment Quirks is a single-page web application built using Ruby on Rails, Rea
 My app has a custom built user authentication system that utilizes the Ruby BCrypt Gem. Encrypted passwords are sent to Rails and then put through the BCrypt hashing function. Hashed passwords are stored in the Users table and then retrieved whenever a user logs in. If the users hashed password from the Users table matches the incoming login password hash, the user has been successfully authenticated and a session is created.
 
 ## Server side
-I chose to use Ruby on Rails to handle my server side code for this project. Not only do I love the Ruby programming language but Rails is an excellent MVC framework for getting server side code up and running quickly. Incoming requests are processed by the Routes.rb file which sends requests to the appropriate controller. The controller uses the Active Record ORM that is built into Rails to persist or request data from my database. I use jbuilder to format the data before sending the JSON response back to the client side for rendering in the browser.  
+I chose to use Ruby on Rails to handle my server side code for this project. Not only do I love the Ruby programming language but Rails is an excellent MVC framework for getting server side code up and running quickly. Incoming http requests are processed by the Routes.rb file which routes requests to the appropriate controller. The controller uses the Active Record ORM that is built into Rails to persist or request data from my database. I use jbuilder to format the data before sending the JSON response back to the client side for rendering in the browser.  
 
 ## Client side
 
