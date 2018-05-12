@@ -1,5 +1,6 @@
 const path = require('path');
 var webpack = require("webpack");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 let plugins = [];
 let devPlugins = [];
@@ -10,16 +11,14 @@ const prodPlugins = [
       'NODE_ENV': JSON.stringify('production')
     }
   }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: true
-    }
-  })
+  new UglifyJsPlugin()
 ];
 
 plugins = plugins.concat(
   process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
 )
+
+let mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 module.exports = {
   context: __dirname,
@@ -29,20 +28,56 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: plugins,
+  mode: mode,
   resolve: {
     extensions: ['.js', '.jsx', '*']
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
         }
       }
     ]
   },
   devtool: 'source-map'
 };
+
+
+
+
+
+// const ConfigWebpackPlugin = require("config-webpack");
+//
+
+//
+
+//
+// module.exports = {
+//   context: __dirname,
+//   entry: './frontend/entry.jsx',
+//   output: {
+//     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+//     filename: 'bundle.js'
+//   },
+//   plugins: plugins,
+//   resolve: {
+//     extensions: ['.js', '.jsx', '*']
+//   },
+//   module: {
+//     loaders: [
+//       {
+//         test: /\.jsx?$/,
+//         exclude: /(node_modules|bower_components)/,
+//         loader: 'babel-loader',
+//         query: {
+//           presets: ['react', 'es2015']
+//         }
+//       }
+//     ]
+//   },
+//   devtool: 'source-map'
+// };
