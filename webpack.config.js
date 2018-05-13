@@ -16,7 +16,7 @@ const prodPlugins = [
 
 plugins = plugins.concat(
   process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
-)
+);
 
 let mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
@@ -34,16 +34,9 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          query: {
-            presets: ['react', 'es2015']
-          }
-        }
-      }
+     { test: /\.jsx$/, use: 'babel-loader' },
+     { test: /\.js$/, use: 'babel-loader' },
+     { exclude: /node_modules/ }
     ]
   },
   devtool: 'source-map'
