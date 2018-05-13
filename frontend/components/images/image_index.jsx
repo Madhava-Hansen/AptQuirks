@@ -11,12 +11,20 @@ class ImageIndex extends React.Component {
     this.slideshowRight = this.slideshowRight.bind(this);
     this.setImageURL = this.setImageURL.bind(this);
     this.toggleScroll = this.toggleScroll.bind(this);
+    this.toggleImageError = this.toggleImageError.bind(this);
     this.scrollStatus = "";
     this.imageIdx = "";
-    this.state = { slideshowClass: "hidden", slideshowIndex: 0 };
+    this.state = { slideshowClass: "hidden", slideshowIndex: 0, noImageClass: "hidden" };
   }
 
   toggleSlideshow(e) {
+    if (!this.props.imageIndex[0]) {
+      this.toggleImageError();
+      window.setTimeout((errorCallback) => {
+        this.toggleImageError();
+      }, 3000)
+      return;
+    };
     window.scroll(0, 0);
     this.setImageURL(e);
     this.toggleScroll();
@@ -24,6 +32,14 @@ class ImageIndex extends React.Component {
       this.setState({ slideshowClass: "image-slideshow" });
     } else {
       this.setState({ slideshowClass: "hidden" });
+    }
+  }
+
+  toggleImageError() {
+    if (this.state.noImageClass === "hidden") {
+      this.setState({ noImageClass: "no-image-error" });
+    } else {
+      this.setState({ noImageClass: "hidden" });
     }
   }
 
@@ -44,14 +60,18 @@ class ImageIndex extends React.Component {
   }
 
   toggleScroll() {
-    let body = $('body');
     if (this.scrollStatus === "toggle-scroll") {
-      body.removeClass("toggle-scroll");
+      $('body').removeClass("toggle-scroll");
       this.scrollStatus = "";
     } else {
-      body.addClass("toggle-scroll");
+      $('body').addClass("toggle-scroll");
       this.scrollStatus = "toggle-scroll";
     }
+  }
+
+  componentWillUnmount() {
+    $('body').removeClass("toggle-scroll");
+    this.scrollStatus = "";
   }
 
   slideshowLeft() {
@@ -123,14 +143,15 @@ class ImageIndex extends React.Component {
               currentUser={ currentUser }
              />
                <div onClick={ this.toggleSlideshow } className="slideshow">view slideshow</div>
+              <p className={ this.state.noImageClass }>No images to display</p>
              </div>
             <section className="image-index">
               { images }
             </section>
             <div className={ this.state.slideshowClass }>
-              <p onClick={ this.toggleSlideshow } id="close-image" className="close-image">x</p>
               <div className="current-slideshow-image">
-                <img  src={ imageIndex[this.state.slideshowIndex].url } alt="img"></img>
+                <p onClick={ this.toggleSlideshow } id="close-image" className="close-image">x</p>
+                <img  src={ imageIndex[0] ? imageIndex[this.state.slideshowIndex].url : "" } alt="img"></img>
                 <p onClick={ this.slideshowLeft } className="slideshow-left">left</p>
                 <p onClick={ this.slideshowRight } className="slideshow-right">right</p>
               </div>
