@@ -3,6 +3,7 @@ import ApartmentMap from '../apartment_map/apartment_map';
 import QuirkIndexContainer from '../quirks/quirk_index_container';
 import LikeButtonContainer from '../likes/like_button_container';
 import ImageIndexContainer from '../images/image_index_container';
+import ErrorBoundary from '../error_boundary/error_boundary';
 
 class ApartmentShow extends React.Component {
   constructor(props) {
@@ -48,15 +49,13 @@ class ApartmentShow extends React.Component {
               <LikeButtonContainer />
             </div>
             </article>
-            <ImageIndexContainer />
+            <ErrorBoundary>
+              <ImageIndexContainer />
+            </ErrorBoundary>
           </div>
-
             <aside className="quirks-index">
               <QuirkIndexContainer />
             </aside>
-
-
-
         </section>
       )
     }
