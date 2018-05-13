@@ -3,19 +3,21 @@
 .message-container {
   width: 40%;
   max-width: 550px;
-
   margin: 0 auto;
   background-color: white;
   margin-top: 77px;
   min-height: 500px;
   border-radius: 10px 10px 0px 0px;
   box-shadow: 1px 1px 1px #ccc;
+}
 
+.message-form {
+  max-width: 550px;
 }
 
 .message-index-container {
   width: 40%;
-  max-width: 450px;
+  max-width: 550px;
   margin: 0 auto;
   background-color: white;
   margin-top: 77px;
@@ -121,8 +123,8 @@
 }
 
 #message-form-input {
-  margin-left: 16.7%;
-  width: 56.5%;
+  width: 83.5%;
+  max-width: 482px;
   margin-top: 0px;
   border-radius: 15px;
   display: block;
