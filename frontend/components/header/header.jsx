@@ -8,7 +8,6 @@ class Header extends React.Component {
   constructor(props) {
     super(props)
     this.redirectHome = this.redirectHome.bind(this);
-    this.addScrollEvent = this.addScrollEvent.bind(this);
     this.state = { classes: "group header" };
   }
 
@@ -18,7 +17,6 @@ class Header extends React.Component {
 
   addScrollEvent() {
     document.addEventListener("scroll", () => {
-      let header = document.getElementById("header");
       if (window.scrollY > 200) {
         if (this.state.classes != "group opacity") {
           this.setState({ classes: "group opacity" });
