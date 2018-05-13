@@ -92,26 +92,21 @@ class MessageIndex extends React.Component {
                 <img className="message-profile-pic" src={this.state.url} alt="profile picture"></img>
                 <h1 className="messages-index-header">{this.state.username}</h1>
               </div>
-
               <ul className="messages-index">
                 {messages}
               </ul>
             </div>
-
-              <form className="message-form">
-                <div className="send-message-section">
-                  <label className="form-label">
-                    <input
-                      placeholder="enter message..."
-                      id="message-form-input"
-                      className="form-input"
-                      onChange={this.update}
-                     />
-                  </label>
-                  <button id="message-send-button" type="submit" onClick={this.handleMessageSend}>send</button>
-                </div>
-
-              </form>
+            <form className="message-form">
+                <label className="form-label">
+                  <input
+                    placeholder="enter message..."
+                    id="message-form-input"
+                    className="form-input"
+                    onChange={this.update}
+                   />
+                </label>
+                <button id="message-send-button" type="submit" onClick={this.handleMessageSend}>send</button>
+            </form>
           </div>
         )
   }
