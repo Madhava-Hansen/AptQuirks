@@ -8,9 +8,23 @@
     "lib": "lib",
     "test": "test"
   },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "lodash": "^4.17.10",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -22,20 +36,5 @@
   "bugs": {
     "url": "https://github.com/Madhava-Hansen/AptQuirks/issues"
   },
-  "homepage": "https://github.com/Madhava-Hansen/AptQuirks#readme",
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "prop-types": "^15.6.1",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-router-dom": "^4.2.2",
-    "webpack": "^4.8.2",
-    "webpack-cli": "^2.1.3"
-  },
-  "dependencies": {
-    "uglifyjs-webpack-plugin": "^1.2.5"
-  }
+  "homepage": "https://github.com/Madhava-Hansen/AptQuirks#readme"
 }
