@@ -70,4 +70,4 @@ If you'd like to check out my code, these are some good sections to look through
 ### Apartment Search
   * Utilizes the Google Places API address search feature. Pulls out the street address, city, state and zip from the address object after the user submits an address search and then redirects the user to the apartmentShow component.
 ### Image Index
-  * Allows users to upload images that will be added to an image index. Each image will have an onClick event handler that allows the user to open a slideshow to view all the images associated with the current apartment.
+  * Allows users to upload images that will be added to an image index. Each image will have an onClick event handler that allows the user to open a slideshow to view all the images associated with the current apartment. Users can click on any image and start at that position on the slideshow. 
