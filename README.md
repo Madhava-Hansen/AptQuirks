@@ -2,7 +2,7 @@
 
 ### About
 
-Apartment Quirks is a single-page web application built using Ruby on Rails, React.js, JavaScript, Redux and postgreSQL. It's a place for people to tell their story about living at an apartment, so that others who are looking for a new one can be more informed.
+Apartment Quirks is a single-page web application built with Ruby on Rails, React.js, JavaScript, Redux and postgreSQL. It's a place for people to tell their story about living at an apartment, so that others who are looking for a new one can be more informed.
 
 ![show page screenshot](https://github.com/Madhava-Hansen/AptQuirks/blob/master/app/assets/images/show_page_screen_shot.jpg)
 
