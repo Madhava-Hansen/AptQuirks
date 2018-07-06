@@ -123,7 +123,7 @@ class Greeting extends React.Component {
             <ul className={ this.state.navRight }>
               <li onClick={ this.logInGuest }className="nav-link guest">guest</li>
               <li className="nav-link" ><Link to="/home">search</Link></li>
-              <li className="nav-link" ><Link to="/signup">Signup</Link></li>
+              {/* <li className="nav-link" ><Link to="/signup">Signup</Link></li> */}
               <li className="nav-link" ><Link to="/login">Login</Link></li>
             </ul>
           </div>
