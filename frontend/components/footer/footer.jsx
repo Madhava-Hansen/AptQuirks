@@ -49,7 +49,7 @@ class Footer extends React.Component {
           <div className="footer-nav-container">
             <ul className="footer-nav">
               <li className="nav-link-footer" > <Link to="/login">login</Link></li>
-              <li className="nav-link-footer" > <Link to="/signup">signup</Link> </li>
+              {/* <li className="nav-link-footer" > <Link to="/signup">signup</Link> </li> */}
               <li className="nav-link-footer" > <Link to="/home">search</Link> </li>
             </ul>
           </div>
@@ -62,7 +62,7 @@ class Footer extends React.Component {
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
             <p className="footer-copyright">
-              (c) 2018 Apartment Quirks Inc.</p>
+              Apartment Quirks</p>
           </div>
         </footer>
       )
