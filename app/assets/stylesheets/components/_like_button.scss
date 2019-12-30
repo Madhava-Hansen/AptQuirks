@@ -1,0 +1,55 @@
+@import './base/colors';
+
+.like-button,
+.like-count {
+  display: block;
+  float: left;
+  padding-right: 5px;
+}
+
+.like {
+  position: relative;
+}
+
+.like-error-message {
+  position: absolute;
+  width: 230px;
+  margin: 0 auto;
+  top: 22px;
+  left: 45px;
+  background-color: #ffe5e5;
+  border: 1px solid #ff7f7f;
+  color: #ff7f7f;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.like-count {
+    margin-top: 6.1px;
+    margin-left: 5px;
+    color: $green;
+  }
+  
+  .liked-button {
+    background-color: $green;
+    color: white;
+  }
+  
+  .liked-button:hover {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 515px) {
+    .like-button {
+        margin-top: 30px;
+        margin-right: 0px;
+      }
+    
+      .like-count {
+        margin: 0px;
+        margin-top: 36px;
+        margin-left: 5px;
+      }
+  }

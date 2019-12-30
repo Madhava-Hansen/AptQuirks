@@ -33,16 +33,16 @@ class ApartmentShow extends React.Component {
       this.formattAddress();
     }
 
-    let classes = "group apartment-show-container"
+    let classes = "group ApartmentShowWrapper"
       return(
         <section className={ classes }>
-          <div className="apartment-image-container">
-            <article className="apartment-show">
-              <div className="address">
-                <h1 className="street-address">{ this.streetAddress }</h1>
-                <h3 className="city-state-zip">{ this.cityStateZip }</h3>
+          <div className="ApartmentShowWrapper-apartmentDetailsContainer">
+            <article className="ApartmentShowWrapper-apartmentShow">
+              <div className="ApartmentShowWrapper-addressWrapper">
+                <h1 className="ApartmentShowWrapper-streetAddress">{ this.streetAddress }</h1>
+                <h3 className="ApartmentShowWrapper-cityStateZip">{ this.cityStateZip }</h3>
               </div>
-            <div className="apartment-map">
+            <div className="ApartmentShowWrapper-mapWrapper">
               <ApartmentMap currentApartment={ this.props.currentApartment } />
             </div>
             <div className="group">
@@ -53,7 +53,7 @@ class ApartmentShow extends React.Component {
               <ImageIndexContainer />
             </ErrorBoundary>
           </div>
-            <aside className="quirks-index">
+            <aside className="quirksIndexWrapper">
               <QuirkIndexContainer />
             </aside>
         </section>

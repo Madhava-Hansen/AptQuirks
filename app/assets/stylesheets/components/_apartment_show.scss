@@ -1,208 +1,67 @@
 @import './base/colors';
 
-.apartment-show {
-  display: block;
-  background-color: white;
-  padding: 15px;
-  box-shadow: 1px 1px 1px #ccc;
-  border-radius: 10px 0px 0px 10px;
-  margin-top: 17px;
-}
+$desktop-breakpoint: 1050px;
 
-.apartment-show h1 {
-  font-weight: bold;
-  width: 100%;
-  color: $dark-green;
-}
+.ApartmentShowWrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+	margin-top: 75px;
+	&-apartmentDetailsContainer {
+		max-width: 100%;
+		margin: 0 20px;
+	}
+	&-cityStateZip {
+		width: 150px;
+	}
+	&-searchForm {
+		display: none;
+	}
+	&-apartmentShow {
+		background-color: white;
+		padding: 15px;
+		box-shadow: 1px 1px 1px #ccc;
+		border-radius: 10px 0px 0px 10px;
+		margin: 0 auto;
+		margin-bottom: 17px;
+	}
+	&-streetAddress {
+		font-size: 25px;
+	}
+	&-mapWrapper {
+		height: 300px;
+		border: solid 5px $light-grey;
+		margin-bottom: 10px;
+	}
 
-.street-address {
-  width: 100%;
-  padding-left: 0px;
-}
-
-.city-state-zip {
-  font-weight: bold;
-  width: 70%;
-  margin-bottom: 10px;
-  color: $dark-green;
-  padding: 10px;
-  padding-left: 0px;
-}
-
-.like-button,
-.like-count {
-  display: block;
-  float: left;
-  padding-right: 5px;
-}
-
-.like {
-  position: relative;
-}
-
-.like-error-message {
-  position: absolute;
-  width: 230px;
-  margin: 0 auto;
-  top: 22px;
-  left: 45px;
-  background-color: #ffe5e5;
-  border: 1px solid #ff7f7f;
-  color: #ff7f7f;
-  text-align: center;
-  padding: 15px;
-  border-radius: 10px;
-  z-index: 2;
-}
-
-.apartment-map {
-  margin-bottom: 10px;
-}
-
-.like-count {
-  margin-top: 6.1px;
-  margin-left: 5px;
-  color: $green;
-}
-
-.liked-button {
-  background-color: $green;
-  color: white;
-}
-
-.liked-button:hover {
-  font-size: 14px;
-}
-
-#map-container {
-  height: 300px;
-  width: 300px;
-  padding-bottom: 20px;
-  border: solid 5px $light-grey;
-  padding: 15px;
-}
-
-.apartment-show-container {
-  display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
-  grid-column-gap: 17px;
-  max-width: 1000px;
-  margin: 0 auto;
-  margin-top: 60px;
-}
-
-
-@media only screen and (max-width: 1090px) {
-
-  .apartment-map {
-    width: 400px;
-    margin: 0px;
+  @media screen and (min-width: 768px) {
+    &-apartmentDetailsContainer {
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
 
-  .apartment-show {
-    width: 450px;
-    margin: 0 auto;
-    margin-top: 17px;
-    border-radius: 10px;
-  }
-
-  .city-state-zip {
-    width: 150px;
-    margin-right: 0px;
-  }
-
-  .address {
-    width: 100%;
-  }
-
-  .search-form {
-    display: none;
-  }
-
-  .apartment-show-container {
-    grid-template-columns: 1fr;
-  }
-
-  #map-container {
-    height: 400px;
-    width: 400px;
-    margin-bottom: 10px;
-  }
-
-
-
-}
-
-@media screen and (max-width: 515px) {
-
-  body {
-    max-width: 515px;
-  }
-
-  .apartment-image-container {
-    max-width: 515px;
-  }
-
-  #map-container {
-    height: 90%;
-    width: 90%;
-    margin-bottom: 10px;
-  }
-
-  .apartment-map {
-    width: 250px;
-    height: 250px;
-    margin: 0px;
-  }
-
-  .city-state-zip {
-    width: 150px;
-    margin-right: 0px;
-  }
-
-  .search-form {
-    display: none;
-  }
-
-  .apartment-show-container {
-    max-width: 515px;
-    margin: 0 auto;
-    margin-top: 77px;
-  }
-
-  .apartment-show {
-    width: 83%;
-    border-radius: 10px 10px 0px 0px;
-    height: 400px;
-    margin: 0 auto;
-  }
-
-  .address {
-    margin: 0px;
-  }
-
-  .street-address {
-    font-size: 25px;
-    padding-left: 0px;
-
-  }
-
-  .like-button {
-    margin-top: 30px;
-    margin-right: 0px;
-  }
-
-  .like-count {
-    margin: 0px;
-    margin-top: 36px;
-    margin-left: 5px;
-  }
-
-}
-
-@media screen and (max-width: 400px) {
-  .street-address {
-    font-size: 20px;
-    padding-left: 0px;
+  @media screen and (min-width: $desktop-breakpoint) {
+    display: flex;
+    &-apartmentDetailsContainer {
+      width: 450px;
+      margin-right: 17px;
+    }
+    &-mapWrapper { 
+      width: 330px;
+      height: 330px;
+    }
+    &-cityStateZip {
+      font-weight: bold;
+      width: 70%;
+      margin-bottom: 10px;
+      color: $dark-green;
+      padding: 10px;
+      padding-left: 0px;
+    }
+    &-quirksIndexWrapper {
+      margin-bottom: 50px;
+    }
   }
 }
+
+

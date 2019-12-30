@@ -4,6 +4,7 @@
   margin: 0 auto;
   min-height: 200px;
   margin-top: 17px;
+  margin-bottom: 17px;
   background-color: white;
   border-radius: 0px 0px 0px 10px;
   box-shadow: 1px 1px 1px #ccc;
@@ -169,10 +170,6 @@
     border-radius: 10px;
   }
 
-  .image-index-container {
-    width: 480px;
-  }
-
   .image-slideshow {
     padding-top: 50px;
   }
@@ -208,7 +205,7 @@
   }
 
   .image-index-container {
-    width: 90%;
+    width: 100%;
     border-radius: 0px;
   }
 
