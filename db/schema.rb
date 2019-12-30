@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180418170504) do
     t.string   "street_address", null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.float    "longitude"
+    t.float    "longitude",      null: false
     t.float    "latitude",       null: false
     t.index ["street_address"], name: "index_apartments_on_street_address", using: :btree
   end
