@@ -3,10 +3,27 @@
 
 .quirk-pic {
   width: 50px;
+  border-radius: 100%;
+  border: solid 1px $grey-green;
+}
+
+.quirks-index {
+  margin-bottom: 50px;
 }
 
 .quirk-index-item {
   padding: 15px 15px 20px 15px;
+  margin-top: 15px;
+}
+
+@media only screen and (min-width: 670px) {
+  .quirk-index-item {
+    display: flex;
+  }
+  .quirk-main-content {
+    margin-left: 20px;
+    margin-top: 0;
+  }
 }
 
 .quirk-index-item h4 {
@@ -31,12 +48,6 @@
 
 .add-quirk-button:hover {
   font-size: 18.5px;
-}
-
-.quirk-pic {
-  width: 50px;
-  border-radius: 100%;
-  border: solid 1px $grey-green;
 }
 
 .quirks-index-container {
@@ -84,19 +95,14 @@
 }
 
 .quirk-user-info {
-  display: block;
-  float: left;
-  width: 30%;
-  min-width: 160px;
-  margin-left: 15px;
+  width: 275px;
+  margin-left: 20px;
 }
 
 .quirk-main-content {
-  display: block;
-  float: left;
-  width: 25%;
   min-width: 350px;
   min-height: 100px;
+  margin-left: 0;
 }
 
 .add-quirk-error-message {
@@ -171,6 +177,7 @@
   color: $light-green;
 }
 
+
 @media only screen and (max-width: 1090px) {
 
   .quirks-index {
@@ -179,13 +186,11 @@
 
   .quirks-index-container {
     border-radius: 10px;
+    max-width: 600px;
     margin: 0 auto;
-    margin-top: 17px;
+    margin-top: 20px;
     padding: 15px;
-  }
-
-  .quirks-index-item {
-    width: 380px;
+    box-sizing: border-box;
   }
 
   .quirks-header {
@@ -198,12 +203,12 @@
 
   .quirk-user-info {
     min-width: 0px;
-    width: 100px;
+    margin-left: 0;
   }
 
   .quirk-main-content {
     min-width: 0px;
-    width: 240px;
+    margin-top: 20px;
     margin-left: 20px;
   }
 
@@ -217,7 +222,6 @@
 
   .quirks-index-container {
     border-radius: 0px 0px 10px 10px;
-    margin: 0 20px;
   }
 
   .quirks-index {
@@ -227,8 +231,6 @@
   }
 
   .quirk-index-item {
-    overflow: none;
-    margin-right: none;
     padding: 5px;
   }
 
@@ -242,7 +244,6 @@
   }
 
   .quirk-user-info {
-    width: 100%;
     margin-bottom: 20px;
     margin-left: 0px;
   }
@@ -258,10 +259,4 @@
     height: 180px;
   }
 
-}
-
-@media screen and (max-width: 375px) {
-  .quirks-index-container {
-    width: 83%;
-  }
 }

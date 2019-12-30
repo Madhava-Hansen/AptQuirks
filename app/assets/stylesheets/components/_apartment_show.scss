@@ -1,11 +1,10 @@
 @import './base/colors';
 
-$desktop-breakpoint: 1050px;
+$desktop-breakpoint: 1090px;
 
 .ApartmentShowWrapper {
 	max-width: 1200px;
-	margin: 0 auto;
-	margin-top: 75px;
+	margin: 78px auto;
 	&-apartmentDetailsContainer {
 		max-width: 100%;
 		margin: 0 20px;
@@ -22,7 +21,7 @@ $desktop-breakpoint: 1050px;
 		box-shadow: 1px 1px 1px #ccc;
 		border-radius: 10px 0px 0px 10px;
 		margin: 0 auto;
-		margin-bottom: 17px;
+		margin-bottom: 20px;
 	}
 	&-streetAddress {
 		font-size: 25px;
@@ -32,19 +31,23 @@ $desktop-breakpoint: 1050px;
 		border: solid 5px $light-grey;
 		margin-bottom: 10px;
 	}
+	&-quirksIndexWrapper {
+		margin: 0 20px;
+	}
 
   @media screen and (min-width: 768px) {
     &-apartmentDetailsContainer {
-      max-width: 600px;
-      margin: 0 auto;
+			max-width: 600px;
+			margin: 0 auto;
     }
   }
 
   @media screen and (min-width: $desktop-breakpoint) {
-    display: flex;
+		display: flex;
+		margin: 75px 20px;
     &-apartmentDetailsContainer {
-      width: 450px;
-      margin-right: 17px;
+			width: 450px;
+			margin: 0 20px 0 0;
     }
     &-mapWrapper { 
       width: 330px;
@@ -57,10 +60,10 @@ $desktop-breakpoint: 1050px;
       color: $dark-green;
       padding: 10px;
       padding-left: 0px;
-    }
-    &-quirksIndexWrapper {
-      margin-bottom: 50px;
-    }
+		}
+		&-quirksIndexWrapper {
+			margin: 0;
+		}
   }
 }
 
