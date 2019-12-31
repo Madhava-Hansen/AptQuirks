@@ -3,8 +3,8 @@
 .home-main-text {
   text-align: center;
   font-size: 60px;
-  color: $green;
-  border-bottom: $green;
+  color: steelblue;
+  border-bottom: steelblue;
   font-weight: bolder;
   width: 70%;
   margin: 0 auto;
@@ -60,34 +60,6 @@
   margin: 0 auto;
 }
 
-// Apartment index section
-
-.apartment-index-item {
-  color: white;
-  width: 350px;
-  height: 350px;
-  background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1507407948/apartment_building_drawing_zneqbz.gif");
-  background-position: center;
-  border-radius: 5px;
-  text-align: center;
-  border: 1px solid lightgrey;
-  box-shadow: 5px 5px 5px lightgrey;
-  border-radius: 10px;
-}
-
-.apartment-index-item:hover {
-  cursor: pointer;
-}
-
-.apartment-index {
-  margin-top: 50px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 50px;
-  width: 830px;
-}
-
 #featured-apartments-divider {
   margin-bottom: 50px;
 }
@@ -95,34 +67,15 @@
 .featured-apartments-text {
   text-align: center;
   margin: 50px;
-  margin-top: 100px;
-  margin-bottom: 100px;
   font-weight: bold;
   font-size: 85px;
   font-family: serif;
   font-weight: bolder;
-  color: $green;
+  color: steelblue;
 }
 
 .apt-index-text-container {
-  height: 110px;
-  background-color: rgba(128, 128, 128, 0.2 );
-  margin: 0 auto;
-  border-radius: 5px;
-  margin-top: 100px;
-}
 
-.street-address-index {
-  font-size: 30px;
-  color: black;
-  font-weight: bold;
-  padding: 5px;
-}
-
-.city-state-zip-index {
-  color: black;
-  font-weight: bold;
-  font-size: 25px;
 }
 
 .apartment-index-image {
@@ -149,10 +102,7 @@
     font-size: 50px;
   }
 
-  .apartment-index {
-    grid-template-columns: 1fr;
-    width: 400px;
-  }
+
 
   .search-input-home {
     width: 76%;
@@ -215,15 +165,7 @@
     max-width: 425px;
   }
 
-  .apartment-index-item {
-    width: 330px;
-    margin: 0 auto;
-  }
 
-  .apartment-index {
-    grid-gap: 20px;
-    width: 100%;
-  }
 
   .footer-content {
     margin-top: 10px;
@@ -255,11 +197,7 @@
       font-size: 14px;
     }
 
-    .apartment-index-item {
-      width: 280px;
-      height: 300px;
-      margin: 0 auto;
-    }
+
 
 
   }

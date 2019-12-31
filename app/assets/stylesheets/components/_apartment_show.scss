@@ -17,7 +17,7 @@ $desktop-breakpoint: 1090px;
 	}
 	&-apartmentShow {
 		background-color: white;
-		padding: 15px;
+		padding: 21px;
 		box-shadow: 1px 1px 1px #ccc;
 		border-radius: 10px 0px 0px 10px;
 		margin: 0 auto;
@@ -44,7 +44,7 @@ $desktop-breakpoint: 1090px;
 
   @media screen and (min-width: $desktop-breakpoint) {
 		display: flex;
-		margin: 75px 20px;
+		margin: 80px 20px;
     &-apartmentDetailsContainer {
 			width: 450px;
 			margin: 0 20px 0 0;
@@ -64,7 +64,11 @@ $desktop-breakpoint: 1090px;
 		&-quirksIndexWrapper {
 			margin: 0;
 		}
-  }
+	}
+	
+	@media screen and (min-width: 1240px) {
+		margin: 78px auto;
+	}
 }
 
 

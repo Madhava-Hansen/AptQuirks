@@ -26,7 +26,7 @@ class ApartmentIndex extends React.Component {
     const apartments = Object.keys(apartmentIndex).map(key => apartmentIndex[key]);
     return (
       <div className="group">
-        <ul className="apartment-index">
+        <ul className="FeaturedApartments">
           { apartments.map((apartment, idx) =>
             <ApartmentIndexItem
               apartment={ apartment }
