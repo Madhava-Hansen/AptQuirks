@@ -3,7 +3,7 @@
 .home-main-text {
   text-align: center;
   font-size: 60px;
-  color: steelblue;
+  color: $green;
   border-bottom: steelblue;
   font-weight: bolder;
   width: 70%;
@@ -56,8 +56,6 @@
 
 #home-magnifine-glass {
   width: 35px;
-  height: auto;
-  margin: 0 auto;
 }
 
 #featured-apartments-divider {
@@ -66,16 +64,12 @@
 
 .featured-apartments-text {
   text-align: center;
-  margin: 50px;
+  margin-top: 45px;
   font-weight: bold;
-  font-size: 85px;
+  font-size: 65px;
   font-family: serif;
   font-weight: bolder;
   color: steelblue;
-}
-
-.apt-index-text-container {
-
 }
 
 .apartment-index-image {
@@ -110,6 +104,9 @@
 
   .search-button-home {
     width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .search-bar-container {
@@ -179,7 +176,7 @@
   .featured-apartments-text {
     width: 90%;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 45px;
     font-size: 50px;
     text-align: center;
   }
