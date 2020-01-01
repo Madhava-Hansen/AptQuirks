@@ -19,7 +19,6 @@ class Home extends React.Component {
         </div>
         <section className="apartment-index-container">
           <h1 className="featured-apartments-text">Featured Apartments</h1>
-          <div id="featured-apartments-divider" className="divider"></div>
           <ApartmentIndexContainer />
         </section>
       </main>
