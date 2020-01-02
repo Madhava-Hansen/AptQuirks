@@ -4,9 +4,15 @@
 // (c) 2019 Apartments Quirks Inc
 
 .FeaturedApartmentsItem {
+	position: relative;
+	transition: top .18s;
+	top: 0;
 	width: 280px;
 	height: 300px;
 	margin: 12px;
+	&:hover {
+		top: -3px;
+	}
 	&-addressWrapper {
 		height: 110px;
 		background-color: rgba(128, 128, 128, 0.2 );
