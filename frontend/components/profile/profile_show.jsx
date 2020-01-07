@@ -36,26 +36,26 @@ class ProfileShow extends React.Component {
     const cityTitle = currentUser.city ? "Update" : "Add";
     const picturePath = currentUser.url ? currentUser.url : "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
       return (
-        <section className="profile-container">
-          <h1 className="profile-explanation">Welcome to your profile</h1>
-          <div className="profile-main-content">
-            <div className="user-profile-heading">
-              <figure className="profile-pic">
+        <section className="ProfileContainer">
+          <h1 className="ProfileContainer-explanation">Welcome to your profile</h1>
+          <div className="ProfileContainer-profileMainContent">
+            <div className="ProfileContainer-userProfileHeading">
+              <figure className="ProfileContainer-profilePic">
                 <img src={ picturePath } alt="profile picture"></img>
               </figure>
-              <h1 className="username">Hi there, {currentUser.username}!</h1>
+              <h1 className="ProfileContainer-username">Hi there, {currentUser.username}!</h1>
             </div>
             <div className="photo-upload">
-              <h3 className="picture-title">{ photoUploadTitle } profile picture</h3>
+              <h3 className="ProfileContainer-profileTitle">{ photoUploadTitle } profile picture</h3>
               <UploadButton
                 currentUser={ currentUser }
                 addPhoto={ addPhoto }
                />
             </div>
             <form>
-                <label id="city-input" className="city-title">Current city: {this.props.currentUser.city} </label>
+                <label className="ProfileContainer-cityTitle">Current city: {this.props.currentUser.city} </label>
                 <input
-                  id="profile-form-input"
+                  id="ProfileContainer-profileFormInput"
                   className="form-input"
                   placeholder="enter your city..."
                   onChange={ this.update("city") }
@@ -63,9 +63,8 @@ class ProfileShow extends React.Component {
 
                 </input>
               <button
-                id="city-button"
                 onClick={ this.handleAddCity }
-                className="button"
+                className="ProfileContainer-cityButton"
                 type="submit">{ cityTitle } City</button>
             </form>
 

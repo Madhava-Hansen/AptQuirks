@@ -1,122 +1,75 @@
 @import './base/colors';
 
-.profile-explanation {
-  font-size: 40px;
-  margin-top: 35px;
-  width: 100%;
-  color: $green;
-  text-align: center;
-}
-
-.profile-pic {
-  width: 75px;
-  display: block;
-  float: left;
-  padding: 2%;
-}
-
-.profile-pic img {
-  border-radius: 100%;
-}
-
-.profile-container {
+.ProfileContainer {
   background-color: white;
-  background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1524241630/building_x4hvkw.jpg");
-  background-position: right center;
-  background-repeat: no-repeat;
-  width: 40%;
-  max-width: 550px;
-  margin: 0 auto;
+  background-image: none;
+  max-width: 530px;
+  margin: 77px 20px;
   padding: 20px;
-  padding-bottom: 40px;
-  margin-top: 77px;
   box-shadow: 1px 1px 1px #ccc;
   border-radius: 10px;
-}
 
-.user-profile-heading {
-  margin-top: 20px;
-}
-
-.profile-main-content {
-  display: grid;
-  grid-template-rows: 1fr 1.2fr 1.2fr;
-}
-
-.picture-title {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-size: 20px;
-  color: grey;
-}
-
-.city-title {
-  display: block;
-  color: grey;
-}
-
-.username {
-  margin-bottom: 10px;
-  color: $green;
-  font-weight: bold;
-  margin-top: 20px;
-  font-size: 25px;
-}
-
-.upload-button {
-  display: block;
-  color: white;
-  border: 2px solid white;
-  background-color: $green;
-}
-
-.upload-button:hover {
-  border: 2px solid $light-green;
-}
-
-#profile-form-input {
-  box-shadow: 1px 1px 3px lightgrey;
-  border: 1px solid lightgrey;
-}
-
-#city-button {
-  display: block;
-  margin-top: 10px;
-  color: white;
-  border: 2px solid white;
-  background-color: $green;
-}
-
-#city-button:hover {
-  border: 2px solid $light-green;
-}
-
-#city-input {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-@media only screen and (max-width: 1090px) {
-
-  .profile-container {
-    width: 460px;
+  @media screen and (min-width: 550px) {
+    margin: 77px auto 40px auto;
+    background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1524241630/building_x4hvkw.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
   }
 
-}
-
-@media screen and (max-width: 515px) {
-
-  .profile-container {
-    width: 88%;
-    background-image: none;
+  &-explanation {
+    font-size: 40px;
+    margin-top: 35px;
+    width: 100%;
+    color: $green;
+    text-align: center;
   }
-
-  .profile-explanation {
-    font-size: 30px;
+  &-profilePic {
+    width: 75px;
+    display: block;
+    float: left;
+    padding: 2%;
+    & img {
+      border-radius: 100%;
+    }
   }
-
-  .profile-main-content {
-    padding: 0px;
+  &-userProfileHeading {
+    margin-top: 20px;
   }
-
+  &-profileMainContent {
+    display: grid;
+    grid-template-rows: 1fr 1.2fr 1.2fr;
+  }
+  &-profileTitle {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: grey;
+  }
+  &-cityTitle {
+    display: block;
+    color: grey;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  &-profileFormInput {
+    box-shadow: 1px 1px 3px lightgrey;
+    border: 1px solid lightgrey;
+  }
+  &-username {
+    margin-bottom: 10px;
+    color: $green;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 25px;
+  }
+  &-uploadButton {
+    display: block;
+    color: white;
+    border: 2px solid white;
+    background-color: $green;
+  }
+  &-cityButton {
+    display: block;
+    margin-top: 10px;
+  }
 }
