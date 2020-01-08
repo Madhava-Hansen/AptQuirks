@@ -1,7 +1,7 @@
 @import '../base/colors';
 
 footer {
-  background-color: $green;
+  background-color: $primary;
   height: 300px;
 }
 
@@ -15,7 +15,7 @@ footer {
 
 .footer-logo-text {
   display: inline-block;
-  color: $light-green;
+  color: $primary--light;
   font-size: 40px;
 }
 
@@ -29,7 +29,7 @@ footer {
   margin: 0 auto;
   margin-top: 20px;
   padding-top: 30px;
-  color: $light-green;
+  color: $primary--light;
 }
 
 .copyright {
@@ -61,7 +61,7 @@ footer {
   cursor: pointer;
   text-align: center;
   border-radius: 3px;
-  background-color: $green;
+  background-color: $primary;
   color: white;
 }
 
@@ -79,19 +79,19 @@ footer {
 .back-to-top {
   text-align: center;
   height: 40px;
-  background-color: $light-green;
+  background-color: $primary--light;
   margin-top: 150px;
 }
 
 .back-to-top-text {
-  color: $green;
+  color: $primary;
   text-align: center;
-  border-top: 12px solid $light-green;
+  border-top: 12px solid $primary--light;
 }
 
 .back-to-top-text:hover {
   cursor: pointer;
-  color: $dark-green;
+  color: $primary--dark;
 }
 
 @media screen and (max-width: 515px) {

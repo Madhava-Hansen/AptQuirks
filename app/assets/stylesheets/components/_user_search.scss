@@ -12,9 +12,9 @@
 }
 
 .user-search-index-item:hover {
-  color: $green;
+  color: $primary;
   cursor: pointer;
-  background-color: $light-green;
+  background-color: $primary--light;
 }
 
 #user-search-input {
@@ -28,6 +28,6 @@
 }
 
 .user-search-label {
-  color: $green;
+  color: $primary;
   font-size: 20px;
 }

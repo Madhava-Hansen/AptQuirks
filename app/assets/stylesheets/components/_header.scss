@@ -109,7 +109,7 @@
 }
 
 .dropdown-logout-button:hover {
-  border: 2px solid $light-green;
+  border: 2px solid $primary--light;
 
 }
 
@@ -117,7 +117,7 @@
   display: block;
   float: left;
   margin: 5px;
-  color: $green;
+  color: $primary;
   font-size: 20px;
   padding-bottom: 5px;
   margin-top: 15px;
@@ -129,8 +129,8 @@
   top: -35px;
   left: 93px;
   padding: 8px;
-  background-color: $green;
-  border: 1px solid $light-green;
+  background-color: $primary;
+  border: 1px solid $primary--light;
   border-radius: 5px;
   display: block;
   float: left;
@@ -139,7 +139,7 @@
 }
 
 .dropdown-my-profile:hover {
-  color: $light-green;
+  color: $primary--light;
 }
 
 .dropdown-image {
@@ -183,7 +183,7 @@
 }
 
 .header {
-  background-color: $green;
+  background-color: $primary;
   transition: background-color 2s;
   height: 60px;
   color: white;
@@ -197,7 +197,7 @@
 //search bar
 
 #autocomplete {
-  border: solid 1px $green;
+  border: solid 1px $primary;
 }
 
 .fa-search {
@@ -217,7 +217,7 @@
   height: 20px;
   margin-left: 0px;
   padding-left: 0px;
-  background-color: rgba(59, 152, 114, 0);;
+  background-color: $primary;
 }
 
 .search-input {
@@ -285,7 +285,7 @@
   }
 
   .logout:hover {
-    background-color: $green;
+    background-color: $primary;
     border-radius: 3px;
   }
 
@@ -310,7 +310,7 @@
   }
 
   .nav-link:hover {
-    background-color: $green;
+    background-color: $primary;
   }
 
   .nav-link-pic {
@@ -345,14 +345,14 @@
 
 .guest:hover {
   background-color: #363cb6;
-  color: $light-green;
+  color: $primary--light;
 }
 
 .opacity {
-  background-color: rgba(59, 152, 114, 0.9);
+  background-color: $primary;
   transition: background-color 2s;
   height: 60px;
-  color: $dark-green;
+  color: $primary--dark;
   box-shadow: 5px 0px 2px black;
   position: fixed;
   top: 0;

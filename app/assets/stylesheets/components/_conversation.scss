@@ -64,8 +64,8 @@
 
 .conversation-index-item:hover {
   cursor: pointer;
-  background-color: $light-green;
-  color: $green;
+  background-color: $primary--light;
+  color: $primary;
 }
 
 .new-message-button {
@@ -80,12 +80,12 @@
 
 .messages-index {
   overflow: scroll;
-  overflow-style: $green;
+  overflow-style: $primary;
   width: 60%;
   margin: 0 auto;
   padding-bottom: 20px;
   height: 260px;
-  border: 1px solid $light-green;
+  border: 1px solid $primary--light;
   padding: 15px;
 }
 
@@ -93,7 +93,7 @@
   display: block;
   float: left;
   text-align: center;
-  color: $green;
+  color: $primary;
   margin-top: 8px;
 
 }
@@ -112,7 +112,7 @@
   height: auto;
   border-radius: 100%;
   margin-left: 138px;
-  border: 2px solid $light-green;
+  border: 2px solid $primary--light;
   margin-right: 5px;
 }
 
@@ -160,7 +160,7 @@
 
 .current-user-message {
   text-align: right;
-  background-color: $green;
+  background-color: $primary;
   border-radius: 10px;
   color: white;
   margin-bottom: 7px;
@@ -183,7 +183,7 @@
   float: left;
   padding: 8px;
   border-radius: 5px;
-  color: $green;
+  color: $primary;
   margin-top: 17px;
   margin-left: 8px;
   margin-bottom: 10px;
@@ -193,7 +193,7 @@
 .inbox-nav {
   margin-bottom: 10px;
   margin-top: 17px;
-  border-bottom: 1px solid $light-green;
+  border-bottom: 1px solid $primary--light;
 }
 
 
@@ -212,8 +212,8 @@
 
   .conversation-index-item:hover {
     cursor: pointer;
-    background-color: $light-green;
-    color: $green;
+    background-color: $primary--light;
+    color: $primary;
   }
 
   .new-message-button {
@@ -236,7 +236,7 @@
     width: 50px;
     height: auto;
     border-radius: 100%;
-    border: 2px solid $light-green;
+    border: 2px solid $primary--light;
     margin-right: 5px;
     text-align: center;
     margin-left: 15px;

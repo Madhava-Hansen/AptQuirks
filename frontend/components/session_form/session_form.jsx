@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { receiveErrors } from '../../actions/session_actions';
+import { loadReCaptcha, ReCaptcha } from 'react-recaptcha-google'
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -9,6 +10,23 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.wipeOutErrors = this.wipeOutErrors.bind(this);
+  }
+
+  componentDidMount() {
+    loadReCaptcha();
+    if (this.captchaDemo) {
+      this.captchaDemo.reset();
+    }
+  }
+
+  onLoadRecaptcha() {
+    if (this.captchaDemo) {
+      this.captchaDemo.reset();
+    }
+  }
+
+  onChangeCapatcha() {
+    debugger;
   }
 
   componentDidUpdate() {
@@ -67,8 +85,19 @@ class SessionForm extends React.Component {
               placeholder="password..."
               onChange={this.update("password")}
             />
+            <div className="form-captcha">
+              <ReCaptcha
+                ref={(el) => {this.captchaDemo = el;}}
+                size="normal"
+                sitekey="6LdeUc0UAAAAAMzwWnZqiqWTmInhd4J57jryzc5C"
+                onloadCallback={this.onLoadRecaptcha}
+                verifyCallback={this.verifyCallback}
+                onChange={this.onChangeCapatcha}
+              />
+          </div>
           <button className="form-button" type="submit" value="submit">Submit</button>
         </form>
+
       </section>
     )
   }

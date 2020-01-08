@@ -1,7 +1,7 @@
 .session-form {
   display: grid;
-  margin-top: 77px;
-  height: 400px;
+  margin-top: 120px;
+  height: 430px;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
@@ -28,4 +28,8 @@
 
 #session-form-section {
   position: relative;
+}
+
+.form-captcha {
+  margin: 0 auto;
 }
