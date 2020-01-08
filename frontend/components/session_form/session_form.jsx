@@ -35,9 +35,9 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     if (!this.state.captchaVerified) {
       this.setState({showCaptchaError: true});
-      this.setTimeout(() => {
+      setTimeout(() => {
         this.setState({showCaptchaError: false})
-      }, 2000);
+      }, 4000);
     } else {
       e.preventDefault();
       const user = this.state;
@@ -52,9 +52,9 @@ class SessionForm extends React.Component {
   }
 
   wipeOutErrors() {
-      window.setTimeout(() => {
+      setTimeout(() => {
         this.props.dispatch(receiveErrors(null));
-      }, 5000)
+      }, 4000)
   }
 
   render() {
