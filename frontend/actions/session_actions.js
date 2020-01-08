@@ -1,6 +1,7 @@
 import * as APIUtil from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const RECEIVE_CAPTCHA_RESPONSE = "RECEIVE_CAPTCHA_RESPONSE"
 
 
 const receiveCurrentUser = user => ({
@@ -11,6 +12,11 @@ const receiveCurrentUser = user => ({
 const receiveErrors = err => ({
   type: RECEIVE_SESSION_ERRORS,
   err
+});
+
+const receiveCaptchaResponse = response => ({
+  type: RECEIVE_CAPTCHA_RESPONSE,
+  response
 });
 
 export const login = user => dispatch => (
@@ -34,6 +40,12 @@ export const logout = () => dispatch => (
 export const updateUser = user => dispatch => (
   APIUtil.updateUser(user)
   .then(user => dispatch(receiveCurrentUser(user)),
+  errors => dispatch(receiveErrors(errors.responseJSON)))
+);
+
+export const verifyCaptcha = response => dispatch => (
+  APIUtil.verifyCaptcha(response)
+  .then(responseObject => dispatch(receiveCaptchaResponse(responseObject.response)),
   errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 

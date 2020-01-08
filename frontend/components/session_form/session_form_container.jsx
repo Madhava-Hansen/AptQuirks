@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { login, signup } from '../../actions/session_actions';
+import { login, signup, verifyCaptcha } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 
@@ -7,7 +7,8 @@ const mapStateToProps = ({ session }) => {
   return {
     loggedIn: Boolean(session.currentUser),
     errors: session.errors,
-    dispatch: store.dispatch
+    dispatch: store.dispatch,
+    captchaVerified: session.captchaResponse
   }
 };
 
@@ -16,6 +17,7 @@ const mapDispatchToProps = (dispatch, { location }) => {
   const processForm = ( formType === 'login') ? login : signup;
 
   return {
+    verifyCaptcha: response => dispatch(verifyCaptcha(response)),
     processForm: user => dispatch(processForm(user)),
     formType
   };

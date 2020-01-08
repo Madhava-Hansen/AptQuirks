@@ -21,6 +21,14 @@ export const logout = () => {
   });
 };
 
+export const verifyCaptcha = response => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/session',
+    data: {response: response}
+  })
+} 
+
 export const updateUser = user => {
   return $.ajax({
     method: 'PATCH',

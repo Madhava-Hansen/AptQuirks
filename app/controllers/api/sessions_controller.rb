@@ -13,6 +13,14 @@ class Api::SessionsController < ApplicationController
     end
   end
 
+  def show 
+    if verify_recaptcha?(params[:response])
+      render json: true
+    else 
+      render json: false
+    end
+  end
+
   def destroy
     @user = current_user
     if @user

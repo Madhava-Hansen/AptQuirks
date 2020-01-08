@@ -1,4 +1,7 @@
-import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_SESSION_ERRORS, 
+  RECEIVE_CURRENT_USER, 
+  RECEIVE_CAPTCHA_RESPONSE 
+} from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 
@@ -11,6 +14,9 @@ const sessionReducer = (state = {}, action) => {
     case RECEIVE_SESSION_ERRORS:
       const errors = action.err;
       return merge({}, state, { errors });
+    case RECEIVE_CAPTCHA_RESPONSE:
+      const captchaResponse = action.response;
+      return merge({}, state, { captchaResponse })
     default:
       return state;
   };

@@ -1,32 +1,21 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { receiveErrors } from '../../actions/session_actions';
-import { loadReCaptcha, ReCaptcha } from 'react-recaptcha-google'
+import ReCAPTCHA from "react-google-recaptcha";
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: "", password: "", currentURL: ""};
+    this.state = {username: "", password: "", currentURL: "", captchaVerified: false};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.wipeOutErrors = this.wipeOutErrors.bind(this);
   }
 
-  componentDidMount() {
-    loadReCaptcha();
-    if (this.captchaDemo) {
-      this.captchaDemo.reset();
-    }
-  }
-
-  onLoadRecaptcha() {
-    if (this.captchaDemo) {
-      this.captchaDemo.reset();
-    }
-  }
-
-  onChangeCapatcha() {
-    debugger;
+  handleChange(response) {
+    this.props.verifyCaptcha(response).then(captchaVerified => {
+      this.setState({captchaVerified})
+    })
   }
 
   componentDidUpdate() {
@@ -44,9 +33,16 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    const user = this.state;
-    this.props.processForm({ user });
+    if (!this.state.captchaVerified) {
+      this.setState({showCaptchaError: true});
+      this.setTimeout(() => {
+        this.setState({showCaptchaError: false})
+      }, 2000);
+    } else {
+      e.preventDefault();
+      const user = this.state;
+      this.props.processForm({ user });
+    }
   }
 
   update(label) {
@@ -85,16 +81,16 @@ class SessionForm extends React.Component {
               placeholder="password..."
               onChange={this.update("password")}
             />
-            <div className="form-captcha">
-              <ReCaptcha
-                ref={(el) => {this.captchaDemo = el;}}
-                size="normal"
+            {this.state.showCaptchaError && (
+              <div className="session-errors">Please verify that you're not a robot with reCaptcha</div>
+            )}
+              <div className="recaptcha">
+              <ReCAPTCHA
                 sitekey="6LdeUc0UAAAAAMzwWnZqiqWTmInhd4J57jryzc5C"
-                onloadCallback={this.onLoadRecaptcha}
-                verifyCallback={this.verifyCallback}
-                onChange={this.onChangeCapatcha}
+                type="image"
+                onChange={response => this.handleChange(response)}
               />
-          </div>
+              </div>
           <button className="form-button" type="submit" value="submit">Submit</button>
         </form>
 

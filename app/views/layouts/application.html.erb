@@ -9,6 +9,9 @@
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['maps_key']}&libraries=places" %>
     <%= javascript_include_tag 'application' %>
     <script src="//widget.cloudinary.com/global/all.js" type="text/javascript" async></script>
+    <script>
+      
+    </script>
     <script type="text/javascript" async>
         window.cloudinary_options = {
           cloud_name: '<%= ENV['cloud_name'] %>',
@@ -19,7 +22,6 @@
           cropping_aspect_ratio: 1,
           cropping_show_dimensions: true
         }
-
         window.cloudinary_options_no_crop = {
           cloud_name: '<%= ENV['cloud_name'] %>',
           upload_preset: '<%= ENV['upload_presets']  %>',
