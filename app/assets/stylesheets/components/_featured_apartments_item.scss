@@ -7,9 +7,11 @@
 	position: relative;
 	transition: top .18s;
 	top: 0;
-	width: 280px;
-	height: 300px;
+	width: 200px;
+	height: 350px;
 	margin: 12px;
+	background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1507407948/apartment_building_drawing_zneqbz.gif");
+	background-position: center;
 	&:hover {
 		top: -3px;
 	}
@@ -18,13 +20,14 @@
 		background-color: rgba(128, 128, 128, 0.2 );
 		margin: 0 auto;
 		border-radius: 5px;
-		margin-top: 100px;
+		margin-top: 123px;
 	}
 	&-streetAddress {
 		font-size: 30px;
 		color: black;
 		font-weight: bold;
 		padding: 5px;
+		padding-top: 23px;
 	}
 	&-cityStateZip {
 		color: black;
@@ -38,8 +41,6 @@
 		color: white;
 		width: 350px;
 		height: 350px;
-		background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1507407948/apartment_building_drawing_zneqbz.gif");
-		background-position: center;
 		border-radius: 3px;
 		text-align: center;
 		border: 1px solid lightgrey;
@@ -50,11 +51,13 @@
 		}
 	}
 	@media screen and (min-width: 1200px) {
+		// hide one of the items when 4 won't fit on one row
 		&:nth-child(3) {
 			display: none;
 		}
 	}
 	@media screen and (min-width: 1505px) {
+		// bring 4th item back when it fits again
 		&:nth-child(3) {
 			display: block;
 		}
