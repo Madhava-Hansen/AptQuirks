@@ -16,13 +16,21 @@
   margin-top: 15px;
 }
 
-@media only screen and (min-width: 670px) {
+.quirks-index-container {
+  margin: 0 20px;
+}
+
+@media only screen and (min-width: 768px) {
   .quirk-index-item {
     display: flex;
   }
   .quirk-main-content {
     margin-left: 20px;
     margin-top: 0;
+  }
+  .quirks-index-container {
+    min-width: 600px;
+    max-width: 600px;
   }
 }
 
@@ -57,7 +65,6 @@
   overflow-y: scroll;
   border-radius: 0px 10px 10px 0px;
   min-height: 250px;
-  min-width: 600px;
   margin-top: 0;
 }
 
@@ -179,6 +186,12 @@
   color: $primary--light;
 }
 
+@media screen and (min-width: 1090px) {
+  .quirks-index-container {
+    max-width: 800px;
+    margin: 0;
+  }
+}
 
 @media screen and (max-width: 1090px) {
 
