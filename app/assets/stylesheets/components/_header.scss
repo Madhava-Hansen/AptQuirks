@@ -68,7 +68,7 @@
   cursor: pointer;
   color: black;
   font-size: 14px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .guest {
@@ -216,7 +216,7 @@
   transition: background-color 2s;
   height: 60px;
   color: white;
-  box-shadow: 5px 0px 2px black;
+  box-shadow: 5px 1px 5px lightgrey;
   position: fixed;
   top: 0;
   width: 100%;
@@ -384,7 +384,7 @@
   transition: background-color 2s;
   height: 60px;
   color: $primary--dark;
-  box-shadow: 5px 0px 2px black;
+  box-shadow: 5px 2px 5px lightgrey;
   position: fixed;
   top: 0;
   width: 100%;
