@@ -10,15 +10,20 @@ class Home extends React.Component {
 
   render() {
     return (
-      <main>
-        <div className="home-text-container">
-        <h1 className="home-main-text">
-          Get to know your next apartment before you sign a lease.
-        </h1>
-          <ApartmentSearchContainer />
+      <main className="Homepage">
+        <div className="Homepage-homeTextContainer">
+          <div className="Homepage-wrapper">
+            <div className="Homepage-textWrapper">
+              <h1 className="Homepage-headingText">
+                Get to know your next apartment
+              </h1>
+              <h3 className="Homepage-subHeadingText"> before you sign a lease.</h3>
+            </div>
+            <ApartmentSearchContainer />
+          </div>
         </div>
-        <section className="apartment-index-container">
-          <h1 className="featured-apartments-text">Featured Apartments</h1>
+        <section className="Homepage-apartmentIndexContainer">
+          <h1 className="Homepage-featuredApartmentsText">Featured Apartments</h1>
           <ApartmentIndexContainer />
         </section>
       </main>

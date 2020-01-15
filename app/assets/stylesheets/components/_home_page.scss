@@ -1,16 +1,82 @@
 @import '../base/colors';
 
-.home-main-text {
-  text-align: center;
-  font-size: 60px;
-  color: $primary;
-  border-bottom: steelblue;
-  font-weight: bolder;
-  width: 70%;
-  margin: 0 auto;
-  margin-bottom: 70px;
-  max-width: 1100px;
-  padding-top: 170px;
+.Homepage {
+  &-textWrapper {
+    text-align: center;
+    color: white;
+    border-bottom: steelblue;
+    font-weight: bolder;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    max-width: 1100px;
+  }
+  &-headingText {
+    font-size: 40px;
+    margin: 0px 0px 20px 0px;
+    text-shadow: -15px 10px 20px black;
+  }
+  &-subHeadingText {
+    font-size: 24px;
+  }
+  &-apartmentIndexContainer {
+    margin-bottom: 100px;
+  }
+  &-featuredApartmentsText {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 45px;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: steelblue;
+    font-family: serif;
+  }
+  &-wrapper {
+    z-index: 1;
+  }
+  &-homeTextContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://res.cloudinary.com/aptquirks/image/upload/v1578704085/pexels-photo-271816_tuarlv.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // account for the height of the header
+    padding-top: 60px;
+  }
+  @media screen and (min-width: 515px) {
+    &-featuredApartmentsText {
+      margin: 45px auto;
+      font-size: 65px;
+      font-weight: bolder;
+    }
+    &-headingText {
+      font-size: 50px;
+    }
+    &-subHeadingText {
+      font-size: 28px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    &-headingText {
+      font-size: 60px;
+      max-width: 700px;
+    }
+    &-subHeadingText {
+      font-size: 32px;
+    }
+  }
+  @media screen and (min-width: 900px) {
+    &-headingText {
+      font-size: 81px;
+    }
+    &-subHeadingText {
+      font-size: 42px;
+    }
+  }
 }
 
 //search bar and button
@@ -26,9 +92,7 @@
   display: block;
   float: left;
   height: 42px;
-  border-radius: 5px 0px 0px 5px;
-  font-size: 18px;
-  padding-left: 10px;
+
   margin-left: 0px;
   width: 400px;
   margin-left: 3%;
@@ -43,33 +107,24 @@
 }
 
 .search-button-home {
-  height: 35px;
-  width: 7%;
+  width: 62px;
+  height: 58px;
   padding: 0;
-  padding-left: 10px;
-  padding-top: 5px;
-  padding-right: 10px;
   border-radius: 0px 5px 5px 0px;
   border-left: none;
   background-color: $primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #home-magnifine-glass {
   width: 35px;
+  height: 35px;
 }
 
 #featured-apartments-divider {
   margin-bottom: 50px;
-}
-
-.featured-apartments-text {
-  text-align: center;
-  margin: 45px 0;
-  font-weight: bold;
-  font-size: 65px;
-  font-family: serif;
-  font-weight: bolder;
-  color: steelblue;
 }
 
 .apartment-index-image {
@@ -79,56 +134,23 @@
   margin: 0 auto;
 }
 
-.home-text-container {
-  width: 100vw;
-  height: 100vh;
-  background-image: url('https://res.cloudinary.com/aptquirks/image/upload/v1521318611/nycdrawing-2_mkbmbl.gif');
-  background-size: contain;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-color: white;
-  margin: 0 auto;
-}
-
 @media screen and (max-width: 1090px) {
 
   .home-main-text {
     font-size: 50px;
   }
-
-
-
   .search-input-home {
     width: 76%;
   }
-
   .search-button-home {
-    width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
+  
   .search-bar-container {
     width: 100%;
   }
-
-  .search-input-home {
-    width: 400px;
-  }
-
-}
-
-@media screen and (max-width: 900px) {
-
-    .home-text-container {
-      background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1521403351/nycdrawing-mobile_sfbjgg.gif");
-    }
-
-    .search-input-home {
-      width: 350px;
-    }
-
 }
 
 @media screen and (max-width: 515px) {
@@ -142,16 +164,6 @@
     padding-top: 10px;
   }
 
-  .home-text-container {
-    width: 100%;
-    max-width: 515px;
-    min-width: 320px;
-    height: 570px;
-    padding-top: 50px;
-    background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1521403351/nycdrawing-mobile_sfbjgg.gif");
-    background-position: cover;
-  }
-
   .header {
     width: 100%;
     min-width: 320px;
@@ -161,17 +173,6 @@
     font-size: 25px;
   }
 
-
-  .apartment-index-container {
-    text-align: center;
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 200px;
-    max-width: 425px;
-  }
-
-
-
   .footer-content {
     margin-top: 10px;
   }
@@ -180,23 +181,9 @@
   .search-form-home {
     padding-bottom: 40px;
   }
-
-  .featured-apartments-text {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 45px;
-    font-size: 50px;
-    text-align: center;
-  }
-  .search-input-home {
-    width: 250px;
-    font-size: 14px;
-  }
-
 }
 
   @media screen and (max-width: 320px) {
-
     .nav-right-reveal {
       right: -5px;
     }

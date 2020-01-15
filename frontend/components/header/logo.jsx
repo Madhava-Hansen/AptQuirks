@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class Logo extends React.Component {
   constructor(props) {
@@ -9,14 +8,13 @@ class Logo extends React.Component {
   render() {
     return (
       <li className="logo"  onClick={this.props.redirectHome}>
-        <img
-          src="https://res.cloudinary.com/aptquirks/image/upload/v1507407412/quirks-logo_hsygfd.gif"
-          alt="logo"/>
-        <h1>Apartment Quirks</h1>
+        <div className="logo-icon">
+          <h1 className="logo-icon-letter">Q</h1>
+        </div>
+        <h1 className="logo-text">Apartment Quirks</h1>
       </li>
     )
   }
-
 }
 
 export default Logo;
