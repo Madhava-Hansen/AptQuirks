@@ -66,7 +66,7 @@
   padding: 8px;
   border-radius: 3px;
   cursor: pointer;
-  color: black;
+  color: $textColor--black;
   font-size: 14px;
   letter-spacing: 0.5px;
 }
@@ -78,13 +78,13 @@
 
 @media screen and (min-width: 750px) {
   .nav-link {
-    color: black;
+    color: $textColor--black;
   }
 }
 
 .nav-link-pic {
   float: right;
-  margin-top: 4px;
+  margin-top: 2px;
   margin-left: 5px;
   padding: 7px;
   position: relative;
@@ -204,6 +204,7 @@
 
 .nav-right img {
   border-radius: 100%;
+  border: 2px solid $primary;
 }
 
 .header-profile-pic {

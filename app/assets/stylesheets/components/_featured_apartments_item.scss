@@ -3,6 +3,8 @@
 // styles for the featured aparments grid items on the homepage
 // (c) 2019 Apartments Quirks Inc
 
+@import '../base/colors';
+
 .FeaturedApartmentsItem {
 	position: relative;
 	transition: top .18s;
@@ -26,13 +28,13 @@
 	}
 	&-streetAddress {
 		font-size: 30px;
-		color: black;
+		color: $textColor--black;
 		font-weight: bold;
 		padding: 5px;
 		padding-top: 23px;
 	}
 	&-cityStateZip {
-		color: black;
+		color: $textColor--black;
 		font-weight: bold;
 		font-size: 25px;
 	}
