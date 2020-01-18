@@ -36,7 +36,8 @@ class Footer extends React.Component {
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
             <p className="footer-copyright">
-              (c) 2018 Apartment Quirks Inc.</p>
+              {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
+            </p>
           </div>
         </footer>
       )
