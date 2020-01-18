@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { SocialIcon } from 'react-social-icons';
 
 class Footer extends React.Component {
 
@@ -36,10 +35,6 @@ class Footer extends React.Component {
                 alt="logo"/>
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
-            <div className="footer-social-icons">
-              <SocialIcon target="_blank" url="https://www.facebook.com/apartmentquirks/"/>
-              <SocialIcon target="_blank" url="https://www.instagram.com/nesnahmade/"/>
-            </div>
             <p className="footer-copyright">
               {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
             </p>
