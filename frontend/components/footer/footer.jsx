@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { SocialIcon } from 'react-social-icons';
 
 class Footer extends React.Component {
 
@@ -35,6 +36,10 @@ class Footer extends React.Component {
                 alt="logo"/>
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
+            <div className="footer-social-icons">
+              <SocialIcon url="https://www.facebook.com/apartmentquirks/"/>
+              <SocialIcon url="https://www.instagram.com/nesnahmade/"/>
+            </div>
             <p className="footer-copyright">
               {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
             </p>
@@ -50,7 +55,7 @@ class Footer extends React.Component {
           <div className="footer-nav-container">
             <ul className="footer-nav">
               <li className="nav-link-footer" > <Link to="/login">login</Link></li>
-              {/* <li className="nav-link-footer" > <Link to="/signup">signup</Link> </li> */}
+              <li className="nav-link-footer" > <Link to="/signup">signup</Link> </li>
               <li className="nav-link-footer" > <Link to="/home">search</Link> </li>
             </ul>
           </div>

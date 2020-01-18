@@ -27,9 +27,17 @@ footer {
   text-align: center;
   width: 300px;
   margin: 0 auto;
-  margin-top: 20px;
-  padding-top: 30px;
+  padding-bottom: 40px;
   color: $primary--light;
+}
+
+.footer-social-icons {
+  width: 112px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
 .copyright {
