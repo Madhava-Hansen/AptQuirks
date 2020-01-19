@@ -106,8 +106,8 @@ class Greeting extends React.Component {
                   </div>
                 </div>
               </li>
-              <li className={"nav-link" + (this.state.currentUrl === 'inbox' ? ' isActive' : '')} onClick={() => this.handleRedirect('inbox')}>messages</li>
               <li className={"nav-link" + (this.state.currentUrl === 'home' ? ' isActive' : '')} onClick={() => this.handleRedirect('home')}>search</li>
+              <li className={"nav-link" + (this.state.currentUrl === 'inbox' ? ' isActive' : '')} onClick={() => this.handleRedirect('inbox')}>messages</li>
               <li className={"nav-link" + (this.state.currentUrl === 'profile' ? ' isActive' : '')} onClick={() => this.handleRedirect('profile')}>profile</li>
               <NavLink className="logout" to="/home" onClick={ this.logout }>logout</NavLink>
             </ul>

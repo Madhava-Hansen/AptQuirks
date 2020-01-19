@@ -51,15 +51,12 @@ class NewMessage extends React.Component {
             dispatch={dispatch}
            />
           <form autoComplete="off" onSubmit={this.handleUserSelection} className="new-message-form">
-            <label className="user-search-label">
-              To:
               <input
                 onChange={this.update}
                 className="form-input"
                 id="user-search-input"
                 placeholder="Enter username..."
               />
-            </label>
             <UserSearchIndex
               handleUserSelection={this.handleUserSelection}
               users={users}
