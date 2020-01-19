@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import {NavLink, withRouter} from 'react-router-dom';
+import {GreetingNavLink} from './greeting_nav_link';
 
 class Greeting extends React.Component {
 
@@ -12,7 +13,7 @@ class Greeting extends React.Component {
     this.setProfilePic = this.setProfilePic.bind(this);
     this.logout = this.logout.bind(this);
     this.location = window.location.href.split("/").pop();
-    this.state = { dropdown: "hidden", navRight: "nav-right", currentUrl: this.location };
+    this.state = { dropdown: "hidden", navRight: "nav-right", isSocialOpen: false, currentUrl: this.location };
     this.picturePath = "https://res.cloudinary.com/aptquirks/image/upload/v1507410965/ksuq2q0estyfuw3y93rj.jpg"
     this.triggered = false;
   }
@@ -79,6 +80,14 @@ class Greeting extends React.Component {
     this.setState({currentUrl: urlParam});
   }
 
+  hanleMouseEnter() {
+    this.setState({isSocialOpen: true});
+  }
+
+  handleMouseLeave() {
+    this.setState({isSocialOpen: false})
+  }
+
   render() {
     this.setProfilePic();
     const { currentUser } = this.props;
@@ -106,9 +115,25 @@ class Greeting extends React.Component {
                   </div>
                 </div>
               </li>
-              <li className={"nav-link" + (this.state.currentUrl === 'home' ? ' isActive' : '')} onClick={() => this.handleRedirect('home')}>search</li>
-              <li className={"nav-link" + (this.state.currentUrl === 'inbox' ? ' isActive' : '')} onClick={() => this.handleRedirect('inbox')}>messages</li>
-              <li className={"nav-link" + (this.state.currentUrl === 'profile' ? ' isActive' : '')} onClick={() => this.handleRedirect('profile')}>profile</li>
+              <GreetingNavLink
+                currentUrl={this.state.currentUrl}
+                urlParam='home'
+                handleClick={() => this.handleRedirect('home')}
+                linkName={'search'}
+              />
+              <li onMouseEnter={() => this.handleMouseEnter} className="nav-link">social</li>
+              <GreetingNavLink
+                currentUrl={this.state.currentUrl}
+                urlParam='inbox'
+                handleClick={() => this.handleRedirect('inbox')}
+                linkName={'messages'}
+              />
+              <GreetingNavLink
+                currentUrl={this.state.currentUrl}
+                urlParam='profile'
+                handleClick={() => this.handleRedirect('profile')}
+                linkName={'profile'}
+              />
               <NavLink className="logout" to="/home" onClick={ this.logout }>logout</NavLink>
             </ul>
           </div>
@@ -119,9 +144,25 @@ class Greeting extends React.Component {
               <img id="mobile-nav" className="nav-icon group" src="https://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"></img>
               <ul className={ this.state.navRight }>
                 {/* <li onClick={ this.logInGuest }className="nav-link guest">guest</li> */}
-                <li className={"nav-link" + (this.state.currentUrl === 'home' ? ' isActive' : '')} onClick={() => this.handleRedirect('home')}>search</li>
-                <li className={"nav-link" + (this.state.currentUrl === 'signup' ? ' isActive' : '')} onClick={() => this.handleRedirect('signup')} >Signup</li>
-                <li className={"nav-link" + (this.state.currentUrl === 'login' ? ' isActive' : '')} onClick={() => this.handleRedirect('login')} >Login</li>
+                <GreetingNavLink
+                  currentUrl={this.state.currentUrl}
+                  urlParam='home'
+                  handleClick={() => this.handleRedirect('home')}
+                  linkName={'search'}
+                />
+                <li onMouseEnter={() => this.handleMouseEnter} className="nav-link">social</li>
+                <GreetingNavLink
+                  currentUrl={this.state.currentUrl}
+                  urlParam='signup'
+                  handleClick={() => this.handleRedirect('signup')}
+                  linkName={'signup'}
+                />
+                <GreetingNavLink
+                  currentUrl={this.state.currentUrl}
+                  urlParam='login'
+                  handleClick={() => this.handleRedirect('login')}
+                  linkName={'login'}
+                />
               </ul>
             </div>
           )

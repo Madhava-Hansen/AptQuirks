@@ -35,6 +35,7 @@ footer {
   justify-content: space-between;
   width: 60px;
   margin: 12px auto;
+  color: $primary--light;
 }
 
 .copyright {
@@ -47,13 +48,10 @@ footer {
 }
 
 .footer-nav {
-  display: block;
-  float: center;
   margin: 0 auto;
   text-align: center;
-  width: 80%;
+  width: 100px;
   padding-top: 35px;
-  margin-bottom: 0px;
 }
 
 .nav-link-footer {
