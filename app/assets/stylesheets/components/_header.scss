@@ -69,17 +69,18 @@
   color: $textColor--black;
   font-size: 14px;
   letter-spacing: 0.5px;
+} 
+
+.isActive {
+  background-color: $primary;
+  color: white;
+  padding: 8px;
+  border-radius: 3px;
 }
 
 .guest {
   background-color: $primary;
   color: white;
-}
-
-@media screen and (min-width: 750px) {
-  .nav-link {
-    color: $textColor--black;
-  }
 }
 
 .nav-link-pic {
@@ -381,7 +382,7 @@
 }
 
 .opacity {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   transition: background-color 2s;
   height: 60px;
   color: $primary--dark;

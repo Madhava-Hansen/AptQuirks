@@ -4,7 +4,7 @@ import ApartmentSearchContainer from '../apartment/apartment_search_container';
 
 class Home extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     window.scrollTo(0, 0);
   }
 

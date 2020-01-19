@@ -9,7 +9,7 @@ class QuirkForm extends React.Component {
     this.update = this.update.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.apartmentId) {
       return;
     } else {

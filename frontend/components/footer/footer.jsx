@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 class Footer extends React.Component {
 
@@ -35,6 +36,11 @@ class Footer extends React.Component {
                 alt="logo"/>
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
+            {/* <div className="footer-icons">
+              <FontAwesomeIcon
+                icon="fab fa-500px"
+              /> */}
+            {/* </div> */}
             <p className="footer-copyright">
               {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
             </p>
@@ -62,6 +68,11 @@ class Footer extends React.Component {
                 alt="logo"/>
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
+            {/* <div className="footer-icons">
+              <FontAwesomeIcon
+                icon=""
+              />
+            </div> */}
             <p className="footer-copyright">
               {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
             </p>

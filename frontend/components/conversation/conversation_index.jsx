@@ -14,7 +14,7 @@ class ConversationIndex extends React.Component {
     this.fetchMessages = this.fetchMessages.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchConversations();
   }
 

@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const { currentUser, addPhoto, formType, errors } = this.props;
+    const { formType, errors } = this.props;
     let classNames = "form-container containers"
     this.errorClass = errors ? 'session-errors' : 'no errors';
     if (this.errorClass === 'session-errors') {

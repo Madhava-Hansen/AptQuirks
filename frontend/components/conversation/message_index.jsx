@@ -18,7 +18,7 @@ class MessageIndex extends React.Component {
     this.props.fetchMessages(messageObject);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.currentConversation === undefined) {
       this.conversationId = this.props.location.pathname.split("/").pop();
       this.props.fetchConversation({ conversation: { id: this.conversationId } });

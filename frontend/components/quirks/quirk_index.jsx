@@ -14,7 +14,7 @@ class QuirkIndex extends React.Component {
     this.setApartmentId = this.setApartmentId.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setApartmentId();
     this.props.fetchQuirks(this.apartmentId);
   }

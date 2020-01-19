@@ -12,7 +12,7 @@ class ApartmentShow extends React.Component {
     this.formattAddress = this.formattAddress.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (JSON.stringify(this.props.currentApartment) === JSON.stringify({})) {
       const id = this.props.location.pathname.split("/").pop();
       const formattedId = {apartment: {id: id}};

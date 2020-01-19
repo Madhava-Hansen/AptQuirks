@@ -102,7 +102,7 @@ class LikeButton extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setApartmentId();
     this.props.fetchLikes(this.apartmentId);
   }

@@ -6,12 +6,8 @@ import ApartmentShowContainer from './apartment/apartment_show_container';
 import SessionFormContainer from './session_form/session_form_container';
 import ProfileShowContainer from './profile/profile_show_container';
 import QuirkFormContainer from './quirks/quirk_form_container';
-import QuirkIndexContainer from './quirks/quirk_index_container';
-import ApartmentMap from './apartment_map/apartment_map';
-import ApartmentSearch from './apartment/apartment_search';
 import Home from './greeting/home';
 import FooterContainer from './footer/footer_container';
-import Header from './header/header';
 import MessageIndexContainer from './conversation/message_index_container';
 import NewMessageContainer from './conversation/new_message_container';
 import App from './app';
@@ -19,7 +15,6 @@ import App from './app';
 
 
 export const Root = ({ store }) => {
-  let currentUser = store.getState().session.currentUser;
   return (
     <Provider store={store} >
       <HashRouter>

@@ -100,7 +100,7 @@ class ImageIndex extends React.Component {
     this.setState({ slideshowIndex: index });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let idsObject = { image: {apartment_id: null} };
     let aptId;
     if (this.props.apartmentId === undefined) {
