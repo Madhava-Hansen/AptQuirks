@@ -45,7 +45,7 @@ class Greeting extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     if (this.props.location.pathname === "/") {
       this.props.history.push("/home");
     }
