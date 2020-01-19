@@ -2,7 +2,6 @@
 
 footer {
   background-color: $primary;
-  height: 255px;
 }
 
 .footer-logo img {
@@ -28,11 +27,14 @@ footer {
   width: 300px;
   margin: 0 auto;
   padding-bottom: 25px;
-  padding-top: 25px;
   color: $primary--light;
 }
 
 .footer-icons {
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+  margin: 12px auto;
 }
 
 .copyright {

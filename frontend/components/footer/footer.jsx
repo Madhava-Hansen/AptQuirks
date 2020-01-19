@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Footer extends React.Component {
 
@@ -36,11 +36,23 @@ class Footer extends React.Component {
                 alt="logo"/>
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
-            {/* <div className="footer-icons">
-              <FontAwesomeIcon
-                icon="fab fa-500px"
-              /> */}
-            {/* </div> */}
+            <div className="footer-icons">
+              <a target="_blank" href="https://www.facebook.com/apartmentquirks/">
+                <FontAwesomeIcon 
+                  className="social-icon" 
+                  size="2x" 
+                  icon={['fab', 'facebook']} 
+                  url="www.google.com"
+                  />
+              </a>
+              <a target="_blank" href="https://www.instagram.com/nesnahmade">
+                <FontAwesomeIcon 
+                  className="social-icon" 
+                  size="2x" 
+                  icon={['fab', 'instagram']} 
+                />
+              </a>
+            </div>
             <p className="footer-copyright">
               {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
             </p>
@@ -68,11 +80,19 @@ class Footer extends React.Component {
                 alt="logo"/>
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
-            {/* <div className="footer-icons">
-              <FontAwesomeIcon
-                icon=""
+            <div className="footer-icons">
+              <FontAwesomeIcon 
+                className="social-icon" 
+                size="2x" 
+                icon={['fab', 'facebook']} 
+                url="www.google.com"
               />
-            </div> */}
+              <FontAwesomeIcon 
+                className="social-icon" 
+                size="2x" 
+                icon={['fab', 'instagram']} 
+              />
+            </div>
             <p className="footer-copyright">
               {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
             </p>
