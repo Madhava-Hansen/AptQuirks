@@ -1,6 +1,8 @@
 import React from 'react';
 import {NavLink, withRouter} from 'react-router-dom';
 import {GreetingNavLink} from './greeting_nav_link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {GreetingSocialLink} from './greeting_social_link';
 
 class Greeting extends React.Component {
 
@@ -13,7 +15,12 @@ class Greeting extends React.Component {
     this.setProfilePic = this.setProfilePic.bind(this);
     this.logout = this.logout.bind(this);
     this.location = window.location.href.split("/").pop();
-    this.state = { dropdown: "hidden", navRight: "nav-right", isSocialOpen: false, currentUrl: this.location };
+    this.state = { 
+      dropdown: "hidden", 
+      navRight: "nav-right", 
+      isSocialOpen: false, 
+      currentUrl: this.location
+    };
     this.picturePath = "https://res.cloudinary.com/aptquirks/image/upload/v1507410965/ksuq2q0estyfuw3y93rj.jpg"
     this.triggered = false;
   }
@@ -80,12 +87,8 @@ class Greeting extends React.Component {
     this.setState({currentUrl: urlParam});
   }
 
-  hanleMouseEnter() {
-    this.setState({isSocialOpen: true});
-  }
-
-  handleMouseLeave() {
-    this.setState({isSocialOpen: false})
+  handleClickSocial() {
+    this.setState({isSocialOpen: !this.state.isSocialOpen});
   }
 
   render() {
@@ -121,7 +124,10 @@ class Greeting extends React.Component {
                 handleClick={() => this.handleRedirect('home')}
                 linkName={'search'}
               />
-              {/* <li onMouseEnter={() => this.handleMouseEnter} className="nav-link">social</li> */}
+              <GreetingSocialLink
+                handleClick={() => this.handleClickSocial()}
+                isSocialOpen={this.state.isSocialOpen}
+              />
               <GreetingNavLink
                 currentUrl={this.state.currentUrl}
                 urlParam='inbox'
@@ -150,7 +156,10 @@ class Greeting extends React.Component {
                   handleClick={() => this.handleRedirect('home')}
                   linkName={'search'}
                 />
-                {/* <li onMouseEnter={() => this.handleMouseEnter} className="nav-link">social</li> */}
+                <GreetingSocialLink
+                  handleClick={() => this.handleClickSocial()}
+                  isSocialOpen={this.state.isSocialOpen}
+                />
                 <GreetingNavLink
                   currentUrl={this.state.currentUrl}
                   urlParam='signup'

@@ -71,6 +71,38 @@
   letter-spacing: 0.5px;
 } 
 
+.social-link {
+  position: relative;
+}
+
+.social-popover {
+  position: absolute;
+  background-color: white;
+  border: 1px solid lightgrey;
+  left: -58px;
+  top: 39px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $textColor--black;
+  height: 48px;
+  width: 100px;
+}
+
+.social-icon-popover {
+  margin: 0 6px;
+}
+
+.social-dropdown-triangle {
+  width: 30px;
+  height: 18px;
+  position: absolute;
+  top: -14px;
+  left: 68px;
+}
+
 .isActive {
   background-color: $primary;
   color: white;
