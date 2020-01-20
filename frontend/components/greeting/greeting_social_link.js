@@ -5,7 +5,7 @@ export const GreetingSocialLink = ({handleClick, isSocialOpen}) =>
 	<li 
 	className="nav-link social-link" 
 	onClick={handleClick} >
-	<p>social</p>
+	<p id="social-link">social</p>
 		<div
 			className={isSocialOpen ? " social-popover" : " hidden" }>
 			<img className="social-dropdown-triangle" src="https://res.cloudinary.com/aptquirks/image/upload/v1521063568/triangle_butk5x.gif"></img>

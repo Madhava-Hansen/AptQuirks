@@ -26,10 +26,12 @@ class Greeting extends React.Component {
   }
 
   handleDropdownReveal(event) {
-  if (event.target.id === "pic") {
+    if (event.target.id === "social-link") {
+      return;
+    } else if (event.target.id === "pic") {
       this.toggleDropdown();
     } else if (event.target.id === "mobile-nav") {
-      this.handleMobileDropdown();
+      this.handleMobileDropdown(event);
     } else if (this.state.dropdown === "dropdown-class group") {
       this.setState({ dropdown: "hidden" });
     } else if (this.state.navRight === "nav-right-reveal") {
@@ -37,7 +39,7 @@ class Greeting extends React.Component {
     }
   }
 
-  handleMobileDropdown() {
+  handleMobileDropdown(event) {
     if (this.state.navRight === "nav-right") {
       this.setState({ navRight: "nav-right-reveal" });
     } else if (this.state.navRight === "nav-right-reveal") {
