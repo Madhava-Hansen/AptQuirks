@@ -81,17 +81,21 @@ class Footer extends React.Component {
               <h1 className="footer-logo-text">Apartment Quirks</h1>
             </section>
             <div className="footer-icons">
+            <a target="_blank" href="https://www.facebook.com/apartmentquirks/">
               <FontAwesomeIcon 
                 className="social-icon" 
                 size="2x" 
                 icon={['fab', 'facebook']} 
                 url="www.google.com"
               />
+            </a>
+            <a target="_blank" href="https://www.instagram.com/nesnahmade">
               <FontAwesomeIcon 
                 className="social-icon" 
                 size="2x" 
                 icon={['fab', 'instagram']} 
               />
+            </a>
             </div>
             <p className="footer-copyright">
               {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
