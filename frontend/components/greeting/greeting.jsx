@@ -121,7 +121,7 @@ class Greeting extends React.Component {
                 handleClick={() => this.handleRedirect('home')}
                 linkName={'search'}
               />
-              <li onMouseEnter={() => this.handleMouseEnter} className="nav-link">social</li>
+              {/* <li onMouseEnter={() => this.handleMouseEnter} className="nav-link">social</li> */}
               <GreetingNavLink
                 currentUrl={this.state.currentUrl}
                 urlParam='inbox'
@@ -150,7 +150,7 @@ class Greeting extends React.Component {
                   handleClick={() => this.handleRedirect('home')}
                   linkName={'search'}
                 />
-                <li onMouseEnter={() => this.handleMouseEnter} className="nav-link">social</li>
+                {/* <li onMouseEnter={() => this.handleMouseEnter} className="nav-link">social</li> */}
                 <GreetingNavLink
                   currentUrl={this.state.currentUrl}
                   urlParam='signup'
