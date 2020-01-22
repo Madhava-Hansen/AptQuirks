@@ -74,7 +74,7 @@ class Greeting extends React.Component {
 
   logout() {
     const { logout } = this.props;
-    window.setTimeout(logout, 500);
+    setTimeout(logout, 500);
   }
 
   setProfilePic() {

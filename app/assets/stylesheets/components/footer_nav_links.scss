@@ -1,0 +1,21 @@
+@import '../base/colors';
+
+.FooterNavContainer {
+	margin: 0 auto;
+	color: $primary--light;
+  text-align: center;
+  width: 100px;
+	padding-top: 35px;
+	&:hover {
+		cursor: pointer;
+		text-align: center;
+		border-radius: 3px;
+		background-color: $primary;
+		color: white;
+	}
+	&-link {
+		display: flex;
+		justify-content: center;
+		padding-top: 15px;
+	}
+}

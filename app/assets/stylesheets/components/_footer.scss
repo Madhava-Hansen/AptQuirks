@@ -4,10 +4,6 @@ footer {
   background-color: $primary;
 }
 
-.footer-logo img {
-  display: none;
-}
-
 .footer-pic {
   display: inline-block;
 }
@@ -16,10 +12,6 @@ footer {
   display: inline-block;
   color: $primary--light;
   font-size: 40px;
-}
-
-.footer-logo {
-  display: none;
 }
 
 .footer-copyright {
@@ -40,33 +32,6 @@ footer {
 
 .copyright {
   font-family: arial;
-}
-
-.footer-nav-container {
-  width: 100%;
-  margin: 0 auto;
-  color: $primary--light;
-}
-
-.footer-nav {
-  margin: 0 auto;
-  text-align: center;
-  width: 100px;
-  padding-top: 35px;
-}
-
-.nav-link-footer {
-  display: flex;
-  justify-content: center;
-  padding-top: 15px;
-}
-
-.footer-nav a:hover {
-  cursor: pointer;
-  text-align: center;
-  border-radius: 3px;
-  background-color: $primary;
-  color: white;
 }
 
 .social-icons {
