@@ -11,38 +11,31 @@ class Footer extends React.Component {
   }
 
    backToTop() {
-    window.scrollTo(0, 0);
+    scrollTo(0, 0);
    }
 
   render() {
       return (
-        <footer>
-          <div onClick={ this.backToTop } className="back-to-top">
-            <p className="back-to-top-text">back to top</p>
-          </div>
+        <footer className="Footer">
+          <div onClick={ this.backToTop } className="Footer-backToTop">back to top</div>
           <FooterNavLinks isLoggedIn={this.props.currentUser}/>
-          <div className="footer-content">
-            <div className="footer-icons">
-              <a target="_blank" href="https://www.facebook.com/apartmentquirks/">
-                <FontAwesomeIcon 
-                  className="social-icon" 
-                  size="2x" 
-                  icon={['fab', 'facebook']} 
-                  url="www.google.com"
-                  />
-              </a>
-              <a target="_blank" href="https://www.instagram.com/nesnahmade">
-                <FontAwesomeIcon 
-                  className="social-icon" 
-                  size="2x" 
-                  icon={['fab', 'instagram']} 
+          <div className="Footer-iconsWrapper">
+            <a target="_blank" href="https://www.facebook.com/apartmentquirks/">
+              <FontAwesomeIcon 
+                size="2x" 
+                icon={['fab', 'facebook']} 
                 />
-              </a>
-            </div>
-            <p className="footer-copyright">
-              {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
-            </p>
+            </a>
+            <a target="_blank" href="https://www.instagram.com/nesnahmade">
+              <FontAwesomeIcon 
+                size="2x" 
+                icon={['fab', 'instagram']} 
+              />
+            </a>
           </div>
+          <p className="Footer-copyright">
+            {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
+          </p>
         </footer>
       )
   }

@@ -1,70 +1,39 @@
+
+
 @import '../base/colors';
 
-footer {
+.Footer {
   background-color: $primary;
-}
-
-.footer-pic {
-  display: inline-block;
-}
-
-.footer-logo-text {
-  display: inline-block;
-  color: $primary--light;
-  font-size: 40px;
-}
-
-.footer-copyright {
-  text-align: center;
-  width: 300px;
-  margin: 0 auto;
-  padding-bottom: 25px;
-  color: $primary--light;
-}
-
-.footer-icons {
-  display: flex;
-  justify-content: space-between;
-  width: 66px;
-  margin: 12px auto;
-  color: $primary--light;
-}
-
-.copyright {
-  font-family: arial;
-}
-
-.social-icons {
-  width: 140px;
-  height: auto;
-  margin: 0 auto;
-  margin-bottom: 0px;
-}
-
-.social-icons:hover {
-  cursor: pointer;
-}
-
-.back-to-top {
-  text-align: center;
-  height: 40px;
-  background-color: $primary--light;
-  margin-top: 150px;
-}
-
-.back-to-top-text {
-  color: $primary;
-  text-align: center;
-  border-top: 12px solid $primary--light;
-}
-
-.back-to-top-text:hover {
-  cursor: pointer;
-  color: $primary--dark;
-}
-
-@media screen and (max-width: 515px) {
-  .back-to-top {
+  &-backToTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: $primary--light;
     margin-top: 70px;
+    color: $primary;
+    &:hover {
+      cursor: pointer;
+      color: $primary--dark;
+    }
+  }
+  &-iconsWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 66px;
+    margin: 12px auto;
+    color: $primary--light;
+  }
+  &-copyright {
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+    padding-bottom: 25px;
+    color: $primary--light;
+  }
+  @media screen and (min-width: 515px) {
+    &-backToTop {
+      margin-top: 150px;
+    }
   }
 }
