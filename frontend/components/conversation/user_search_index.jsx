@@ -7,32 +7,28 @@ class UserSearchIndex extends React.Component {
   }
 
   render() {
-    const { users, handleUserSelection, currentUser } = this.props;
-    let usersIndex;
-    if (users) {
-      const usersArray = Object.keys(users).map(key => users[key]);
-      usersIndex = usersArray.map((user, idx) => {
-        if (user.id === currentUser.id) {
-          return;
-        } else {
-          return (
-            <UserSearchIndexItem
-              user={user}
-              key={idx}
-              handleUserSelection={handleUserSelection}
-            />
-          )
-        }
-      });
-    } else {
-      usersIndex = "";
-    }
+    const {users, handleUserSelection, update} = this.props;
+    const usersArray = users ? Object.keys(users).map(key => users[key]) : [];
     return (
-      <div className="user-search-index">
-        <ul>
-          {usersIndex}
+      <form autoComplete="off" onSubmit={handleUserSelection} className="UserSearchIndex">
+        <input
+          onChange={update}
+          className="UserSearchIndex-input"
+          placeholder="Enter username..."
+        />
+        <ul className="UserSearchIndex-indexItems">
+          {usersArray.map((user, idx) => {
+            return (
+              <UserSearchIndexItem
+                user={user}
+                key={idx}
+                handleUserSelection={handleUserSelection}
+              />
+            )
+            })
+          }
         </ul>
-      </div>
+      </form>
     )
   }
 }

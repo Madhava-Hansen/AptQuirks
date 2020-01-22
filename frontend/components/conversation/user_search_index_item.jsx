@@ -3,7 +3,7 @@ import React from 'react';
 const UserSearchIndexItem = ({ user, handleUserSelection }) => {
   return (
     <li
-      className="user-search-index-item"
+      className="UserSearchIndexItem"
       onClick={() => handleUserSelection(user)}>
       {user.username}
     </li>

@@ -34,14 +34,12 @@ $desktop-breakpoint: 1090px;
 	&-quirksIndexWrapper {
 		margin: 0 20px;
 	}
-
   @media screen and (min-width: 768px) {
     &-apartmentDetailsContainer {
 		max-width: 600px;
 		margin: 0 auto;
     }
   }
-
   @media screen and (min-width: $desktop-breakpoint) {
 		display: flex;
 		margin: 80px 20px;
@@ -65,7 +63,6 @@ $desktop-breakpoint: 1090px;
 			margin: 0;
 		}
 	}
-	
 	@media screen and (min-width: 1240px) {
 		margin: 78px auto;
 	}
