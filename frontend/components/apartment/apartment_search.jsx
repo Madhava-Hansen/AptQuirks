@@ -11,9 +11,10 @@ class ApartmentSearch extends React.Component {
     this.formatAddress = this.formatAddress.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentApartment) {
-      nextProps.history.push(`/apartments/${nextProps.apartmentShow.id}`);
+  componentDidUpdate() {
+    const {props: {currentApartment}, props} = this;
+    if (currentApartment) {
+      props.history.push(`/apartments/${props.apartmentShow.id}`);
     }
   }
 
