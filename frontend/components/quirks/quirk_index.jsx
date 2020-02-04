@@ -19,8 +19,17 @@ class QuirkIndex extends React.Component {
     this.props.fetchQuirks(this.apartmentId);
   }
 
+  static getDerivedStateFromProps(nextProps) {
+    const {quirksIndex} = nextProps;
+    if (quirksIndex && quirksIndex.quirks) {
+      return {quirks: quirksIndex.quirks};
+    }
+
+    return null;
+  }
+
   setApartmentId() {
-    if (this.props.apartmentId === undefined) {
+    if (!this.props.apartmentId) {
       this.apartmentId = this.props.location.pathname.split("/").pop();
     } else {
       this.apartmentId = this.props.apartmentId;
@@ -58,21 +67,6 @@ class QuirkIndex extends React.Component {
         return;
       }
     })
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setApartmentId();
-    if (this.apartmentId != nextProps.apartmentId) {
-      this.props.fetchQuirks(nextProps.apartmentId).then(quirks => {
-        this.setState( { quirks: nextProps.quirksIndex.quirks } );
-        return;
-      })
-    }
-    if (nextProps.quirksIndex) {
-      if (nextProps.quirksIndex.quirks) {
-        this.setState({ quirks: nextProps.quirksIndex.quirks });
-      }
-    }
   }
 
   render() {

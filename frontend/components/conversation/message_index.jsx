@@ -10,45 +10,40 @@ class MessageIndex extends React.Component {
     this.update = this.update.bind(this);
     this.handleMessageSend = this.handleMessageSend.bind(this);
     this.fetchMessages = this.fetchMessages.bind(this);
-    this.setUserDetails = this.setUserDetails.bind(this);
-  }
-
-  fetchMessages(conversationId) {
-    const messageObject = { message: {conversation_id: conversationId} };
-    this.props.fetchMessages(messageObject);
   }
 
   componentDidMount() {
-    if (this.props.currentConversation === undefined) {
+    if (!this.props.currentConversation) {
       this.conversationId = this.props.location.pathname.split("/").pop();
       this.props.fetchConversation({ conversation: { id: this.conversationId } });
     } else {
       this.conversationId = this.props.currentConversation.id;
     }
     this.fetchMessages(this.conversationId);
-  }
-
-  setUserDetails(nextProps) {
-    let { currentConversation, currentUser } = nextProps;
-    let username = currentConversation.receiver_username === currentUser.username ?
-    currentConversation.sender_username : currentConversation.receiver_username;
-    let url = currentConversation.receiver_image_url ?
-    currentConversation.receiver_image_url :
-      "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
-      this.setState({username: username, url: url });
-  }
-
-  componentDidMount() {
     this.input = document.getElementById("message-form-input");
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.messagesIndex.messages) {
-      this.setState({messages: nextProps.messagesIndex.messages});
+  static getDerivedStateFromProps(nextProps) {
+    const messageObject = {messages: []};
+    const usernameObject = {username: ''};
+    const {messagesIndex, currentConversation, currentUser} = nextProps;
+    if (messagesIndex.messages) {
+      messageObject.messages = messagesIndex.messages;
     }
-    if (nextProps.currentConversation) {
-      this.setUserDetails(nextProps);
+    if (currentConversation) {
+      usernameObject.username = currentConversation.receiver_username === currentUser.username ?
+      currentConversation.sender_username : currentConversation.receiver_username;
+      const url = currentConversation.receiver_image_url ?
+      currentConversation.receiver_image_url :
+        "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
     }
+
+    return {...usernameObject, ...messageObject};
+  }
+
+  fetchMessages(conversationId) {
+    const messageObject = { message: {conversation_id: conversationId} };
+    this.props.fetchMessages(messageObject);
   }
 
   handleMessageSend(e) {
@@ -68,7 +63,7 @@ class MessageIndex extends React.Component {
   }
 
   render() {
-    const { fetchMessages, messagesIndex, currentUser, dispatch } = this.props;
+    const {currentUser, dispatch} = this.props;
     let messages;
     if (this.state.messages.length > 0) {
       messages = this.state.messages.map((message, idx) => {

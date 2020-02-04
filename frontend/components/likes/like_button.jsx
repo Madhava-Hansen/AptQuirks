@@ -72,14 +72,29 @@ class LikeButton extends React.Component {
       user_id: this.props.userId, id: this.currentLike.id }};
   }
 
-  componentWillReceiveProps(nextProps) {
+  // componentWillReceiveProps(nextProps) {
+  //   this.setApartmentId();
+  //   if (this.apartmentId != nextProps.apartmentId) {
+  //     this.props.fetchLikes(nextProps.apartmentId);
+  //   }
+  //   if (nextProps.likesIndex.likes) {
+  //     this.setState({ likes: nextProps.likesIndex.likes });
+  //   }
+  // }
+
+  componentDidUpdate(nextProps) {
     this.setApartmentId();
     if (this.apartmentId != nextProps.apartmentId) {
       this.props.fetchLikes(nextProps.apartmentId);
     }
+  }
+
+  static getDerivedStateFromProps(nextProps) {
     if (nextProps.likesIndex.likes) {
-      this.setState({ likes: nextProps.likesIndex.likes });
+      return {likes: nextProps.likesIndex.likes};
     }
+
+    return null;
   }
 
   handleLike() {

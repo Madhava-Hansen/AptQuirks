@@ -55,16 +55,13 @@ class Greeting extends React.Component {
     }
   }
 
-  componentWillMount() {
-    if (this.props.location.pathname === "/") {
-      this.props.history.push("/home");
-    }
-  }
-
   componentDidMount() {
     document.addEventListener("click", (event) => {
       this.handleDropdownReveal(event);
     });
+    if (this.props.location.pathname === "/") {
+      this.props.history.push("/home");
+    }
   }
 
   logInGuest() {
