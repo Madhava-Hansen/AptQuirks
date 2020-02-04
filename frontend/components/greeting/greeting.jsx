@@ -8,12 +8,6 @@ class Greeting extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleDropdownReveal = this.handleDropdownReveal.bind(this);
-    this.handleMobileDropdown = this.handleMobileDropdown.bind(this);
-    this.toggleDropdown = this.toggleDropdown.bind(this);
-    this.logInGuest = this.logInGuest.bind(this);
-    this.setProfilePic = this.setProfilePic.bind(this);
-    this.logout = this.logout.bind(this);
     this.location = window.location.href.split("/").pop();
     this.state = { 
       dropdown: "hidden", 
@@ -25,7 +19,16 @@ class Greeting extends React.Component {
     this.triggered = false;
   }
 
-  handleDropdownReveal(event) {
+  componentDidMount() {
+    document.addEventListener("click", (event) => {
+      this.handleDropdownReveal(event);
+    });
+    if (this.props.location.pathname === "/") {
+      this.props.history.push("/home");
+    }
+  }
+
+  handleDropdownReveal = event => {
     if (event.target.id === "social-link") {
       return;
     } else if (event.target.id === "pic") {
@@ -39,7 +42,7 @@ class Greeting extends React.Component {
     }
   }
 
-  handleMobileDropdown(event) {
+  handleMobileDropdown = () => {
     if (this.state.navRight === "nav-right") {
       this.setState({ navRight: "nav-right-reveal" });
     } else if (this.state.navRight === "nav-right-reveal") {
@@ -47,7 +50,7 @@ class Greeting extends React.Component {
     }
   }
 
-  toggleDropdown() {
+  toggleDropdown = () => {
     if (this.state.dropdown === "hidden") {
       this.setState({ dropdown: "dropdown-class group" });
     } else {
@@ -55,38 +58,29 @@ class Greeting extends React.Component {
     }
   }
 
-  componentDidMount() {
-    document.addEventListener("click", (event) => {
-      this.handleDropdownReveal(event);
-    });
-    if (this.props.location.pathname === "/") {
-      this.props.history.push("/home");
-    }
-  }
-
-  logInGuest() {
+  logInGuest = () => {
     this.setState({ navRight: "nav-right" });
     this.props.login({ user: { username: "guest", password: "password" } });
   }
 
-  logout() {
+  logout = () => {
     const { logout } = this.props;
     setTimeout(logout, 500);
   }
 
-  setProfilePic() {
+  setProfilePic = () => {
     const {currentUser} = this.props;
     if (currentUser && currentUser.thumbnail_url) {
       this.picturePath = this.props.currentUser.thumbnail_url;
     }
   }
 
-  handleRedirect(urlParam) {
+  handleRedirect = urlParam => {
     this.props.history.push(`/${urlParam}`);
     this.setState({currentUrl: urlParam});
   }
 
-  handleClickSocial() {
+  handleClickSocial = () => {
     this.setState({isSocialOpen: !this.state.isSocialOpen});
   }
 
