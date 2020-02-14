@@ -1,6 +1,6 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { HashRouter, Route } from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {BrowserRouter, Route} from 'react-router-dom';
 import ConversationsIndexContainer from './conversation/conversation_index_container';
 import ApartmentShowContainer from './apartment/apartment_show_container';
 import SessionFormContainer from './session_form/session_form_container';
@@ -14,10 +14,10 @@ import App from './app';
 
 
 
-export const Root = ({ store }) => {
+export const Root = ({store}) => {
   return (
     <Provider store={store} >
-      <HashRouter>
+      <BrowserRouter>
         <div>
           <App />
           <Route path="/home" component={ Home } ></Route>
@@ -31,8 +31,7 @@ export const Root = ({ store }) => {
           <Route path="/messages/:id" component={ MessageIndexContainer }></Route>
           <Route path="/" component={ FooterContainer } ></Route>
         </div>
-    </HashRouter>
+    </BrowserRouter>
     </Provider>
   )
-
 };
