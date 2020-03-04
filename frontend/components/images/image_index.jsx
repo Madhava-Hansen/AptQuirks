@@ -101,15 +101,8 @@ class ImageIndex extends React.Component {
   }
 
   componentDidMount() {
-    let idsObject = { image: {apartment_id: null} };
-    let aptId;
-    if (this.props.apartmentId === undefined) {
-      aptId = this.props.location.pathname.split('/').pop();
-      idsObject.image.apartment_id = aptId;
-    } else {
-      idsObject.image.apartment_id = this.props.apartmentShow.id;
-    }
-    this.props.fetchImages(idsObject);
+    let apartmentId = this.props.apartmentId || this.props.location.pathname.split('/').pop();
+    this.props.fetchImages(apartmentId);
   }
 
   render() {

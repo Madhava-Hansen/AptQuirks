@@ -14,7 +14,7 @@ const mapStateToProps = ({ images, apartmentShow, session }) => {
 const mapDispatchToProps = dispatch => {
   return {
     addImage: image => dispatch(addImage(image)),
-    fetchImages: ids => dispatch(fetchImages(ids))
+    fetchImages: apartmentId => dispatch(fetchImages(apartmentId))
   }
 }
 

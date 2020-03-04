@@ -1,15 +1,15 @@
 export const addImage = image => {
   return $.ajax({
     method: 'POST',
-    url: `api/apartments/${image.apartment_id}/images`,
+    url: `/api/apartments/${image.apartment_id}/images`,
     data: image
   });
 };
 
-export const fetchImages = ids => {
+export const fetchImages = apartment_id => {
   return $.ajax({
     method: 'GET',
-    url: `api/apartments/${ids.apartment_id}/images`,
-    data: ids
+    url: `/api/apartments/${apartment_id}/images`,
+    data: {image: {apartment_id: apartment_id}}
   });
 };

@@ -76,9 +76,7 @@ class ApartmentSearch extends React.Component {
         <div className="ApartmentSearch">
           <form className={ formClass } onSubmit={ this.handleSubmit }>
             <label>
-            {/* <input placeholder="Enter a street address..."
-              className={ inputClass } id="autocomplete" type="text"></input> */}
-            <input placeholder="Enter a street address..."
+            <input placeholder="Search for an address..."
               className="ApartmentSearch-searchInputHome" id="autocomplete" type="text"></input>
           </label>
             <button className={ buttonClass } type="submit" value="submit">
