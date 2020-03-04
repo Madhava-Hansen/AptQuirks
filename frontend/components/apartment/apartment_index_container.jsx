@@ -9,8 +9,8 @@ const mapStateToProps = ({ apartmentShow }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchApartments: ids => dispatch(fetchApartments(ids)),
-  fetchApartment: id => dispatch(fetchApartment(id))
+  fetchApartments: ids => dispatch(fetchApartments(ids, dispatch)),
+  fetchApartment: id => dispatch(fetchApartment(id, dispatch))
 });
 
 const ApartmentIndexContainer = connect(

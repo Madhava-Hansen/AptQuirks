@@ -2,6 +2,7 @@ import * as APIUtil from '../util/like_api_util';
 export const RECEIVE_LIKES = "RECEIVE_LIKES";
 export const RECEIVE_LIKE_ERRORS = "RECEIVE_LIKE_ERRORS";
 export const RECEIVE_CURRENT_LIKE = "RECEIVE_CURRENT_LIKE";
+export const RECEIVE_DELETE_LIKE = "RECEIVE_DELETE_LIKE";
 
 const receiveCurrentLike = like => ({
   type: RECEIVE_CURRENT_LIKE,
@@ -18,6 +19,11 @@ const receiveLikeErrors = errors => ({
   errors
 });
 
+const receiveDeleteLike = like => ({
+  type: RECEIVE_DELETE_LIKE,
+  like
+})
+
 
 export const like = like => dispatch => (
   APIUtil.like(like).then(
@@ -28,7 +34,7 @@ export const like = like => dispatch => (
 
 export const unlike = currentLike => dispatch => (
   APIUtil.unlike(currentLike).then(
-    () => () => {},
+    like => dispatch(receiveDeleteLike(like)),
     errors => dispatch(receiveQuirkErrors(errors.responseJSON))
   )
 );

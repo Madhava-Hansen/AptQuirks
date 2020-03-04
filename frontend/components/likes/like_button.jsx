@@ -1,93 +1,17 @@
 import React from 'react';
 import LikeCountComponenet from './like_count_component';
-import { withRouter } from 'react-router-dom';
-import { receiveLikes } from '../../actions/like_actions';
+import {withRouter} from 'react-router-dom';
 
 class LikeButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { likes: [] };
-    this.unlikTrigger = false;
-    this.likeCount = 0;
-    this.likesFetched = false;
-  }
-
-  revealLikeErrorMessage = () => {
-    let errors = document.getElementById("like-error-message");
-    errors.className = "like-error-message";
-    window.setTimeout(() => {
-      errors.className = "hidden";
-    }, 3000);
-  }
-
-  likeStatusChecker = () => {
-      let likesClone = this.state.likes.slice(0);
-      const that = this;
-      that.likeStatus = false;
-      for (let i = 0; i < likesClone.length; i ++) {
-        if (likesClone[i].user_id === that.props.userId) {
-          that.likeStatusSubFunc(likesClone, i);
-          return;
-        }
-    }
-
-    this.likeCount = likesClone.length;
-  }
-
-  dispatchAfterDelete = likesClone => {
-    let { dispatch } = this.props;
-    dispatch(receiveLikes(likesClone));
-  }
-
-  likeStatusSubFunc = (likesClone, idx) => {
-    if (this.unlikTrigger) {
-      likesClone.splice(idx, 1);
-      this.likeCount = likesClone.length;
-      this.dispatchAfterDelete(likesClone);
-      this.unlikTrigger = false;
-      this.currentLike = null;
-    } else {
-      this.likeCount = likesClone.length;
-      this.likeStatus = true;
-      this.currentLike = likesClone[idx];
-    }
-  }
-
-  setApartmentId = () => {
-    this.apartmentId = this.props.apartmentId || this.props.location.pathname.split("/").pop();
-  }
-
-  formattedLike = () => {
-    this.formattedLikeObject = {like: {apartment_id: this.apartmentId,
-      user_id: this.props.userId, id: this.currentLike.id }};
-  }
-
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.likesIndex.likes) {
-      return {likes: nextProps.likesIndex.likes};
-    }
-
-    return null;
-  }
-
-  handleLike = () => {
-    if (this.props.userId) {
-      let { apartmentId, userId } = this.props;
-      let ids = {like: {apartment_id: apartmentId, user_id: userId } };
-      this.props.like(ids);
-    } else {
-      this.revealLikeErrorMessage();
-    }
-  }
-
-  handleUnlike = () => {
-    this.unlikTrigger = true;
-    if (this.props.userId) {
-      this.props.unlike(this.formattedLikeObject);
-      this.likeStatusChecker();
-    } else {
-      this.revealLikeErrorMessage();
-    }
+    this.state = {
+      likes: [], 
+      likeId: null, 
+      isLiked: false, 
+      haveFetchedLikes: false,
+      errorClassName: 'hidden'
+    };
   }
 
   componentDidMount() {
@@ -95,36 +19,59 @@ class LikeButton extends React.Component {
     this.props.fetchLikes(this.apartmentId);
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const {likesIndex: {likes}, userId} = nextProps;
+    if ((likes && likes.length > 0) && (prevState.likes !== likes)) {
+      const like = likes.find(like => like.user_id === userId) || {};
+      return {likes: likes, likeId: like.id, isLiked: !!like.id, haveFetchedLikes: true}
+    };
+
+    return null;
+  }
+
+  revealLikeErrorMessage = () => {
+    this.setState({errorClassName: 'like-error-message'});
+    window.setTimeout(() => {
+      this.setState({errorClassName: 'hidden'})
+    }, 3000);
+  }
+
+  setApartmentId = () => {
+    this.apartmentId = this.props.apartmentId || this.props.location.pathname.split('/').pop();
+  }
+
+  handleLike = () => {
+    const {userId, apartmentId, like} = this.props;
+    like({apartmentId, userId})
+  }
+
+  handleUnlike = () => {
+    const {apartmentId, userId, unlike} = this.props;
+    unlike({apartmentId: apartmentId, userId: userId, likeId: this.state.likeId}).then(() => {
+      this.setState({likeId: null, isLiked: null});
+    });
+  }
+
   render() {
-    this.likeStatusChecker(this.state.likes);
-    if (this.likeStatus) {
-      this.formattedLike();
-    }
-    if (this.likeStatus) {
+      const enableLikes = this.state.haveFetchedLikes && this.props.userId;
       return (
-        <ul className="like">
-          <li className="like-button">
-            <button className="liked-button" onClick={ this.handleUnlike }>like</button>
-          </li>
-          <li className="like-count">
-            <LikeCountComponenet count={ this.likeCount } likeStatus={ this.likeStatus } />
-          </li>
-          <p id="like-error-message" className="hidden">Please login to like things!</p>
-        </ul>
+        <div className='like'>
+          <div className='like-button'>
+            <button 
+              className={this.state.isLiked ? 'liked-button' : ''} 
+              onClick={enableLikes ? (this.state.isLiked ? this.handleUnlike : this.handleLike) : this.revealLikeErrorMessage}>
+              like
+            </button>
+          </div>
+          <div className='like-count'>
+            <LikeCountComponenet 
+              count={this.state.likes.length} 
+              isLiked={this.state.isLiked} 
+            />
+          </div>
+          <p id='like-error-message' className={this.state.errorClassName}>Please login to like things!</p>
+        </div>
       )
-    } else {
-      return (
-        <ul className="like">
-          <li className="like-button">
-            <button onClick={ this.handleLike }>like</button>
-          </li>
-          <li className="like-count">
-            <LikeCountComponenet count={ this.likeCount } likeStatus={ this.likeStatus } />
-          </li>
-          <p id="like-error-message" className="hidden">Please login to like things!</p>
-        </ul>
-      )
-    }
   }
 }
 

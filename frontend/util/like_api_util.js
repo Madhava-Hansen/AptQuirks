@@ -1,16 +1,16 @@
-export const like = like => {
+export const like = ({apartmentId, userId}) => {
   return $.ajax({
     method: 'POST',
-    url: `/api/apartments/${like.apartment_id}/likes`,
-    data: like
+    url: `/api/apartments/${apartmentId}/likes`,
+    data: {like: {apartment_id: apartmentId, user_id: userId}}
   });
 };
 
-export const unlike = like => {
+export const unlike = ({apartmentId, userId, likeId}) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/apartments/${like.apartment_id}/likes/${like.id}`,
-    data: like
+    url: `/api/apartments/${apartmentId}/likes/${userId}`,
+    data: {like: {apartment_id: apartmentId, user_id: userId, id: likeId}}
   });
 };
 

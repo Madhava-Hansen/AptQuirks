@@ -1,4 +1,4 @@
-import { RECEIVE_LIKE, RECEIVE_CURRENT_LIKE, RECEIVE_LIKE_ERRORS, RECEIVE_LIKES } from '../actions/like_actions';
+import { RECEIVE_DELETE_LIKE, RECEIVE_CURRENT_LIKE, RECEIVE_LIKE_ERRORS, RECEIVE_LIKES } from '../actions/like_actions';
 import merge from 'lodash/merge';
 
 const likesReducer = (state = {}, action) => {
@@ -14,6 +14,9 @@ const likesReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_LIKE_ERRORS:
       newState["errors"] = action.errors;
+      return newState;
+    case RECEIVE_DELETE_LIKE:
+      newState["likes"] = newState.likes.filter(like => like.id !== action.like.id);
       return newState;
     default:
       return state;
