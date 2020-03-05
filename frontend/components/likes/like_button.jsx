@@ -8,7 +8,6 @@ class LikeButton extends React.Component {
     this.state = {
       likes: [], 
       likeId: null, 
-      isLiked: false, 
       haveFetchedLikes: false,
       errorClassName: 'hidden'
     };
@@ -23,7 +22,7 @@ class LikeButton extends React.Component {
     const {likesIndex: {likes}, userId} = nextProps;
     if ((likes && likes.length > 0) && (prevState.likes !== likes)) {
       const like = likes.find(like => like.user_id === userId) || {};
-      return {likes: likes, likeId: like.id, isLiked: !!like.id, haveFetchedLikes: true}
+      return {likes: likes, likeId: like.id, haveFetchedLikes: true}
     };
 
     return null;
@@ -31,7 +30,7 @@ class LikeButton extends React.Component {
 
   revealLikeErrorMessage = () => {
     this.setState({errorClassName: 'like-error-message'});
-    window.setTimeout(() => {
+    setTimeout(() => {
       this.setState({errorClassName: 'hidden'})
     }, 3000);
   }
@@ -48,25 +47,26 @@ class LikeButton extends React.Component {
   handleUnlike = () => {
     const {apartmentId, userId, unlike} = this.props;
     unlike({apartmentId: apartmentId, userId: userId, likeId: this.state.likeId}).then(() => {
-      this.setState({likeId: null, isLiked: null});
+      this.setState({likeId: null});
     });
   }
 
   render() {
       const enableLikes = this.state.haveFetchedLikes && this.props.userId;
+      const isLiked = !!this.state.likeId;
       return (
         <div className='like'>
           <div className='like-button'>
             <button 
-              className={this.state.isLiked ? 'liked-button' : ''} 
-              onClick={enableLikes ? (this.state.isLiked ? this.handleUnlike : this.handleLike) : this.revealLikeErrorMessage}>
+              className={isLiked ? 'liked-button' : ''} 
+              onClick={enableLikes ? (isLiked ? this.handleUnlike : this.handleLike) : this.revealLikeErrorMessage}>
               like
             </button>
           </div>
           <div className='like-count'>
             <LikeCountComponenet 
               count={this.state.likes.length} 
-              isLiked={this.state.isLiked} 
+              isLiked={isLiked} 
             />
           </div>
           <p id='like-error-message' className={this.state.errorClassName}>Please login to like things!</p>
