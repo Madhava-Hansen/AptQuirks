@@ -3,26 +3,17 @@ import ApartmentShow from './apartment_show';
 import { fetchQuirks } from '../../actions/quirk_actions';
 import { fetchApartment } from '../../actions/search_actions';
 
-const mapStateToProps = ({ apartmentShow, quirksIndex, session, likes }) => {
-  if (session.currentUser) {
-    return {
-      currentApartment: apartmentShow,
-      quirks: quirksIndex,
-      userId: session.currentUser.id,
-      apartmentId: apartmentShow.id,
-      currentLike: likes.currentLike,
-    }
-  } else {
-      return {
-        currentApartment: apartmentShow,
-        quirks: quirksIndex,
-        userId: "1",
-        apartmentId: apartmentShow.id,
-        currentLike: likes.currentLike,
-    }
-  }
-
-};
+const mapStateToProps = ({ apartmentShow, quirksIndex, session, likes }) => ({
+    currentApartment: {
+      address: apartmentShow.street_address,
+      longitude: apartmentShow.longitude, 
+      latitude: apartmentShow.latitude
+    },
+    quirks: quirksIndex,
+    userId: session.currentUser && session.currentUser.id || "1",
+    apartmentId: apartmentShow.id,
+    currentLike: likes.currentLike,
+});
 
 const mapDispatchToProps = dispatch => ({
   addComment: comment => dispatch(addComment({comment})),

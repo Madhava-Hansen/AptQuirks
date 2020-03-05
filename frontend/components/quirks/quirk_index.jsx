@@ -1,17 +1,15 @@
 import React from 'react';
-import QuirkIndexItem from './quirk_index_item';
-import QuirkForm from './quirk_form';
-import { Link, withRouter } from 'react-router-dom';
-import { receiveQuirks } from '../../actions/quirk_actions';
+import {QuirkIndexItem} from './quirk_index_item';
+import {withRouter} from 'react-router-dom';
+import {receiveQuirks} from '../../actions/quirk_actions';
 
 class QuirkIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { quirks: [], revealQuirk: "hidden" };
-    this.revealQuirk = "hidden";
-    this.revealQuirkInfo = this.revealQuirkInfo.bind(this);
-    this.redirectToAddQuirk = this.redirectToAddQuirk.bind(this);
-    this.setApartmentId = this.setApartmentId.bind(this);
+    this.state = {
+      quirks: [], 
+      revealQuirk: "hidden"
+    };
   }
 
   componentDidMount() {
@@ -28,7 +26,7 @@ class QuirkIndex extends React.Component {
     return null;
   }
 
-  setApartmentId() {
+  setApartmentId = () => {
     if (!this.props.apartmentId) {
       this.apartmentId = this.props.location.pathname.split("/").pop();
     } else {
@@ -36,7 +34,7 @@ class QuirkIndex extends React.Component {
     }
   }
 
-  revealQuirkInfo() {
+  revealQuirkInfo = () => {
     if (this.state.revealQuirk === "hidden") {
       this.setState({revealQuirk: "reveal-quirk-info group" });
     } else {
@@ -44,7 +42,7 @@ class QuirkIndex extends React.Component {
     }
   }
 
-  redirectToAddQuirk() {
+  redirectToAddQuirk = () => {
     if (this.props.currentUser) {
       this.props.history.push(`/addquirk/${this.props.apartmentId}`)
     } else {
@@ -56,7 +54,7 @@ class QuirkIndex extends React.Component {
     }
   }
 
-  deleteQuirk(ids, that) {
+  deleteQuirk = (ids, that) => {
     let { deleteQuirk, dispatch } = that.props;
     deleteQuirk(ids);
     let quirksClone = that.props.quirksIndex.quirks.slice(0);
@@ -70,7 +68,7 @@ class QuirkIndex extends React.Component {
   }
 
   render() {
-    const { userId, apartmentId, currentUser, addQuirk, username, apartmentShow } = this.props;
+    const {currentUser, apartmentShow} = this.props;
     let quirksHeader = "quirks-header group"
     return (
       <aside className="quirks-index-container">
@@ -89,15 +87,16 @@ class QuirkIndex extends React.Component {
           </div>
         </div>
         <ul>
-          { this.state.quirks
-            .map((quirk, idx) => <QuirkIndexItem
-             deleteQuirk={ this.deleteQuirk }
-             that={ this }
-             quirk={ quirk }
-             key={ idx }
-             currentUser={ currentUser }
-           />) }
-
+          {this.state.quirks
+            .map((quirk, idx) => 
+              <QuirkIndexItem
+                deleteQuirk={ this.deleteQuirk }
+                that={this}
+                quirk={quirk}
+                key={idx}
+                currentUser={currentUser}
+              />)
+           }
         </ul>
       </aside>
     )

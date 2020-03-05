@@ -6,59 +6,66 @@ import ImageIndexContainer from '../images/image_index_container';
 import ErrorBoundary from '../error_boundary/error_boundary';
 
 class ApartmentShow extends React.Component {
+
   constructor(props) {
     super(props);
-    this.state = ({currentApartment: ""});
-    this.formattAddress = this.formattAddress.bind(this);
+    this.state = ({currentApartment: {}});
   }
 
   componentDidMount() {
     if (JSON.stringify(this.props.currentApartment) === JSON.stringify({})) {
-      const id = this.props.location.pathname.split("/").pop();
-      const formattedId = {apartment: {id: id}};
-      this.props.fetchApartment(formattedId);
+      const apartmentId = this.props.location.pathname.split("/").pop();
+      this.props.fetchApartment( {apartment: {id: apartmentId}});
     }
     window.scrollTo(0, 0);
   }
 
-  formattAddress() {
-    let addressArray = this.props.currentApartment.street_address.split(",");
-    this.streetAddress = addressArray[0];
-    this.cityStateZip = [addressArray[1], addressArray[2]].join(",");
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (JSON.stringify(nextProps.currentApartment) !== JSON.stringify(prevState.currentApartment)) {
+      const addressArray = nextProps.currentApartment.address.split(",");
+      const streetAddress = addressArray[0];
+      const cityStateZip = [addressArray[1], addressArray[2]].join(",");
+      return {
+        currentApartment: {streetAddress, cityStateZip, ...nextProps.currentApartment}, 
+      };
+    }
+
+    return null;
   }
 
-  render() {
-    const { userId, apartmentId } = this.props;
-    if (apartmentId) {
-      this.formattAddress();
-    }
+  hasApartmentData = currentApartment => Object.keys(currentApartment).length > 0;
 
-    let classes = "group ApartmentShowWrapper"
-      return(
-        <section className={ classes }>
-          <div className="ApartmentShowWrapper-apartmentDetailsContainer">
-            <article className="ApartmentShowWrapper-apartmentShow">
-              <div className="ApartmentShowWrapper-addressWrapper">
-                <h1 className="ApartmentShowWrapper-streetAddress">{ this.streetAddress }</h1>
-                <h3 className="ApartmentShowWrapper-cityStateZip">{ this.cityStateZip }</h3>
-              </div>
-            <div className="ApartmentShowWrapper-mapWrapper">
-              <ApartmentMap currentApartment={ this.props.currentApartment } />
+  render() {
+    const {currentApartment} = this.state;
+    const shouldShowApartment = this.hasApartmentData(currentApartment);
+    return(
+      <section className="ApartmentShowWrapper">
+        <div className="ApartmentShowWrapper-apartmentDetailsContainer">
+        {shouldShowApartment && (
+          <article className="ApartmentShowWrapper-apartmentShow">
+            <div className="ApartmentShowWrapper-addressWrapper">
+              <h1 className="ApartmentShowWrapper-streetAddress">{currentApartment.streetAddress}</h1>
+              <h3 className="ApartmentShowWrapper-cityStateZip">{currentApartment.cityStateZip}</h3>
             </div>
-            <div className="group">
-              <LikeButtonContainer />
-            </div>
-            </article>
-            <ErrorBoundary>
-              <ImageIndexContainer />
-            </ErrorBoundary>
+          <div className="ApartmentShowWrapper-mapWrapper">
+            <ApartmentMap currentApartment={currentApartment} />
           </div>
-            <aside className="quirksIndexWrapper">
-              <QuirkIndexContainer />
-            </aside>
-        </section>
-      )
-    }
+
+          <div className="group">
+            <LikeButtonContainer />
+          </div>
+          </article>
+          )}
+          <ErrorBoundary>
+            <ImageIndexContainer />
+          </ErrorBoundary>
+        </div>
+          <aside className="quirksIndexWrapper">
+            <QuirkIndexContainer />
+          </aside>
+      </section>
+    )
+  }
 }
 
 export default ApartmentShow;
