@@ -25,6 +25,7 @@ class ApartmentShow extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (JSON.stringify(nextProps.currentApartment) !== JSON.stringify(prevState.currentApartment)) {
+      sessionStorage.setItem('apartmentId', `${nextProps.apartmentId}`);
       const addressArray = nextProps.currentApartment.address.split(",");
       const streetAddress = addressArray[0];
       const cityStateZip = [addressArray[1], addressArray[2]].join(",");
