@@ -8,7 +8,8 @@ class QuirkIndex extends React.Component {
     super(props);
     this.state = {
       quirks: [], 
-      revealQuirk: "hidden"
+      revealQuirk: false,
+      addQuirkErrorClassName: 'hidden'
     };
   }
 
@@ -25,54 +26,37 @@ class QuirkIndex extends React.Component {
     return null;
   }
 
-  revealQuirkInfo = () => {
-    if (this.state.revealQuirk === "hidden") {
-      this.setState({revealQuirk: "reveal-quirk-info group" });
-    } else {
-      this.setState({revealQuirk: "hidden" });
-    }
-  }
+  handleRevealQuirkInfo = () => this.setState({revealQuirk: !this.state.revealQuirk});
 
   redirectToAddQuirk = () => {
     if (this.props.currentUser) {
       this.props.history.push(`/addquirk/${this.props.apartmentId}`)
     } else {
-      let errors = document.getElementById("add-quirk-error-message");
-      errors.className = "add-quirk-error-message";
+      this.setState({addQuirkErrorClassName: "add-quirk-error-message"});
       window.setTimeout(() => {
-        errors.className = "hidden";
+        this.setState({addQuirkErrorClassName: 'hidden'});
       }, 3000)
     }
   }
 
-  deleteQuirk = (ids, that) => {
-    let { deleteQuirk, dispatch } = that.props;
-    deleteQuirk(ids);
-    let quirksClone = that.props.quirksIndex.quirks.slice(0);
-    quirksClone.map((quirk, idx) => {
-      if (quirk.id === ids.id) {
-        quirksClone.splice(idx, 1);
-        dispatch(receiveQuirks(quirksClone));
-        return;
-      }
-    })
-  }
-
   render() {
     const {currentUser, apartmentShow} = this.props;
-    let quirksHeader = "quirks-header group"
     return (
       <aside className="quirks-index-container">
-        <div className={ quirksHeader }>
-          <button className="add-quirk-button" onClick={ this.redirectToAddQuirk }>add quirk</button>
-          <p className="whats-a-quirk" onClick={ this.revealQuirkInfo }> - What's a quirk?</p>
-          <p id="add-quirk-error-message" className="hidden">Please login to add a quirk!</p>
-          <div className={ this.state.revealQuirk }>
+        <div className="quirks-header group">
+          <button className="add-quirk-button" onClick={this.redirectToAddQuirk}>add quirk</button>
+          <p className="whats-a-quirk" onClick={this.handleRevealQuirkInfo}> - What's a quirk?</p>
+          <p 
+            id="add-quirk-error-message" 
+            className={this.state.addQuirkErrorClassName}>
+            Please login to add a quirk!
+          </p>
+          <div className={this.state.revealQuirk ? 'reveal-quirk-info group' : 'hidden'}>
             <div className="quirk-info-absolute">
-              <p onClick={ this.revealQuirkInfo } className="close-quirk-info">close</p>
+              <p onClick={this.handleRevealQuirkInfo} className="close-quirk-info">close</p>
               <p className="whats-a-quirk-text">
                 A quirk is a story about what it was like living at a house or apartment. Help other people out
-                 by telling your story about living at { apartmentShow.street_address }!
+                 by telling your story about living at {apartmentShow.street_address}!
               </p>
             </div>
           </div>
@@ -81,7 +65,7 @@ class QuirkIndex extends React.Component {
           {this.state.quirks
             .map((quirk, idx) => 
               <QuirkIndexItem
-                deleteQuirk={ this.deleteQuirk }
+                deleteQuirk={this.deleteQuirk}
                 that={this}
                 quirk={quirk}
                 key={idx}
