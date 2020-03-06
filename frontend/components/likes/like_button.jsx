@@ -1,6 +1,5 @@
 import React from 'react';
 import LikeCountComponenet from './like_count_component';
-import {withRouter} from 'react-router-dom';
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -34,10 +33,7 @@ class LikeButton extends React.Component {
     }, 3000);
   }
 
-  handleLike = () => {
-    const {userId, apartmentId, like} = this.props;
-    like({apartmentId, userId})
-  }
+  handleLike = () => this.props.like({apartmentId: this.props.apartmentId, userId: this.props.userId})
 
   handleUnlike = () => {
     const {apartmentId, userId, unlike} = this.props;
@@ -70,4 +66,4 @@ class LikeButton extends React.Component {
   }
 }
 
-export default withRouter(LikeButton);
+export default LikeButton;

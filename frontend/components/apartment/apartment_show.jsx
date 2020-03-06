@@ -9,7 +9,7 @@ class ApartmentShow extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = ({currentApartment: {}, apartmentId: null});
+    this.state = ({currentApartment: {}});
   }
 
   componentDidMount() {
@@ -29,8 +29,7 @@ class ApartmentShow extends React.Component {
       const streetAddress = addressArray[0];
       const cityStateZip = [addressArray[1], addressArray[2]].join(",");
       return {
-        currentApartment: {streetAddress, cityStateZip, ...nextProps.currentApartment}, 
-        apartmentId: nextProps.apartmentId
+        currentApartment: {streetAddress, cityStateZip, ...nextProps.currentApartment}
       };
     }
 

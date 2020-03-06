@@ -1,17 +1,15 @@
 import React from 'react';
 import ApartmentIndexItem from './apartment_index_item';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 class ApartmentIndex extends React.Component {
 
   constructor(props) {
     super(props);
-    this.redirectToAptShow = this.redirectToAptShow.bind(this)
   }
 
-  redirectToAptShow(apartmentId) {
-    const formattedId = {apartment: {id: apartmentId}}
-    this.props.fetchApartment(formattedId).then(() => {
+  redirectToAptShow = apartmentId => {
+    this.props.fetchApartment({apartment: {id: apartmentId}}).then(() => {
       this.props.history.push(`/apartments/${apartmentId}`)
     })
   }
@@ -22,7 +20,7 @@ class ApartmentIndex extends React.Component {
   }
 
   render() {
-    const { apartmentIndex } = this.props;
+    const {apartmentIndex} = this.props;
     const apartments = Object.keys(apartmentIndex).map(key => apartmentIndex[key]);
     return (
       <div className="group">
