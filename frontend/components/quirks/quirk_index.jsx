@@ -39,7 +39,6 @@ class QuirkIndex extends React.Component {
   }
 
   render() {
-    const {currentUser, apartmentShow} = this.props;
     return (
       <aside className="QuirksIndex">
         <div className="QuirksIndex-headerSection">
@@ -54,7 +53,7 @@ class QuirkIndex extends React.Component {
               <p onClick={this.handleRevealQuirkInfo} className="QuirksIndex-closeQuirkInfo">close</p>
               <p className="QuirksIndex-whatsAQuirkPopover">
                 A quirk is a story about what it was like living at a house or apartment. Help other people out
-                 by telling your story about living at {apartmentShow.street_address}!
+                 by telling your story about living at {this.props.apartmentShow.street_address}!
               </p>
             </div>
           </div>
@@ -63,11 +62,8 @@ class QuirkIndex extends React.Component {
           {this.state.quirks
             .map((quirk, idx) => 
               <QuirkIndexItem
-                deleteQuirk={this.deleteQuirk}
-                that={this}
                 quirk={quirk}
-                key={idx}
-                currentUser={currentUser}
+                key={quirk.user_name}
               />)
            }
         </ul>

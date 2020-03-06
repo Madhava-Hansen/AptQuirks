@@ -9,23 +9,17 @@ export const QuirkIndexItem = ({
     body,
     created_at
   }}) => {
-  let classes = "group quirk-index-item";
   return (
-    <li className={classes}>
-      <section className="quirk-user-info">
-        <figure className="quirk-pic">
-          <img className="quirk-pic" src={user_pic}></img>
-        </figure>
-        <p className="quirk-username">{user_name}</p>
-        <p className="timestamp">{created_at} ago</p>
+    <li className='QuirkIndexItem'>
+      <section className="QuirkIndexItem-userInfo">
+        <img className="QuirkIndexItem-userPic" src={user_pic}></img>
+        <p className="QuirkIndexItem-username">{user_name}</p>
+        <p className="QuirkIndexItem-timestamp">{created_at} ago</p>
       </section>
-        <section className="quirk-main-content">
-          <div className="group">
-            <h4 className="quirk-title">{title}</h4>
-            <p className="apartment-number">Apt {apt_number}</p>
-          </div>
-          <p className="quirk-body">{body}</p>
-          <div className="divider"></div>
+        <section className="QuirkIndexItem-mainContent">
+          <h4 className="QuirkIndexItem-titleText">{title}</h4>
+          <p className="QuirkIndexItem-apartmentNumber">Apt {apt_number}</p>
+          <p className="QuirkIndexItem-bodyText">{body}</p>
       </section>
     </li>
   )
