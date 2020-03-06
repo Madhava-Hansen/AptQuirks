@@ -1,6 +1,6 @@
 @import './base/colors';
 
-.ProfileContainer {
+.UserProfile {
   background-color: white;
   background-image: none;
   max-width: 530px;
@@ -23,7 +23,7 @@
     color: $primary;
     text-align: center;
   }
-  &-profilePic {
+  &-pic {
     width: 75px;
     display: block;
     float: left;
@@ -32,14 +32,14 @@
       border-radius: 100%;
     }
   }
-  &-userProfileHeading {
+  &-heading {
     margin-top: 20px;
   }
-  &-profileMainContent {
+  &-mainContent {
     display: grid;
     grid-template-rows: 1fr 1.2fr 1.2fr;
   }
-  &-profileTitle {
+  &-title {
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 20px;
@@ -51,7 +51,7 @@
     font-size: 20px;
     margin-bottom: 8px;
   }
-  &-profileFormInput {
+  &-formInput {
     box-shadow: 1px 1px 3px lightgrey;
     border: 1px solid lightgrey;
   }

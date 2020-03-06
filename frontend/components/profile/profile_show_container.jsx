@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { addPhoto, updateUser } from '../../actions/session_actions';
 import ProfileShow from './profile_show';
 
-const mapStateToProps = ({ session }) => ({
+const mapStateToProps = ({session}) => ({
   currentUser: session.currentUser
 })
 
