@@ -1,35 +1,29 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import ConversationIndexItem from './conversation_index_item';
-import {receiveConversation } from '../../actions/conversation_actions';
+import {receiveConversation} from '../../actions/conversation_actions';
 import MessageNav from './message_nav';
 
 class ConversationIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.redirectToNewMessage = this.redirectToNewMessage.bind(this);
-    this.fetchMessages = this.fetchMessages.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchConversations();
   }
 
-  redirectToNewMessage() {
-    this.props.history.push("/message/new");
-  }
+  redirectToNewMessage = () => this.props.history.push("/message/new");
 
-  fetchMessages(conversation) {
+  fetchMessages = conversation => {
     const {dispatch, fetchMessages, history} = this.props;
     dispatch(receiveConversation(conversation));
-    const fetchMessagesObject = {message: { conversation_id: conversation.id }};
-    fetchMessages(fetchMessagesObject);
+    fetchMessages({message: {conversation_id: conversation.id }});
     history.push(`/messages/${conversation.id}`);
   }
 
   render() {
     const {conversationsIndex, currentUser, dispatch} = this.props;
-    let classes = "group message-container";
     let conversationsIndexRender;
     if (conversationsIndex.conversations) {
       conversationsIndexRender = conversationsIndex.conversations.map((conversation, idx) => {
@@ -44,7 +38,7 @@ class ConversationIndex extends React.Component {
       })
     }
     return (
-      <div className={classes}>
+      <div className="group message-container">
         <MessageNav
           dispatch={dispatch}
           />
