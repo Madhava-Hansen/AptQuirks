@@ -11,6 +11,7 @@ class ConversationIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchConversations();
+    scrollTo(0, 0);
   }
 
   redirectToNewMessage = () => this.props.history.push("/message/new");
