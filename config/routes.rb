@@ -14,6 +14,8 @@
     get '/home' => "static_pages#root"
     get '/profile' => "static_pages#root"
     get '/inbox' => "static_pages#root"
+    get '/login' => "static_pages#root"
+    get '/signup' => "static_pages#root"
     get '/apartments/:id' => "static_pages#root"
     get '/addquirk/:id' => "static_pages#root"
     get '/messages/:id' => "static_pages#root"

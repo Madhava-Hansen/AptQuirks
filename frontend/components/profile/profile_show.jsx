@@ -1,22 +1,17 @@
 import React from 'react';
 import UploadButton from './upload_button';
-import { addPhoto } from '../../actions/session_actions';
-import { Link } from 'react-router-dom';
-import Home from '../greeting/home';
 
 class ProfileShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {city: ""};
-    this.handleAddCity = this.handleAddCity.bind(this);
-    this.update = this.update.bind(this);
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
-  handleAddCity(e) {
+  handleAddCity = e => {
     e.preventDefault();
     const user = { user: { id: this.props.currentUser.id, city: this.state.city } };
     this.props.updateUser(user).then(
@@ -24,11 +19,7 @@ class ProfileShow extends React.Component {
     )
   }
 
-  update(city) {
-    return e => this.setState({
-      [city]: e.currentTarget.value
-    });
-  }
+  update = city => this.setState({[city]: event.currentTarget.value});
 
   render() {
     const { addPhoto, currentUser } = this.props;

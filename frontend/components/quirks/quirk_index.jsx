@@ -59,13 +59,13 @@ class QuirkIndex extends React.Component {
           </div>
         </div>
         <ul>
-          {this.state.quirks
-            .map((quirk, idx) => 
-              <QuirkIndexItem
-                quirk={quirk}
-                key={quirk.user_name}
-              />)
-           }
+        {this.state.quirks
+          .map(quirk => 
+            <QuirkIndexItem
+              quirk={quirk}
+              key={quirk.user_name}
+            />)
+          }
         </ul>
       </aside>
     )
