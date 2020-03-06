@@ -6,18 +6,25 @@ import { withRouter } from 'react-router-dom';
 class ImageIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.toggleSlideshow = this.toggleSlideshow.bind(this);
-    this.slideshowLeft = this.slideshowLeft.bind(this);
-    this.slideshowRight = this.slideshowRight.bind(this);
-    this.setImageURL = this.setImageURL.bind(this);
-    this.toggleScroll = this.toggleScroll.bind(this);
-    this.toggleImageError = this.toggleImageError.bind(this);
     this.scrollStatus = "";
     this.imageIdx = "";
-    this.state = { slideshowClass: "hidden", slideshowIndex: 0, noImageClass: "hidden" };
+    this.state = {
+      slideshowClass: "hidden", 
+      slideshowIndex: 0, 
+      noImageClass: "hidden" 
+    };
   }
 
-  toggleSlideshow(e) {
+  componentDidMount() {
+    this.props.fetchImages(this.props.apartmentId || sessionStorage.getItem('apartmentId'));
+  }
+
+  componentWillUnmount() {
+    $('body').removeClass("toggle-scroll");
+    this.scrollStatus = "";
+  }
+
+  toggleSlideshow = e => {
     if (!this.props.imageIndex[0]) {
       this.toggleImageError();
       window.setTimeout((errorCallback) => {
@@ -35,7 +42,7 @@ class ImageIndex extends React.Component {
     }
   }
 
-  toggleImageError() {
+  toggleImageError = () => {
     if (this.state.noImageClass === "hidden") {
       this.setState({ noImageClass: "no-image-error" });
     } else {
@@ -43,7 +50,7 @@ class ImageIndex extends React.Component {
     }
   }
 
-  setImageURL(e) {
+  setImageURL = e => {
     if (e.target.id === "close-image") { return; };
     let { imageIndex } = this.props;
     if (e.target.classList.value === "slideshow") {
@@ -59,7 +66,7 @@ class ImageIndex extends React.Component {
     }
   }
 
-  toggleScroll() {
+  toggleScroll = () => {
     if (this.scrollStatus === "toggle-scroll") {
       $('body').removeClass("toggle-scroll");
       this.scrollStatus = "";
@@ -69,12 +76,7 @@ class ImageIndex extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    $('body').removeClass("toggle-scroll");
-    this.scrollStatus = "";
-  }
-
-  slideshowLeft() {
+  slideshowLeft = () => {
     if (this.props.imageIndex.length <= 1) { return; };
     let index = this.state.slideshowIndex;
     let length = this.props.imageIndex.length - 1;
@@ -87,7 +89,7 @@ class ImageIndex extends React.Component {
     this.setState({ slideshowIndex: index });
   }
 
-  slideshowRight() {
+  slideshowRight = () => {
     if (this.props.imageIndex.length <= 1) { return; };
     let index = this.state.slideshowIndex;
     let length = this.props.imageIndex.length - 1;
@@ -100,13 +102,8 @@ class ImageIndex extends React.Component {
     this.setState({ slideshowIndex: index });
   }
 
-  componentDidMount() {
-    let apartmentId = this.props.apartmentId || this.props.location.pathname.split('/').pop();
-    this.props.fetchImages(apartmentId);
-  }
-
   render() {
-    const { imageIndex, addImage, currentUser, apartmentShow } = this.props;
+    const {imageIndex, addImage, apartmentShow, currentUser} = this.props;
     let images;
     if (imageIndex) {
       images = imageIndex.map((image, idx) => {
@@ -131,7 +128,7 @@ class ImageIndex extends React.Component {
           <div className="image-index-container">
             <div className="image-header-container">
             <AddImageButton
-              addImage={ addImage }
+              addImage={addImage}
               apartmentShow={ apartmentShow }
               currentUser={ currentUser }
              />
@@ -152,8 +149,6 @@ class ImageIndex extends React.Component {
           </div>
         )
       }
-
-
   }
 }
 

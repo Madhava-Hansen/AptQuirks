@@ -14,8 +14,7 @@ class LikeButton extends React.Component {
   }
 
   componentDidMount() {
-    this.setApartmentId();
-    this.props.fetchLikes(this.apartmentId);
+    this.props.fetchLikes(this.props.apartmentId || sessionStorage.getItem('apartmentId'));
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -33,10 +32,6 @@ class LikeButton extends React.Component {
     setTimeout(() => {
       this.setState({errorClassName: 'hidden'})
     }, 3000);
-  }
-
-  setApartmentId = () => {
-    this.apartmentId = this.props.apartmentId || this.props.location.pathname.split('/').pop();
   }
 
   handleLike = () => {

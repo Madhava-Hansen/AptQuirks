@@ -1,49 +1,41 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 class QuirkForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {title: "", body: "", apt_number: ""};
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
+    this.state = {
+      title: "", 
+      body: "", 
+      apt_number: ""
+    };
+    this.defaultThumbnailUrl = 
+    "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
   }
 
   componentDidMount() {
-    if (this.props.apartmentId) {
-      return;
-    } else {
-      this.apartmentId = this.props.location.pathname.split("/").pop();
-     }
+    this.apartmentId = this.props.apartmentId || sessionStorage.getItem('apartmentId');
   }
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
-    let currentUser;
-    if (this.props.apartmentId) {
-      currentUser = this.props.currentUser;
-      this.apartmentId = this.props.apartmentId;
-    } else {
-      currentUser = this.props.currentUser;
-    }
-    const currentState = this.state;
-    const userPic = currentUser.thumbnail_url ? currentUser.thumbnail_url : "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png"
-    const idsAndPic = { apartment_id: this.apartmentId, user_id: currentUser.id, user_name: currentUser.username, user_pic: userPic };
-    const quirk = { quirk: Object.assign(currentState, idsAndPic) };
-    this.props.addQuirk(quirk).then(
-      this.props.history.replace(`/apartments/${this.apartmentId}`)
+    const {currentUser: {id, username, thumbnail_url}, addQuirk, history} = this.props;
+    const idsAndPic = {
+      apartment_id: this.apartmentId, 
+      user_id: id, 
+      user_name: username, 
+      user_pic: thumbnail_url ? thumbnail_url : this.defaultThumbnailUrl 
+    };
+    addQuirk({quirk: {...this.state, ...idsAndPic}}).then(
+      history.replace(`/apartments/${this.apartmentId}`)
     );
   }
 
-  update(type) {
-    return e => this.setState({
-      [type]: e.currentTarget.value
-    });
-  }
+  update = type => e => this.setState({[type]: e.currentTarget.value});
+
   render() {
-    let classNames = "form-container containers";
     return (
-      <section className={classNames}>
+      <section className="form-container containers">
         <form onSubmit={this.handleSubmit} className="quirk-form">
           <h1 className="form-title">Add Quirk</h1>
           <p className="form-address">{this.props.currentApartment.street_address}</p>
@@ -66,7 +58,6 @@ class QuirkForm extends React.Component {
               className="form-input"
               type="text"
               placeholder="apt..."
-
               onChange={this.update("apt_number")}
             />
           <button className="form-button" type="submit">Submit</button>

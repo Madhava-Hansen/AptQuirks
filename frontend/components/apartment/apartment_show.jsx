@@ -9,14 +9,17 @@ class ApartmentShow extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = ({currentApartment: {}});
+    this.state = ({currentApartment: {}, apartmentId: null});
   }
 
   componentDidMount() {
-    if (JSON.stringify(this.props.currentApartment) === JSON.stringify({})) {
-      const apartmentId = this.props.location.pathname.split("/").pop();
-      this.props.fetchApartment( {apartment: {id: apartmentId}});
+    const {fetchApartment, apartmentId} = this.props;
+    if (apartmentId) {
+      // add apartmentId to session storage to access on page refresh
+      sessionStorage.setItem('apartmentId', `${apartmentId}`);
     }
+    const localApartmentId = apartmentId || sessionStorage.getItem('apartmentId');
+    fetchApartment({apartment: {id: localApartmentId}});
     window.scrollTo(0, 0);
   }
 
@@ -27,6 +30,7 @@ class ApartmentShow extends React.Component {
       const cityStateZip = [addressArray[1], addressArray[2]].join(",");
       return {
         currentApartment: {streetAddress, cityStateZip, ...nextProps.currentApartment}, 
+        apartmentId: nextProps.apartmentId
       };
     }
 
