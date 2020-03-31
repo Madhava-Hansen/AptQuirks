@@ -1,0 +1,11 @@
+
+Welcome to ApartmenteQuirks.com, @user.username
+===============================================
+ 
+You have successfully signed up to ApartmenteQuirks.com,
+your username is: <% @user.username =%>.
+ 
+Thanks for joining and have a great day!
+
+Best,
+ApartmenteQuirks Team

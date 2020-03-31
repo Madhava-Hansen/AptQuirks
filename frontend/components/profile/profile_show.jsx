@@ -27,10 +27,10 @@ class ProfileShow extends React.Component {
   }
 
   render() {
-    const { addPhoto, currentUser } = this.props;
+    const {addPhoto, currentUser} = this.props;
     const photoUploadTitle = currentUser.thumbnail_url ? "Update" : "Add";
     const cityTitle = currentUser.city ? "Update" : "Add";
-    const picturePath = currentUser.thumbnail_url ? currentUser.thumbnail_url : "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
+    const picturePath = currentUser.thumbnail_url || "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
       return (
         <section className="UserProfile">
           <h1 className="UserProfile-explanation">Welcome to your profile</h1>

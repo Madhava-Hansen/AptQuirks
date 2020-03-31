@@ -5,14 +5,16 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 class SessionForm extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {username: "", password: "", currentURL: "", captchaVerified: false};
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
-    this.wipeOutErrors = this.wipeOutErrors.bind(this);
+    super(props)
+    this.state = {
+      username: "", 
+      email: "",
+      password: "", 
+      captchaVerified: false
+    }
   }
 
-  handleChange(response) {
+  handleChange = response => {
     this.props.verifyCaptcha(response).then(captchaVerified => {
       this.setState({captchaVerified})
     })
@@ -22,7 +24,7 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
-  redirectIfLoggedIn() {
+  redirectIfLoggedIn = () => {
     if (this.props.loggedIn) {
       if (this.props.location.pathname === "/login") {
         this.props.history.push("/home");
@@ -32,8 +34,10 @@ class SessionForm extends React.Component {
     }
   }
 
-  handleSubmit(e) {
-    if (!this.state.captchaVerified) {
+  missingData = () => Object.keys(this.state).some(key => !this.state[key]);
+
+  handleSubmit = e => {
+    if (!this.state.captchaVerified || this.missingData()) {
       this.setState({showCaptchaError: true});
       setTimeout(() => {
         this.setState({showCaptchaError: false})
@@ -41,52 +45,59 @@ class SessionForm extends React.Component {
     } else {
       e.preventDefault();
       const user = this.state;
-      this.props.processForm({ user });
+      this.props.processForm({user});
     }
   }
 
-  update(label) {
+  update = label => {
     return e => this.setState({
 			[label]: e.currentTarget.value
 		});
   }
 
-  wipeOutErrors() {
-      setTimeout(() => {
-        this.props.dispatch(receiveErrors(null));
-      }, 4000)
+  wipeOutErrors = () => {
+    setTimeout(() => {
+      this.props.dispatch(receiveErrors(null));
+    }, 4000)
   }
 
   render() {
-    const { formType, errors } = this.props;
-    let classNames = "form-container containers"
+    const {formType, errors} = this.props;
     this.errorClass = errors ? 'session-errors' : 'no errors';
     if (this.errorClass === 'session-errors') {
       this.wipeOutErrors();
     }
     return (
-      <section id="session-form-section" className={classNames}>
+      <section className="SessionFormWrapper">
         <h3 className={ this.errorClass }>{ errors }</h3>
-        <form className="session-form" onSubmit={this.handleSubmit}>
-          <h1 className="session-form-header">{formType}</h1>
+        <form className="SessionForm" onSubmit={this.handleSubmit}>
+          <h1 className="SessionForm-header">{formType}</h1>
             <input
-              className="form-input"
+              className="SessionForm-input form-input"
               type="text"
               placeholder="username..."
               onChange={this.update("username")}
             />
+            {formType === 'signup' && (
+              <input
+              className="SessionForm-input form-input"
+              type="text"
+              placeholder="email..."
+              onChange={this.update("email")}
+            />
+            )}
             <input
-              className="form-input"
+              className="SessionForm-input form-input"
               type="password"
               placeholder="password..."
               onChange={this.update("password")}
             />
             {this.state.showCaptchaError && (
-              <div className="session-errors">Please verify that you're not a robot with reCaptcha</div>
+              <div className="SessionForm-errors">Please verify that you're not a robot with reCaptcha</div>
             )}
-              <div className="recaptcha">
+              <div className="SessionForm-recaptcha">
               <ReCAPTCHA
-                sitekey="6LdeUc0UAAAAAMzwWnZqiqWTmInhd4J57jryzc5C"
+                sitekey='6LdeUc0UAAAAAMzwWnZqiqWTmInhd4J57jryzc5C'
                 type="image"
                 onChange={response => this.handleChange(response)}
               />

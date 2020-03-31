@@ -43,26 +43,26 @@ class LikeButton extends React.Component {
   }
 
   render() {
-      const enableLikes = this.state.haveFetchedLikes && this.props.userId;
-      const isLiked = !!this.state.likeId;
-      return (
-        <div className='like'>
-          <div className='like-button'>
-            <button 
-              className={isLiked ? 'liked-button' : ''} 
-              onClick={enableLikes ? (isLiked ? this.handleUnlike : this.handleLike) : this.revealLikeErrorMessage}>
-              like
-            </button>
-          </div>
-          <div className='like-count'>
-            <LikeCountComponenet 
-              count={this.state.likes.length} 
-              isLiked={isLiked} 
-            />
-          </div>
-          <p id='like-error-message' className={this.state.errorClassName}>Please login to like things!</p>
+    const enableLikes = this.state.haveFetchedLikes && this.props.userId;
+    const isLiked = !!this.state.likeId;
+    return (
+      <div className='like'>
+        <div className='like-button'>
+          <button 
+            className={isLiked ? 'liked-button' : ''} 
+            onClick={enableLikes ? (isLiked ? this.handleUnlike : this.handleLike) : this.revealLikeErrorMessage}>
+            like
+          </button>
         </div>
-      )
+        <div className='like-count'>
+          <LikeCountComponenet 
+            count={this.state.likes.length} 
+            isLiked={isLiked} 
+          />
+        </div>
+        <p id='like-error-message' className={this.state.errorClassName}>Please login to like things!</p>
+      </div>
+    )
   }
 }
 

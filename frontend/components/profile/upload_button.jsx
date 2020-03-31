@@ -4,10 +4,9 @@ class UploadButton extends React.Component {
 
   constructor(props) {
     super(props);
-    this.upload = this.upload.bind(this);
   }
 
-  upload(e) {
+  upload = e => {
     e.preventDefault();
     const { currentUser } = this.props;
     cloudinary.openUploadWidget(window.cloudinary_options, (error, images) => {
