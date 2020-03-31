@@ -42,8 +42,7 @@ class SessionForm extends React.Component {
 
   missinLoginData = () => !this.state.username || !this.state.password;
 
-  handleSubmit = e => {
-    e.preventDefault();
+  handleClick = () => {
     const missingData = this.props.formType === 'login' ? this.missinLoginData() : this.missingSignupData();
     if (missingData) {
       this.setState({showCaptchaError: true});
@@ -77,7 +76,7 @@ class SessionForm extends React.Component {
     return (
       <section className="SessionFormWrapper">
         <h3 className={ this.errorClass }>{ errors }</h3>
-        <form className="SessionForm" onSubmit={this.handleSubmit}>
+        <div className="SessionForm">
           <h1 className="SessionForm-header">{formType}</h1>
             <input
               className="SessionForm-input form-input"
@@ -114,9 +113,8 @@ class SessionForm extends React.Component {
                 />
               </div>
             )}
-
-          <button className="form-button" type="submit" value="submit">Submit</button>
-        </form>
+          <button onClick={this.handleClick} className="form-button">Submit</button>
+        </div>
 
       </section>
     )
