@@ -45,7 +45,7 @@ export const updateUser = user => dispatch => (
 
 export const verifyCaptcha = response => dispatch => (
   APIUtil.verifyCaptcha(response)
-  .then(responseObject => dispatch(receiveCaptchaResponse(responseObject.response)),
+  .then(responseObject => dispatch(receiveCaptchaResponse(responseObject)),
   errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 

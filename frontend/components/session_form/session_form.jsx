@@ -14,11 +14,13 @@ class SessionForm extends React.Component {
     }
   }
 
-  handleChange = response => {
-    this.props.verifyCaptcha(response).then(captchaVerified => {
-      this.setState({captchaVerified})
-    })
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.captchaVerified !== prevState.captchaVerified) {
+      return {captchaVerified: nextProps.captchaVerified};
+    }
   }
+
+  handleChange = response => this.props.verifyCaptcha(response);
 
   componentDidUpdate() {
     this.redirectIfLoggedIn();

@@ -15,8 +15,7 @@ const sessionReducer = (state = {}, action) => {
       const errors = action.err;
       return merge({}, state, { errors });
     case RECEIVE_CAPTCHA_RESPONSE:
-      const captchaResponse = action.response;
-      return merge({}, state, { captchaResponse })
+      return merge({}, state, { captchaResponse: action.response })
     default:
       return state;
   };
