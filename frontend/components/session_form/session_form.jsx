@@ -38,13 +38,13 @@ class SessionForm extends React.Component {
     }
   }
 
-  missingSignupData = () => Object.keys(this.state).some(key => !this.state[key]);
-
-  missinLoginData = () => !this.state.username || !this.state.password;
+  missingSignupData = () => {
+    const {username, email, password, captchaVerified} = this.state;
+    return !captchaVerified || !username || !password || !email;
+  }
 
   handleClick = () => {
-    const missingData = this.props.formType === 'login' ? this.missinLoginData() : this.missingSignupData();
-    if (missingData) {
+    if (this.missingSignupData()) {
       this.setState({showCaptchaError: true});
       setTimeout(() => {
         this.setState({showCaptchaError: false})
