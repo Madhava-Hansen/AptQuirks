@@ -18,6 +18,8 @@ class SessionForm extends React.Component {
     if (nextProps.captchaVerified !== prevState.captchaVerified) {
       return {captchaVerified: nextProps.captchaVerified};
     }
+
+    return null;
   }
 
   handleChange = response => this.props.verifyCaptcha(response);
@@ -36,18 +38,20 @@ class SessionForm extends React.Component {
     }
   }
 
-  missingData = () => Object.keys(this.state).some(key => !this.state[key]);
+  missingSignupData = () => Object.keys(this.state).some(key => !this.state[key]);
+
+  missinLoginData = () => !this.state.username || !this.state.password;
 
   handleSubmit = e => {
-    if (!this.state.captchaVerified || this.missingData()) {
+    e.preventDefault();
+    const missingData = this.props.formType === 'login' ? this.missinLoginData() : this.missingSignupData();
+    if (missingData) {
       this.setState({showCaptchaError: true});
       setTimeout(() => {
         this.setState({showCaptchaError: false})
       }, 4000);
     } else {
-      e.preventDefault();
-      const user = this.state;
-      this.props.processForm({user});
+      this.props.processForm({user: this.state});
     }
   }
 
@@ -65,7 +69,8 @@ class SessionForm extends React.Component {
 
   render() {
     const {formType, errors} = this.props;
-    this.errorClass = errors ? 'session-errors' : 'no errors';
+    this.errorClass = errors ? 'SessionForm-errors' : 'no errors';
+    const isSignup = formType === 'signup';
     if (this.errorClass === 'session-errors') {
       this.wipeOutErrors();
     }
@@ -80,7 +85,7 @@ class SessionForm extends React.Component {
               placeholder="username..."
               onChange={this.update("username")}
             />
-            {formType === 'signup' && (
+            {isSignup && (
               <input
               className="SessionForm-input form-input"
               type="text"
@@ -100,13 +105,16 @@ class SessionForm extends React.Component {
                 or make sure to fill out all required fields
               </div>
             )}
+            {isSignup && (
               <div className="SessionForm-recaptcha">
-              <ReCAPTCHA
-                sitekey='6LdeUc0UAAAAAMzwWnZqiqWTmInhd4J57jryzc5C'
-                type="image"
-                onChange={response => this.handleChange(response)}
-              />
+                <ReCAPTCHA
+                  sitekey='6LdeUc0UAAAAAMzwWnZqiqWTmInhd4J57jryzc5C'
+                  type="image"
+                  onChange={response => this.handleChange(response)}
+                />
               </div>
+            )}
+
           <button className="form-button" type="submit" value="submit">Submit</button>
         </form>
 
