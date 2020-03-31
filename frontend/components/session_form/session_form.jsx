@@ -93,7 +93,10 @@ class SessionForm extends React.Component {
               onChange={this.update("password")}
             />
             {this.state.showCaptchaError && (
-              <div className="SessionForm-errors">Please verify that you're not a robot with reCaptcha</div>
+              <div className="SessionForm-errors">
+                Please verify that you're not a robot with reCaptcha 
+                or make sure to fill out all required fields
+              </div>
             )}
               <div className="SessionForm-recaptcha">
               <ReCAPTCHA
