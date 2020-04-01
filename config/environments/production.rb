@@ -72,7 +72,7 @@ Rails.application.configure do
     domain: "gmail.com",
     enable_starttls_auto: true,
     user_name: 'apartmentquirks@gmail.com',
-    password: password = ENV['gmail_password']
+    password: ENV['gmail_password']
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
