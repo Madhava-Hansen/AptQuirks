@@ -1,4 +1,5 @@
 Rails.application.configure do
+  debugger
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -68,8 +69,8 @@ Rails.application.configure do
     authentication: 'plain',
     domain: "gmail.com",
     enable_starttls_auto: true,
-    user_name: 'apartmentquirks@gmail.com',
-    password: 'ctoamqqbhharyqfn',
+    user_name: ENV["gmail_username"],
+    password: ENV["gmail_password"],
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
