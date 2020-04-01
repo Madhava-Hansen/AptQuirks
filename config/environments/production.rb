@@ -69,7 +69,7 @@ Rails.application.configure do
     domain: "gmail.com",
     enable_starttls_auto: true,
     user_name: 'apartmentquirks@gmail.com',
-    password: 'afxxhgfijmfqtnmk',
+    password: 'ctoamqqbhharyqfn',
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
