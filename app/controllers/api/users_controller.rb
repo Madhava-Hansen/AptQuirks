@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      UserMailer.welcome_email(@user).deliver_later
+      UserMailer.welcome_email(@user).deliver_now
       render 'api/users/show'
     else
       render json: ["Invalid username or password, please try again"], status: 401
