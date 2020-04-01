@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
   handleClick = () => {
     const {captchaVerified, username, email, password} = this.state;
     const missingLoginData = !username || !password;
-    const hasErrors = this.props.formType === 'signup' ? (!captchaVerified || missingLoginData || !email) : missingLoginData;
+    const hasErrors = this.props.formType === 'signup' ? (missingLoginData || !email) : missingLoginData;
     if (hasErrors) {
       this.setState({showCaptchaError: true});
       setTimeout(() => {
