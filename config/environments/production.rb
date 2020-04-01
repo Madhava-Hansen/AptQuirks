@@ -1,6 +1,3 @@
-username = ENV['gmail_username']
-password = ENV['gmail_password']
-
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -74,8 +71,8 @@ Rails.application.configure do
     authentication: 'plain',
     domain: "gmail.com",
     enable_starttls_auto: true,
-    user_name: username,
-    password: password,
+    user_name: 'apartmentquirks@gmail.com',
+    password: password = ENV['gmail_password']
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
