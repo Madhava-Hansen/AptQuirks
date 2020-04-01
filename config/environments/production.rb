@@ -1,8 +1,14 @@
+username = ENV['gmail_username']
+password = ENV['gmail_password']
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+
+  # Allow heroku to access hidden keys
+  config.require_master_key = true
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -60,7 +66,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   host = 'apartmentquirks.com'
   config.action_mailer.default_url_options = { host: host }
-
+  puts "IRONMENT"
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
@@ -68,8 +74,8 @@ Rails.application.configure do
     authentication: 'plain',
     domain: "gmail.com",
     enable_starttls_auto: true,
-    user_name: ENV["gmail_username"],
-    password: ENV["gmail_password"],
+    user_name: username,
+    password: password,
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
