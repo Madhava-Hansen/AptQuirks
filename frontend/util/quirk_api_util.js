@@ -1,22 +1,22 @@
-export const addQuirk = quirk => {
+export const addQuirk = (quirk) => {
   return $.ajax({
-    method: 'POST',
+    method: "POST",
     url: `/api/apartments/${quirk.apartment_id}/quirks`,
-    data: quirk
+    data: quirk,
   });
 };
 
-export const deleteQuirk = quirk => {
+export const deleteQuirk = (quirk) => {
   return $.ajax({
-    method: 'DELETE',
+    method: "DELETE",
     url: `/api/apartments/${quirk.apartment_id}/quirks/${quirk.id}`,
-    data: quirk
+    data: quirk,
   });
 };
 
-export const fetchQuirks = apartment_id => {
+export const fetchQuirks = (apartment_id) => {
   return $.ajax({
-    mathod: 'GET',
-    url: `/api/apartments/${apartment_id}/quirks`
+    mathod: "GET",
+    url: `/api/apartments/${apartment_id}/quirks`,
   });
 };

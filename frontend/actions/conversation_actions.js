@@ -1,40 +1,37 @@
 export const RECEIVE_CONVERSATIONS = "RECEIVE_CONVERSATIONS";
 export const RECEIVE_CONVERSATION = "RECEIVE_CONVERSATION";
 export const RECEIVE_CONVERSATION_ERRORS = "RECEIVE_CONVERSATION_ERRORS";
-import * as APIUtil from '../util/conversation_api_util';
+import * as APIUtil from "../util/conversation_api_util";
 
-const receiveConversations = conversations => ({
+const receiveConversations = (conversations) => ({
   type: RECEIVE_CONVERSATIONS,
-  conversations
+  conversations,
 });
 
-export const receiveConversation = conversation => ({
+export const receiveConversation = (conversation) => ({
   type: RECEIVE_CONVERSATION,
-  conversation
+  conversation,
 });
 
-const receiveConversationErrors = errors => ({
+const receiveConversationErrors = (errors) => ({
   type: RECEIVE_CONVERSATION_ERRORS,
-  errors
+  errors,
 });
 
-export const fetchConversations = () => dispatch => (
+export const fetchConversations = () => (dispatch) =>
   APIUtil.fetchConversations().then(
-    conversations => dispatch(receiveConversations(conversations)),
-  errors => dispatch(receiveConversationErrors(errors.responseJSON))
-  )
-)
+    (conversations) => dispatch(receiveConversations(conversations)),
+    (errors) => dispatch(receiveConversationErrors(errors.responseJSON))
+  );
 
-export const createConversation = ids => dispatch => (
+export const createConversation = (ids) => (dispatch) =>
   APIUtil.createConversation(ids).then(
-    conversation => dispatch(receiveConversation(conversation)),
-    errors => dispatch(receiveConversationErrors(errors.responseJSON))
-  )
-)
+    (conversation) => dispatch(receiveConversation(conversation)),
+    (errors) => dispatch(receiveConversationErrors(errors.responseJSON))
+  );
 
-export const fetchConversation = id => dispatch => (
+export const fetchConversation = (id) => (dispatch) =>
   APIUtil.fetchConversation(id).then(
-    conversation => dispatch(receiveConversation(conversation)),
-    errors => dispatch(receiveConversationErrors(errors.responseJSON))
-  )
-)
+    (conversation) => dispatch(receiveConversation(conversation)),
+    (errors) => dispatch(receiveConversationErrors(errors.responseJSON))
+  );

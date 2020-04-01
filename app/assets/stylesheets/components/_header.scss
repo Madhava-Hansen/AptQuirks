@@ -1,4 +1,4 @@
-@import '../base/colors';
+@import "../base/colors";
 
 .nav-left li {
   float: left;
@@ -33,7 +33,7 @@
   margin-top: 3px;
   font-weight: 800;
   letter-spacing: -1.5px;
-  font-size: 25px;  
+  font-size: 25px;
 }
 
 .nav-left img {
@@ -44,9 +44,9 @@
 }
 
 .nav-middle li {
- width: 450px;
- float: left;
- display: none;
+  width: 450px;
+  float: left;
+  display: none;
 }
 
 .nav-right {
@@ -69,7 +69,7 @@
   color: $textColor--black;
   font-size: 14px;
   letter-spacing: 0.5px;
-} 
+}
 
 .social-link {
   position: relative;
@@ -172,7 +172,6 @@
 
 .dropdown-logout-button:hover {
   border: 2px solid $primary--light;
-
 }
 
 .dropdown-username {
@@ -316,7 +315,6 @@
 }
 
 @media screen and (max-width: 515px) {
-
   .nav-left h1 {
     font-size: 30px;
   }
@@ -328,18 +326,15 @@
   .logout {
     display: block;
   }
-
 }
 
 @media screen and (max-width: 1030px) {
-
-    .nav-middle {
-      display: none;
-    }
+  .nav-middle {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 750px) {
-
   .logout {
     display: block;
     text-align: center;
@@ -406,7 +401,6 @@
   .search-form {
     display: none;
   }
-
 }
 
 .guest:hover {

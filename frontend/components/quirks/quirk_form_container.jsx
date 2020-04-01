@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import { addQuirk } from '../../actions/quirk_actions';
-import QuirkForm from './quirk_form';
+import { connect } from "react-redux";
+import { addQuirk } from "../../actions/quirk_actions";
+import QuirkForm from "./quirk_form";
 
 const mapStateToProps = ({ session, apartmentShow }) => {
   return {
@@ -8,13 +8,12 @@ const mapStateToProps = ({ session, apartmentShow }) => {
     username: session.currentUser.username,
     userId: session.currentUser.id,
     currentUser: session.currentUser,
-    currentApartment: apartmentShow
-  }
-
+    currentApartment: apartmentShow,
+  };
 };
 
-const mapDispatchToProps = dispatch => ({
-  addQuirk: quirk => dispatch(addQuirk(quirk))
+const mapDispatchToProps = (dispatch) => ({
+  addQuirk: (quirk) => dispatch(addQuirk(quirk)),
 });
 
 const QuirkFormContainer = connect(

@@ -9,7 +9,7 @@ export default class MarkerManager {
     const map = this.map;
     const marker = new google.maps.Marker({
       position: myLatLng,
-      map: map
-    })
+      map: map,
+    });
   }
 }

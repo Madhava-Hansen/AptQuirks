@@ -1,4 +1,4 @@
-@import './base/colors';
+@import "./base/colors";
 
 .like-button,
 .like-count {
@@ -27,29 +27,29 @@
 }
 
 .like-count {
-    margin-top: 6.1px;
-    margin-left: 5px;
-    color: $primary;
-  }
-  
-  .liked-button {
-    background-color: $primary;
-    color: white;
-  }
-  
-  .liked-button:hover {
-    font-size: 14px;
+  margin-top: 6.1px;
+  margin-left: 5px;
+  color: $primary;
+}
+
+.liked-button {
+  background-color: $primary;
+  color: white;
+}
+
+.liked-button:hover {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 515px) {
+  .like-button {
+    margin-top: 30px;
+    margin-right: 0px;
   }
 
-  @media screen and (max-width: 515px) {
-    .like-button {
-        margin-top: 30px;
-        margin-right: 0px;
-      }
-    
-      .like-count {
-        margin: 0px;
-        margin-top: 36px;
-        margin-left: 5px;
-      }
+  .like-count {
+    margin: 0px;
+    margin-top: 36px;
+    margin-left: 5px;
   }
+}

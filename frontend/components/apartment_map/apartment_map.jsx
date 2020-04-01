@@ -1,8 +1,7 @@
-import React from 'react';
-import MarkerManager from '../../util/marker_manager';
+import React from "react";
+import MarkerManager from "../../util/marker_manager";
 
 class ApartmentMap extends React.Component {
-
   constructor(props) {
     super(props);
     this.lat = this.props.currentApartment.latitude;
@@ -11,7 +10,7 @@ class ApartmentMap extends React.Component {
 
   componentDidMount() {
     this.createMap();
-  };
+  }
 
   componentDidUpdate() {
     const { latitude, longitude } = this.props.currentApartment;
@@ -24,20 +23,17 @@ class ApartmentMap extends React.Component {
   createMap = () => {
     this.mapOptions = {
       center: new google.maps.LatLng(this.lat, this.lng),
-      zoom: 14
+      zoom: 14,
     };
 
     this.map = new google.maps.Map(this.mapNode, this.mapOptions);
     const marker = new MarkerManager(this.map);
     marker.createMarkerFromApartment(this.props.currentApartment);
-  }
+  };
 
   render() {
-    return (
-      <div id="MapWrapper" ref={ map => this.mapNode = map }>
-      </div>
-    )
+    return <div id="MapWrapper" ref={(map) => (this.mapNode = map)}></div>;
   }
-};
+}
 
 export default ApartmentMap;

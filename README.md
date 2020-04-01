@@ -23,7 +23,8 @@ Apartment Quirks is a single-page web application built with Ruby on Rails, Reac
 My app has a custom built user authentication system that utilizes the Ruby BCrypt Gem. Encrypted passwords are sent to Rails and then put through the BCrypt hashing function. Hashed passwords are stored in the Users table and then retrieved whenever a user logs in. If the users hashed password from the Users table matches the incoming login password hash, the user has been successfully authenticated and a session is created.
 
 ## Server side
-I chose to use Ruby on Rails to handle my server side code for this project. Not only do I love the Ruby programming language but Rails is an excellent MVC framework for getting server side code up and running quickly. Incoming http requests are processed by the Routes.rb file which routes requests to the appropriate controller. The controller uses the Active Record ORM that is built into Rails to persist or request data from my database. I use jbuilder to format the data before sending the JSON response back to the client side for rendering in the browser.  
+
+I chose to use Ruby on Rails to handle my server side code for this project. Not only do I love the Ruby programming language but Rails is an excellent MVC framework for getting server side code up and running quickly. Incoming http requests are processed by the Routes.rb file which routes requests to the appropriate controller. The controller uses the Active Record ORM that is built into Rails to persist or request data from my database. I use jbuilder to format the data before sending the JSON response back to the client side for rendering in the browser.
 
 ## Client side
 
@@ -40,6 +41,7 @@ The frontend is handled using React.js and Redux. My app interacts with Rails by
 2. Google Maps
 
 ## Gems
+
 1. JBuilder
 2. BCrypt
 3. figaro
@@ -54,20 +56,32 @@ If you'd like to check out my code, these are some good sections to look through
 
 3. [Models](https://github.com/Madhava-Hansen/AptQuirks/tree/master/app/models)
 
-
 ## Components
 
 ### Error Boundary
-  * This is a reusable error handling component that wraps other components and catches errors when they occur. The component uses the new componentDidCath() lifecycle method that was introduced in React v16.0. It's purpose is to make sure the rest of the application continues running if a single component throws an error. If a component does throw an error, componentDidCath() will be called and the state of the component will be updated to render the error message instead of it's child components.
+
+- This is a reusable error handling component that wraps other components and catches errors when they occur. The component uses the new componentDidCath() lifecycle method that was introduced in React v16.0. It's purpose is to make sure the rest of the application continues running if a single component throws an error. If a component does throw an error, componentDidCath() will be called and the state of the component will be updated to render the error message instead of it's child components.
+
 ### Apartment Show
-  * Each time a user searches for an address, the apartmentShow component will be rendered. This component sends $.Ajax requests to the database for likes, quirks and images associated with the current apartment id. It then renders the address, Google Map with location pin, likes, quirks and images for the current apartment.  
+
+- Each time a user searches for an address, the apartmentShow component will be rendered. This component sends \$.Ajax requests to the database for likes, quirks and images associated with the current apartment id. It then renders the address, Google Map with location pin, likes, quirks and images for the current apartment.
+
 ### Conversation
-  * When this component mounts, it sends an Ajax request for all the conversations that are associated with the current user. Each conversation has an event listener which links the user to that particular conversation.
+
+- When this component mounts, it sends an Ajax request for all the conversations that are associated with the current user. Each conversation has an event listener which links the user to that particular conversation.
+
 ### Login
-  * Take in the users username and password and sends an Ajax request to Rails for authentication, upon success the user will be redirected to the home page so they can start searching. Upon failure, an error message will be rendered letting the user know they have not been authenticated and they should try again.
+
+- Take in the users username and password and sends an Ajax request to Rails for authentication, upon success the user will be redirected to the home page so they can start searching. Upon failure, an error message will be rendered letting the user know they have not been authenticated and they should try again.
+
 ### Logout
-  * Sends an Ajax request to the Rails #SessionController. The session controller sets the current_user to nil, sets the users session_token to nil. Then I dispatch an action to the Redux store with null as the currentUser.
+
+- Sends an Ajax request to the Rails #SessionController. The session controller sets the current_user to nil, sets the users session_token to nil. Then I dispatch an action to the Redux store with null as the currentUser.
+
 ### Apartment Search
-  * Utilizes the Google Places API address search feature. Pulls out the street address, city, state and zip from the address object after the user submits an address search and then redirects the user to the apartmentShow component.
+
+- Utilizes the Google Places API address search feature. Pulls out the street address, city, state and zip from the address object after the user submits an address search and then redirects the user to the apartmentShow component.
+
 ### Image Index
-  * Allows users to upload images that will be added to an image index. Each image will have an onClick event handler that allows the user to open a slideshow to view all the images associated with the current apartment. Users can click on any image and start at that position on the slideshow.
+
+- Allows users to upload images that will be added to an image index. Each image will have an onClick event handler that allows the user to open a slideshow to view all the images associated with the current apartment. Users can click on any image and start at that position on the slideshow.

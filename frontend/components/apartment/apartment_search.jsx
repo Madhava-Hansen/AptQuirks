@@ -1,18 +1,21 @@
-import React from 'react';
-import ApartmentShow from './apartment_show';
-import { Route, withRouter } from 'react-router-dom';
+import React from "react";
+import ApartmentShow from "./apartment_show";
+import { Route, withRouter } from "react-router-dom";
 
 class ApartmentSearch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = ({apartment: ""});
+    this.state = { apartment: "" };
     this.currentURL = "";
     this.handleSubmit = this.handleSubmit.bind(this);
     this.formatAddress = this.formatAddress.bind(this);
   }
 
   componentDidUpdate() {
-    const {props: {currentApartment}, props} = this;
+    const {
+      props: { currentApartment },
+      props,
+    } = this;
     if (currentApartment) {
       props.history.push(`/apartments/${props.apartmentShow.id}`);
     }
@@ -21,7 +24,9 @@ class ApartmentSearch extends React.Component {
   formatAddress(fullAddress) {
     const splitAddress = fullAddress.split(" ");
     splitAddress.pop();
-    const finalFullAddress = splitAddress.join(" ").substring(0, splitAddress.join(" ").length - 1);
+    const finalFullAddress = splitAddress
+      .join(" ")
+      .substring(0, splitAddress.join(" ").length - 1);
     return finalFullAddress;
   }
 
@@ -32,63 +37,76 @@ class ApartmentSearch extends React.Component {
     const lat = address.geometry.location.lat();
     const lon = address.geometry.location.lng();
     const finalFullAddress = this.formatAddress(fullAddress);
-    const apartmentParams = {apartment: {street_address: finalFullAddress, longitude: lon, latitude: lat}};
+    const apartmentParams = {
+      apartment: {
+        street_address: finalFullAddress,
+        longitude: lon,
+        latitude: lat,
+      },
+    };
     this.props.createApartment(apartmentParams);
-    this.input.value = ""
+    this.input.value = "";
   }
 
   componentDidMount() {
     const defaultBounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(40.571531, -74.22678),
-      new google.maps.LatLng(40.904750, -73.716368)
+      new google.maps.LatLng(40.90475, -73.716368)
     );
 
     const options = {
-      bounds: defaultBounds
+      bounds: defaultBounds,
     };
-    this.input = document.getElementById('autocomplete');
-    this.autocomplete = new google.maps.places.Autocomplete(this.input, options);
+    this.input = document.getElementById("autocomplete");
+    this.autocomplete = new google.maps.places.Autocomplete(
+      this.input,
+      options
+    );
   }
 
   render() {
-    let atHome = this.props.location.pathname === '/home' ? true : false;
+    let atHome = this.props.location.pathname === "/home" ? true : false;
     let buttonClass;
     let inputClass;
     let maginifineGlassId;
     let formClass;
-    let searchBarClass
+    let searchBarClass;
     if (atHome) {
       buttonClass = "search-button-home";
       inputClass = "search-input-home";
       maginifineGlassId = "home-magnifine-glass";
       formClass = "search-form-home";
       searchBarClass = "search-bar-container";
-
     } else {
       buttonClass = "search-button";
       inputClass = "search-input";
       maginifineGlassId = "maginifine-glass";
       formClass = "search-form";
-      searchBarClass = "header-search-bar-container"
+      searchBarClass = "header-search-bar-container";
     }
-      return (
-        // <div className={ searchBarClass }>
-        <div className="ApartmentSearch">
-          <form className={ formClass } onSubmit={ this.handleSubmit }>
-            <label>
-            <input placeholder="Search for an address..."
-              className="ApartmentSearch-searchInputHome" id="autocomplete" type="text"></input>
+    return (
+      // <div className={ searchBarClass }>
+      <div className="ApartmentSearch">
+        <form className={formClass} onSubmit={this.handleSubmit}>
+          <label>
+            <input
+              placeholder="Search for an address..."
+              className="ApartmentSearch-searchInputHome"
+              id="autocomplete"
+              type="text"
+            ></input>
           </label>
-            <button className={ buttonClass } type="submit" value="submit">
-              <img
-                src="https://res.cloudinary.com/aptquirks/image/upload/v1497653777/c0hrzxnw4ss1lvazuyui.png"
-                id={ maginifineGlassId } alt="magnifine glass"></img>
-            </button>
-          </form>
-        </div>
-      )
-  };
-
+          <button className={buttonClass} type="submit" value="submit">
+            <img
+              src="https://res.cloudinary.com/aptquirks/image/upload/v1497653777/c0hrzxnw4ss1lvazuyui.png"
+              id={maginifineGlassId}
+              alt="magnifine glass"
+            ></img>
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default withRouter(ApartmentSearch);

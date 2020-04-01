@@ -1,47 +1,46 @@
-export const signup = user => {
+export const signup = (user) => {
   return $.ajax({
-    method: 'POST',
-    url: '/api/users',
-    data: user
+    method: "POST",
+    url: "/api/users",
+    data: user,
   });
 };
 
-export const login = user => {
+export const login = (user) => {
   return $.ajax({
-    method: 'POST',
-    url: '/api/session',
-    data: user
+    method: "POST",
+    url: "/api/session",
+    data: user,
   });
 };
 
 export const logout = () => {
   return $.ajax({
-      method: 'DELETE',
-      url: '/api/session'
+    method: "DELETE",
+    url: "/api/session",
   });
 };
 
-export const verifyCaptcha = response => {
+export const verifyCaptcha = (response) => {
   return $.ajax({
-    method: 'GET',
-    url: '/api/session',
-    data: {response: response}
-  })
-} 
+    method: "GET",
+    url: "/api/session",
+    data: { response: response },
+  });
+};
 
-export const updateUser = user => {
+export const updateUser = (user) => {
   return $.ajax({
-    method: 'PATCH',
+    method: "PATCH",
     url: `/api/users/${user.id}`,
-    data: user
+    data: user,
   });
 };
 
-export const addPhoto = photoParams => {
+export const addPhoto = (photoParams) => {
   return $.ajax({
-    method: 'PATCH',
+    method: "PATCH",
     url: `/api/users/${photoParams.user.id}`,
-    data: photoParams
-
-  })
-}
+    data: photoParams,
+  });
+};

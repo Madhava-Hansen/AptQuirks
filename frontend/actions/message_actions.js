@@ -2,45 +2,42 @@ export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const RECEIVE_MESSAGE_ERRORS = "RECEIVE_MESSAGE_ERRORS";
 export const RECEIVE_USERS = "RECEIVE_USERS";
-import * as APIUtil from '../util/message_api_util';
+import * as APIUtil from "../util/message_api_util";
 
-const receiveMessages = messages => ({
+const receiveMessages = (messages) => ({
   type: RECEIVE_MESSAGES,
-  messages
+  messages,
 });
 
-const receiveMessage = message => ({
+const receiveMessage = (message) => ({
   type: RECEIVE_MESSAGE,
-  message
+  message,
 });
 
-const receiveMessageErrors = errors => ({
+const receiveMessageErrors = (errors) => ({
   type: RECEIVE_MESSAGE_ERRORS,
-  errors
+  errors,
 });
 
-export const receiveUsers = users => ({
+export const receiveUsers = (users) => ({
   type: RECEIVE_USERS,
-  users
-})
+  users,
+});
 
-export const fetchMessages = userId => dispatch => (
+export const fetchMessages = (userId) => (dispatch) =>
   APIUtil.fetchMessages(userId).then(
-    messages => dispatch(receiveMessages(messages)),
-  errors => dispatch(receiveMessageErrors(errors.responseJSON))
-  )
-)
+    (messages) => dispatch(receiveMessages(messages)),
+    (errors) => dispatch(receiveMessageErrors(errors.responseJSON))
+  );
 
-export const createMessage = ids => dispatch => (
+export const createMessage = (ids) => (dispatch) =>
   APIUtil.createMessage(ids).then(
-    message => dispatch(receiveMessage(message)),
-    errors => dispatch(receiveMessageErrors(errors.responseJSON))
-    )
-)
+    (message) => dispatch(receiveMessage(message)),
+    (errors) => dispatch(receiveMessageErrors(errors.responseJSON))
+  );
 
-export const fetchUsers = userName => dispatch => (
-  APIUtil.fetchUsers(userName)
-  .then( users => dispatch(receiveUsers(users)),
-  errors => dispatch(receiveMessageErrors(errors.responseJSON))
-)
-)
+export const fetchUsers = (userName) => (dispatch) =>
+  APIUtil.fetchUsers(userName).then(
+    (users) => dispatch(receiveUsers(users)),
+    (errors) => dispatch(receiveMessageErrors(errors.responseJSON))
+  );

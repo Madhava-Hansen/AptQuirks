@@ -1,13 +1,14 @@
-import { RECEIVE_CONVERSATIONS,
+import {
+  RECEIVE_CONVERSATIONS,
   RECEIVE_CONVERSATION,
-  RECEIVE_CONVERSATION_ERRORS }
-  from '../actions/conversation_actions';
-import merge from 'lodash/merge';
+  RECEIVE_CONVERSATION_ERRORS,
+} from "../actions/conversation_actions";
+import merge from "lodash/merge";
 
 const conversationsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
-  switch(action.type) {
+  switch (action.type) {
     case RECEIVE_CONVERSATIONS:
       newState["conversations"] = action.conversations;
       return newState;
@@ -20,6 +21,6 @@ const conversationsReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default conversationsReducer;

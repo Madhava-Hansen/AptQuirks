@@ -1,33 +1,31 @@
 export const RECEIVE_IMAGES = "RECEIVE_IMAGES";
 export const RECEIVE_IMAGE = "RECEIVE_IMAGE";
 export const RECEIVE_IMAGE_ERRORS = "RECEIVE_IMAGE_ERRORS";
-import * as APIUtil from '../util/image_api_util';
+import * as APIUtil from "../util/image_api_util";
 
-const receiveImages = images => ({
+const receiveImages = (images) => ({
   type: RECEIVE_IMAGES,
-  images
+  images,
 });
 
-const receiveImage = image => ({
+const receiveImage = (image) => ({
   type: RECEIVE_IMAGE,
-  image
+  image,
 });
 
-const receiveImageErrors = errors => ({
+const receiveImageErrors = (errors) => ({
   type: RECEIVE_IMAGE_ERRORS,
-  errors
-})
+  errors,
+});
 
-export const addImage = image => dispatch => (
+export const addImage = (image) => (dispatch) =>
   APIUtil.addImage(image).then(
-    image => dispatch(receiveImage(image)),
-    errors => dispatch(receiveImageErrors(errors.responseJSON))
-  )
-);
+    (image) => dispatch(receiveImage(image)),
+    (errors) => dispatch(receiveImageErrors(errors.responseJSON))
+  );
 
-export const fetchImages = ids => dispatch => (
+export const fetchImages = (ids) => (dispatch) =>
   APIUtil.fetchImages(ids).then(
-    images => dispatch(receiveImages(images)),
-    errors => dispatch(receiveImageErrors(errors.responseJSON))
-  )
-);
+    (images) => dispatch(receiveImages(images)),
+    (errors) => dispatch(receiveImageErrors(errors.responseJSON))
+  );

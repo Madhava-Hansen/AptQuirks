@@ -1,22 +1,22 @@
-export const like = ({apartmentId, userId}) => {
+export const like = ({ apartmentId, userId }) => {
   return $.ajax({
-    method: 'POST',
+    method: "POST",
     url: `/api/apartments/${apartmentId}/likes`,
-    data: {like: {apartment_id: apartmentId, user_id: userId}}
+    data: { like: { apartment_id: apartmentId, user_id: userId } },
   });
 };
 
-export const unlike = ({apartmentId, userId, likeId}) => {
+export const unlike = ({ apartmentId, userId, likeId }) => {
   return $.ajax({
-    method: 'DELETE',
+    method: "DELETE",
     url: `/api/apartments/${apartmentId}/likes/${userId}`,
-    data: {like: {apartment_id: apartmentId, user_id: userId, id: likeId}}
+    data: { like: { apartment_id: apartmentId, user_id: userId, id: likeId } },
   });
 };
 
-export const fetchLikes = apartment_id => {
+export const fetchLikes = (apartment_id) => {
   return $.ajax({
-    method: 'GET',
-    url: `/api/apartments/${apartment_id}/likes`
+    method: "GET",
+    url: `/api/apartments/${apartment_id}/likes`,
   });
 };

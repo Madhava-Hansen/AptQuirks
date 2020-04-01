@@ -1,10 +1,13 @@
-import merge from 'lodash/merge';
-import { RECEIVE_APARTMENT, RECEIVE_APARTMENT_ERRORS,
-RECEIVE_APARTMENTS } from '../actions/search_actions';
+import merge from "lodash/merge";
+import {
+  RECEIVE_APARTMENT,
+  RECEIVE_APARTMENT_ERRORS,
+  RECEIVE_APARTMENTS,
+} from "../actions/search_actions";
 
 const apartmentSearchReducer = (state = {}, action) => {
   Object.freeze(state);
-  switch(action.type) {
+  switch (action.type) {
     case RECEIVE_APARTMENT:
       const curentApartment = action.apartment;
       return curentApartment;
@@ -16,7 +19,7 @@ const apartmentSearchReducer = (state = {}, action) => {
       return errors;
     default:
       return state;
-  };
+  }
 };
 
 export default apartmentSearchReducer;

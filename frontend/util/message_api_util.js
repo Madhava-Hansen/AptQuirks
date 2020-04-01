@@ -1,23 +1,23 @@
-export const fetchMessages = conversationId => {
+export const fetchMessages = (conversationId) => {
   return $.ajax({
-    method: 'GET',
+    method: "GET",
     url: `/api/messages`,
-    data: conversationId
+    data: conversationId,
   });
 };
 
-export const createMessage = message => {
+export const createMessage = (message) => {
   return $.ajax({
-    method: 'POST',
+    method: "POST",
     url: `/api/messages`,
-    data: message
+    data: message,
   });
 };
 
-export const fetchUsers = userName => {
+export const fetchUsers = (userName) => {
   return $.ajax({
-    method: 'GET',
-    url: '/api/users',
-    data: userName
-  })
-}
+    method: "GET",
+    url: "/api/users",
+    data: userName,
+  });
+};

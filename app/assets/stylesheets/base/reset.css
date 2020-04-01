@@ -1,8 +1,31 @@
-html, body, header, nav, h1, a,
-ul, li, strong, main, button, i,
-section, img, h2, h5, h4, h3, p, form,
-fieldset, label, input, textarea,
-span, article, footer, figure {
+html,
+body,
+header,
+nav,
+h1,
+a,
+ul,
+li,
+strong,
+main,
+button,
+i,
+section,
+img,
+h2,
+h5,
+h4,
+h3,
+p,
+form,
+fieldset,
+label,
+input,
+textarea,
+span,
+article,
+footer,
+figure {
   margin: 0;
   padding: 0;
   border: 0;
@@ -15,7 +38,8 @@ span, article, footer, figure {
   box-sizing: inherit;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 

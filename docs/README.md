@@ -19,7 +19,6 @@ Adequate styling
 Smooth, bug-free navigation
 Adequate and appropriate seeds to demonstrate the feature
 
-
 #####Implementation Timeline
 
 #Days 1 & 2

@@ -1,13 +1,11 @@
-
-
-@import '../base/colors';
+@import "../base/colors";
 
 .UserSearchIndexItem {
-	border: 1px solid $light-grey;
-	padding: 6px;
-	&:hover {
-		color: white;
-		cursor: pointer;
-		background-color: $primary;
-	}
+  border: 1px solid $light-grey;
+  padding: 6px;
+  &:hover {
+    color: white;
+    cursor: pointer;
+    background-color: $primary;
   }
+}

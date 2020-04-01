@@ -1,7 +1,7 @@
 {
-      currentUser {
-        id: 1,
-        usename: "Madhavah"
+currentUser {
+id: 1,
+usename: "Madhavah"
 },
 
        apartments {
@@ -34,8 +34,8 @@
        id: 1,
        author_id: 1,
        apartment_id: 1,
+
 ..........
 }
-
 
 }

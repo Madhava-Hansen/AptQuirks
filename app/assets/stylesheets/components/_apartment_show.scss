@@ -1,53 +1,53 @@
-@import './base/colors';
+@import "./base/colors";
 
 $desktop-breakpoint: 1090px;
 
 .ApartmentShowWrapper {
-	max-width: 1200px;
-	margin: 78px auto;
-	&-apartmentDetailsContainer {
-		max-width: 100%;
-		margin: 0 20px;
-	}
-	&-cityStateZip {
-		width: 150px;
-	}
-	&-searchForm {
-		display: none;
-	}
-	&-apartmentShow {
-		background-color: white;
-		padding: 21px;
-		box-shadow: 1px 1px 1px #ccc;
-		border-radius: 10px 0px 0px 10px;
-		margin: 0 auto;
-		margin-bottom: 20px;
-	}
-	&-streetAddress {
-		font-size: 25px;
-	}
-	&-mapWrapper {
-		height: 300px;
-		border: solid 5px $light-grey;
-		margin-bottom: 10px;
-	}
-	&-quirksIndexWrapper {
-		margin: 0 20px;
-	}
+  max-width: 1200px;
+  margin: 78px auto;
+  &-apartmentDetailsContainer {
+    max-width: 100%;
+    margin: 0 20px;
+  }
+  &-cityStateZip {
+    width: 150px;
+  }
+  &-searchForm {
+    display: none;
+  }
+  &-apartmentShow {
+    background-color: white;
+    padding: 21px;
+    box-shadow: 1px 1px 1px #ccc;
+    border-radius: 10px 0px 0px 10px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  &-streetAddress {
+    font-size: 25px;
+  }
+  &-mapWrapper {
+    height: 300px;
+    border: solid 5px $light-grey;
+    margin-bottom: 10px;
+  }
+  &-quirksIndexWrapper {
+    margin: 0 20px;
+  }
   @media screen and (min-width: 768px) {
     &-apartmentDetailsContainer {
-		max-width: 600px;
-		margin: 0 auto;
+      max-width: 600px;
+      margin: 0 auto;
     }
   }
   @media screen and (min-width: $desktop-breakpoint) {
-		display: flex;
-		margin: 80px 20px;
+    display: flex;
+    margin: 80px 20px;
     &-apartmentDetailsContainer {
-			width: 450px;
-			margin: 0 20px 0 0;
+      width: 450px;
+      margin: 0 20px 0 0;
     }
-    &-mapWrapper { 
+    &-mapWrapper {
       width: 330px;
       height: 330px;
     }
@@ -58,14 +58,12 @@ $desktop-breakpoint: 1090px;
       color: $primary--dark;
       padding: 10px;
       padding-left: 0px;
-		}
-		&-quirksIndexWrapper {
-			margin: 0;
-		}
-	}
-	@media screen and (min-width: 1240px) {
-		margin: 78px auto;
-	}
+    }
+    &-quirksIndexWrapper {
+      margin: 0;
+    }
+  }
+  @media screen and (min-width: 1240px) {
+    margin: 78px auto;
+  }
 }
-
-

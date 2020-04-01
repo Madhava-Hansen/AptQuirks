@@ -1,5 +1,5 @@
-import React from 'react';
-import UserSearchIndexItem from './user_search_index_item';
+import React from "react";
+import UserSearchIndexItem from "./user_search_index_item";
 
 class UserSearchIndex extends React.Component {
   constructor(props) {
@@ -7,10 +7,14 @@ class UserSearchIndex extends React.Component {
   }
 
   render() {
-    const {users, handleUserSelection, update} = this.props;
-    const usersArray = users ? Object.keys(users).map(key => users[key]) : [];
+    const { users, handleUserSelection, update } = this.props;
+    const usersArray = users ? Object.keys(users).map((key) => users[key]) : [];
     return (
-      <form autoComplete="off" onSubmit={handleUserSelection} className="UserSearchIndex">
+      <form
+        autoComplete="off"
+        onSubmit={handleUserSelection}
+        className="UserSearchIndex"
+      >
         <input
           onChange={update}
           className="UserSearchIndex-input"
@@ -24,12 +28,11 @@ class UserSearchIndex extends React.Component {
                 key={idx}
                 handleUserSelection={handleUserSelection}
               />
-            )
-            })
-          }
+            );
+          })}
         </ul>
       </form>
-    )
+    );
   }
 }
 

@@ -1,10 +1,14 @@
-import { RECEIVE_QUIRKS, RECEIVE_QUIRK_ERRORS, RECEIVE_QUIRK } from '../actions/quirk_actions';
-import merge from 'lodash/merge';
+import {
+  RECEIVE_QUIRKS,
+  RECEIVE_QUIRK_ERRORS,
+  RECEIVE_QUIRK,
+} from "../actions/quirk_actions";
+import merge from "lodash/merge";
 
 const quirksReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
-  switch(action.type) {
+  switch (action.type) {
     case RECEIVE_QUIRKS:
       newState["quirks"] = action.quirks;
       return newState;
@@ -18,6 +22,6 @@ const quirksReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default quirksReducer;
