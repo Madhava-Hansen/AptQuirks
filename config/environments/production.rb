@@ -62,7 +62,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   host = 'apartmentquirks.com'
   config.action_mailer.default_url_options = { host: host }
-  puts "IRONMENT"
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
@@ -71,7 +70,7 @@ Rails.application.configure do
     domain: "gmail.com",
     enable_starttls_auto: true,
     user_name: 'apartmentquirks@gmail.com',
-    password: ENV['gmail_password']
+    password: ENV['GMAIL_PASSWORD']
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

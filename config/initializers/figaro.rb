@@ -1,1 +1,1 @@
-Figaro.require_keys('gmail_password') 
+Figaro.require_keys('GMAIL_PASSWORD') 
