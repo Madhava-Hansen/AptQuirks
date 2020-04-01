@@ -10,7 +10,8 @@ class SessionForm extends React.Component {
       username: "", 
       email: "",
       password: "", 
-      captchaVerified: false
+      captchaVerified: undefined,
+      showCaptchaError: false
     }
   }
 
@@ -39,13 +40,16 @@ class SessionForm extends React.Component {
   }
 
   handleClick = () => {
-    if (!this.state.captchaVerified) {
+    const {captchaVerified, username, email, password} = this.state;
+    const missingLoginData = !username || !password;
+    const hasErrors = this.props.formType === 'signup' ? (!captchaVerified || missingLoginData || !email) : missingLoginData;
+    if (hasErrors) {
       this.setState({showCaptchaError: true});
       setTimeout(() => {
         this.setState({showCaptchaError: false})
       }, 4000);
     } else {
-      this.props.processForm({user: this.state});
+      this.props.processForm({user: {username, email, password}});
     }
   }
 
@@ -63,15 +67,20 @@ class SessionForm extends React.Component {
 
   render() {
     const {formType, errors} = this.props;
-    this.errorClass = errors ? 'SessionForm-errors' : 'no errors';
+    const errorClass = errors ? 'SessionForm-errors' : 'hidden';
     const isSignup = formType === 'signup';
     if (this.errorClass === 'session-errors') {
       this.wipeOutErrors();
     }
     return (
       <section className="SessionFormWrapper">
-        <h3 className={ this.errorClass }>{ errors }</h3>
         <div className="SessionForm">
+        <h3 className={errorClass}>{errors}</h3>
+        {this.state.showCaptchaError && (
+          <div className="SessionForm-errors">
+            Please verify that you're not a robot with reCaptcha
+          </div>
+        )}
           <h1 className="SessionForm-header">{formType}</h1>
             <input
               className="SessionForm-input form-input"
@@ -93,12 +102,6 @@ class SessionForm extends React.Component {
               placeholder="password..."
               onChange={this.update("password")}
             />
-            {this.state.showCaptchaError && (
-              <div className="SessionForm-errors">
-                Please verify that you're not a robot with reCaptcha 
-                or make sure to fill out all required fields
-              </div>
-            )}
             {isSignup && (
               <div className="SessionForm-recaptcha">
                 <ReCAPTCHA
