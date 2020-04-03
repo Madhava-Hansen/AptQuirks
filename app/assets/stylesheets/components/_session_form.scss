@@ -1,10 +1,11 @@
 @import "./base/colors";
 
 .SessionFormWrapper {
-  width: 400px;
+  max-width: 450px;
   margin: 0 auto;
   background-color: white;
   margin-top: 130px;
+  border-radius: 10px;
 }
 
 .SessionForm {
@@ -12,7 +13,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  border-radius: 10px;
   padding: 30px;
   &-input {
     margin: 6px 0 20px 0;
