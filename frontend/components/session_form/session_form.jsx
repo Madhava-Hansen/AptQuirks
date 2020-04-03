@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { receiveErrors } from "../../actions/session_actions";
 import ReCAPTCHA from "react-google-recaptcha";
+import {SessionFormInput} from './session_form_input';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -86,26 +87,20 @@ class SessionForm extends React.Component {
             </div>
           )}
           <h1 className="SessionForm-header">{formType}</h1>
-          <input
-            className="SessionForm-input form-input"
-            type="text"
-            placeholder="username..."
-            onChange={this.update("username")}
+          <SessionFormInput
+           name="username"
+           update={this.update}
           />
           {isSignup && (
-            <input
-              className="SessionForm-input form-input"
-              type="text"
-              placeholder="email..."
-              onChange={this.update("email")}
+            <SessionFormInput
+              name="email"
+              update={this.update}
             />
           )}
-          <input
-            className="SessionForm-input form-input"
-            type="password"
-            placeholder="password..."
-            onChange={this.update("password")}
-          />
+            <SessionFormInput
+              name="password"
+              update={this.update}
+            />
           {isSignup && (
             <div className="SessionForm-recaptcha">
               <ReCAPTCHA
