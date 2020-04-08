@@ -1,12 +1,13 @@
 import React from "react";
 import UploadButton from "./upload_button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faEdit } from '@fortawesome/fontawesome-free-solid'
+import { faEdit, faTimesCircle } from '@fortawesome/fontawesome-free-solid'
 
 class ProfileShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { city: "", inEditMode: false };
+    this.defaultUserImage =  "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
   }
 
   componentDidMount() {
@@ -20,7 +21,7 @@ class ProfileShow extends React.Component {
     this.props.updateUser(user).then(this.setState({ city: "" }));
   };
 
-  handleToggleEditMode = () => this.setState({isInEditMode: !isInEditMode});
+  handleToggleEditMode = () => this.setState({inEditMode: !this.state.inEditMode});
 
   update = city => {
     return (e) =>
@@ -30,32 +31,27 @@ class ProfileShow extends React.Component {
   };
 
   render() {
-    const { addPhoto, currentUser } = this.props;
-    const cityTitle = currentUser.city ? "Update" : "Add";
-    const picturePath =
-      currentUser.thumbnail_url ||
-      "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
+    const {addPhoto, currentUser} = this.props;
+    const {inEditMode, city} = this.state;
     return (
       <section className="UserProfile">
           <div className="UserProfile-userGreeting">
             <h1>
-              Hi there, {currentUser.username}!
+              Hi there, Apartment Hero!
             </h1>
             <FontAwesomeIcon 
               className="UserProfile-editIcon"
               size="1x" 
-              icon={faEdit} 
+              icon={this.state.inEditMode ? faTimesCircle : faEdit} 
+              onClick={this.handleToggleEditMode}
             />
           </div>
           <div className="UserProfile-mainContentWrapper">
           <div className="UserProfile-heading">
-            <div>
             <figure className="UserProfile-pic">
-              <img src={picturePath} alt="profile picture"></img>
+              <img src={currentUser.thumbnail_url || this.defaultUserImage} alt="profile picture"></img>
             </figure>
             <div className="photo-upload">
-            <h3 className="UserProfile-title">
-            </h3>
             <UploadButton 
               buttonName={"change photo"} 
               currentUser={currentUser} 
@@ -64,23 +60,32 @@ class ProfileShow extends React.Component {
             />
           </div>
           </div>
+          <div className="UserProfile-userInfoItem">
+            <div className="UserProfile-title">Username:</div>
+            <p className="UserProfile-info">{currentUser.username}</p>
           </div>
-          <div className="UserProfile-cityTitleWrapper">
-            <label className="UserProfile-cityTitle">
-              Current city: {this.props.currentUser.city}{" "}
-            </label>
-            <input
-              className="UserProfile-formInput"
-              placeholder="enter your city..."
-              onChange={this.update("city")}
-              value={this.state.city}
-            ></input>
-            <button
-              className="UserProfile-cityButton"
-              onClick={this.handleAddCity}
-            >
-              {cityTitle} City
-            </button>
+          <div className="UserProfile-userInfoItem">
+            <div className="UserProfile-title">City:</div>
+            <p className="UserProfile-info">
+              {currentUser.city}
+            </p>
+            {inEditMode && (
+            <div className="UserProfile-editCityWrapper">
+              <input
+                className="UserProfile-formInput"
+                placeholder="enter your city..."
+                onChange={this.update("city")}
+                value={city}
+              ></input>
+              <button
+                className="UserProfile-cityButton"
+                onClick={this.handleAddCity}
+              >
+                {currentUser.city ? "Update" : "Add"} City
+              </button>
+            </div>
+            )}
+
           </div>
           </div>
       </section>

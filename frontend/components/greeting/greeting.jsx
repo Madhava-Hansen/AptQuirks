@@ -112,7 +112,7 @@ class Greeting extends React.Component {
                     alt="profile pic"
                   ></img>
                   <h3 className="dropdown-username">
-                    {currentUser.username.slice(0, 8) + "..."}
+                    {currentUser.username.slice(0, 6) + "..."}
                   </h3>
                   <NavLink
                     activeClassName="isActive"
