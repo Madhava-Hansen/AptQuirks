@@ -5,7 +5,7 @@
   max-width: 550px;
   margin: 0 auto;
   background-color: white;
-  margin-top: 77px;
+  margin-top: 130px;
   min-height: 500px;
   border-radius: 10px 10px 0px 0px;
   box-shadow: 1px 1px 1px #ccc;
@@ -179,7 +179,6 @@
   float: left;
   padding: 8px;
   border-radius: 5px;
-  color: $primary;
   margin-top: 17px;
   margin-left: 8px;
   margin-bottom: 10px;
@@ -190,11 +189,15 @@
   margin-bottom: 10px;
   margin-top: 17px;
   border-bottom: 1px solid $primary--light;
+  background-color: $primary--dark;
+  color: white;
+  border-radius: 10px 10px 0 0;
 }
 
 @media screen and (max-width: 480px) {
   .message-container {
     width: 90%;
+    margin-top: 130px;
   }
 
   .message-index-container {
@@ -287,6 +290,7 @@
 @media only screen and (max-width: 1280px) and (min-width: 480px) {
   .message-container {
     width: 480px;
+    margin-top: 130px;
   }
 
   .message-index-container {
