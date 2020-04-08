@@ -1,6 +1,7 @@
 @import "../base/colors";
 
 .Homepage {
+  $root: &;
   &-textWrapper {
     text-align: center;
     color: white;
@@ -31,21 +32,26 @@
     color: steelblue;
     font-family: serif;
   }
-  &-wrapper {
+  &-searchContent {
+    position: absolute;
     z-index: 1;
   }
-  &-homeTextContainer {
+  &-aboveTheFoldWrapper {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
     height: calc(100vh - 60px);
-    background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1578704085/pexels-photo-271816_tuarlv.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    // account for the height of the header
     padding-top: 60px;
+    opacity: 0;
+    transition: 0.25s;
+  }
+  &-homepageHeroImage {
+    object-fit: cover;
+    height: calc(100vh - 60px);
+  }
+  &--isLoaded {
+    opacity: 1;
   }
   @media screen and (min-width: 515px) {
     &-featuredApartmentsText {
