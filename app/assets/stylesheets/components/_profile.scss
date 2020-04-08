@@ -3,9 +3,9 @@
 .UserProfile {
   background-color: white;
   background-image: none;
-  max-width: 530px;
+  max-width: 615px;
   margin: 77px 20px;
-  padding: 20px;
+  padding-bottom: 20px;
   box-shadow: 1px 1px 1px #ccc;
   border-radius: 10px;
 
@@ -15,19 +15,28 @@
     background-position: right center;
     background-repeat: no-repeat;
   }
-
-  &-explanation {
-    font-size: 40px;
-    margin-top: 35px;
-    width: 100%;
+  &-userGreeting {
+    margin-bottom: 10px;
     color: $primary;
-    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 25px;
+    background-color: $light-grey;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-editIcon {
+    &:hover {
+      cursor: pointer;
+      color: $primary--light;
+    }
+  }
+  &-mainContentWrapper {
+    padding: 20px;
   }
   &-pic {
     width: 75px;
-    display: block;
-    float: left;
-    padding: 2%;
     & img {
       border-radius: 100%;
     }
@@ -35,18 +44,18 @@
   &-heading {
     margin-top: 20px;
   }
-  &-mainContent {
-    display: grid;
-    grid-template-rows: 1fr 1.2fr 1.2fr;
-  }
   &-title {
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 20px;
     color: grey;
   }
+  &-cityTitleWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
   &-cityTitle {
-    display: block;
     color: grey;
     font-size: 20px;
     margin-bottom: 8px;
@@ -54,22 +63,17 @@
   &-formInput {
     box-shadow: 1px 1px 3px lightgrey;
     border: 1px solid lightgrey;
-  }
-  &-username {
-    margin-bottom: 10px;
-    color: $primary;
-    font-weight: bold;
-    margin-top: 20px;
-    font-size: 25px;
+    width: 200px;
+    height: 30px;
+    border-radius: 3px;
+    padding-left: 8px;
   }
   &-uploadButton {
-    display: block;
     color: white;
     border: 2px solid white;
     background-color: $primary;
   }
   &-cityButton {
-    display: block;
     margin-top: 10px;
   }
 }

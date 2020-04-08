@@ -112,7 +112,7 @@ class Greeting extends React.Component {
                     alt="profile pic"
                   ></img>
                   <h3 className="dropdown-username">
-                    {currentUser.username.slice(0, 6) + "..."}
+                    {currentUser.username.slice(0, 8) + "..."}
                   </h3>
                   <NavLink
                     activeClassName="isActive"
@@ -171,13 +171,13 @@ class Greeting extends React.Component {
             src="https://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"
           ></img>
           <ul className={this.state.navRight}>
-            {/* <li onClick={ this.logInGuest }className="nav-link guest">guest</li> */}
             <GreetingNavLink
               currentUrl={this.state.currentUrl}
               urlParam="home"
               handleClick={() => this.handleRedirect("home")}
               linkName={"search"}
             />
+            <li onClick={ this.logInGuest }className="nav-link guest">guest</li>
             <GreetingSocialLink
               handleClick={() => this.handleClickSocial()}
               isSocialOpen={this.state.isSocialOpen}

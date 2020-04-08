@@ -54,7 +54,7 @@
   text-align: center;
   height: 45px;
   float: right;
-  margin-right: 10px;
+  margin-right: 16px;
 }
 
 .nav-link {
@@ -111,8 +111,7 @@
 }
 
 .guest {
-  background-color: $primary;
-  color: white;
+  color: $primary--dark;
 }
 
 .nav-link-pic {
@@ -121,6 +120,8 @@
   margin-left: 5px;
   padding: 7px;
   position: relative;
+  border-radius: 100%;
+  padding-right: 0;
 }
 
 .nav-link-pic:hover {
@@ -135,10 +136,10 @@
   position: absolute;
   background-color: white;
   border: 1px solid lightgrey;
-  left: -175px;
+  left: -185px;
   top: 60px;
   border-radius: 5px;
-  width: 220px;
+  width: 232px;
   height: 140px;
   box-shadow: 1px 1px 1px #ccc;
 }
@@ -322,10 +323,6 @@
   .nav-link-pic {
     display: none;
   }
-
-  .logout {
-    display: block;
-  }
 }
 
 @media screen and (max-width: 1030px) {
@@ -341,11 +338,13 @@
     padding: 8px;
     margin-top: 9px;
     margin-left: 3px;
+    color: $primary--dark;
   }
 
   .logout:hover {
     background-color: $primary;
     border-radius: 3px;
+    color: white;
   }
 
   .nav-right {
@@ -354,10 +353,10 @@
 
   .nav-right-reveal {
     display: block;
-    height: 188px;
+    height: 230px;
     float: right;
-    margin-right: 10px;
-    padding: 10px;
+    margin-right: 16px;
+    padding: 22px;
     background-color: white;
     position: absolute;
     right: 2px;
@@ -405,6 +404,7 @@
 
 .guest:hover {
   color: white;
+  background-color: $primary;
 }
 
 .opacity {

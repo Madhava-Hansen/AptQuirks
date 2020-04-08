@@ -11,9 +11,7 @@ class Home extends React.Component {
     window.scrollTo(0, 0);
   }
 
-  handleImageIsLoaded = () => {
-    this.setState({isLoaded: 'Homepage--isLoaded'});
-  }
+  handleImageIsLoaded = () => this.setState({isLoaded: 'Homepage--isLoaded'});
 
   render() {
     return (

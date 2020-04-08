@@ -23,7 +23,7 @@ class UploadButton extends React.Component {
   };
 
   render() {
-    return <button onClick={this.upload}>Upload</button>;
+  return <button onClick={this.upload}>{this.props.buttonName || Upload}</button>;
   }
 }
 

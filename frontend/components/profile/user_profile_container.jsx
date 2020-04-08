@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { addPhoto, updateUser } from "../../actions/session_actions";
-import ProfileShow from "./profile_show";
+import UserProfile from "./user_profile";
 
 const mapStateToProps = ({ session }) => ({
   currentUser: session.currentUser,
@@ -11,9 +11,9 @@ const mapDispatchToProps = (dispatch) => ({
   updateUser: (user) => dispatch(updateUser(user)),
 });
 
-const ProfileShowContainer = connect(
+const UserProfileContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProfileShow);
+)(UserProfile);
 
-export default ProfileShowContainer;
+export default UserProfileContainer;
