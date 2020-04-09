@@ -4,6 +4,9 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
+      if !@user.email 
+        @user.email = "Madhavah@gmail.com"
+      end
       UserMailer.welcome_email(@user).deliver_now
       render 'api/users/show'
     else
@@ -14,6 +17,9 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.where("username = ?", params[:user][:username])
     if @user
+      if !@user.email
+        @user.email = "Madhavah@gmail.com"
+      end
       render 'api/users/show'
     else
       render json: ['unable to find user'], status: 401
@@ -24,6 +30,9 @@ class Api::UsersController < ApplicationController
     @user = current_user
     if @user
       @user.update_attributes(user_params)
+      if !@user.email
+        @user.email = "Madhavah@gmail.com"
+      end
       render 'api/users/show'
     else
       render json: ["unable to update user"], status: 401

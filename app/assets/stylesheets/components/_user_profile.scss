@@ -34,7 +34,11 @@
     }
   }
   &-mainContentWrapper {
-    padding: 20px;
+    padding: 0 20px;
+    background-color: $light-grey;
+    width: 326px;
+    border-radius: 10px;
+    margin: 0 30px 0 30px;
   }
   &-pic {
     width: 75px;
@@ -44,7 +48,7 @@
     }
   }
   &-heading {
-    margin-top: 20px;
+    margin: 30px;
     display: flex;
     align-items: center;
   }
@@ -57,7 +61,8 @@
   &-userInfoItem {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    padding: 12px 12px 20px 12px;
+    width: 300px;
   }
   &-info {
     display: flex;
@@ -68,26 +73,12 @@
     font-size: 20px;
     margin-bottom: 8px;
   }
-  &-formInput {
-    box-shadow: 1px 1px 3px lightgrey;
-    border: 1px solid lightgrey;
-    width: 200px;
-    height: 30px;
-    border-radius: 3px;
-    padding-left: 8px;
-  }
   &-uploadButton {
     color: white;
     border: 2px solid white;
     background-color: $primary;
   }
-  &-cityButton {
-    margin-left: 12px;
-  }
-  &-editCityWrapper {
-    display: flex;
-    margin-top: 12px;
-  }
+
   &-title {
     background-color: $primary--dark;
     color: white;

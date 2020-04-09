@@ -1,0 +1,21 @@
+@import "./base/colors";
+
+.UserProfileInput {
+  &-inputWrapper {
+    display: flex;
+    margin-top: 12px;
+  }
+  &-formInput {
+    box-shadow: 1px 1px 3px lightgrey;
+    border: 1px solid lightgrey;
+    width: 200px;
+    height: 30px;
+    border-radius: 3px;
+    padding-left: 8px;
+  }
+  &-saveButton {
+    margin-left: 12px;
+    background-color: $primary;
+    color: white;
+  }
+}
