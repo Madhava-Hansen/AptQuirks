@@ -90,16 +90,19 @@ class SessionForm extends React.Component {
           <SessionFormInput
            name="username"
            update={this.update}
+           type="text"
           />
           {isSignup && (
             <SessionFormInput
               name="email"
               update={this.update}
+              type="email"
             />
           )}
             <SessionFormInput
               name="password"
               update={this.update}
+              type="password"
             />
           {isSignup && (
             <div className="SessionForm-recaptcha">
