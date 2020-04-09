@@ -61,13 +61,13 @@
   &-userInfoItem {
     display: flex;
     flex-direction: column;
-    padding: 12px 12px 20px 12px;
     width: 300px;
   }
   &-info {
     display: flex;
-    margin-top: 8px;
+    margin-top: 12px;
     font-size: 18px;
+    height: 32px;
   }
   &-cityTitle {
     font-size: 20px;
