@@ -8,7 +8,7 @@ import merge from "lodash/merge";
 
 const likesReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = merge({}, state);
+  const newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_CURRENT_LIKE:
       let likeId = newState.likes.length;

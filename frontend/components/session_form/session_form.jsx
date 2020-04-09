@@ -86,7 +86,9 @@ class SessionForm extends React.Component {
               Please verify that you're not a robot with reCaptcha
             </div>
           )}
-          <h1 className="SessionForm-header">{formType}</h1>
+          <h1 className="SessionForm-header">
+            {formType}
+          </h1>
           <SessionFormInput
            name="username"
            update={this.update}
