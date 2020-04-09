@@ -63,40 +63,43 @@ class ProfileShow extends React.Component {
           <div className="UserProfile-mainContentWrapper">
           <div className="UserProfile-userInfoItem">
             <div className="UserProfile-title">Username</div>
-            <p className="UserProfile-info">{currentUser.username}</p>
-            {inEditMode && (
+            {inEditMode ? (
               <UserProfileInput
               type="username"
               update={this.update}
               handleUpdateUser={this.handleUpdateUser}
               value={username}
               />
+            ) : (
+              <p className="UserProfile-info">{currentUser.username}</p>
             )}
           </div>
           <div className="UserProfile-userInfoItem">
             <div className="UserProfile-title">Email</div>
-            <p className="UserProfile-info">{currentUser.email}</p>
-            {inEditMode && (
+            {inEditMode ? (
               <UserProfileInput
               type="email"
               update={this.update}
               handleUpdateUser={this.handleUpdateUser}
               value={email}
               />
+            ) : (
+              <p className="UserProfile-info">{currentUser.email}</p>
             )}
           </div>
           <div className="UserProfile-userInfoItem">
             <div className="UserProfile-title">City</div>
-            <p className="UserProfile-info">
-              {currentUser.city ? currentUser.city : 'add your city here!'}
-            </p>
-            {inEditMode && (
+            {inEditMode ? (
               <UserProfileInput
               type="city"
               update={this.update}
               handleUpdateUser={this.handleUpdateUser}
               value={city}
               />
+            ) : (
+              <p className="UserProfile-info">
+                {currentUser.city ? currentUser.city : 'add your city here!'}
+              </p>
             )}
           </div>
         </div>
