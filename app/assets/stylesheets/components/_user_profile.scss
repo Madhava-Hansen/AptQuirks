@@ -1,4 +1,5 @@
-@import "./base/colors";
+@import './base/colors';
+@import './base/mixins';
 
 .UserProfile {
   background-color: white;
@@ -53,10 +54,11 @@
     align-items: center;
   }
   &-title {
+    color: $primary--dark;
+    border-radius: 10px;
+    font-size: 16px;
     margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: grey;
+    font-weight: bold;
   }
   &-userInfoItem {
     display: flex;
@@ -66,30 +68,10 @@
   &-info {
     display: flex;
     margin-top: 12px;
-    font-size: 18px;
+    font-size: 14px;
     height: 32px;
   }
-  &-cityTitle {
-    font-size: 20px;
-    margin-bottom: 8px;
-  }
   &-uploadButton {
-    border: 2px solid #f1f1f1;
-    border-radius: 0px;
-    padding: 6px;
-    color: grey;
-    background-color: white;
-    margin-top: 4.5px;
-    margin-right: 5.5px;
-  }
-
-  &-title {
-    background-color: $primary--dark;
-    color: white;
-    border-radius: 10px;
-    width: 120px;
-    padding: 6px;
-    border-radius: 10px;
-    font-size: 14px;
+    @include greyButton;
   }
 }
