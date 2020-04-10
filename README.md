@@ -4,7 +4,9 @@
 
 Apartment Quirks is a single-page web application built with Ruby on Rails, React.js, JavaScript, Redux and postgreSQL. It's a place for people to tell their story about living at an apartment, so that others who are looking for a new one can be more informed.
 
-![show page screenshot](https://github.com/Madhava-Hansen/AptQuirks/blob/master/app/assets/images/show_page_screen_shot.jpg)
+![homepage](https://res.cloudinary.com/aptquirks/image/upload/v1586483789/Screen_Shot_2020-04-09_at_9.53.04_PM_jgwkwu.png)
+
+![show page](https://res.cloudinary.com/aptquirks/image/upload/v1586483731/Screen_Shot_2020-04-09_at_9.54.41_PM_vakcp2.png)
 
 ## Apartment Quirks allows user to:
 
@@ -22,6 +24,8 @@ Apartment Quirks is a single-page web application built with Ruby on Rails, Reac
 
 My app has a custom built user authentication system that utilizes the Ruby BCrypt Gem. Encrypted passwords are sent to Rails and then put through the BCrypt hashing function. Hashed passwords are stored in the Users table and then retrieved whenever a user logs in. If the users hashed password from the Users table matches the incoming login password hash, the user has been successfully authenticated and a session is created.
 
+![signup](https://res.cloudinary.com/aptquirks/image/upload/v1586483761/Screen_Shot_2020-04-09_at_9.52.02_PM_gnc5mp.png)
+
 ## Server side
 
 I chose to use Ruby on Rails to handle my server side code for this project. Not only do I love the Ruby programming language but Rails is an excellent MVC framework for getting server side code up and running quickly. Incoming http requests are processed by the Routes.rb file which routes requests to the appropriate controller. The controller uses the Active Record ORM that is built into Rails to persist or request data from my database. I use jbuilder to format the data before sending the JSON response back to the client side for rendering in the browser.
@@ -29,6 +33,9 @@ I chose to use Ruby on Rails to handle my server side code for this project. Not
 ## Client side
 
 The frontend is handled using React.js and Redux. My app interacts with Rails by sending Ajax requests and receiving JSON objects back. The Redux Store maintains and updates the state of my application as well as passing state down to the appropriate components so they can correctly render information back to the user.
+
+![show page](https://res.cloudinary.com/aptquirks/image/upload/v1586483742/Screen_Shot_2020-04-09_at_9.54.13_PM_rvq5tx.png)
+
 
 ## Libraries
 
