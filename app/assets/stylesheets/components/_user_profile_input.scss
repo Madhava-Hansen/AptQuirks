@@ -1,4 +1,5 @@
 @import "./base/colors";
+@import '../base/mixins';
 
 .UserProfileInput {
   &-inputWrapper {
@@ -14,8 +15,7 @@
     padding-left: 8px;
   }
   &-saveButton {
-    margin-left: 12px;
-    background-color: $primary;
-    color: white;
+    @include greyButton;
+    margin-left: 6px;
   }
 }
