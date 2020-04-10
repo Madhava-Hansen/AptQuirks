@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import {QuirkFormInput} from './quirk_form_input';
 
 class QuirkForm extends React.Component {
   constructor(props) {
@@ -14,11 +15,12 @@ class QuirkForm extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.apartmentId =
       this.props.apartmentId || sessionStorage.getItem("apartmentId");
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     const {
       currentUser: { id, username, thumbnail_url },
@@ -36,42 +38,41 @@ class QuirkForm extends React.Component {
     );
   };
 
-  update = (type) => (e) => this.setState({ [type]: e.currentTarget.value });
+  update = type => e => this.setState({ [type]: e.currentTarget.value });
 
   render() {
+    const {title, body, apt_number} = this.state;
     return (
-      <section className="form-container containers">
-        <form onSubmit={this.handleSubmit} className="quirk-form">
-          <h1 className="form-title">Add Quirk</h1>
-          <p className="form-address">
-            {this.props.currentApartment.street_address}
+      <form onSubmit={this.handleSubmit} className="QuirkForm">
+        <div className="QuirkForm-titleSectionWrapper">
+          <h1 className="QuirkForm-title">Add Quirk</h1>
+          <p className="QuirkForm-address">
+            28 York Avenue, Monticello, NY 12701
           </p>
-          <input
-            id="quirk-form-title"
-            className="form-input"
-            type="text"
-            placeholder="title..."
-            onChange={this.update("title")}
-          />
-          <textarea
-            id="quirk-form-body"
-            className="form-input"
-            type="text"
-            placeholder="body..."
-            onChange={this.update("body")}
-          />
-          <input
-            id="quirk-form-apt-number"
-            className="form-input"
-            type="text"
-            placeholder="apt..."
-            onChange={this.update("apt_number")}
-          />
-          <button className="form-button" type="submit">
-            Submit
-          </button>
-        </form>
-      </section>
+        </div>
+        <QuirkFormInput 
+          name="title"
+          placeholder="title..."
+          update={this.update}
+          isValid={title.length >= 6}
+        />
+        <QuirkFormInput 
+          name="body"
+          placeholder="body..."
+          isTextArea
+          update={this.update}
+          isValid={body.length >= 15}
+        />
+        <QuirkFormInput 
+          name="apt_number"
+          placeholder="apt..."
+          update={this.update}
+          isValid={apt_number.length >= 1}
+        />
+        <button className="QuirkForm-button form-button" type="submit">
+          Submit
+        </button>
+      </form>
     );
   }
 }

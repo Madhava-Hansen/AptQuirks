@@ -5,3 +5,16 @@
   color: grey;
   background-color: white;
 }
+
+@mixin formInput {
+  width: 290px;
+  height: 40px;
+  border-radius: 3px;
+  padding-left: 10px;
+  text-align: left;
+  margin: 0 auto;
+  font-size: 15px;
+  color: $primary;
+  box-shadow: 1px 1px 1px lightgrey;
+  border-radius: 5px;
+}

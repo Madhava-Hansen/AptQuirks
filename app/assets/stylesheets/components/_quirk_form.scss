@@ -1,9 +1,52 @@
-@import "./base/colors";
+@import './base/colors';
+@import './base/mixins';
 
-.quirk-form {
-  display: grid;
-  grid-template-rows: 1.5fr 0.8fr 1fr 2fr 1fr 1.3fr;
+.QuirkForm {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  margin-top: 77px;
-  min-height: 450px;
+  width: 450px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 77px auto;
+  box-sizing: border-box;
+  &-titleSectionWrapper {
+    background-color: $primary--dark;
+    color: white;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 30px;
+  }
+  &-title {
+    font-size: 42px;
+    margin-bottom: 6px;
+  }
+  &-address {
+    font-size: 14px;
+  }
+  &-input {
+    @include formInput;
+    margin: 20px auto;
+    border: 2px solid $light-grey;
+    padding-right: 30px;
+  }
+  &-textAreaInput {
+    height: 102px;
+  }
+  &-inputWrapper {
+    position: relative;
+  }
+  &-checkmark {
+    position: absolute;
+    right: 70px;
+    top: 35px;
+    color: $sucessMessage--green;
+  }
+  &-button {
+    margin: 10px auto 30px auto;
+    height: 45px;
+  }
+  @media screen and (min-width: 550px) {
+    margin-top: 130px;
+  }
 }
