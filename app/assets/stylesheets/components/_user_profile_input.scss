@@ -4,6 +4,7 @@
 .UserProfileInput {
   &-inputWrapper {
     display: flex;
+    flex-direction: column;
     margin-top: 12px;
     font-size: 12px;
   }
@@ -17,6 +18,14 @@
   }
   &-saveButton {
     @include greyButton;
-    margin-left: 6px;
+    margin-top: 6px;
+  }
+  @media screen and (min-width: 550px) {
+    &-inputWrapper {
+      flex-direction: row;
+    }
+    &-saveButton {
+      margin: 0 0 0 6px;
+    }
   }
 }

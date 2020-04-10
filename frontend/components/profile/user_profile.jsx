@@ -43,7 +43,7 @@ class ProfileShow extends React.Component {
     return (
         <section className="UserProfile">
           <div className="UserProfile-userGreeting">
-            <h1>
+            <h1 className="UserProfile-greetingText">
               Hi there, Apartment Hero!
             </h1>
             <FontAwesomeIcon 

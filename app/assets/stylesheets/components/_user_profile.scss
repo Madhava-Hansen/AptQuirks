@@ -11,18 +11,22 @@
   border-radius: 10px;
   min-height: 500px;
   color: $primary--dark;
-  @media screen and (min-width: 550px) {
-    margin: 130px auto 40px auto;
-    background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1524241630/building_x4hvkw.jpg");
-    background-position: right center;
-    background-repeat: no-repeat;
+  &-greetingText {
+    font-size: 20px;
+    padding-right: 12px;
+  }
+  &-mainContentWrapper {
+    padding: 10px;
+    background-color: $light-grey;
+    border-radius: 10px;
+    margin: 12px;
   }
   &-userGreeting {
     margin-bottom: 10px;
     color: white;
     font-weight: bold;
+    font-size: 20px;
     padding: 20px;
-    font-size: 25px;
     background-color: $primary--dark;
     border-radius: 10px 10px 0 0;
     display: flex;
@@ -33,13 +37,6 @@
       cursor: pointer;
       color: $primary--light;
     }
-  }
-  &-mainContentWrapper {
-    padding: 0 20px 20px 20px;
-    background-color: $light-grey;
-    width: 326px;
-    border-radius: 10px;
-    margin: 0 30px 0 30px;
   }
   &-pic {
     width: 75px;
@@ -99,5 +96,19 @@
   &-checkmark {
     color: $sucessMessage--green;
     margin-left: 12px;
+  }
+  @media screen and (min-width: 550px) {
+    margin: 130px auto 40px auto;
+    background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1524241630/building_x4hvkw.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
+    &-mainContentWrapper {
+      width: 326px;
+      padding: 0 20px 20px 20px;
+      margin: 0 30px 0 30px;
+    }
+    &-greetingText {
+      font-size: 35px;
+    }
   }
 }
