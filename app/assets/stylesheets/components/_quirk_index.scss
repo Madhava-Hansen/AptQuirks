@@ -1,4 +1,5 @@
-@import "../base/colors";
+@import '../base/colors';
+@import './base/mixins';
 
 .QuirksIndex {
   position: relative;
@@ -7,21 +8,26 @@
   border-radius: 0px 0px 10px 10px;
   min-height: 250px;
   margin: 0 20px;
-  padding: 20px;
+  padding-bottom: 20px;
   &-headerSection {
-    width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    padding: 20px;
     display: flex;
+    background-color: $primary--dark;
+  }
+  &-quirksWrapper {
+    margin: 0 30px;
   }
   &-addQuirkButton {
-    background-color: $primary;
-    color: white;
+    @include greyButton;
+    color: $primary--dark;
+    border-radius: 3px;
     width: 80px;
     height: 30px;
     font-size: 18px;
   }
   &-whatsAQuirk {
-    color: $primary;
+    color: white;
     cursor: pointer;
     padding-top: 13px;
     margin-left: 10px;

@@ -21,12 +21,20 @@ class ProfileShow extends React.Component {
     window.scrollTo(0, 0);
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const {currentUser: {city, username, email}} = nextProps;
+    if (city !== prevState.city || username !== prevState.username || email !== prevState.email) {
+      return {city, username, email};
+    }
+
+    return null;
+  }
+
   handleUpdateUser = e => {
-    const {currentUser: {id}, updateUser} = this.props;
-    const {name} = e.target;
-    const user = {user: { id: id, [name]: this.state[name]}};
-    updateUser(user).then(() => {
-      this.setState({[name]: "", successModalClass: 'UserProfile-successModalWrapper'});
+    const {currentUser: {id, email, username, city}, saveUser} = this.props;
+    const user = {user: { id: id, email, username, city}};
+    saveUser(user).then(() => {
+      this.setState({successModalClass: 'UserProfile-successModalWrapper', inEditMode: false});
       setTimeout(() => {
         this.setState({successModalClass: 'hidden'});
       }, 2000)
@@ -35,7 +43,7 @@ class ProfileShow extends React.Component {
 
   handleToggleEditMode = () => this.setState({inEditMode: !this.state.inEditMode});
 
-  update = e => this.setState({[e.target.name]: e.target.value});
+  update = e => this.props.updateUser({[e.target.name]: e.target.value});
 
   render() {
     const {addPhoto, currentUser} = this.props;
@@ -108,6 +116,11 @@ class ProfileShow extends React.Component {
               </p>
             )}
           </div>
+          {inEditMode && (
+            <button className="UserProfile-saveButton" onClick={this.handleUpdateUser}>
+              Save
+            </button>
+          )}
         </div>
         <div className={`${this.state.successModalClass}`}>
           <div className="UserProfile-successModalContent">

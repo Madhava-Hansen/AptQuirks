@@ -2,12 +2,6 @@
 @import '../base/mixins';
 
 .UserProfileInput {
-  &-inputWrapper {
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-    font-size: 12px;
-  }
   &-formInput {
     box-shadow: 1px 1px 3px lightgrey;
     border: 1px solid lightgrey;
@@ -15,17 +9,12 @@
     height: 30px;
     border-radius: 3px;
     padding-left: 8px;
-  }
-  &-saveButton {
-    @include greyButton;
-    margin-top: 6px;
+    margin-top: 12px;
+    font-size: 12px;
   }
   @media screen and (min-width: 550px) {
     &-inputWrapper {
       flex-direction: row;
-    }
-    &-saveButton {
-      margin: 0 0 0 6px;
     }
   }
 }

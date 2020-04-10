@@ -29,7 +29,7 @@ export const verifyCaptcha = (response) => {
   });
 };
 
-export const updateUser = (user) => {
+export const saveUser = (user) => {
   return $.ajax({
     method: "PATCH",
     url: `/api/users/${user.id}`,

@@ -20,6 +20,7 @@
     background-color: $light-grey;
     border-radius: 10px;
     margin: 12px;
+    height: 295px;
   }
   &-userGreeting {
     margin-bottom: 10px;
@@ -96,6 +97,11 @@
   &-checkmark {
     color: $sucessMessage--green;
     margin-left: 12px;
+  }
+  &-saveButton {
+    @include greyButton;
+    color: $primary--dark;
+    margin-top: 12px;
   }
   @media screen and (min-width: 550px) {
     margin: 130px auto 40px auto;

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addPhoto, updateUser } from "../../actions/session_actions";
+import { addPhoto, saveUser, updateUserDetails} from "../../actions/session_actions";
 import UserProfile from "./user_profile";
 
 const mapStateToProps = ({ session }) => ({
@@ -7,8 +7,9 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addPhoto: (user) => dispatch(addPhoto(user)),
-  updateUser: (user) => dispatch(updateUser(user)),
+  addPhoto: user => dispatch(addPhoto(user)),
+  saveUser: user => dispatch(saveUser(user)),
+  updateUser: user => dispatch(updateUserDetails(user))
 });
 
 const UserProfileContainer = connect(
