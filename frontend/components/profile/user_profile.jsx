@@ -1,7 +1,7 @@
 import React from "react";
 import UploadButton from "./upload_button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faEdit, faTimesCircle } from '@fortawesome/fontawesome-free-solid'
+import { faEdit, faTimesCircle, faCheck } from '@fortawesome/fontawesome-free-solid'
 import {UserProfileInput} from './user_profile_input';
 
 class ProfileShow extends React.Component {
@@ -11,7 +11,8 @@ class ProfileShow extends React.Component {
       city: '', 
       username: '', 
       email: '', 
-      inEditMode: false 
+      inEditMode: false ,
+      successModalClass: 'hidden'
     };
     this.defaultUserImage =  "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
   }
@@ -23,8 +24,13 @@ class ProfileShow extends React.Component {
   handleUpdateUser = e => {
     const {currentUser: {id}, updateUser} = this.props;
     const {name} = e.target;
-    const user = {user: { id: id, [name]: this.state[name] }};
-    updateUser(user).then(this.setState({ [name]: "" }));
+    const user = {user: { id: id, [name]: this.state[name]}};
+    updateUser(user).then(() => {
+      this.setState({[name]: "", successModalClass: 'UserProfile-successModalWrapper'});
+      setTimeout(() => {
+        this.setState({successModalClass: 'hidden'});
+      }, 2000)
+    })
   };
 
   handleToggleEditMode = () => this.setState({inEditMode: !this.state.inEditMode});
@@ -65,10 +71,10 @@ class ProfileShow extends React.Component {
             <div className="UserProfile-title">Username</div>
             {inEditMode ? (
               <UserProfileInput
-              type="username"
-              update={this.update}
-              handleUpdateUser={this.handleUpdateUser}
-              value={username}
+                type="username"
+                update={this.update}
+                handleUpdateUser={this.handleUpdateUser}
+                value={username}
               />
             ) : (
               <p className="UserProfile-info">{currentUser.username}</p>
@@ -78,10 +84,10 @@ class ProfileShow extends React.Component {
             <div className="UserProfile-title">Email</div>
             {inEditMode ? (
               <UserProfileInput
-              type="email"
-              update={this.update}
-              handleUpdateUser={this.handleUpdateUser}
-              value={email}
+                type="email"
+                update={this.update}
+                handleUpdateUser={this.handleUpdateUser}
+                value={email}
               />
             ) : (
               <p className="UserProfile-info">{currentUser.email}</p>
@@ -91,16 +97,21 @@ class ProfileShow extends React.Component {
             <div className="UserProfile-title">City</div>
             {inEditMode ? (
               <UserProfileInput
-              type="city"
-              update={this.update}
-              handleUpdateUser={this.handleUpdateUser}
-              value={city}
+                type="city"
+                update={this.update}
+                handleUpdateUser={this.handleUpdateUser}
+                value={city}
               />
             ) : (
               <p className="UserProfile-info">
                 {currentUser.city ? currentUser.city : 'add your city here!'}
               </p>
             )}
+          </div>
+        </div>
+        <div className={`${this.state.successModalClass}`}>
+          <div className="UserProfile-successModalContent">
+            Successfully saved! <FontAwesomeIcon className="UserProfile-checkmark" size="1x" icon={faCheck}  />
           </div>
         </div>
       </section>
