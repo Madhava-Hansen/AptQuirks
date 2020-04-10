@@ -7,6 +7,7 @@ import {SessionFormInput} from './session_form_input';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
+    this.emailValidationRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     this.state = {
       username: "",
       email: "",
@@ -70,6 +71,8 @@ class SessionForm extends React.Component {
     }, 4000);
   };
 
+  validateEmail = () => this.emailValidationRegex.test(this.state.email.toLowerCase());
+
   render() {
     const { formType, errors } = this.props;
     const errorClass = errors ? "SessionForm-errors" : "hidden";
@@ -93,18 +96,21 @@ class SessionForm extends React.Component {
            name="username"
            update={this.update}
            type="text"
+           isValid={this.state.username.length >= 8}
           />
           {isSignup && (
             <SessionFormInput
               name="email"
               update={this.update}
               type="email"
+              isValid={this.validateEmail()}
             />
           )}
             <SessionFormInput
               name="password"
               update={this.update}
               type="password"
+              isValid={this.state.password.length >= 8}
             />
           {isSignup && (
             <div className="SessionForm-recaptcha">

@@ -45,4 +45,13 @@
     margin: 0 auto;
     margin-bottom: 12px;
   }
+  &-inputWrapper {
+    position: relative;
+  }
+  &-checkmark {
+    position: absolute;
+    right: 10px;
+    top: 19px;
+    color: $sucessMessage--green;
+  }
 }
