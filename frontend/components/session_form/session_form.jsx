@@ -77,6 +77,8 @@ class SessionForm extends React.Component {
     const { formType, errors } = this.props;
     const errorClass = errors ? "SessionForm-errors" : "hidden";
     const isSignup = formType === "signup";
+    const hasValidUsername = this.state.username.length >= 8 && isSignup;
+    const hasValidPassword = this.state.password.length >= 8 && isSignup;
     if (this.errorClass === "session-errors") {
       this.wipeOutErrors();
     }
@@ -96,7 +98,7 @@ class SessionForm extends React.Component {
            name="username"
            update={this.update}
            type="text"
-           isValid={this.state.username.length >= 8}
+           isValid={hasValidUsername}
           />
           {isSignup && (
             <SessionFormInput
@@ -110,7 +112,7 @@ class SessionForm extends React.Component {
               name="password"
               update={this.update}
               type="password"
-              isValid={this.state.password.length >= 8}
+              isValid={hasValidPassword}
             />
           {isSignup && (
             <div className="SessionForm-recaptcha">
