@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import ConversationIndex from "./conversation_index";
+import Inbox from "./inbox";
 import { fetchConversations } from "../../actions/conversation_actions";
 import { fetchMessages } from "../../actions/message_actions";
 
@@ -18,9 +18,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchMessages: (id) => dispatch(fetchMessages(id)),
 });
 
-const ConversationIndexContainer = connect(
+const InboxContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ConversationIndex);
+)(Inbox);
 
-export default ConversationIndexContainer;
+export default InboxContainer;

@@ -1,15 +1,15 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
-import ConversationsIndexContainer from "./conversation/conversation_index_container";
+import ConversationsIndexContainer from "./mail/inbox_container";
 import ApartmentShowContainer from "./apartment/apartment_show_container";
 import SessionFormContainer from "./session_form/session_form_container";
 import UserProfileContainers from "./profile/user_profile_container";
 import QuirkFormContainer from "./quirks/quirk_form_container";
 import Home from "./greeting/home";
 import FooterContainer from "./footer/footer_container";
-import MessageIndexContainer from "./conversation/message_index_container";
-import NewMessageContainer from "./conversation/new_message_container";
+import MessageIndexContainer from "./mail/message_index_container";
+import NewMessageContainer from "./mail/new_message_container";
 import App from "./app";
 
 export const Root = ({ store }) => {

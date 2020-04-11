@@ -1,6 +1,6 @@
 import React from "react";
 
-const ConversationIndexItem = ({
+const InboxItem = ({
   conversation,
   fetchMessages,
   currentUser,
@@ -20,4 +20,4 @@ const ConversationIndexItem = ({
   );
 };
 
-export default ConversationIndexItem;
+export default InboxItem;

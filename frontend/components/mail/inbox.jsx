@@ -1,10 +1,10 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import ConversationIndexItem from "./conversation_index_item";
+import InboxItem from "./inbox_item";
 import { receiveConversation } from "../../actions/conversation_actions";
 import MessageNav from "./message_nav";
 
-class ConversationIndex extends React.Component {
+class Inbox extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -16,7 +16,7 @@ class ConversationIndex extends React.Component {
 
   redirectToNewMessage = () => this.props.history.push("/message/new");
 
-  fetchMessages = (conversation) => {
+  fetchMessages = conversation => {
     const { dispatch, fetchMessages, history } = this.props;
     dispatch(receiveConversation(conversation));
     fetchMessages({ message: { conversation_id: conversation.id } });
@@ -30,7 +30,7 @@ class ConversationIndex extends React.Component {
       conversationsIndexRender = conversationsIndex.conversations.map(
         (conversation, idx) => {
           return (
-            <ConversationIndexItem
+            <InboxItem
               conversation={conversation}
               fetchMessages={() => this.fetchMessages(conversation)}
               currentUser={currentUser}
@@ -49,4 +49,4 @@ class ConversationIndex extends React.Component {
   }
 }
 
-export default withRouter(ConversationIndex);
+export default withRouter(Inbox);

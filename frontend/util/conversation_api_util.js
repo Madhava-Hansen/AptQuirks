@@ -5,7 +5,7 @@ export const fetchConversations = () => {
   });
 };
 
-export const createConversation = (ids) => {
+export const createConversation = ids => {
   return $.ajax({
     method: "POST",
     url: `/api/conversations`,
@@ -13,10 +13,10 @@ export const createConversation = (ids) => {
   });
 };
 
-export const fetchConversation = (id) => {
+export const fetchConversation = id => {
   return $.ajax({
     method: "GET",
-    url: `api/conversations/${id}`,
-    data: id,
+    url: `/api/conversations/${id}`,
+    data: {conversation: {id: id}},
   });
 };

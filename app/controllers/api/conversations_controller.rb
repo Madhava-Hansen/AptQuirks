@@ -27,11 +27,8 @@ class Api::ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = Conversation.find(conversation_params[:id])
+    @conversation = Conversation.find(params[:id])
     if @conversation
-      receiver_id = current_user.id == @conversation.receiver_id ?
-       @conversation.sender_id : @conversation.receiver_id
-      @receiver = User.find(receiver_id)
       render 'api/conversations/show'
     else
       render json: @conversation.errors.full_messages
