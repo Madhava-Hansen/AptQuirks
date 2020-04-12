@@ -12,36 +12,39 @@
   max-width: 350px;
   margin: 12px 0;
   text-align: center;
-  background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1507407948/apartment_building_drawing_zneqbz.gif");
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 63px;
   &:hover {
     top: -3px;
   }
+  &-darkMode {
+    background-color: $primary--dark;
+    color: white;
+  }
+  &-lightMode {
+    background-color: white;
+    color: $primary--dark;
+  }
   &-addressWrapper {
     height: 110px;
-    background-color: rgba(128, 128, 128, 0.2);
     margin: 0 auto;
-    border-radius: 3px;
-    margin-top: 123px;
   }
   &-streetAddress {
     font-size: 30px;
-    color: $textColor--black;
     font-weight: bold;
-    padding: 5px;
+    padding: 6px 12px;
     padding-top: 23px;
   }
   &-cityStateZip {
-    color: $textColor--black;
     font-weight: bold;
     font-size: 25px;
   }
   @media screen and (min-width: 515px) {
-    color: white;
     width: 350px;
     height: 350px;
-    border-radius: 3px;
-    border: 1px solid lightgrey;
     box-shadow: 5px 5px 5px lightgrey;
     &:hover {
       cursor: pointer;
@@ -52,14 +55,14 @@
   }
   @media screen and (min-width: 1200px) {
     // hide one of the items when 4 won't fit on one row
-    &:nth-child(3) {
+    &:nth-child(4) {
       display: none;
     }
   }
   @media screen and (min-width: 1505px) {
     // bring 4th item back when it fits again
-    &:nth-child(3) {
-      display: block;
+    &:nth-child(4) {
+      display: flex;
     }
   }
 }

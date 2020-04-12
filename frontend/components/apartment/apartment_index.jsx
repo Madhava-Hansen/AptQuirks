@@ -30,6 +30,7 @@ class ApartmentIndex extends React.Component {
             <ApartmentIndexItem
               apartment={apartment}
               key={idx}
+              index={idx}
               redirect={this.redirectToAptShow}
             />
           ))}
