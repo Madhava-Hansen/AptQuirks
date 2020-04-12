@@ -24,20 +24,20 @@ export const receiveUsers = (users) => ({
   users,
 });
 
-export const fetchMessages = (userId) => (dispatch) =>
+export const fetchMessages = userId => dispatch =>
   APIUtil.fetchMessages(userId).then(
-    (messages) => dispatch(receiveMessages(messages)),
-    (errors) => dispatch(receiveMessageErrors(errors.responseJSON))
+    messages => dispatch(receiveMessages(messages)),
+    errors => dispatch(receiveMessageErrors(errors.responseJSON))
   );
 
-export const createMessage = (ids) => (dispatch) =>
+export const createMessage = ids => dispatch =>
   APIUtil.createMessage(ids).then(
-    (message) => dispatch(receiveMessage(message)),
-    (errors) => dispatch(receiveMessageErrors(errors.responseJSON))
+    message => dispatch(receiveMessage(message)),
+    errors => dispatch(receiveMessageErrors(errors.responseJSON))
   );
 
-export const fetchUsers = (userName) => (dispatch) =>
+export const fetchUsers = userName => dispatch =>
   APIUtil.fetchUsers(userName).then(
-    (users) => dispatch(receiveUsers(users)),
-    (errors) => dispatch(receiveMessageErrors(errors.responseJSON))
+    users => dispatch(receiveUsers(users)),
+    errors => dispatch(receiveMessageErrors(errors.responseJSON))
   );

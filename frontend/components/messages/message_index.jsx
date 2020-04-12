@@ -7,31 +7,29 @@ class MessageIndex extends React.Component {
     super(props)
     this.state = {
       messages: [],
-      message: ''
+      message: '',
+      revealMessagesClass: 'hidden'
     }
   }
 
   componentDidMount() {
-    const {currentConversation, location, fetchConversation} = this.props;
+    const {currentConversation, location, fetchConversation, fetchMessages} = this.props;
     const conversationId = location.pathname.split("/").pop();
     if (!currentConversation) {
       fetchConversation(conversationId);
     }
-    this.fetchMessages(conversationId);
+    const messageObject = { message: { conversation_id: conversationId } };
+    fetchMessages(messageObject);
   }
 
+
   static getDerivedStateFromProps(nextProps) {
-    if (nextProps.messagesIndex && nextProps.messagesIndex.messages.length > 0) {
+    if (nextProps.messagesIndex) {
       const {messagesIndex: {messages}} = nextProps;
-      return {messages};
+      return {messages, revealMessagesClass: 'revealMessages'};
     }
 
     return null;
-  }
-
-  fetchMessages = conversationId => {
-    const messageObject = { message: { conversation_id: conversationId } };
-    this.props.fetchMessages(messageObject);
   }
 
   getReceiverUsername = () => {
@@ -64,7 +62,7 @@ class MessageIndex extends React.Component {
 
   render() {
     const {currentUser, dispatch} = this.props;
-    const {messages} = this.state;
+    const {messages, revealMessagesClass} = this.state;
     return (
       <div className="message-index-div">
         <div className="message-index-container">
@@ -72,15 +70,15 @@ class MessageIndex extends React.Component {
             dispatch={dispatch} 
           />
           <div className="messages-receiver-username">To: {this.getReceiverUsername()}</div>
-          <ul className="messages-index">{
-            messages.map(message => 
+          <ul className={`messages-index ${revealMessagesClass}`}>
+            {messages.map(message => 
               <MessageIndexItem
                 message={message}
                 currentUser={currentUser}
                 key={message.body}
               />
-            )
-          }</ul>
+            )}
+          </ul>
         </div>
         <form className="message-form">
           <label className="form-label">

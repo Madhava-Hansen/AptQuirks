@@ -3,13 +3,13 @@ import {
   RECEIVE_MESSAGE,
   RECEIVE_MESSAGE_ERRORS,
   RECEIVE_USERS,
-  RECEIVE_USER,
+  RECEIVE_USER
 } from "../actions/message_actions";
 import merge from "lodash/merge";
 
-const messagesReducer = (state = { messages: {} }, action) => {
+const messagesReducer = (state = { messages: [] }, action) => {
   Object.freeze(state);
-  let newState = merge({}, state);
+  const newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_MESSAGES:
       newState["messages"] = action.messages;
