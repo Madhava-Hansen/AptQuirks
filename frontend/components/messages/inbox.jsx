@@ -41,9 +41,11 @@ class Inbox extends React.Component {
       );
     }
     return (
-      <div className="group message-container">
-        <MessageNav dispatch={dispatch} />
-        <ul className="conversation-index-list">{conversationsIndexRender}</ul>
+      <div className="InboxWrapper">
+        <div className="group message-container">
+          <MessageNav dispatch={dispatch} />
+          <ul className="conversation-index-list">{conversationsIndexRender}</ul>
+        </div>
       </div>
     );
   }

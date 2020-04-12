@@ -64,41 +64,43 @@ class MessageIndex extends React.Component {
     const {currentUser, dispatch} = this.props;
     const {messages, revealMessagesClass} = this.state;
     return (
-      <div className="message-index-div">
-        <div className="message-index-container">
-          <MessageNav 
-            dispatch={dispatch} 
-          />
-          <div className="messages-receiver-username">To: {this.getReceiverUsername()}</div>
-          <ul className={`messages-index ${revealMessagesClass}`}>
-            {messages.map(message => 
-              <MessageIndexItem
-                message={message}
-                currentUser={currentUser}
-                key={message.body}
-              />
-            )}
-          </ul>
-        </div>
-        <form className="message-form">
-          <label className="form-label">
-            <input
-              placeholder="enter message..."
-              id="message-form-input"
-              className="form-input"
-              onChange={this.update}
-              value={this.state.message}
+      <section className="MessageIndexWrapper">
+        <div className="message-index-div">
+          <div className="message-index-container">
+            <MessageNav 
+              dispatch={dispatch} 
             />
-          </label>
-          <button
-            id="message-send-button"
-            type="submit"
-            onClick={this.handleMessageSend}
-          >
-            send
-          </button>
-        </form>
-      </div>
+            <div className="messages-receiver-username">To: {this.getReceiverUsername()}</div>
+            <ul className={`messages-index ${revealMessagesClass}`}>
+              {messages.map(message => 
+                <MessageIndexItem
+                  message={message}
+                  currentUser={currentUser}
+                  key={message.body}
+                />
+              )}
+            </ul>
+          </div>
+          <form className="message-form">
+            <label className="form-label">
+              <input
+                placeholder="enter message..."
+                id="message-form-input"
+                className="form-input"
+                onChange={this.update}
+                value={this.state.message}
+              />
+            </label>
+            <button
+              id="message-send-button"
+              type="submit"
+              onClick={this.handleMessageSend}
+            >
+              send
+            </button>
+          </form>
+        </div>
+      </section>
     );
   }
 }

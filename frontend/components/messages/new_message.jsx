@@ -49,14 +49,16 @@ class NewMessage extends React.Component {
   render() {
     const { dispatch } = this.props;
     return (
-      <div className="message-container">
-        <MessageNav dispatch={dispatch} />
-        <UserSearchIndex
-          {...this.props}
-          handleUserSelection={this.handleUserSelection}
-          update={(e) => this.update(e)}
-        />
-      </div>
+      <section className="NewMessageWrpper">
+        <div className="message-container">
+          <MessageNav dispatch={dispatch} />
+          <UserSearchIndex
+            {...this.props}
+            handleUserSelection={this.handleUserSelection}
+            update={(e) => this.update(e)}
+          />
+        </div>
+      </section>
     );
   }
 }

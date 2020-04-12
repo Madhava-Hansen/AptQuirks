@@ -1,6 +1,19 @@
 @import '../base/colors';
 @import '../base/mixins';
 
+
+.MessageIndexWrapper {
+  @include backgroundVector;
+}
+
+.InboxWrapper {
+  @include backgroundVector;
+}
+
+.NewMessageWrpper {
+  @include backgroundVector;
+}
+
 .message-container {
   max-width: 550px;
   margin: 0 auto;
@@ -27,7 +40,7 @@
   max-width: 550px;
   margin: 0 auto;
   background-color: white;
-  margin-top: 130px;
+  margin-top: 110px;
   min-height: 455px;
   border-radius: 10px 10px 0px 0px;
   box-shadow: 1px 1px 1px #ccc;
@@ -151,7 +164,7 @@
   float: left;
   font-weight: bold;
   font-size: 22px;
-  color: grey;
+  color: $primary--dark;
   background-color: transparent;
 }
 
@@ -270,7 +283,7 @@
     float: left;
     font-weight: bold;
     font-size: 22px;
-    color: grey;
+    color: $primary--dark;
     background-color: transparent;
   }
 

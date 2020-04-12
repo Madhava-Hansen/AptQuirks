@@ -49,6 +49,7 @@ class ProfileShow extends React.Component {
     const {addPhoto, currentUser} = this.props;
     const {inEditMode, city, username, email} = this.state;
     return (
+      <section className="UserProfileWrapper">
         <section className="UserProfile">
           <div className="UserProfile-userGreeting">
             <h1 className="UserProfile-greetingText">
@@ -128,6 +129,7 @@ class ProfileShow extends React.Component {
           </div>
         </div>
       </section>
+    </section>
     );
   }
 }
