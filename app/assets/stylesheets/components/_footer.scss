@@ -1,37 +1,23 @@
 @import "../base/colors";
 
 .Footer {
-  background-color: $primary;
-  &-backToTop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    background-color: $primary--light;
-    margin-top: 70px;
-    color: $primary;
-    &:hover {
-      cursor: pointer;
-      color: $primary--dark;
-    }
-  }
+  background-color: $primary--dark;
+  margin-top: 100px;
   &-iconsWrapper {
     display: flex;
     justify-content: space-between;
     width: 66px;
     margin: 12px auto;
-    color: $primary--light;
+    color: $primary;
+    &:hover {
+      color: white;
+    }
   }
   &-copyright {
     text-align: center;
     width: 300px;
     margin: 0 auto;
     padding-bottom: 25px;
-    color: $primary--light;
-  }
-  @media screen and (min-width: 515px) {
-    &-backToTop {
-      margin-top: 150px;
-    }
+    color: $primary;
   }
 }

@@ -16,9 +16,6 @@ class Footer extends React.Component {
   render() {
     return (
       <footer className="Footer">
-        <div onClick={this.backToTop} className="Footer-backToTop">
-          back to top
-        </div>
         <FooterNavLinks isLoggedIn={this.props.currentUser} />
         <div className="Footer-iconsWrapper">
           <a target="_blank" href="https://www.facebook.com/apartmentquirks/">

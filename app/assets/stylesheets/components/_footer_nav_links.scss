@@ -2,10 +2,10 @@
 
 .FooterNavContainer {
   margin: 0 auto;
-  color: $primary--light;
+  color: $primary;
   text-align: center;
   width: 100px;
-  padding-top: 35px;
+  padding-top: 25px;
   &-link {
     display: flex;
     justify-content: center;
@@ -14,7 +14,6 @@
       cursor: pointer;
       text-align: center;
       border-radius: 3px;
-      background-color: $primary;
       color: white;
     }
   }
