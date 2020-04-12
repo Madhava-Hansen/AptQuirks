@@ -35,6 +35,17 @@ class Api::ConversationsController < ApplicationController
     end
   end
 
+  def destroy
+    @conversation = Conversation.find(params[:conversation][:id])
+    if @conversation
+      @conversation.destroy!
+      render 'api/conversations/show'
+    else
+      @errors = @conversation.errors.full_messages
+      render 'api/conversations/errors'
+    end
+  end
+
   private
 
   def conversation_params

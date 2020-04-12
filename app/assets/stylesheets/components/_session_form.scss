@@ -1,11 +1,12 @@
 @import "./base/colors";
 
 .SessionFormWrapper {
-  max-width: 450px;
-  margin: 0 auto;
-  background-color: white;
-  margin-top: 130px;
-  border-radius: 10px;
+  width: 100%;
+  height: 100vh;
+  background-image: url('https://res.cloudinary.com/aptquirks/image/upload/v1586659992/Screen_Shot_2020-04-11_at_10.52.06_PM_jd5sfv.png');
+  background-position: center;
+  background-size: cover;
+  padding-top: 30px;
 }
 
 .SessionForm {
@@ -14,6 +15,10 @@
   align-items: center;
   flex-direction: column;
   padding-bottom: 30px;
+  max-width: 450px;
+  margin: 110px auto;
+  background-color: white;
+  border-radius: 10px;
   &-input {
     margin: 6px 0 20px 0;
     border: 1px solid lightgrey;
