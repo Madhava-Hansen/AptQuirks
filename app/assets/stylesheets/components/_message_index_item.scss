@@ -1,0 +1,21 @@
+@import '../base/colors';
+
+.MessageIndexItem {
+  &-senderMessage {
+    margin-left: auto;
+    background-color: $primary;
+    color: white;
+  }
+  &-receiverMessage {
+    margin-right: auto;
+    background-color: $primary--beige;
+    color: $primary--dark;
+  }
+  &-senderMessage,
+  &-receiverMessage {
+    border-radius: 10px;
+    margin-bottom: 8px;
+    padding: 8px;
+    width: 245px;
+  }
+}

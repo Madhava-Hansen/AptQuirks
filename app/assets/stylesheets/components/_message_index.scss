@@ -1,0 +1,61 @@
+@import '../base/colors';
+@import '../base/mixins';
+
+.MessageIndexWrapper {
+  @include backgroundVector;
+}
+
+.MessageIndex {
+  margin-bottom: 100px;
+  max-width: 550px;
+  margin: 0 auto;
+  background-color: white;
+  margin-top: 110px;
+  min-height: 455px;
+  border-radius: 10px 10px 0px 0px;
+  width: 90%;
+  &-form {
+    display: flex;
+    margin: 0 auto;
+    padding: 15px 6px 15px 15px;
+    border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
+    color: white;
+    border-radius: 10px;
+  }
+  &-formInput {
+    box-shadow: 1px 1px 1px #ccc;
+    border: 1px solid lightgrey;
+    width: calc(100% - 65px);
+    color: $primary--dark;
+  }
+  &-sendButton {
+    height: 29px;
+    width: 63px;
+    border-radius: 0px;
+    font-weight: bold;
+    font-size: 22px;
+    color: $primary--dark;
+    background-color: transparent;
+    border: none;
+    margin-left: 0 0 5px 9px;
+  }
+  &-receiverUsername {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 30px;
+    color: $primary--dark;
+  }
+  &-messages {
+    overflow: scroll;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    height: 260px;
+    border: 1px solid $primary--light;
+    width: 90%;
+    padding: 15px;
+  }
+  @media screen and (min-width: 500px) {
+    width: 480px;
+  }
+}

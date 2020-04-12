@@ -2,10 +2,6 @@
 @import '../base/mixins';
 
 
-.MessageIndexWrapper {
-  @include backgroundVector;
-}
-
 .InboxWrapper {
   @include backgroundVector;
 }
@@ -20,27 +16,6 @@
   background-color: white;
   margin-top: 130px;
   min-height: 500px;
-  border-radius: 10px 10px 0px 0px;
-}
-
-.message-form {
-  max-width: 550px;
-}
-
-.messages-receiver-username {
-  width: 200px;
-  text-align: center;
-  margin: 20px auto;
-  font-size: 30px;
-  color: $primary--dark;
-}
-
-.message-index-container {
-  max-width: 550px;
-  margin: 0 auto;
-  background-color: white;
-  margin-top: 110px;
-  min-height: 455px;
   border-radius: 10px 10px 0px 0px;
 }
 
@@ -97,17 +72,6 @@
   box-shadow: 1px 1px 1px #ccc;
 }
 
-.messages-index {
-  overflow: scroll;
-  overflow-style: $primary;
-  width: 60%;
-  margin: 0 auto;
-  padding-bottom: 20px;
-  height: 260px;
-  border: 1px solid $primary--light;
-  padding: 15px;
-}
-
 .messages-index-header {
   display: block;
   float: left;
@@ -131,58 +95,6 @@
   margin-left: 138px;
   border: 2px solid $primary--light;
   margin-right: 5px;
-}
-
-.message-form {
-  width: 60%;
-  margin: 0 auto;
-  margin-top: 15px;
-}
-
-#message-form-input {
-  width: 83.5%;
-  max-width: 482px;
-  margin-top: 0px;
-  border-radius: 15px;
-  display: block;
-  float: left;
-  box-shadow: 1px 1px 1px #ccc;
-  background-color: white;
-  border: 1px solid lightgrey;
-}
-
-#message-send-button {
-  height: 29px;
-  width: 63px;
-  border-radius: 0px;
-  margin: 0;
-  border: none;
-  margin-bottom: 5px;
-  display: block;
-  float: left;
-  font-weight: bold;
-  font-size: 22px;
-  color: $primary--dark;
-  background-color: transparent;
-  text-shadow: 2px 2px white;
-}
-
-#message-send-button:hover {
-  font-size: 23px;
-}
-
-.send-message-section {
-  margin: 0 auto;
-}
-
-.current-user-message {
-  text-align: right;
-  background-color: $primary;
-  border-radius: 10px;
-  color: white;
-  margin-bottom: 7px;
-  padding: 5px;
-  margin-left: 100px;
 }
 
 .other-user-message {
@@ -221,9 +133,7 @@
     margin-top: 110px;
   }
 
-  .message-index-container {
-    width: 90%;
-  }
+
 
   .new-message {
     width: 90%;
@@ -244,10 +154,6 @@
     box-shadow: 1px 1px 1px #ccc;
   }
 
-  .messages-index {
-    width: 90%;
-  }
-
   .message-profile-pic {
     display: block;
     float: left;
@@ -259,81 +165,11 @@
     text-align: center;
     margin-left: 15px;
   }
-
-  #message-form-input {
-    display: block;
-    float: left;
-    width: 66%;
-    margin: 0px;
-    border-radius: 15px;
-    box-shadow: 1px 1px 1px #ccc;
-    margin-bottom: 30px;
-    margin-top: 0px;
-  }
-
-  #message-send-button {
-    height: 28px;
-    width: 19.5%;
-    border-radius: 0px;
-    margin: 0;
-    border: none;
-    margin-bottom: 5px;
-    display: block;
-    float: left;
-    font-weight: bold;
-    font-size: 22px;
-    color: $primary--dark;
-    background-color: transparent;
-  }
-
-  #message-send-button:hover {
-    font-size: 23px;
-  }
-
-  .send-message-section {
-    margin: 0 auto;
-    padding: 0px;
-  }
-
-  .message-form {
-    display: block;
-    float: left;
-    width: 100%;
-    margin-left: 17px;
-    margin-right: 17px;
-  }
-
-  .message-index-div {
-    margin-bottom: 100px;
-  }
 }
 
-@media only screen and (max-width: 1280px) and (min-width: 480px) {
+@media only screen and (max-width: 1280px) {
   .message-container {
     width: 480px;
     margin-top: 110px;
-  }
-
-  .message-index-container {
-    width: 480px;
-  }
-
-  #message-form-input {
-    width: 78%;
-    margin: 0 auto;
-  }
-
-  #message-send-button {
-    width: 17%;
-    margin: 0 auto;
-  }
-
-  .message-form {
-    width: 481px;
-    margin-top: 15px;
-  }
-
-  .send-message-section {
-    margin: 0 auto;
   }
 }

@@ -22,6 +22,7 @@ $desktop-breakpoint: 1090px;
     border-radius: 10px 0px 0px 10px;
     margin: 0 auto;
     margin-bottom: 20px;
+    flex-grow: 1;
   }
   &-streetAddress {
     font-size: 25px;

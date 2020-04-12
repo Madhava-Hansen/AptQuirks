@@ -65,13 +65,12 @@ class MessageIndex extends React.Component {
     const {messages, revealMessagesClass} = this.state;
     return (
       <section className="MessageIndexWrapper">
-        <div className="message-index-div">
-          <div className="message-index-container">
+        <div className="MessageIndex">
             <MessageNav 
               dispatch={dispatch} 
             />
-            <div className="messages-receiver-username">To: {this.getReceiverUsername()}</div>
-            <ul className={`messages-index ${revealMessagesClass}`}>
+            <div className="MessageIndex-receiverUsername">To: {this.getReceiverUsername()}</div>
+            <ul className={`MessageIndex-messages ${revealMessagesClass}`}>
               {messages.map(message => 
                 <MessageIndexItem
                   message={message}
@@ -80,26 +79,22 @@ class MessageIndex extends React.Component {
                 />
               )}
             </ul>
-          </div>
-          <form className="message-form">
-            <label className="form-label">
+            <form className="MessageIndex-form">
               <input
                 placeholder="enter message..."
-                id="message-form-input"
-                className="form-input"
+                className="MessageIndex-formInput form-input"
                 onChange={this.update}
                 value={this.state.message}
               />
-            </label>
-            <button
-              id="message-send-button"
-              type="submit"
-              onClick={this.handleMessageSend}
-            >
-              send
-            </button>
+              <button
+                className="MessageIndex-sendButton"
+                type="submit"
+                onClick={this.handleMessageSend}
+              >
+                send
+              </button>
           </form>
-        </div>
+          </div>
       </section>
     );
   }
