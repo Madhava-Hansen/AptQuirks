@@ -21,7 +21,6 @@
   margin-top: 130px;
   min-height: 500px;
   border-radius: 10px 10px 0px 0px;
-  box-shadow: 1px 1px 1px #ccc;
 }
 
 .message-form {
@@ -43,7 +42,6 @@
   margin-top: 110px;
   min-height: 455px;
   border-radius: 10px 10px 0px 0px;
-  box-shadow: 1px 1px 1px #ccc;
 }
 
 .new-message {
@@ -166,6 +164,7 @@
   font-size: 22px;
   color: $primary--dark;
   background-color: transparent;
+  text-shadow: 2px 2px white;
 }
 
 #message-send-button:hover {
