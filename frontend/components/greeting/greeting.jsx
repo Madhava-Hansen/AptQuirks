@@ -177,7 +177,7 @@ class Greeting extends React.Component {
               handleClick={() => this.handleRedirect("home")}
               linkName={"search"}
             />
-            <li onClick={ this.logInGuest }className="nav-link guest">guest</li>
+            {/* <li onClick={ this.logInGuest }className="nav-link guest">guest</li> */}
             <GreetingSocialLink
               handleClick={() => this.handleClickSocial()}
               isSocialOpen={this.state.isSocialOpen}
