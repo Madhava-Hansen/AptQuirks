@@ -18,3 +18,7 @@
   box-shadow: 1px 1px 1px lightgrey;
   border-radius: 5px;
 }
+
+@mixin boxShadow {
+  box-shadow: 3px 3px 3px rgba(lightgrey, 0.5);
+}
