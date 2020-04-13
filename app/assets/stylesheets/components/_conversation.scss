@@ -50,9 +50,10 @@
   max-width: 550px;
   margin: 0 auto;
   background-color: white;
-  margin-top: 130px;
+  margin-top: 77px;
   min-height: 500px;
   border-radius: 10px 10px 0px 0px;
+  width: 90%;
 }
 
 .new-message {
@@ -164,22 +165,14 @@
   border-radius: 10px 10px 0 0;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 480px) {
   .message-container {
     width: 90%;
-    margin-top: 110px;
+    margin-top: 77px;
   }
-
-
 
   .new-message {
     width: 90%;
-  }
-
-  .conversation-index-item:hover {
-    cursor: pointer;
-    background-color: $primary--light;
-    color: $primary;
   }
 
   .new-message-button {
@@ -201,12 +194,5 @@
     margin-right: 5px;
     text-align: center;
     margin-left: 15px;
-  }
-}
-
-@media only screen and (max-width: 1280px) {
-  .message-container {
-    width: 480px;
-    margin-top: 110px;
   }
 }

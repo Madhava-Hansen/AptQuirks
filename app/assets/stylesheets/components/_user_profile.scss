@@ -10,11 +10,10 @@
   padding-top: 30px;
 }
 .UserProfile {
-  // background-image: url('https://res.cloudinary.com/aptquirks/image/upload/v1586660864/Screen_Shot_2020-04-11_at_10.52.06_PM_a0nttn.png');
   background-color: white;
   background-image: none;
   max-width: 650px;
-  margin: 77px 20px;
+  margin: 77px 20px 16px 20px;
   padding-bottom: 20px;
   border-radius: 10px;
   min-height: 500px;
@@ -70,7 +69,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 300px;
+    max-width: 300px;
+    width: 95%;
     background-color: $primary--beige;
     margin-top: 20px;
     border-radius: 5px;
