@@ -1,4 +1,4 @@
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import QuirkIndex from "./quirk_index";
 import {
   addQuirk,
@@ -27,10 +27,10 @@ const mapStateToProps = ({ quirksIndex, apartmentShow, session }) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addQuirk: (quirk) => dispatch(addQuirk(quirk)),
-  fetchQuirks: (apartment_id) => dispatch(fetchQuirks(apartment_id)),
-  deleteQuirk: (quirk) => dispatch(deleteQuirk(quirk)),
+const mapDispatchToProps = dispatch => ({
+  addQuirk: quirk => dispatch(addQuirk(quirk)),
+  fetchQuirks: apartment_id => dispatch(fetchQuirks(apartment_id)),
+  deleteQuirk: quirk => dispatch(deleteQuirk(quirk)),
 });
 
 const QuirkIndexContainer = connect(

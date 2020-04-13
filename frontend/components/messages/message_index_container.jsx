@@ -1,14 +1,13 @@
-import React from "react";
 import {connect} from "react-redux";
 import MessageIndex from "./message_index";
 import {fetchConversation} from "../../actions/conversation_actions";
 import {createMessage, fetchMessages} from "../../actions/message_actions";
 
 const mapStateToProps = ({session, messagesIndex, conversationsIndex}) => ({
-    currentUser: session.currentUser,
-    messagesIndex: messagesIndex,
-    currentConversation: conversationsIndex.currentConversation,
-    dispatch: store.dispatch,
+  currentUser: session.currentUser,
+  messagesIndex: messagesIndex,
+  currentConversation: conversationsIndex.currentConversation,
+  dispatch: store.dispatch
 });
 
 const mapDispatchToProps = dispatch => ({

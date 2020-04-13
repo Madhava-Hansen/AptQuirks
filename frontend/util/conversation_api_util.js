@@ -20,3 +20,11 @@ export const fetchConversation = id => {
     data: {conversation: {id: id}},
   });
 };
+
+export const deleteConversations = conversation => {
+  return $.ajax({
+    method: "DELETE",
+    url: '/api/conversations/57849',
+    data: conversation
+  })
+}

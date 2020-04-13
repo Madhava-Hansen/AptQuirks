@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import { addQuirk } from "../../actions/quirk_actions";
+import {connect} from "react-redux";
+import {addQuirk} from "../../actions/quirk_actions";
 import QuirkForm from "./quirk_form";
 
 const mapStateToProps = ({ session, apartmentShow }) => {
@@ -12,8 +12,8 @@ const mapStateToProps = ({ session, apartmentShow }) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addQuirk: (quirk) => dispatch(addQuirk(quirk)),
+const mapDispatchToProps = dispatch => ({
+  addQuirk: quirk => dispatch(addQuirk(quirk)),
 });
 
 const QuirkFormContainer = connect(

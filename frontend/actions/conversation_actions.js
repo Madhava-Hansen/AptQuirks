@@ -20,18 +20,24 @@ const receiveConversationErrors = (errors) => ({
 
 export const fetchConversations = () => (dispatch) =>
   APIUtil.fetchConversations().then(
-    (conversations) => dispatch(receiveConversations(conversations)),
-    (errors) => dispatch(receiveConversationErrors(errors.responseJSON))
+    conversations => dispatch(receiveConversations(conversations)),
+    errors => dispatch(receiveConversationErrors(errors.responseJSON))
   );
 
 export const createConversation = (ids) => (dispatch) =>
   APIUtil.createConversation(ids).then(
-    (conversation) => dispatch(receiveConversation(conversation)),
-    (errors) => dispatch(receiveConversationErrors(errors.responseJSON))
+    conversation => dispatch(receiveConversation(conversation)),
+    errors => dispatch(receiveConversationErrors(errors.responseJSON))
   );
 
 export const fetchConversation = (id) => (dispatch) =>
   APIUtil.fetchConversation(id).then(
-    (conversation) => dispatch(receiveConversation(conversation)),
-    (errors) => dispatch(receiveConversationErrors(errors.responseJSON))
+    conversation => dispatch(receiveConversation(conversation)),
+    errors => dispatch(receiveConversationErrors(errors.responseJSON))
   );
+
+export const deleteConversations = ids => dispatch => 
+  APIUtil.deleteConversations(ids).then(
+    conversations => dispatch(receiveConversations(conversations)),
+    errors => dispatch(receiveConversationErrors(errors.responseJSON))
+  )

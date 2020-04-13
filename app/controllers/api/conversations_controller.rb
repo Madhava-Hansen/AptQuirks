@@ -36,19 +36,25 @@ class Api::ConversationsController < ApplicationController
   end
 
   def destroy
-    @conversation = Conversation.find(params[:conversation][:id])
-    if @conversation
-      @conversation.destroy!
-      render 'api/conversations/show'
+    params[:conversation][:ids].map {|id| 
+      @current_conversation = Conversation.find(id)
+      if @current_conversation 
+        @current_conversation.destroy!
+      end
+    }
+    @user_id = params[:conversation][:user_id]
+    if @user_id
+      @conversations = Conversation.where("sender_id = ? OR receiver_id = ?", @user_id, @user_id)
+      render 'api/conversations/index'
     else
-      @errors = @conversation.errors.full_messages
-      render 'api/conversations/errors'
+      render json: ["couldn't find conversations"], status: 404
     end
+
   end
 
   private
 
   def conversation_params
-    params.require(:conversation).permit(:receiver_id, :sender_id, :receiver_username, :sender_username, :receiver_image_url, :id)
+    params.require(:conversation).permit(:user_id, :receiver_id, :sender_id, :receiver_username, :sender_username, :receiver_image_url, :id, :ids)
   end
 end

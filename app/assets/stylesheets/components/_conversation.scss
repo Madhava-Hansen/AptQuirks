@@ -1,16 +1,31 @@
 @import '../base/colors';
 @import '../base/mixins';
 
-
-.InboxWrapper {
-  @include backgroundVector;
-}
-
 .NewMessageWrpper {
   @include backgroundVector;
 }
 
+.Inbox {
+  @include backgroundVector;
+  &-itemWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  &-icon {
+    position: absolute;
+    top: 23px;
+    right: 18px;
+    color: white;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
 .message-container {
+  position: relative;
   max-width: 550px;
   margin: 0 auto;
   background-color: white;
@@ -55,6 +70,7 @@
   color: $primary--dark;
   font-weight: bold;
   font-size: 14px;
+  width: 100%;
 }
 
 .conversation-index-item:hover {
