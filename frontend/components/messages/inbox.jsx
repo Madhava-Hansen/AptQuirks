@@ -49,18 +49,17 @@ class Inbox extends React.Component {
   }
   render() {
     const {currentUser, dispatch} = this.props;
+    const hasConversationsToDelete = this.state.conversationsToDelete.length > 0;
     return (
       <div className="Inbox">
         <div className="group message-container">
           <MessageNav dispatch={dispatch} />
-          {this.state.conversationsToDelete.length > 0 && (
-            <FontAwesomeIcon 
-              size="1x"
-              icon={faTrash}
-              className="Inbox-icon"
-              onClick={this.handleDeleteConversations}
-            />
-          )}
+          <FontAwesomeIcon 
+            size="1x"
+            icon={faTrash}
+            className={`Inbox-icon ${hasConversationsToDelete ? 'Inbox-hasConversationsToDelete': ''}`}
+            onClick={this.handleDeleteConversations}
+          />
           <ul className="conversation-index-list">{
             this.state.conversations.map(conversation => {
               const isChecked = this.state.conversationsToDelete.includes(conversation.id);

@@ -18,9 +18,13 @@
     top: 23px;
     right: 18px;
     color: white;
+    opacity: 0.5;
     &:hover {
       cursor: pointer;
     }
+  }
+  &-hasConversationsToDelete {
+    opacity: 1;
   }
   &-checkbox {
     width: 18px;
