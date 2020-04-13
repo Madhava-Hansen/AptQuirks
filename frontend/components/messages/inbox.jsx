@@ -34,6 +34,7 @@ class Inbox extends React.Component {
     this.props.deleteConversations({
       conversation: {ids: this.state.conversationsToDelete, user_id: this.props.currentUser.id}
     })
+    this.setState({conversationsToDelete: []});
   }
 
   handleChangeCheckbox = conversation => {
