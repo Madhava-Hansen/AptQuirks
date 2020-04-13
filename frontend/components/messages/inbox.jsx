@@ -62,13 +62,14 @@ class Inbox extends React.Component {
             />
           )}
           <ul className="conversation-index-list">{
-            this.state.conversations.map(conversation =>
-              <div className="Inbox-itemWrapper">
-                <input
-                  className="InboxItem-checkbox"
-                  type="checkbox"
-                  onChange={() => this.handleChangeCheckbox(conversation)}
-                ></input>
+            this.state.conversations.map(conversation => {
+              const isChecked = this.state.conversationsToDelete.includes(conversation.id);
+              return (
+                <div className="Inbox-itemWrapper">
+                <div
+                  className={`Inbox-checkbox ${isChecked ? 'Inbox-isChecked' : ''}`}
+                  onClick={() => this.handleChangeCheckbox(conversation)}>
+                </div>
                 <InboxItem
                   conversation={conversation}
                   currentUser={currentUser}
@@ -76,7 +77,8 @@ class Inbox extends React.Component {
                   redirectToMessages={this.redirectToMessagesIndex}
                 />
               </div>
-            )
+              )
+            })
           }</ul>
         </div>
       </div>
