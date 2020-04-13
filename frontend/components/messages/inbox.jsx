@@ -3,7 +3,7 @@ import {withRouter} from "react-router-dom";
 import InboxItem from "./inbox_item";
 import MessageNav from "./message_nav";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTrash} from '@fortawesome/fontawesome-free-solid'
+import {faTrash, faCheck} from '@fortawesome/fontawesome-free-solid'
 
 class Inbox extends React.Component {
   constructor(props) {
@@ -69,6 +69,13 @@ class Inbox extends React.Component {
                 <div
                   className={`Inbox-checkbox ${isChecked ? 'Inbox-isChecked' : ''}`}
                   onClick={() => this.handleChangeCheckbox(conversation)}>
+                    {isChecked && (
+                      <FontAwesomeIcon 
+                        className="Inbox-checkMarkIcon" 
+                        size="1x" 
+                        icon={faCheck}
+                      />
+                    )}
                 </div>
                 <InboxItem
                   conversation={conversation}
