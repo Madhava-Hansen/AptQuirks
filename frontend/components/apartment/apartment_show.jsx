@@ -76,7 +76,7 @@ class ApartmentShow extends React.Component {
             <ImageIndexContainer />
           </ErrorBoundary>
         </div>
-        <aside className="quirksIndexWrapper">
+        <aside className="ApartmentShowWrapper-quirksIndexWrapper">
           <QuirkIndexContainer />
         </aside>
       </section>

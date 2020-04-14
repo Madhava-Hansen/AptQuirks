@@ -22,7 +22,6 @@ $desktop-breakpoint: 1090px;
     border-radius: 10px 0px 0px 10px;
     margin: 0 auto;
     margin-bottom: 20px;
-    flex-grow: 1;
   }
   &-streetAddress {
     font-size: 25px;
@@ -49,19 +48,17 @@ $desktop-breakpoint: 1090px;
       margin: 0 20px 0 0;
     }
     &-mapWrapper {
-      width: 330px;
       height: 330px;
     }
     &-cityStateZip {
       font-weight: bold;
-      width: 70%;
       margin-bottom: 10px;
       color: $primary--dark;
-      padding: 10px;
-      padding-left: 0px;
+      padding: 10px 10px 10px 0;
     }
     &-quirksIndexWrapper {
       margin: 0;
+      width: calc(100% - 406px);
     }
   }
   @media screen and (min-width: 1240px) {
