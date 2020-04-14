@@ -35,14 +35,15 @@
     font-size: 14px;
     margin-right: 12px;
     font-weight: bold;
+    width: 100px;
   }
   &-mostRecentMessage {
     display: none;
   }
   @media screen and (min-width: 550px) {
     &-mostRecentMessage {
-      display: none;
-      width: calc(100% - 180px);
+      display: block;
+      width: 236px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

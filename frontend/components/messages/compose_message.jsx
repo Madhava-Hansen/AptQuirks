@@ -18,7 +18,7 @@ class NewMessage extends React.Component {
 
   update = e => this.props.fetchUsers({user: {username: e.target.value}});
 
-  handleUserSelection(user) {
+  handleUserSelection = user => {
     const { currentUser, createConversation } = this.props;
     const url = user.thumbnail_url
       ? user.thumbnail_url

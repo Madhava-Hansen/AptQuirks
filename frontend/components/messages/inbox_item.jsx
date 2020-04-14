@@ -19,7 +19,7 @@ const InboxItem = ({
           className="InboxItem-userImage"
           src={conversation.receiver_image_url}>
         </img>
-        <p className="InboxItem-username">{username}</p>
+        <p className="InboxItem-username">{`${username.slice(0, 12)}${username.length >= 12 ? '.' : ''}`}</p>
         <p className="InboxItem-mostRecentMessage">{mostRecentMessage.body}</p>
       </div>
       <p className="InboxItem-date">{date.toLocaleDateString()}</p>
