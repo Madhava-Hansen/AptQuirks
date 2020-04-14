@@ -42,6 +42,9 @@
     font-weight: bold;
     font-size: 25px;
   }
+  &-icon {
+    color: $primary--dark;
+  }
   @media screen and (min-width: 515px) {
     width: 350px;
     height: 350px;
