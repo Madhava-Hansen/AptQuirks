@@ -23,7 +23,7 @@ class LikeButton extends React.Component {
       likesIndex: { likes },
       userId,
     } = nextProps;
-    if (likes && likes.length > 0 && prevState.likes !== likes) {
+    if (likes && likes.length >= 0 && prevState.likes !== likes) {
       const like = likes.find((like) => like.user_id === userId) || {};
       return { likes: likes, likeId: like.id, haveFetchedLikes: true };
     }
