@@ -58,7 +58,7 @@ class MessageIndex extends React.Component {
 
   render() {
     const {currentUser, dispatch} = this.props;
-    const {messages, revealMessagesClass} = this.state;
+    const {messages} = this.state;
     return (
       <section className="MessageIndexWrapper">
         <div className="MessageIndex">
@@ -67,12 +67,20 @@ class MessageIndex extends React.Component {
             />
             <div className="MessageIndex-receiverUsername">To: {this.getReceiverUsername()}</div>
             <ul className="MessageIndex-messages">
-              {messages.map(message => 
+              {messages.map((message, idx) => {
+                const nextIndex = idx + 1;
+                const nextMessage = (messages[nextIndex] && messages[nextIndex].user_id) ? messages[nextIndex] : {};
+                const showMeta = message.user_id !== nextMessage.user_id ? true : false;
+                return (
                 <MessageIndexItem
                   message={message}
                   currentUser={currentUser}
                   key={message.id}
+                  receiverUsername={this.getReceiverUsername()}
+                  shouldShowMeta={showMeta}
                 />
+                )
+              }
               )}
             </ul>
             <form className="MessageIndex-form">

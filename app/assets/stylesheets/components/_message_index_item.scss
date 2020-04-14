@@ -1,12 +1,15 @@
 @import '../base/colors';
 
 .MessageIndexItem {
+  margin-bottom: 12px;
   &-senderMessage {
+    width: 245px;
     margin-left: auto;
     background-color: $primary;
     color: white;
   }
   &-receiverMessage {
+    width: 245px;
     margin-right: auto;
     background-color: $primary--beige;
     color: $primary--dark;
@@ -16,7 +19,6 @@
     border-radius: 10px;
     margin-bottom: 4px;
     padding: 8px;
-    width: 245px;
   }
   &-createdAt {
     color: rgba($primary--dark, 0.3);
@@ -25,5 +27,23 @@
   }
   &-createdAtSender {
     text-align: right;
+  }
+  &-messageMeta {
+    display: flex;
+    font-size: 11px;
+    padding-bottom: 6px;
+    color: rgba($primary--dark, 0.4);
+    width: 260px;
+  }
+  &-senderMeta {
+    margin-left: auto;
+    justify-content: flex-end;
+  }
+  &-receiverMeta {
+    margin-right: auto;
+    justify-content: flex-start;
+  }
+  &-from {
+    margin-right: 4px;
   }
 }
