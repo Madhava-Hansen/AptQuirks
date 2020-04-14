@@ -29,8 +29,9 @@
     font-size: 50px;
     font-weight: bold;
     text-align: center;
-    color: $primary--dark;
+    color: white;
     font-family: serif;
+    background-color: $primary--dark;
   }
   &-searchContent {
     position: absolute;

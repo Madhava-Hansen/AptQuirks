@@ -19,9 +19,9 @@ const ApartmentIndexItem = ({ apartment, redirect, index }) => {
       case 1: 
         return 'FeaturedApartmentsItem-darkMode'
       case 2:  
-        return 'FeaturedApartmentsItem-lightMode'
-      case 3:
         return 'FeaturedApartmentsItem-darkMode'
+      case 3:
+        return 'FeaturedApartmentsItem-lightMode'
     }
   }
 

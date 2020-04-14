@@ -33,5 +33,19 @@
   }
   &-username {
     font-size: 14px;
+    margin-right: 12px;
+    font-weight: bold;
+  }
+  &-mostRecentMessage {
+    display: none;
+  }
+  @media screen and (min-width: 550px) {
+    &-mostRecentMessage {
+      display: block;
+      width: calc(100% - 180px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }

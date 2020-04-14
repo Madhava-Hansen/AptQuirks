@@ -9,7 +9,8 @@ const InboxItem = ({
     currentUser.username === conversation.receiver_username
       ? conversation.sender_username
       : conversation.receiver_username;
-  const updatedAt = conversation.messages[conversation.messages.length - 1].updated_at;
+  const mostRecentMessage = conversation.messages[conversation.messages.length - 1];
+  const updatedAt = mostRecentMessage.updated_at;
   const date = new Date(updatedAt);
   return (
     <li className="InboxItem" onClick={() => redirectToMessages(conversation.id)}>
@@ -19,6 +20,7 @@ const InboxItem = ({
           src={conversation.receiver_image_url}>
         </img>
         <p className="InboxItem-username">{username}</p>
+        <p className="InboxItem-mostRecentMessage">{mostRecentMessage.body}</p>
       </div>
       <p className="InboxItem-date">{date.toLocaleDateString()}</p>
     </li>
