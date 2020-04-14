@@ -14,14 +14,14 @@
   &-senderMessage,
   &-receiverMessage {
     border-radius: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     padding: 8px;
     width: 245px;
   }
   &-createdAt {
-    color: rgba($primary--dark, 0.5);
+    color: rgba($primary--dark, 0.3);
     font-size: 10px;
-    padding-bottom: 6px;
+    padding-bottom: 12px;
   }
   &-createdAtSender {
     text-align: right;
