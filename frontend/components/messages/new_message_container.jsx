@@ -1,12 +1,11 @@
 import {connect} from "react-redux";
 import NewMessage from "./new_message";
-import {createConversation} from "../../actions/conversation_actions";
-import {createMessage, fetchUsers} from "../../actions/message_actions";
+import {createConversation, fetchUsers, } from "../../actions/conversation_actions";
 
 const mapStateToProps = ({session, messagesIndex, conversationsIndex}) => {
   return {
     currentUser: session.currentUser,
-    users: messagesIndex.users,
+    users: conversationsIndex.users,
     messages: messagesIndex,
     conversationsIndex: conversationsIndex,
     dispatch: store.dispatch
@@ -16,7 +15,6 @@ const mapStateToProps = ({session, messagesIndex, conversationsIndex}) => {
 const mapDispatchToProps = dispatch => ({
   createConversation: ids => dispatch(createConversation(ids)),
   fetchUsers: userName => dispatch(fetchUsers(userName)),
-  createMessage: ids => dispatch(createMessage(ids)),
   dispatch
 });
 

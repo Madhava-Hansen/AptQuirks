@@ -1,7 +1,7 @@
 import React from "react";
 import UserSearchIndex from "./user_search_index";
 import MessageNav from "./message_nav";
-import { receiveUsers } from "../../actions/message_actions";
+import {receiveUsers} from "../../actions/conversation_actions";
 
 class NewMessage extends React.Component {
   constructor(props) {

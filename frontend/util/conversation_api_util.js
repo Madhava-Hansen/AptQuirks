@@ -29,10 +29,18 @@ export const deleteConversations = conversation => {
   })
 }
 
-export const createMessage = (message) => {
+export const createMessage = message => {
   return $.ajax({
     method: "POST",
     url: `/api/messages`,
     data: message,
+  });
+};
+
+export const fetchUsers = userName => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/users",
+    data: userName,
   });
 };
