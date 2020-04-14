@@ -41,7 +41,7 @@
   }
   @media screen and (min-width: 550px) {
     &-mostRecentMessage {
-      display: block;
+      display: none;
       width: calc(100% - 180px);
       white-space: nowrap;
       overflow: hidden;
