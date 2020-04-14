@@ -1,4 +1,5 @@
 import React from "react";
+import {getDateStringFromTimestamp} from '../../util/utilities';
 
 const InboxItem = ({
   conversation,
@@ -10,8 +11,6 @@ const InboxItem = ({
       ? conversation.sender_username
       : conversation.receiver_username;
   const mostRecentMessage = conversation.messages[conversation.messages.length - 1];
-  const updatedAt = mostRecentMessage.updated_at;
-  const date = new Date(updatedAt);
   return (
     <li className="InboxItem" onClick={() => redirectToMessages(conversation.id)}>
       <div className="InboxItem-mainContentWrapper">
@@ -22,7 +21,7 @@ const InboxItem = ({
         <p className="InboxItem-username">{`${username.slice(0, 12)}${username.length >= 12 ? '.' : ''}`}</p>
         <p className="InboxItem-mostRecentMessage">{mostRecentMessage.body}</p>
       </div>
-      <p className="InboxItem-date">{date.toLocaleDateString()}</p>
+      <p className="InboxItem-date">{getDateStringFromTimestamp(mostRecentMessage.updated_at)}</p>
     </li>
   );
 };
