@@ -32,7 +32,7 @@ class MessageIndex extends React.Component {
     if (this.props.currentConversation && this.props.currentUser) {
       const {currentConversation: {receiver_username, sender_username}, currentUser: {username}} = this.props;
       // figure out username for who currentUser is messaging to display at top of message index
-      return username === receiver_username ? receiver_username: sender_username;
+      return username === receiver_username ? sender_username : receiver_username;
     }
   }
 
