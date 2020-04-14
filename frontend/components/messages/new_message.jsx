@@ -49,7 +49,7 @@ class NewMessage extends React.Component {
   render() {
     const { dispatch } = this.props;
     return (
-      <section className="NewMessageWrpper">
+      <section className="NewMessageWrapper">
         <div className="message-container">
           <MessageNav dispatch={dispatch} />
           <UserSearchIndex

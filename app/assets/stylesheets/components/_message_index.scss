@@ -10,7 +10,7 @@
   max-width: 550px;
   margin: 0 auto;
   background-color: white;
-  margin-top: 110px;
+  margin-top: 77px;
   min-height: 455px;
   border-radius: 10px 10px 0px 0px;
   width: 90%;
@@ -54,8 +54,5 @@
     border: 1px solid $primary--light;
     width: 90%;
     padding: 15px;
-  }
-  @media screen and (min-width: 500px) {
-    width: 480px;
   }
 }
