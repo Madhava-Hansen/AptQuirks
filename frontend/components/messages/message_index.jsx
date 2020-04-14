@@ -13,20 +13,16 @@ class MessageIndex extends React.Component {
   }
 
   componentDidMount() {
-    const {currentConversation, location, fetchConversation, fetchMessages} = this.props;
+    const {currentConversation, location, fetchConversation} = this.props;
     const conversationId = location.pathname.split("/").pop();
-    if (!currentConversation) {
+    if (!currentConversation || currentConversation.id !== conversationId) {
       fetchConversation(conversationId);
     }
-    const messageObject = { message: { conversation_id: conversationId } };
-    fetchMessages(messageObject);
   }
 
-
   static getDerivedStateFromProps(nextProps) {
-    if (nextProps.messagesIndex) {
-      const {messagesIndex: {messages}} = nextProps;
-      return {messages, revealMessagesClass: 'revealMessages'};
+    if (nextProps.currentConversation && nextProps.currentConversation.messages) {
+      return {messages: nextProps.currentConversation.messages};
     }
 
     return null;
@@ -36,7 +32,7 @@ class MessageIndex extends React.Component {
     if (this.props.currentConversation && this.props.currentUser) {
       const {currentConversation: {receiver_username, sender_username}, currentUser: {username}} = this.props;
       // figure out username for who currentUser is messaging to display at top of message index
-      return username === receiver_username ? sender_username : receiver_username;
+      return username === receiver_username ? receiver_username: sender_username;
     }
   }
 
@@ -70,12 +66,12 @@ class MessageIndex extends React.Component {
               dispatch={dispatch} 
             />
             <div className="MessageIndex-receiverUsername">To: {this.getReceiverUsername()}</div>
-            <ul className={`MessageIndex-messages ${revealMessagesClass}`}>
+            <ul className="MessageIndex-messages">
               {messages.map(message => 
                 <MessageIndexItem
                   message={message}
                   currentUser={currentUser}
-                  key={message.body}
+                  key={message.id}
                 />
               )}
             </ul>

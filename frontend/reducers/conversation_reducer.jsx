@@ -2,6 +2,7 @@ import {
   RECEIVE_CONVERSATIONS,
   RECEIVE_CONVERSATION,
   RECEIVE_CONVERSATION_ERRORS,
+  RECEIVE_MESSAGE,
 } from "../actions/conversation_actions";
 import merge from "lodash/merge";
 
@@ -9,6 +10,9 @@ const conversationsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
   switch (action.type) {
+    case RECEIVE_MESSAGE: 
+      newState.currentConversation.messages.push(action.message);
+      return newState;
     case RECEIVE_CONVERSATIONS:
       newState["conversations"] = action.conversations;
       return newState;

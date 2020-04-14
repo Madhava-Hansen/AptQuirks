@@ -79,7 +79,7 @@ class Inbox extends React.Component {
                 <InboxItem
                   conversation={conversation}
                   currentUser={currentUser}
-                  key={currentUser.id}
+                  key={conversation.id}
                   redirectToMessages={this.redirectToMessagesIndex}
                 />
               </div>

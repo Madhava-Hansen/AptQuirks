@@ -1,0 +1,37 @@
+@import '../base/colors';
+@import '../base/mixins';
+
+.InboxItem {
+  background-color: $primary--beige;
+  border-radius: 5px;
+  height: 45px;
+  margin: 12px 15px 12px 12px;
+  color: $primary--dark;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &:hover {
+    cursor: pointer;
+    @include boxShadow;
+    font-size: 15px;
+  }
+  &-mainContentWrapper {
+    display: flex;
+    align-items: center;
+  }
+  &-date {
+    font-size: 12px;
+    opacity: 0.2;
+    margin-right: 12px;
+  }
+  &-userImage {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin: 0 12px;
+  }
+  &-username {
+    font-size: 14px;
+  }
+}

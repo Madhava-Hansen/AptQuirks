@@ -9,13 +9,18 @@ const InboxItem = ({
     currentUser.username === conversation.receiver_username
       ? conversation.sender_username
       : conversation.receiver_username;
+  const updatedAt = conversation.messages[conversation.messages.length - 1].updated_at;
+  const date = new Date(updatedAt);
   return (
-    <li className="conversation-index-item" onClick={() => redirectToMessages(conversation.id)}>
-      <img
-        className="conversation-index-image"
-        src={conversation.receiver_image_url}
-      ></img>
-      <p className="conversation-index-username">{username}</p>
+    <li className="InboxItem" onClick={() => redirectToMessages(conversation.id)}>
+      <div className="InboxItem-mainContentWrapper">
+        <img
+          className="InboxItem-userImage"
+          src={conversation.receiver_image_url}>
+        </img>
+        <p className="InboxItem-username">{username}</p>
+      </div>
+      <p className="InboxItem-date">{date.toLocaleDateString()}</p>
     </li>
   );
 };

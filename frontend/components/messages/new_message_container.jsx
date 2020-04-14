@@ -17,7 +17,6 @@ const mapDispatchToProps = dispatch => ({
   createConversation: ids => dispatch(createConversation(ids)),
   fetchUsers: userName => dispatch(fetchUsers(userName)),
   createMessage: ids => dispatch(createMessage(ids)),
-  fetchMessages: conversationId => dispatch(fetchMessages(conversationId)),
   dispatch
 });
 

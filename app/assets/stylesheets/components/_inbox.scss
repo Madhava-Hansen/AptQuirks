@@ -1,0 +1,46 @@
+@import '../base/colors';
+@import '../base/mixins';
+
+.Inbox {
+  @include backgroundVector;
+  &-itemWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  &-icon {
+    position: absolute;
+    top: 23px;
+    right: 30px;
+    color: white;
+    opacity: 0.5;
+  }
+  &-hasConversationsToDelete {
+    opacity: 1;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &-checkbox {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &-isChecked {
+    background-color: steelblue;
+  }
+  &-checkMarkIcon {
+    position: absolute;
+    color: white;
+  }
+}

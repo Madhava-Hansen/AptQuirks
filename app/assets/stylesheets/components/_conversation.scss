@@ -5,50 +5,6 @@
   @include backgroundVector;
 }
 
-.Inbox {
-  @include backgroundVector;
-  &-itemWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  &-icon {
-    position: absolute;
-    top: 23px;
-    right: 18px;
-    color: white;
-    opacity: 0.5;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  &-hasConversationsToDelete {
-    opacity: 1;
-  }
-  &-checkbox {
-    width: 18px;
-    height: 18px;
-    background-color: white;
-    border: 1px solid lightgrey;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  &-isChecked {
-    background-color: steelblue;
-  }
-  &-checkMarkIcon {
-    position: absolute;
-    color: white;
-  }
-}
-
 .message-container {
   position: relative;
   max-width: 550px;
@@ -67,42 +23,8 @@
   margin-top: 17px;
 }
 
-.conversation-index-image {
-  width: 30px;
-  height: auto;
-  border-radius: 100%;
-  display: block;
-  float: left;
-  margin-left: 5px;
-  margin-top: 8px;
-}
-
 .conversation-index-list {
   padding: 10px;
-}
-
-.conversation-index-username {
-  display: block;
-  float: left;
-  margin-top: 15px;
-  margin-left: 10px;
-}
-
-.conversation-index-item {
-  background-color: $primary--beige;
-  border-radius: 5px;
-  height: 45px;
-  margin: 12px 15px 12px 12px;
-  color: $primary--dark;
-  font-weight: bold;
-  font-size: 14px;
-  width: 100%;
-}
-
-.conversation-index-item:hover {
-  cursor: pointer;
-  @include boxShadow;
-  font-size: 15px;
 }
 
 .new-message-button {
