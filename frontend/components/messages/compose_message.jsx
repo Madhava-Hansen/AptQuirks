@@ -1,5 +1,5 @@
 import React from "react";
-import UserSearchIndex from "./user_search_index";
+import {UserSearchIndex} from "./user_search_index";
 import MessageNav from "./message_nav";
 import {receiveUsers} from "../../actions/conversation_actions";
 
@@ -7,12 +7,6 @@ class NewMessage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { username: "" };
-    this.findUser = this.findUser.bind(this);
-    this.handleUserSelection = this.handleUserSelection.bind(this);
-  }
-
-  findUser() {
-    this.props.fetchUsers({ user: { username: this.state.username } });
   }
 
   componentDidMount() {
@@ -22,10 +16,7 @@ class NewMessage extends React.Component {
     }
   }
 
-  update(e) {
-    this.setState({ ["username"]: e.currentTarget.value });
-    this.findUser();
-  }
+  update = e => this.props.fetchUsers({user: {username: e.target.value}});
 
   handleUserSelection(user) {
     const { currentUser, createConversation } = this.props;
@@ -55,7 +46,7 @@ class NewMessage extends React.Component {
           <UserSearchIndex
             {...this.props}
             handleUserSelection={this.handleUserSelection}
-            update={(e) => this.update(e)}
+            update={this.update}
           />
         </div>
       </section>

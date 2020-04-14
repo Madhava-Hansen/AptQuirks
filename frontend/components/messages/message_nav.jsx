@@ -16,10 +16,10 @@ class MessageNav extends React.Component {
     return (
       <ul className="inbox-nav group">
         <li className="inbox-nav-item">
-          <Link to="/inbox">inbox</Link>
+          <Link to="/inbox">Inbox</Link>
         </li>
         <li className="inbox-nav-item">
-          <p onClick={this.redirectToNewMessage}>new message</p>
+          <p onClick={this.redirectToNewMessage}>Compose</p>
         </li>
       </ul>
     );

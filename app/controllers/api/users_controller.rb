@@ -40,7 +40,12 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.where("username ~ ?", params[:user][:username]).limit(5)
+    if params[:user][:username] == ""
+      limit = 0
+    else 
+      limit = 6
+    end
+    @users = User.where("username ~ ?", params[:user][:username]).limit(limit)
     if @users
       render 'api/users/index'
     else

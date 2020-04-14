@@ -9,7 +9,7 @@ import QuirkFormContainer from "./quirks/quirk_form_container";
 import Home from "./greeting/home";
 import FooterContainer from "./footer/footer_container";
 import MessageIndexContainer from "./messages/message_index_container";
-import NewMessageContainer from "./messages/new_message_container";
+import ComposeMessageContainer from "./messages/compose_message_container";
 import App from "./app";
 
 export const Root = ({ store }) => {
@@ -28,7 +28,7 @@ export const Root = ({ store }) => {
           <Route path="/profile" component={UserProfileContainers}></Route>
           <Route path="/addquirk/:id" component={QuirkFormContainer}></Route>
           <Route path="/inbox" component={ConversationsIndexContainer}></Route>
-          <Route path="/message/new" component={NewMessageContainer}></Route>
+          <Route path="/message/new" component={ComposeMessageContainer}></Route>
           <Route path="/messages/:id" component={MessageIndexContainer}></Route>
           <Route path="/" component={FooterContainer}></Route>
         </div>

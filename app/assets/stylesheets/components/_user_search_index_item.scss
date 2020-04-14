@@ -2,7 +2,9 @@
 
 .UserSearchIndexItem {
   border: 1px solid $light-grey;
-  padding: 6px;
+  padding: 12px;
+  margin-bottom: 6px;
+  color: $primary--dark;
   &:hover {
     color: white;
     cursor: pointer;
