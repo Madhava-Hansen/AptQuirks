@@ -46,9 +46,6 @@ class QuirkForm extends React.Component {
       <form onSubmit={this.handleSubmit} className="QuirkForm">
         <div className="QuirkForm-titleSectionWrapper">
           <h1 className="QuirkForm-title">Add Quirk</h1>
-          <p className="QuirkForm-address">
-            28 York Avenue, Monticello, NY 12701
-          </p>
         </div>
         <QuirkFormInput 
           name="title"
