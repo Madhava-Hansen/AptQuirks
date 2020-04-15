@@ -5,7 +5,6 @@ import ConversationsIndexContainer from "./messages/inbox_container";
 import ApartmentShowContainer from "./apartment/apartment_show_container";
 import SessionFormContainer from "./session_form/session_form_container";
 import UserProfileContainers from "./profile/user_profile_container";
-import QuirkFormContainer from "./quirks/quirk_form_container";
 import Home from "./greeting/home";
 import FooterContainer from "./footer/footer_container";
 import MessageIndexContainer from "./messages/message_index_container";
@@ -26,7 +25,6 @@ export const Root = ({ store }) => {
             component={ApartmentShowContainer}
           ></Route>
           <Route path="/profile" component={UserProfileContainers}></Route>
-          <Route path="/addquirk/:id" component={QuirkFormContainer}></Route>
           <Route path="/inbox" component={ConversationsIndexContainer}></Route>
           <Route path="/message/new" component={ComposeMessageContainer}></Route>
           <Route path="/messages/:id" component={MessageIndexContainer}></Route>

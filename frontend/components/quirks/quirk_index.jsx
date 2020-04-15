@@ -1,6 +1,8 @@
 import React from "react";
 import { QuirkIndexItem } from "./quirk_index_item";
 import { withRouter } from "react-router-dom";
+import {fetchQuirks, addQuirk, deleteQuirk} from '../../util/quirk_api_util';
+import QuirkForm from './quirk_form';
 
 class QuirkIndex extends React.Component {
   constructor(props) {
@@ -9,13 +11,14 @@ class QuirkIndex extends React.Component {
       quirks: [],
       revealQuirk: false,
       addQuirkErrorClassName: "hidden",
+      revealQuirkForm: false
     };
   }
 
   componentDidMount() {
-    this.props.fetchQuirks(
-      this.props.apartmentId || sessionStorage.getItem("apartmentId")
-    );
+    fetchQuirks(this.props.apartmentId || sessionStorage.getItem("apartmentId")).then(quirks => {
+      this.setState({quirks});
+    })
   }
 
   static getDerivedStateFromProps(nextProps) {
@@ -27,29 +30,50 @@ class QuirkIndex extends React.Component {
     return null;
   }
 
+  handleAddQuirk = (title, body, apt_id) => {
+    if (!title || !body || !apt_id) {return;};
+    const {currentUser: { id, username, thumbnail_url }} = this.props;
+    const idsAndPic = {
+      apartment_id: this.apartmentId || sessionStorage.getItem('apartmentId'),
+      user_id: id,
+      user_name: username,
+      user_pic: thumbnail_url ? thumbnail_url : this.defaultThumbnailUrl,
+    };
+    addQuirk({ quirk: {title, body, apt_id, ...idsAndPic } }).then(
+      quirk => {
+        const newQuirks = this.state.quirks.slice(0);
+        newQuirks.push(quirk);
+        this.setState({revealQuirkForm: false, quirks: newQuirks});
+      });
+  }
+
   handleRevealQuirkInfo = () =>
     this.setState({ revealQuirk: !this.state.revealQuirk });
 
-  redirectToAddQuirk = () => {
-    if (this.props.currentUser) {
-      this.props.history.push(`/addquirk/${this.props.apartmentId}`);
-    } else {
-      this.setState({
-        addQuirkErrorClassName: "QuirksIndex-addQuirkErrorMessage",
-      });
-      window.setTimeout(() => {
-        this.setState({ addQuirkErrorClassName: "hidden" });
-      }, 3000);
-    }
-  };
+  handleRevealQuirkForm = () => this.setState({revealQuirkForm: true});
+
+  handleHideQuirkForm = () => this.setState({revealQuirkForm: false});
 
   render() {
+    const {apartmentId, history, apartmentShow} = this.props;
+    const {revealQuirkForm} = this.state;
     return (
       <aside className="QuirksIndex">
+        {revealQuirkForm && (
+          <div className="QuirksIndex-addQuirkFormWrapper">
+            <QuirkForm 
+              apartmentId={apartmentId}
+              history={history}
+              apartmentId={apartmentShow}
+              handleAddQuirk={this.handleAddQuirk}
+              handleHideQuirkForm={this.handleHideQuirkForm}
+            />
+          </div>
+        )}
         <div className="QuirksIndex-headerSection">
           <button
             className="QuirksIndex-addQuirkButton"
-            onClick={this.redirectToAddQuirk}
+            onClick={this.handleRevealQuirkForm}
           >
             add quirk
           </button>
@@ -86,13 +110,12 @@ class QuirkIndex extends React.Component {
         {this.state.quirks.length > 0 ? (
           <ul className="QuirksIndex-quirksWrapper">
             {this.state.quirks.map(quirk => (
-              <QuirkIndexItem quirk={quirk} key={quirk.user_name} />
+              <QuirkIndexItem quirk={quirk} key={quirk.id} />
             ))}
           </ul>
         ) : (
           <h1 className="QuirksIndex-noQuirksYetMessage">Be the first person to add a quirk!</h1>
         )}
-
       </aside>
     );
   }

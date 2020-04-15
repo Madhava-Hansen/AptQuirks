@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import {QuirkFormInput} from './quirk_form_input';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimesCircle} from '@fortawesome/fontawesome-free-solid'
 
 class QuirkForm extends React.Component {
   constructor(props) {
@@ -20,30 +22,18 @@ class QuirkForm extends React.Component {
       this.props.apartmentId || sessionStorage.getItem("apartmentId");
   }
 
-  handleSubmit = e => {
-    e.preventDefault();
-    const {
-      currentUser: { id, username, thumbnail_url },
-      addQuirk,
-      history,
-    } = this.props;
-    const idsAndPic = {
-      apartment_id: this.apartmentId,
-      user_id: id,
-      user_name: username,
-      user_pic: thumbnail_url ? thumbnail_url : this.defaultThumbnailUrl,
-    };
-    addQuirk({ quirk: { ...this.state, ...idsAndPic } }).then(
-      history.replace(`/apartments/${this.apartmentId}`)
-    );
-  };
-
   update = type => e => this.setState({ [type]: e.currentTarget.value });
 
   render() {
     const {title, body, apt_number} = this.state;
     return (
-      <form onSubmit={this.handleSubmit} className="QuirkForm">
+      <div className="QuirkForm">
+        <FontAwesomeIcon 
+          className="QuirkForm-closeFormIcon"
+          size="2x" 
+          icon={faTimesCircle} 
+          onClick={this.props.handleHideQuirkForm}
+        />
         <div className="QuirkForm-titleSectionWrapper">
           <h1 className="QuirkForm-title">Add Quirk</h1>
         </div>
@@ -66,10 +56,12 @@ class QuirkForm extends React.Component {
           update={this.update}
           isValid={apt_number.length >= 1}
         />
-        <button className="QuirkForm-button form-button" type="submit">
+        <button 
+          className="QuirkForm-button form-button"
+          onClick={() => this.props.handleAddQuirk(title, body, apt_number)}>
           Submit
         </button>
-      </form>
+      </div>
     );
   }
 }

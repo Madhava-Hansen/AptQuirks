@@ -53,7 +53,7 @@ class ApartmentShow extends React.Component {
     return (
       <section className="ApartmentShowWrapper">
         <div className="ApartmentShowWrapper-apartmentDetailsContainer">
-          {shouldShowApartment && (
+          {/* {shouldShowApartment && ( */}
             <article className="ApartmentShowWrapper-apartmentShow">
               <div className="ApartmentShowWrapper-addressWrapper">
                 <h1 className="ApartmentShowWrapper-streetAddress">
@@ -71,7 +71,7 @@ class ApartmentShow extends React.Component {
                 <LikeButtonContainer />
               </div>
             </article>
-          )}
+          {/* )} */}
           <ErrorBoundary>
             <ImageIndexContainer />
           </ErrorBoundary>

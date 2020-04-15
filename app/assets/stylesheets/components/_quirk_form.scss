@@ -2,13 +2,13 @@
 @import './base/mixins';
 
 .QuirkForm {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
   width: 450px;
   background-color: white;
   border-radius: 10px;
-  margin: 77px auto;
   box-sizing: border-box;
   &-titleSectionWrapper {
     background-color: $primary--dark;
@@ -46,7 +46,14 @@
     margin: 10px auto 30px auto;
     height: 45px;
   }
-  @media screen and (min-width: 550px) {
-    margin-top: 130px;
+  &-closeFormIcon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: rgba(white, 0.9);
+    cursor: pointer;
+    &:hover {
+      color: white;
+    }
   }
 }
