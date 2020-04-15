@@ -1,5 +1,4 @@
 @import '../base/colors';
-@import '../base/mixins';
 
 .InboxItem {
   $root: &;
@@ -14,7 +13,6 @@
   justify-content: space-between;
   &:hover {
     cursor: pointer;
-    @include boxShadow;
     &:hover {
       #{$root}-date {
         display: none;
@@ -31,6 +29,9 @@
     opacity: 0.5;
     margin-right: 12px;
     display: none;
+    &:hover {
+      opacity: 0.7;
+    }
   }
   &-mainContentWrapper {
     display: flex;
