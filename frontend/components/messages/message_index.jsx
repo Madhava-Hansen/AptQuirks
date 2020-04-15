@@ -18,10 +18,10 @@ const MessageIndex = props => {
   }, []) 
 
   const getReceiverUsername = () => {
-    if (props.currentConversation && props.currentUser) {
-      const {currentConversation: {receiver_username, sender_username}, currentUser: {username}} = props;
+    if (currentConversation && props.currentUser) {
+      const {receiver_username, sender_username} = currentConversation;
       // figure out username for who currentUser is messaging to display at top of message index
-      return username === receiver_username ? sender_username : receiver_username;
+      return props.currentUser.username === receiver_username ? sender_username : receiver_username;
     }
   }
 
