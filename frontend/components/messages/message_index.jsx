@@ -1,107 +1,97 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import MessageIndexItem from "./message_index_item";
 import MessageNav from "./message_nav";
+import {fetchConversation, createMessage} from '../../util/conversation_api_util';
 
-class MessageIndex extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      messages: [],
-      message: '',
-      revealMessagesClass: 'hidden'
-    }
-  }
+const MessageIndex = props => {
 
-  componentDidMount() {
-    const {currentConversation, location, fetchConversation} = this.props;
-    const conversationId = location.pathname.split("/").pop();
-    if (!currentConversation || currentConversation.id !== conversationId) {
-      fetchConversation(conversationId);
-    }
-  }
+  const [messages, setMessages] = useState([]);
+  const [currentMessage, setCurrentMessage] = useState(['']);
+  const [currentConversation, setCurrentConversation] = useState({})
 
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.currentConversation && nextProps.currentConversation.messages) {
-      return {messages: nextProps.currentConversation.messages};
-    }
+  useEffect(() => {
+    const conversationId = props.location.pathname.split("/").pop();
+    fetchConversation(conversationId).then(conversation => {
+      setMessages(conversation.messages);
+      setCurrentConversation(conversation);
+    })
+  }, []) 
 
-    return null;
-  }
-
-  getReceiverUsername = () => {
-    if (this.props.currentConversation && this.props.currentUser) {
-      const {currentConversation: {receiver_username, sender_username}, currentUser: {username}} = this.props;
+  const getReceiverUsername = () => {
+    if (props.currentConversation && props.currentUser) {
+      const {currentConversation: {receiver_username, sender_username}, currentUser: {username}} = props;
       // figure out username for who currentUser is messaging to display at top of message index
       return username === receiver_username ? sender_username : receiver_username;
     }
   }
 
-  handleMessageSend = e => {
-    if (!this.state.message) {
+  const handleMessageSend = e => {
+    if (!currentMessage) {
       return;
     }
     e.preventDefault();
-    const { createMessage, currentUser, currentConversation } = this.props;
+    const {currentUser} = props;
     const createMessageObject = {
       message: {
         read: false,
         user_id: currentUser.id,
         conversation_id: currentConversation.id,
-        body: this.state.message
+        body: currentMessage
       }
     };
-    createMessage(createMessageObject);
-    this.setState({message: ''});
+    createMessage(createMessageObject).then(message => {
+      const newMessages = messages.slice(0);
+      newMessages.push(message);
+      setMessages(newMessages);
+    })
+    setCurrentMessage('');
   }
 
-  update = e => this.setState({ message: e.target.value });
+  const update = e => setCurrentMessage(e.target.value);
 
-  render() {
-    const {currentUser, dispatch} = this.props;
-    const {messages} = this.state;
-    return (
-      <section className="MessageIndexWrapper">
-        <div className="MessageIndex">
-            <MessageNav 
-              dispatch={dispatch} 
-            />
-            <div className="MessageIndex-receiverUsername">To: {this.getReceiverUsername()}</div>
-            <ul className="MessageIndex-messages">
-              {messages.map((message, idx) => {
-                const nextIndex = idx + 1;
-                const nextMessage = (messages[nextIndex] && messages[nextIndex].user_id) ? messages[nextIndex] : {};
-                const showMeta = message.user_id !== nextMessage.user_id ? true : false;
-                return (
-                <MessageIndexItem
-                  message={message}
-                  currentUser={currentUser}
-                  key={message.id}
-                  receiverUsername={this.getReceiverUsername()}
-                  shouldShowMeta={showMeta}
-                />
-                )
-              }
-              )}
-            </ul>
-            <form className="MessageIndex-form">
-              <input
-                placeholder="enter message..."
-                className="MessageIndex-formInput form-input"
-                onChange={this.update}
-                value={this.state.message}
+  const {currentUser, dispatch} = props;
+  return (
+    <section className="MessageIndexWrapper">
+      <div className="MessageIndex">
+          <MessageNav 
+            dispatch={dispatch} 
+          />
+          <div className="MessageIndex-receiverUsername">To: {getReceiverUsername()}</div>
+          <ul className="MessageIndex-messages">
+            {messages.map((message, idx) => {
+              const nextIndex = idx + 1;
+              const nextMessage = (messages[nextIndex] && messages[nextIndex].user_id) ? messages[nextIndex] : {};
+              const showMeta = message.user_id !== nextMessage.user_id ? true : false;
+              return (
+              <MessageIndexItem
+                message={message}
+                currentUser={currentUser}
+                key={message.id}
+                receiverUsername={getReceiverUsername()}
+                shouldShowMeta={showMeta}
               />
-              <button
-                className="MessageIndex-sendButton"
-                type="submit"
-                onClick={this.handleMessageSend}
-              >
-                send
-              </button>
-          </form>
-          </div>
-      </section>
-    );
-  }
+              )
+            }
+            )}
+          </ul>
+          <form className="MessageIndex-form">
+            <input
+              placeholder="enter message..."
+              className="MessageIndex-formInput form-input"
+              onChange={update}
+              value={currentMessage}
+            />
+            <button
+              className="MessageIndex-sendButton"
+              type="submit"
+              onClick={handleMessageSend}
+            >
+              send
+            </button>
+        </form>
+        </div>
+    </section>
+  );
 }
 
 export default MessageIndex;

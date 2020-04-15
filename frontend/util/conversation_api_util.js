@@ -37,6 +37,14 @@ export const createMessage = message => {
   });
 };
 
+export const fetchMessages = userId => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/messages',
+    data: userId
+  })
+}
+
 export const fetchUsers = userName => {
   return $.ajax({
     method: "GET",
