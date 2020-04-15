@@ -2,6 +2,7 @@
 @import '../base/mixins';
 
 .InboxItem {
+  $root: &;
   background-color: $primary--beige;
   border-radius: 5px;
   height: 45px;
@@ -14,6 +15,22 @@
   &:hover {
     cursor: pointer;
     @include boxShadow;
+    &:hover {
+      #{$root}-date {
+        display: none;
+      }
+      #{$root}-trashIcon {
+        display: block;
+      }
+    }
+  }
+  &-trashIcon {
+    top: 2.5px;
+    right: 3.5px;
+    color: $primary--dark;
+    opacity: 0.5;
+    margin-right: 12px;
+    display: none;
   }
   &-mainContentWrapper {
     display: flex;

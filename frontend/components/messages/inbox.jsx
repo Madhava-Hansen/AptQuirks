@@ -24,12 +24,16 @@ class Inbox extends React.Component {
     return null;
   }
 
-  redirectToNewMessage = () => this.props.history.push("/message/new");
+  redirectToMessagesIndex = conversationId => this.props.history.push(`/messages/${conversationId}`);
 
-  redirectToMessagesIndex = conversationId => {
-    this.props.history.push(`/messages/${conversationId}`)
-  };
+  // add conversatino to state array of conversations to delete and then delete it
+  handleAddConversationAndThenDeleteConversation = conversation => {
+    this.setState({conversationsToDelete: this.getNewConversationToDeleteArrary(conversation)}, () => {
+      this.handleDeleteConversations();
+    })
+  }
 
+  // delete the current state array of conversations to delete
   handleDeleteConversations = () => {
     this.props.deleteConversations({
       conversation: {ids: this.state.conversationsToDelete, user_id: this.props.currentUser.id}
@@ -37,7 +41,13 @@ class Inbox extends React.Component {
     this.setState({conversationsToDelete: []});
   }
 
-  handleChangeCheckbox = conversation => {
+  // add a conversation to the state array of conversations to delete but don't delete anything yet
+  handleAddConversationToDelete = conversation => {
+    this.setState({conversationsToDelete: this.getNewConversationToDeleteArrary(conversation)});
+  }
+
+  // returns an array with the current state conversationsToDelete and the new converation added
+  getNewConversationToDeleteArrary = conversation => {
     const {conversationsToDelete} = this.state;
     let newConversationsToDelete = this.state.conversationsToDelete.slice(0);
     if (conversationsToDelete.includes(conversation.id)) {
@@ -45,8 +55,10 @@ class Inbox extends React.Component {
     } else {
       newConversationsToDelete.push(conversation.id);
     }
-    this.setState({conversationsToDelete: newConversationsToDelete});
+
+    return newConversationsToDelete;
   }
+
   render() {
     const {currentUser, dispatch} = this.props;
     const hasConversationsToDelete = this.state.conversationsToDelete.length > 0;
@@ -64,10 +76,12 @@ class Inbox extends React.Component {
             this.state.conversations.map(conversation => {
               const isChecked = this.state.conversationsToDelete.includes(conversation.id);
               return (
-                <div className="Inbox-itemWrapper">
+                <div 
+                  key={conversation.id} 
+                  className="Inbox-itemWrapper">
                 <div
-                  className={`Inbox-checkbox ${isChecked ? 'Inbox-isChecked' : ''}`}
-                  onClick={() => this.handleChangeCheckbox(conversation)}>
+                  onClick={() => this.handleAddConversationToDelete(conversation)}
+                  className={`Inbox-checkbox ${isChecked ? 'Inbox-isChecked' : ''}`}>
                     {isChecked && (
                       <FontAwesomeIcon 
                         className="Inbox-checkMarkIcon" 
@@ -79,8 +93,8 @@ class Inbox extends React.Component {
                 <InboxItem
                   conversation={conversation}
                   currentUser={currentUser}
-                  key={conversation.id}
-                  redirectToMessages={this.redirectToMessagesIndex}
+                  redirectToMessagesIndex={this.redirectToMessagesIndex}
+                  deleteConversation={this.handleAddConversationAndThenDeleteConversation}
                 />
               </div>
               )
