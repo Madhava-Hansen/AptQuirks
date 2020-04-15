@@ -1,8 +1,7 @@
 import React from "react";
-import UserSearchIndexItem from "./user_search_index_item";
+import {ComposeMessageUsersIndexItem} from "./compose_message_users_index_item";
 
-export const UserSearchIndex = ({users, handleUserSelection, update}) => {
-  const usersArray = users ? Object.keys(users).map(key => users[key]) : [];
+export const ComposeMessageUsersIndex = ({users, handleUserSelection, update}) => {
   return (
     <div className="UserSearchIndex">
     <div className="UserSearchIndex-contentWrapper">
@@ -14,9 +13,9 @@ export const UserSearchIndex = ({users, handleUserSelection, update}) => {
       />
     </div>
       <ul className="UserSearchIndex-indexItems">
-        {usersArray.map(user => {
+        {users.map(user => {
           return (
-            <UserSearchIndexItem
+            <ComposeMessageUsersIndexItem
               user={user}
               key={user.id}
               handleUserSelection={handleUserSelection}
