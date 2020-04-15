@@ -14,7 +14,6 @@
   &:hover {
     cursor: pointer;
     @include boxShadow;
-    font-size: 15px;
   }
   &-mainContentWrapper {
     display: flex;

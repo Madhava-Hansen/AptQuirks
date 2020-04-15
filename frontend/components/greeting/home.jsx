@@ -37,7 +37,7 @@ class Home extends React.Component {
         </div>
         <section className="Homepage-apartmentIndexContainer">
           <h1 className="Homepage-featuredApartmentsText">
-            Featured Apartments
+            Featured Homes
           </h1>
           <ApartmentIndexContainer />
         </section>
