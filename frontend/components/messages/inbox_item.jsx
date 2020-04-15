@@ -17,8 +17,7 @@ const InboxItem = ({
   return (
     <li className="InboxItem">
       <div 
-        id="REDIRECT"
-        onClick={() => redirectToMessagesIndex(conversation)} 
+        onClick={() => redirectToMessagesIndex(conversation.id)} 
         className="InboxItem-mainContentWrapper">
         <img
           className="InboxItem-userImage"
