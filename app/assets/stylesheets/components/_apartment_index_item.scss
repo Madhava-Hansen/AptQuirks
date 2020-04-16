@@ -34,9 +34,11 @@
   }
   &-streetAddress {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: normal;
     padding: 6px 12px;
     padding-top: 23px;
+    width: 250px;
+    font-family:cursive;
   }
   &-cityStateZip {
     font-weight: bold;
