@@ -11,8 +11,13 @@ class QuirkIndex extends React.Component {
       quirks: [],
       revealQuirk: false,
       addQuirkErrorClassName: "hidden",
-      revealQuirkForm: false
+      revealQuirkForm: false,
+      title: "",
+      body: "",
+      apt_number: "",
     };
+    this.defaultThumbnailUrl =
+    "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
   }
 
   componentDidMount() {
@@ -30,8 +35,8 @@ class QuirkIndex extends React.Component {
     return null;
   }
 
-  handleAddQuirk = (title, body, apt_id) => {
-    if (!title || !body || !apt_id) {return;};
+  handleAddQuirk = (title, body, apt_number) => {
+    if (!title || !body || !apt_number) {return;};
     const {currentUser: { id, username, thumbnail_url }} = this.props;
     const idsAndPic = {
       apartment_id: this.apartmentId || sessionStorage.getItem('apartmentId'),
@@ -39,7 +44,7 @@ class QuirkIndex extends React.Component {
       user_name: username,
       user_pic: thumbnail_url ? thumbnail_url : this.defaultThumbnailUrl,
     };
-    addQuirk({ quirk: {title, body, apt_id, ...idsAndPic } }).then(
+    addQuirk({ quirk: {title, body, apt_number, ...idsAndPic } }).then(
       quirk => {
         const newQuirks = this.state.quirks.slice(0);
         newQuirks.push(quirk);
@@ -54,6 +59,8 @@ class QuirkIndex extends React.Component {
 
   handleHideQuirkForm = () => this.setState({revealQuirkForm: false});
 
+  update = type => e => this.setState({ [type]: e.currentTarget.value });
+
   render() {
     const {apartmentId, history, apartmentShow} = this.props;
     const {revealQuirkForm} = this.state;
@@ -67,6 +74,8 @@ class QuirkIndex extends React.Component {
               apartmentId={apartmentShow}
               handleAddQuirk={this.handleAddQuirk}
               handleHideQuirkForm={this.handleHideQuirkForm}
+              update={this.update}
+              {...this.state}
             />
           </div>
         )}

@@ -3,7 +3,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
 
 export const QuirkFormInput = ({
-  name, 
+  value, 
+  name,
   isTextArea, 
   placeholder, 
   update, 
@@ -17,6 +18,7 @@ export const QuirkFormInput = ({
         type="text"
         placeholder={placeholder}
         onChange={update(name)}
+        value={value}
       />
       {isValid && (
         <FontAwesomeIcon className="QuirkForm-checkmark" icon={faCheck} size="1x" />
