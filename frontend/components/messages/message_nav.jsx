@@ -38,7 +38,7 @@ class MessageNav extends React.Component {
         <li>
           <FontAwesomeIcon 
             className={`MailNavigation-commentsIcon ${this.state.revealCommentsIconClass}`}
-            size="1x" 
+            size="lg" 
             icon={faComments} 
             onClick={this.handleToggleEditMode}
           />
