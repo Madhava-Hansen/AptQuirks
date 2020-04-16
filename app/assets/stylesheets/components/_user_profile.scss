@@ -7,9 +7,10 @@
 .UserProfile {
   background-color: white;
   background-image: none;
-  max-width: 650px;
-  margin: 77px 20px 16px 20px;
-  padding-bottom: 20px;
+  max-width: 630px;
+  width: 90%;
+  margin: 77px auto 16px auto;
+  padding-bottom: 40px;
   border-radius: 10px;
   min-height: 500px;
   color: $primary--dark;
@@ -49,7 +50,6 @@
   }
   &-heading {
     margin: 30px;
-    padding-left: 20px;
     display: flex;
     align-items: center;
   }
@@ -112,10 +112,14 @@
     margin-top: 12px;
   }
   @media screen and (min-width: 550px) {
-    margin: 77px auto 40px auto;
+    margin-bottom: 40px;
     background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1524241630/building_x4hvkw.jpg");
     background-position: right center;
     background-repeat: no-repeat;
+    padding-bottom: 20px;
+  }
+  @media screen and (min-width: 660px) {
+    width: 100%;
     &-mainContentWrapper {
       width: 326px;
       padding: 0 20px 20px 20px;
@@ -123,6 +127,9 @@
     }
     &-greetingText {
       font-size: 35px;
+    }
+    &-heading {
+      padding-left: 20px;
     }
   }
 }
