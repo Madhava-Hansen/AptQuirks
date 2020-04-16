@@ -10,7 +10,8 @@ const QuirkForm = ({
   body,
   apt_number,
   handleAddQuirk,
-  handleHideQuirkForm
+  handleHideQuirkForm,
+  apartmentShow
 }) => 
     <div className="QuirkForm">
       <FontAwesomeIcon 
@@ -21,6 +22,7 @@ const QuirkForm = ({
       />
       <div className="QuirkForm-titleSectionWrapper">
         <h1 className="QuirkForm-title">Add Quirk</h1>
+        <p>{apartmentShow.street_address}</p>
       </div>
       <QuirkFormInput 
         name="title"

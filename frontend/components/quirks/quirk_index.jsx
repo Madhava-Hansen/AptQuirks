@@ -71,7 +71,7 @@ class QuirkIndex extends React.Component {
             <QuirkForm 
               apartmentId={apartmentId}
               history={history}
-              apartmentId={apartmentShow}
+              apartmentShow={apartmentShow}
               handleAddQuirk={this.handleAddQuirk}
               handleHideQuirkForm={this.handleHideQuirkForm}
               update={this.update}
