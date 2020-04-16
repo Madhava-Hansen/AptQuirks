@@ -19,7 +19,7 @@
     get '/apartments/:id' => "static_pages#root"
     get '/addquirk/:id' => "static_pages#root"
     get '/messages/:id' => "static_pages#root"
-    get '/message/new' => "static_pages#root"
+    get '/compose' => "static_pages#root"
     root 'static_pages#root'
   end
 
