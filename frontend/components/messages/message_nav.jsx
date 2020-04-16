@@ -5,20 +5,28 @@ import { receiveConversation } from "../../actions/conversation_actions";
 class MessageNav extends React.Component {
   constructor(props) {
     super(props);
-    this.redirectToNewMessage = this.redirectToNewMessage.bind(this);
+    this.state = {inboxActiveClass: '', composeActiveClass: ''}
   }
 
-  redirectToNewMessage() {
+  componentDidMount() {
+    if (this.props.history.location.pathname.split('/').pop() === 'inbox') {
+      this.setState({inboxActiveClass: 'activeMessgeLink', composeActiveClass: ''});
+    } else {
+      this.setState({composeActiveClass: 'activeMessgeLink', inboxActiveClass: ''});
+    }
+  }
+
+  redirectToNewMessage = () => {
     this.props.history.push("/message/new");
   }
 
   render() {
     return (
       <ul className="inbox-nav group">
-        <li className="inbox-nav-item">
+        <li className={`inbox-nav-item ${this.state.inboxActiveClass}`}>
           <Link to="/inbox">Inbox</Link>
         </li>
-        <li className="inbox-nav-item">
+        <li className={`inbox-nav-item ${this.state.composeActiveClass}`}>
           <p onClick={this.redirectToNewMessage}>Compose</p>
         </li>
       </ul>
