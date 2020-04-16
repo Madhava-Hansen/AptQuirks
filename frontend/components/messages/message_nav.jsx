@@ -10,9 +10,9 @@ class MessageNav extends React.Component {
 
   componentDidMount() {
     const path = this.props.history.location.pathname.split('/').pop();
-    if (path === 'inbox') {
+    if (path === "inbox") {
       this.setState({inboxActiveClass: 'activeMessgeLink', composeActiveClass: ''});
-    } else if (path === 'new') {
+    } else if (path === "new") {
       this.setState({composeActiveClass: 'activeMessgeLink', inboxActiveClass: ''});
     }
   }
