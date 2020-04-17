@@ -9,9 +9,6 @@ $desktop-breakpoint: 1090px;
     max-width: 100%;
     margin: 0 20px;
   }
-  &-cityStateZip {
-    width: 150px;
-  }
   &-searchForm {
     display: none;
   }
@@ -25,6 +22,11 @@ $desktop-breakpoint: 1090px;
   }
   &-streetAddress {
     font-size: 25px;
+    margin-bottom: 12px;
+  }
+  &-cityStateZip {
+    width: 150px;
+    margin-bottom: 12px;
   }
   &-mapWrapper {
     height: 300px;
@@ -50,11 +52,14 @@ $desktop-breakpoint: 1090px;
     &-mapWrapper {
       height: 330px;
     }
+    &-streetAddress {
+      margin-bottom: 0;
+    }
     &-cityStateZip {
       font-weight: bold;
       margin-bottom: 10px;
       color: $primary--dark;
-      padding: 10px 10px 10px 0;
+      padding: 6px 10px 10px 0;
     }
     &-quirksIndexWrapper {
       margin: 0;
