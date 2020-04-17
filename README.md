@@ -34,7 +34,7 @@ I chose to use Ruby on Rails to handle my server side code for this project. Not
 
 The frontend is handled using React, Sass and Redux. My app interacts with Rails by sending REST Ajax requests and receiving JSON responses. The Redux Store maintains and updates the state of my application as well as passing state down to the appropriate components so they can correctly render information back to the user.
 
-![show page](https://res.cloudinary.com/aptquirks/image/upload/v1586483742/Screen_Shot_2020-04-09_at_9.54.13_PM_rvq5tx.png)
+![show page](https://res.cloudinary.com/aptquirks/image/upload/v1587165470/Screen_Shot_2020-04-17_at_7.17.22_PM_gz1qqr.png)
 
 
 ## Libraries
