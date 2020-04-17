@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {ComposeMessageUsersIndex} from "./componse_message_users_index";
-import MessageNav from "./message_nav";
+import MailNavigation from "./mail_navigation";
 import {fetchUsers} from '../../util/conversation_api_util';
 
 const ComposeMessage = props => {
@@ -31,7 +31,7 @@ const ComposeMessage = props => {
   return (
     <section className="NewMessageWrapper">
       <div className="message-container">
-        <MessageNav dispatch={props.dispatch} />
+        <MailNavigation dispatch={props.dispatch} />
         <ComposeMessageUsersIndex
           users={users}
           handleUserSelection={handleUserSelection}

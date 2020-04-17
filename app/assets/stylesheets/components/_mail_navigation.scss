@@ -16,17 +16,6 @@
     margin: 17px 0 10px 6px;
     cursor: pointer;
   }
-  &-commentsIcon {
-    color: rgba(white, 0.4);
-    padding: 4px;
-    border-radius: 3px;
-    cursor: default;
-    margin: 6px 12px 0 6px;
-  }
-  &-revealCommentsIcon {
-    background-color: white;
-    color: $primary--dark;
-  }
   &-activeMessgeLink {
     color: $primary--dark;
     background-color: white;
@@ -34,5 +23,32 @@
   }
   &-linksWrapper {
     display: flex;
+  }
+  &-iconsWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  &-commentsIcon {
+    color: rgba(white, 0.4);
+    padding: 4px;
+    border-radius: 3px;
+    cursor: default;
+    margin-right: 8px;
+  }
+  &-revealCommentsIcon {
+    background-color: white;
+    color: $primary--dark;
+  }
+  &-trashIcon {
+    color: white;
+    opacity: 0.5;
+    margin-right: 16px;
+  }
+  &-hasConversationsToDelete {
+    opacity: 1;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

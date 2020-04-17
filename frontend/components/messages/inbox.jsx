@@ -1,9 +1,9 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
 import InboxItem from "./inbox_item";
-import MessageNav from "./message_nav";
+import MessageNav from "./mail_navigation";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTrash, faCheck} from '@fortawesome/fontawesome-free-solid'
+import {faCheck} from '@fortawesome/fontawesome-free-solid'
 
 class Inbox extends React.Component {
   constructor(props) {
@@ -65,12 +65,10 @@ class Inbox extends React.Component {
     return (
       <div className="Inbox">
         <div className="group message-container">
-          <MessageNav dispatch={dispatch} />
-          <FontAwesomeIcon 
-            size="1x"
-            icon={faTrash}
-            className={`Inbox-icon ${hasConversationsToDelete ? 'Inbox-hasConversationsToDelete': ''}`}
-            onClick={this.handleDeleteConversations}
+          <MessageNav
+           dispatch={dispatch} 
+           handleDeleteConversations={this.handleDeleteConversations}
+           hasConversationsToDelete={hasConversationsToDelete}
           />
           <ul className="conversation-index-list">{
             this.state.conversations.map(conversation => {

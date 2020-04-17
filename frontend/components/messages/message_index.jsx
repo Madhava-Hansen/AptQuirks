@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 import MessageIndexItem from "./message_index_item";
-import MessageNav from "./message_nav";
+import MailNavigation from "./mail_navigation";
 import {fetchConversation, createMessage} from '../../util/conversation_api_util';
 
 const MessageIndex = props => {
-
+  
   const [messages, setMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState(['']);
   const [currentConversation, setCurrentConversation] = useState({})
@@ -53,7 +53,7 @@ const MessageIndex = props => {
   return (
     <section className="MessageIndexWrapper">
       <div className="MessageIndex">
-          <MessageNav 
+          <MailNavigation 
             dispatch={dispatch} 
           />
           <div className="MessageIndex-receiverUsername">To: {getReceiverUsername()}</div>

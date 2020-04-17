@@ -9,19 +9,6 @@
     align-items: center;
     width: 100%;
   }
-  &-icon {
-    position: absolute;
-    top: 23px;
-    right: 50px;
-    color: white;
-    opacity: 0.5;
-  }
-  &-hasConversationsToDelete {
-    opacity: 1;
-    &:hover {
-      cursor: pointer;
-    }
-  }
   &-checkbox {
     width: 18px;
     height: 18px;
