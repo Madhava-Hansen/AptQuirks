@@ -15,6 +15,7 @@ class QuirkIndex extends React.Component {
       title: "",
       body: "",
       apt_number: "",
+      noQuirksYet: false
     };
     this.defaultThumbnailUrl =
     "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
@@ -22,7 +23,11 @@ class QuirkIndex extends React.Component {
 
   componentDidMount() {
     fetchQuirks(this.props.apartmentId || sessionStorage.getItem("apartmentId")).then(quirks => {
-      this.setState({quirks});
+      this.setState({quirks}, () => {
+        if (this.state.quirks.length === 0) {
+          this.setState({noQuirksYet: true});
+        }
+      })
     })
   }
 
@@ -116,15 +121,14 @@ class QuirkIndex extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.quirks.length > 0 ? (
           <ul className="QuirksIndex-quirksWrapper">
             {this.state.quirks.map(quirk => (
               <QuirkIndexItem quirk={quirk} key={quirk.id} />
             ))}
           </ul>
-        ) : (
-          <h1 className="QuirksIndex-noQuirksYetMessage">Be the first person to add a quirk!</h1>
-        )}
+          {this.state.noQuirksYet && (
+            <h1 className="QuirksIndex-noQuirksYetMessage">Be the first person to add a quirk!</h1>
+          )}
       </aside>
     );
   }

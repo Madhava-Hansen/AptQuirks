@@ -26,10 +26,10 @@ class ImageIndex extends React.Component {
     this.scrollStatus = "";
   }
 
-  toggleSlideshow = (e) => {
+  toggleSlideshow = e => {
     if (!this.props.imageIndex[0]) {
       this.toggleImageError();
-      window.setTimeout((errorCallback) => {
+      window.setTimeout(() => {
         this.toggleImageError();
       }, 3000);
       return;
