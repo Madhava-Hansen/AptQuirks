@@ -13,24 +13,32 @@
   justify-content: space-between;
   &:hover {
     cursor: pointer;
-    &:hover {
-      #{$root}-date {
-        display: none;
-      }
-      #{$root}-trashIcon {
-        display: block;
-      }
+    #{$root}-date {
+      display: none;
     }
+    #{$root}-iconsWrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &-iconsWrapper {
+    display: none;
+  }
+  &-linkIcon {
+    opacity: 1;
+    margin-right: 12px;
   }
   &-trashIcon {
     top: 2.5px;
     right: 3.5px;
     color: $primary--dark;
-    opacity: 0.5;
+    opacity: 0.4;
     margin-right: 12px;
-    display: none;
     &:hover {
-      opacity: 0.7;
+      opacity: 0.8;
+      #{$root}-linkIconHoverTrigger {
+        opacity: 0.5;
+      }
     }
   }
   &-mainContentWrapper {

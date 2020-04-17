@@ -1,7 +1,7 @@
 import React from "react";
 import {getDateStringFromTimestamp} from '../../util/utilities';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTrash} from '@fortawesome/fontawesome-free-solid'
+import {faTrash, faAngleRight} from '@fortawesome/fontawesome-free-solid'
 
 const InboxItem = ({
   conversation,
@@ -28,11 +28,17 @@ const InboxItem = ({
       </div>
       <div
         onClick={() => deleteConversation(conversation)}
-        className="InboxItem-trashIconWrapper">
+        className="InboxItem-iconsWrapper">
         <FontAwesomeIcon 
           size="1x"
           icon={faTrash}
           className="InboxItem-trashIcon"
+          disabled={true}
+        />
+        <FontAwesomeIcon 
+          size="lg"
+          icon={faAngleRight}
+          className="InboxItem-linkIcon InboxItem-linkIconHoverTrigger"
           disabled={true}
         />
       </div>
