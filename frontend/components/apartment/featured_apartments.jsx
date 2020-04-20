@@ -1,5 +1,5 @@
 import React from "react";
-import ApartmentIndexItem from "./apartment_index_item";
+import FeaturedApartmentsItem from "./featured_apartments_item";
 import { withRouter } from "react-router-dom";
 
 class ApartmentIndex extends React.Component {
@@ -27,9 +27,9 @@ class ApartmentIndex extends React.Component {
       <div className="group">
         <ul className="FeaturedApartments">
           {apartments.map((apartment, idx) => (
-            <ApartmentIndexItem
+            <FeaturedApartmentsItem
               apartment={apartment}
-              key={idx}
+              key={apartment.id}
               index={idx}
               redirect={this.redirectToAptShow}
             />

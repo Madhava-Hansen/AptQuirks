@@ -9,7 +9,7 @@ const InboxItem = ({
   redirectToMessagesIndex,
   deleteConversation
 }) => {
-  let username =
+  const username =
     currentUser.username === conversation.receiver_username
       ? conversation.sender_username
       : conversation.receiver_username;

@@ -1,5 +1,5 @@
 import React from "react";
-import ApartmentIndexContainer from "../apartment/apartment_index_container";
+import FeaturedApartmentsContainer from "../apartment/featured_apartments_container";
 import ApartmentSearchContainer from "../apartment/apartment_search_container";
 
 class Home extends React.Component {
@@ -40,7 +40,7 @@ class Home extends React.Component {
           <h1 className="Homepage-featuredApartmentsText">
             Featured Homes
           </h1>
-          <ApartmentIndexContainer />
+          <FeaturedApartmentsContainer />
         </section>
       </main>
     );

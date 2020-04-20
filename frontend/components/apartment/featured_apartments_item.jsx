@@ -39,7 +39,7 @@ const ApartmentIndexItem = ({ apartment, redirect, index }) => {
       />
       <div className="FeaturedApartmentsItem-addressWrapper">
         <h1 className="FeaturedApartmentsItem-streetAddress">
-          {streetAddress}
+          {`${streetAddress.slice(0, 14)} ${streetAddress.length >= 14 ? '...' : ''}`}
         </h1>
         <h3 className="FeaturedApartmentsItem-cityStateZip">{cityStateZip}</h3>
       </div>

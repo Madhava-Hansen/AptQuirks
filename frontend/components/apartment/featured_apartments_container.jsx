@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import ApartmentIndex from "./apartment_index";
+import FeaturedApartments from "./featured_apartments";
 import { fetchApartments, fetchApartment } from "../../actions/search_actions";
 
 const mapStateToProps = ({ apartmentShow }) => {
@@ -13,9 +13,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchApartment: (id) => dispatch(fetchApartment(id, dispatch)),
 });
 
-const ApartmentIndexContainer = connect(
+const FeaturedApartmentsContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ApartmentIndex);
+)(FeaturedApartments);
 
-export default ApartmentIndexContainer;
+export default FeaturedApartmentsContainer;
