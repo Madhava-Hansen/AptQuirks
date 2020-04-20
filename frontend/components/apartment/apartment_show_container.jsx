@@ -10,8 +10,7 @@ const mapStateToProps = ({ apartmentShow, quirksIndex, session, likes }) => ({
   },
   quirks: quirksIndex,
   userId: (session.currentUser && session.currentUser.id) || "1",
-  apartmentId: apartmentShow.id,
-  currentLike: likes.currentLike,
+  apartmentId: apartmentShow.id
 });
 
 const mapDispatchToProps = (dispatch) => ({

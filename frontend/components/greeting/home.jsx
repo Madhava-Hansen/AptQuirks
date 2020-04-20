@@ -7,6 +7,7 @@ class Home extends React.Component {
     super(props)
     this.state = {isLoaded: ''}
   }
+  
   componentDidMount() {
     window.scrollTo(0, 0);
   }

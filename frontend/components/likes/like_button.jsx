@@ -1,5 +1,6 @@
 import React from "react";
 import LikeCountComponenet from "./like_count_component";
+import {fetchLikes, like, unlike} from '../../util/like_api_util';
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -13,22 +14,12 @@ class LikeButton extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchLikes(
+    fetchLikes(
       this.props.apartmentId || sessionStorage.getItem("apartmentId")
-    );
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    const {
-      likesIndex: { likes },
-      userId,
-    } = nextProps;
-    if (likes && likes.length >= 0 && prevState.likes !== likes) {
-      const like = likes.find((like) => like.user_id === userId) || {};
-      return { likes: likes, likeId: like.id, haveFetchedLikes: true };
-    }
-
-    return null;
+    ).then(likes => {
+      const like = likes.find(like => like.user_id === this.props.userId) || {};
+      this.setState({likes, likeId: like.id, haveFetchedLikes: true});
+    })
   }
 
   revealLikeErrorMessage = () => {
@@ -38,20 +29,26 @@ class LikeButton extends React.Component {
     }, 3000);
   };
 
-  handleLike = () =>
-    this.props.like({
+  handleLike = () => {
+    like({
       apartmentId: this.props.apartmentId,
       userId: this.props.userId,
-    });
+    }).then(like => {
+      const newLikes = this.state.likes.slice(0);
+      newLikes.push(like);
+      this.setState({likes: newLikes, likeId: like.id});
+    })
+  }
 
   handleUnlike = () => {
-    const { apartmentId, userId, unlike } = this.props;
+    const {apartmentId, userId} = this.props;
     unlike({
       apartmentId: apartmentId,
       userId: userId,
       likeId: this.state.likeId,
-    }).then(() => {
-      this.setState({ likeId: null });
+    }).then(deletedLike => {
+      const newLikes = this.state.likes.filter(like => like.id !== deletedLike.id);
+      this.setState({likes: newLikes, likeId: null});
     });
   };
 
@@ -76,7 +73,7 @@ class LikeButton extends React.Component {
         </div>
         <div className="like-count">
           <LikeCountComponenet
-            count={this.state.likes.length}
+            count={this.state.likes ? this.state.likes.length : 0}
             isLiked={isLiked}
           />
         </div>
