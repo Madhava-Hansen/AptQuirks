@@ -34,11 +34,11 @@ Rails.application.configure do
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "smtp.office365.com",
     port: 587,
     authentication: :plain,
     enable_starttls_auto: true,
-    user_name: 'ApartmentQuirks@gmail.com',
+    user_name: 'info@apartmentquirks.com',
     password: ENV['GMAIL_PASSWORD'], 
     domain: "gmail.com",
     openssl_verify_mode: "none",
