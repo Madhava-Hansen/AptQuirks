@@ -1,3 +1,5 @@
+@import 'colors';
+
 @mixin greyButton {
   border: 2px solid #f1f1f1;
   border-radius: 0px;
@@ -30,4 +32,28 @@
   background-position: center;
   background-size: cover;
   padding-top: 30px;
+}
+
+@mixin placeholderAnimation {
+  width: 100%;
+  background-color: $dark-grey;
+  animation: placeHolderShimmer 3s infinite cubic-bezier(.65, .05, .36, 1);
+}
+
+@keyframes placeHolderShimmer{
+  0%{
+   opacity: .5;
+  }
+  25%{
+   opacity: .35;
+  }
+  50% {
+   opacity: 1;
+  }
+  75% {
+   opacity: .35;
+  }
+  100% {
+    opacity: .5;
+   }
 }
