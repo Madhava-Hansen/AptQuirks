@@ -1,1 +1,1 @@
-Figaro.require_keys('GMAIL_PASSWORD') 
+Figaro.require_keys('gmail_username', 'gmail_password', 'maps_key') 
