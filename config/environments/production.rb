@@ -64,13 +64,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: host }
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "smtp.office365.com",
     port: 587,
     authentication: 'plain',
     domain: "gmail.com",
     enable_starttls_auto: true,
-    user_name: 'apartmentquirks@gmail.com',
-    password: ENV['GMAIL_PASSWORD']
+    user_name: 'info@apartmentquirks.com',
+    password: ENV['EMAIL_PASSWORD']
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

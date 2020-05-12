@@ -39,7 +39,7 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true,
     user_name: 'info@apartmentquirks.com',
-    password: ENV['GMAIL_PASSWORD'], 
+    password: ENV['EMAIL_PASSWORD'], 
     domain: "gmail.com",
     openssl_verify_mode: "none",
   }
