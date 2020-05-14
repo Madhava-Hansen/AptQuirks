@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {PrivacyPolicyLink} from './footer_privacy_policy_link';
 
 export const FooterNavLinks = ({ isLoggedIn }) => {
   return (
@@ -18,6 +19,9 @@ export const FooterNavLinks = ({ isLoggedIn }) => {
             {" "}
             <Link to="/profile">profile</Link>{" "}
           </li>
+          <li className="FooterNavContainer-link">
+            <PrivacyPolicyLink />
+          </li>
         </>
       ) : (
         <>
@@ -32,6 +36,9 @@ export const FooterNavLinks = ({ isLoggedIn }) => {
           <li className="FooterNavContainer-link">
             {" "}
             <Link to="/home">search</Link>{" "}
+          </li>
+          <li className="FooterNavContainer-link">
+            <PrivacyPolicyLink />
           </li>
         </>
       )}
