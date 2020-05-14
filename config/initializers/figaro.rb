@@ -1,1 +1,0 @@
-Figaro.require_keys('EMAIL_PASSWORD', 'maps_key')

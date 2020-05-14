@@ -1,4 +1,4 @@
-export const signup = (user) => {
+export const signup = user => {
   return $.ajax({
     method: "POST",
     url: "/api/users",
@@ -6,7 +6,7 @@ export const signup = (user) => {
   });
 };
 
-export const login = (user) => {
+export const login = user => {
   return $.ajax({
     method: "POST",
     url: "/api/session",
@@ -21,7 +21,7 @@ export const logout = () => {
   });
 };
 
-export const verifyCaptcha = (response) => {
+export const verifyCaptcha = response => {
   return $.ajax({
     method: "GET",
     url: "/api/session",
@@ -29,7 +29,7 @@ export const verifyCaptcha = (response) => {
   });
 };
 
-export const saveUser = (user) => {
+export const saveUser = user => {
   return $.ajax({
     method: "PATCH",
     url: `/api/users/${user.id}`,
@@ -37,7 +37,7 @@ export const saveUser = (user) => {
   });
 };
 
-export const addPhoto = (photoParams) => {
+export const addPhoto = photoParams => {
   return $.ajax({
     method: "PATCH",
     url: `/api/users/${photoParams.user.id}`,
