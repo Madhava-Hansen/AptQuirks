@@ -17,7 +17,7 @@
   border-radius: 10px;
   width: 90%;
   &-input {
-    margin: 6px 0 20px 0;
+    margin: 6px 0 12px 0;
     border: 1px solid lightgrey;
   }
   &-header {
@@ -45,7 +45,7 @@
   }
   &-recaptcha {
     margin: 0 auto;
-    margin-bottom: 12px;
+    margin: 8px 0 12px 0;
   }
   &-inputWrapper {
     position: relative;
@@ -60,7 +60,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px;
+    margin: 10px 0 8px 10px;
   }
   &-termsAndConditionsLink {
     color: $primary;
