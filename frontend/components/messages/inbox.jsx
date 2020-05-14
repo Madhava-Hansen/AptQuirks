@@ -2,8 +2,7 @@ import React from "react";
 import {withRouter} from "react-router-dom";
 import InboxItem from "./inbox_item";
 import MessageNav from "./mail_navigation";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCheck} from '@fortawesome/fontawesome-free-solid'
+import {Checkbox} from '../pattern_library/pl_checkbox';
 
 class Inbox extends React.Component {
   constructor(props) {
@@ -76,18 +75,12 @@ class Inbox extends React.Component {
               return (
                 <div 
                   key={conversation.id} 
-                  className="Inbox-itemWrapper">
-                <div
-                  onClick={() => this.handleAddConversationToDelete(conversation)}
-                  className={`Inbox-checkbox ${isChecked ? 'Inbox-isChecked' : ''}`}>
-                    {isChecked && (
-                      <FontAwesomeIcon 
-                        className="Inbox-checkMarkIcon" 
-                        size="1x" 
-                        icon={faCheck}
-                      />
-                    )}
-                </div>
+                  className="Inbox-itemWrapper"
+                >
+                  <Checkbox 
+                    handleClick={() => this.handleAddConversationToDelete(conversation)}
+                    isActive={isChecked}
+                  />
                 <InboxItem
                   conversation={conversation}
                   currentUser={currentUser}

@@ -1,3 +1,3 @@
 import React from 'react';
 
-export const Placeholder = () => <div className="Placholder"></div>
+export const Placeholder = () => <div className="Placeholder"></div>

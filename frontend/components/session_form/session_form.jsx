@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { receiveErrors } from "../../actions/session_actions";
 import ReCAPTCHA from "react-google-recaptcha";
 import {SessionFormInput} from './session_form_input';
+import {Checkbox} from '../pattern_library/pl_checkbox';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class SessionForm extends React.Component {
       email: "",
       password: "",
       captchaVerified: undefined,
-      showCaptchaError: false,
+      hasErrors: false,
+      hasAcceptedTerms: false
     };
   }
 
@@ -42,16 +44,17 @@ class SessionForm extends React.Component {
   };
 
   handleClick = () => {
-    const { captchaVerified, username, email, password } = this.state;
+    const {captchaVerified, username, email, password, hasAcceptedTerms} = this.state;
+    const isSignup = this.props.formType === 'signup';
     const missingLoginData = !username || !password;
     const hasErrors =
-      this.props.formType === "signup"
-        ? missingLoginData || !email
+    isSignup
+        ? missingLoginData || !this.validateEmail() || !hasAcceptedTerms
         : missingLoginData;
     if (hasErrors) {
-      this.setState({ showCaptchaError: true });
+      this.setState({ hasErrors: true });
       setTimeout(() => {
-        this.setState({ showCaptchaError: false });
+        this.setState({ hasErrors: false });
       }, 4000);
     } else {
       this.props.processForm({ user: { username, email, password } });
@@ -73,8 +76,11 @@ class SessionForm extends React.Component {
 
   validateEmail = () => this.emailValidationRegex.test(this.state.email.toLowerCase());
 
+  handleToggleCheckbox = () => this.setState({hasAcceptedTerms: !this.state.hasAcceptedTerms});
+
   render() {
-    const { formType, errors } = this.props;
+    const {formType, errors} = this.props;
+    const {hasAcceptedTerms} = this.state;
     const errorClass = errors ? "SessionForm-errors" : "hidden";
     const isSignup = formType === "signup";
     const hasValidUsername = this.state.username.length >= 8 && isSignup;
@@ -86,9 +92,9 @@ class SessionForm extends React.Component {
       <section className="SessionFormWrapper">
         <div className="SessionForm">
           <h3 className={errorClass}>{errors}</h3>
-          {this.state.showCaptchaError && (
+          {this.state.hasErrors && (
             <div className="SessionForm-errors">
-              Please verify that you're not a robot with reCaptcha
+              Please fill out all fields and check all boxes
             </div>
           )}
           <h1 className="SessionForm-header">
@@ -115,13 +121,30 @@ class SessionForm extends React.Component {
               isValid={hasValidPassword}
             />
           {isSignup && (
-            <div className="SessionForm-recaptcha">
-              <ReCAPTCHA
-                sitekey="6LdeUc0UAAAAAMzwWnZqiqWTmInhd4J57jryzc5C"
-                type="image"
-                onChange={(response) => this.handleChange(response)}
-              />
-            </div>
+            <>
+              <div className="SessionForm-recaptcha">
+                <ReCAPTCHA
+                  sitekey="6LdeUc0UAAAAAMzwWnZqiqWTmInhd4J57jryzc5C"
+                  type="image"
+                  onChange={(response) => this.handleChange(response)}
+                />
+              </div>
+              <div className="SessionForm-termsAndConditionsWrapper">
+                <div className="SessionForm-checkboxWrapper">
+                  <Checkbox 
+                    handleClick={this.handleToggleCheckbox}
+                    isActive={hasAcceptedTerms}
+                  />
+                </div>
+                <p>By clicking I accept the
+                  <a
+                    target="_blank"
+                    className="SessionForm-termsAndConditionsLink" 
+                    href="https://app.termly.io/document/terms-of-use-for-website/c1ad278a-901a-4f1b-9e14-54e318c56599"> terms and conditions
+                  </a>
+                </p>
+              </div>
+            </>
           )}
           <button onClick={this.handleClick} className="form-button">
             Submit

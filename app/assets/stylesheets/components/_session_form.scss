@@ -56,4 +56,19 @@
     top: 19px;
     color: $sucessMessage--green;
   }
+  &-termsAndConditionsWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+  }
+  &-termsAndConditionsLink {
+    color: $primary;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &-checkboxWrapper {
+    margin-right: 10px;
+  }
 }
