@@ -1,7 +1,9 @@
 import React from "react";
 import ImageIndexItem from "./image_index_item";
 import AddImageButton from "./add_image_button";
-import { withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimesCircle, faAngleRight, faAngleLeft} from '@fortawesome/fontawesome-free-solid'
 
 class ImageIndex extends React.Component {
   constructor(props) {
@@ -146,25 +148,29 @@ class ImageIndex extends React.Component {
           <section className="image-index">{images}</section>
           <div className={this.state.slideshowClass}>
             <div className="current-slideshow-image">
-              <p
+              <FontAwesomeIcon 
+                icon={faTimesCircle}
                 onClick={this.toggleSlideshow}
                 id="close-image"
                 className="close-image"
-              >
-                x
-              </p>
-              <img
-                src={
-                  imageIndex[0] ? imageIndex[this.state.slideshowIndex].url : ""
-                }
-                alt="img"
-              ></img>
-              <p onClick={this.slideshowLeft} className="slideshow-left">
-                left
-              </p>
-              <p onClick={this.slideshowRight} className="slideshow-right">
-                right
-              </p>
+                size="2x" 
+              />
+              <img 
+                src={imageIndex[0] ? imageIndex[this.state.slideshowIndex].url : ""}
+                alt="img" >
+              </img>
+              <div className="slideshowArrowsWrapper">
+                <FontAwesomeIcon 
+                  onClick={this.slideshowLeft} 
+                  className="slideshow-left"
+                  icon={faAngleLeft}
+                />
+                <FontAwesomeIcon 
+                  onClick={this.slideshowRight} 
+                  className="slideshow-right"
+                  icon={faAngleRight}
+                />
+              </div>
             </div>
           </div>
         </div>

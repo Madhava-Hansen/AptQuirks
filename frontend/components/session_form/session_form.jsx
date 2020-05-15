@@ -61,7 +61,7 @@ class SessionForm extends React.Component {
     }
   };
 
-  update = (label) => {
+  update = label => {
     return (e) =>
       this.setState({
         [label]: e.currentTarget.value,

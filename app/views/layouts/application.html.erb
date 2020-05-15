@@ -10,6 +10,18 @@
     <%= javascript_include_tag 'application' %>
     <script src="//widget.cloudinary.com/global/all.js" type="text/javascript" async></script>
     <script>
+    <script>
+      (function () {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://app.termly.io/embed.min.js';
+        s.id = '64770020-12f7-4bed-bc6e-01c7e9ca8ef8';
+        s.setAttribute("data-name", "termly-embed-banner");
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      })();
+    </script>
       
     </script>
     <script type="text/javascript" async>
