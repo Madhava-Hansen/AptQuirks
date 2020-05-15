@@ -25,6 +25,7 @@ class Footer extends React.Component {
             <FontAwesomeIcon size="2x" icon={["fab", "instagram"]} />
           </a>
         </div>
+        <p className="Footer-email">service@apartmentquirks.com</p>
         <p className="Footer-copyright">
           {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
         </p>
