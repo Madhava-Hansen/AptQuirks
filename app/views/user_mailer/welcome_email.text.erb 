@@ -6,9 +6,6 @@ You have successfully created an account!
 
 your username is: <% @user.username =%>.
 
-You can start posting quirks right away. 
+If you have any questions feel free to reach out to our customer service team at service@apartmentquirks.com
  
 Thanks for joining and have a great day!
-
-Best,
-The ApartmenteQuirks Team
