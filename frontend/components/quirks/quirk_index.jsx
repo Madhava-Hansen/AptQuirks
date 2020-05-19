@@ -1,7 +1,7 @@
 import React from "react";
-import { QuirkIndexItem } from "./quirk_index_item";
-import { withRouter } from "react-router-dom";
-import {fetchQuirks, addQuirk, deleteQuirk} from '../../util/quirk_api_util';
+import {QuirkIndexItem} from "./quirk_index_item";
+import {withRouter} from "react-router-dom";
+import {fetchQuirks, addQuirk} from '../../util/quirk_api_util';
 import QuirkForm from './quirk_form';
 
 class QuirkIndex extends React.Component {
@@ -60,7 +60,16 @@ class QuirkIndex extends React.Component {
   handleRevealQuirkInfo = () =>
     this.setState({ revealQuirk: !this.state.revealQuirk });
 
-  handleRevealQuirkForm = () => this.setState({revealQuirkForm: true});
+  handleRevealQuirkForm = () => {
+    if (this.props.currentUser) {
+      this.setState({revealQuirkForm: true});
+    } else {
+      this.setState({addQuirkErrorClassName: 'QuirksIndex-addQuirkErrorMessage'});
+      setTimeout(() => {
+        this.setState({addQuirkErrorClassName: 'hidden'});
+      }, 3000)
+    }
+  };
 
   handleHideQuirkForm = () => this.setState({revealQuirkForm: false});
 
