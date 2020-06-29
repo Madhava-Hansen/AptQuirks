@@ -47,7 +47,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev-build": "webpack --config webpack.config.js --watch",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "reload": "guard -P livereload"
   },
   "repository": {
     "type": "git",

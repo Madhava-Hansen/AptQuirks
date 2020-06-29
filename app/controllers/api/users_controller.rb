@@ -7,11 +7,11 @@ class Api::UsersController < ApplicationController
       if !@user.email 
         @user.email = "Madhavah@gmail.com"
       end
-      # UserMailer.welcome_email(@user).deliver_now
+      WelcomeUserMailer.welcome_email(@user).deliver_now
       render 'api/users/show'
-    else
-      render json: ["Invalid username or password, please try again"], status: 401
     end
+    redner json: ['An error occured. Please try again.']
+
   end
 
   def show

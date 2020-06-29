@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import { GreetingNavLink } from "./greeting_nav_link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { GreetingSocialLink } from "./greeting_social_link";
 
 class Greeting extends React.Component {
