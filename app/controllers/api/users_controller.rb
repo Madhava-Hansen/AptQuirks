@@ -10,8 +10,6 @@ class Api::UsersController < ApplicationController
       WelcomeUserMailer.welcome_email(@user).deliver_now
       render 'api/users/show'
     end
-    redner json: ['An error occured. Please try again.']
-
   end
 
   def show
