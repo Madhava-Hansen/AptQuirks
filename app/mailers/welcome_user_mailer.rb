@@ -19,7 +19,7 @@ class WelcomeUserMailer < ApplicationMailer
     </div>"
     to = SendGrid::Email.new(email: user.email)
     from = SendGrid::Email.new(email: 'service@apartmentquirks.com')
-    subject = 'New inquiry from customer'
+    subject = 'Welcome to Apartment Quirks'
     content = SendGrid::Content.new(type: 'text/html', value: body)
     mail = SendGrid::Mail.new(from, subject, to, content)
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
