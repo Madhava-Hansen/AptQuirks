@@ -46,7 +46,7 @@ export const QuirkIndexItem = ({
     setEditBody(body);
     setEditTitle(title);
     setAptNumber(apt_number);
-    setStarRating(star_rating);
+    setStarRating(star_rating || 0);
   }, [])
 
   return (
