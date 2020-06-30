@@ -19,7 +19,8 @@ export const QuirkIndexItem = ({
   };
 
   const handleUpdateQuirk = () => {
-    const quirk = {quirk: {user_id: currentUser.id, id: id, title: editTitle, body: editBody, apt_number: aptNumber, star_rating: starRating}};
+    const userId = currentUser && currentUser.id;
+    const quirk = {quirk: {user_id: userId, id: id, title: editTitle, body: editBody, apt_number: aptNumber, star_rating: starRating}};
     updateQuirk(quirk, apartmentId).then(() => {
       setEnableEditMode(false);
     })
@@ -51,7 +52,7 @@ export const QuirkIndexItem = ({
 
   return (
     <li className="QuirkIndexItem">
-      {currentUser.id === user_id && (
+      {(currentUser && currentUser.id === user_id) && (
         <div onClick={handleToggleEditMode} className="QuirkIndexItem-editIcon"> 
         {enableEditMode ? (
           <p onClick={handleUpdateQuirk} className="QuirkIndexItem-saveButton">save</p> 
