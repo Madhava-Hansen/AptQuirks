@@ -1,4 +1,4 @@
-export const createApartment = (apartment) => {
+export const createApartment = apartment => {
   return $.ajax({
     method: "POST",
     url: "/api/apartments",
@@ -6,7 +6,7 @@ export const createApartment = (apartment) => {
   });
 };
 
-export const fetchApartments = (ids) => {
+export const fetchApartments = ids => {
   return $.ajax({
     method: "GET",
     url: "/api/apartments",
@@ -14,7 +14,7 @@ export const fetchApartments = (ids) => {
   });
 };
 
-export const fetchApartment = (id) => {
+export const fetchApartment = id => {
   return $.ajax({
     method: "GET",
     url: `/api/apartments/${id}`,

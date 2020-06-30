@@ -1,0 +1,14 @@
+@import '../base/mixins';
+
+.QuirkReviewStarsFeature {
+  background-color: white;
+  border-radius: 3px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 24px;
+  @include boxShadow;
+}

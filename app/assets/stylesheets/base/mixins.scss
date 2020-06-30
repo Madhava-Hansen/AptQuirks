@@ -22,7 +22,8 @@
 }
 
 @mixin boxShadow {
-  box-shadow: 3px 3px 3px rgba(lightgrey, 0.5);
+  box-shadow: 1px 1px 1px #ccc;
+  border-radius: 10px 0px 0px 10px;
 }
 
 @mixin backgroundVector {

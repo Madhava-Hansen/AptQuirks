@@ -24,6 +24,7 @@ class QuirkIndex extends React.Component {
   componentDidMount() {
     fetchQuirks(this.props.apartmentId || sessionStorage.getItem("apartmentId")).then(quirks => {
       this.setState({quirks}, () => {
+        this.props.getQuirksForReviewsFeature(this.state.quirks);
         if (this.state.quirks.length === 0) {
           this.setState({noQuirksYet: true});
         }
@@ -34,6 +35,7 @@ class QuirkIndex extends React.Component {
   static getDerivedStateFromProps(nextProps) {
     const { quirksIndex } = nextProps;
     if (quirksIndex && quirksIndex.quirks) {
+      this.props.getQuirksForReviewsFeature(quirksIndex.quirks);
       return {quirks: quirksIndex.quirks};
     }
 

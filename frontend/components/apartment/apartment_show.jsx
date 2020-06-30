@@ -1,6 +1,7 @@
 import React from "react";
 import ApartmentMap from "../apartment_map/apartment_map";
-import QuirkIndexContainer from "../quirks/quirk_index_container";
+import QuirkIndex from "../quirks/quirk_index";
+import {QuirkReviewStarsAverages} from '../quirks/quirk_review_stars_feature';
 import LikeButtonContainer from "../likes/like_button_container";
 import ImageIndexContainer from "../images/image_index_container";
 import ErrorBoundary from "../error_boundary/error_boundary";
@@ -8,7 +9,7 @@ import ErrorBoundary from "../error_boundary/error_boundary";
 class ApartmentShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentApartment: {} };
+    this.state = { currentApartment: {}, quirks: [] };
   }
 
   componentDidMount() {
@@ -39,12 +40,14 @@ class ApartmentShow extends React.Component {
           ...nextProps.currentApartment,
         },
       };
-    }
+    } 
 
     return null;
   }
 
-  hasApartmentData = (currentApartment) =>
+  getQuirksForReviewsFeature = quirks => this.setState({quirks});
+
+  hasApartmentData = currentApartment =>
     Object.keys(currentApartment).length > 0;
 
   render() {
@@ -72,12 +75,18 @@ class ApartmentShow extends React.Component {
               </div>
             </article>
           )}
+          <QuirkReviewStarsAverages quirks={this.state.quirks} />
           <ErrorBoundary>
             <ImageIndexContainer />
           </ErrorBoundary>
         </div>
         <aside className="ApartmentShowWrapper-quirksIndexWrapper">
-          <QuirkIndexContainer />
+          <QuirkIndex 
+            apartmentShow={currentApartment} 
+            apartmentId={currentApartment.id} 
+            currentUser={this.props.currentUser} 
+            getQuirksForReviewsFeature={this.getQuirksForReviewsFeature}
+          />
         </aside>
       </section>
     );
