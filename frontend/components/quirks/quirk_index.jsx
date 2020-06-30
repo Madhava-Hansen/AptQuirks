@@ -34,13 +34,13 @@ class QuirkIndex extends React.Component {
   static getDerivedStateFromProps(nextProps) {
     const { quirksIndex } = nextProps;
     if (quirksIndex && quirksIndex.quirks) {
-      return { quirks: quirksIndex.quirks };
+      return {quirks: quirksIndex.quirks};
     }
 
     return null;
   }
 
-  handleAddQuirk = (title, body, apt_number) => {
+  handleAddQuirk = (title, body, apt_number, star_rating) => {
     if (!title || !body || !apt_number) {return;};
     const {currentUser: { id, username, thumbnail_url }} = this.props;
     const idsAndPic = {
@@ -49,7 +49,7 @@ class QuirkIndex extends React.Component {
       user_name: username,
       user_pic: thumbnail_url ? thumbnail_url : this.defaultThumbnailUrl,
     };
-    addQuirk({ quirk: {title, body, apt_number, ...idsAndPic } }).then(
+    addQuirk({ quirk: {title, body, apt_number, star_rating, ...idsAndPic } }).then(
       quirk => {
         const newQuirks = this.state.quirks.slice(0);
         newQuirks.push(quirk);
@@ -76,7 +76,7 @@ class QuirkIndex extends React.Component {
   update = type => e => this.setState({ [type]: e.currentTarget.value });
 
   render() {
-    const {apartmentId, history, apartmentShow} = this.props;
+    const {apartmentId, history, apartmentShow, currentUser} = this.props;
     const {revealQuirkForm} = this.state;
     return (
       <aside className="QuirksIndex">
@@ -132,7 +132,7 @@ class QuirkIndex extends React.Component {
         </div>
           <ul className="QuirksIndex-quirksWrapper">
             {this.state.quirks.map(quirk => (
-              <QuirkIndexItem quirk={quirk} key={quirk.id} />
+              <QuirkIndexItem apartmentId={apartmentId} currentUser={currentUser} quirk={quirk} key={quirk.id} />
             ))}
           </ul>
           {this.state.noQuirksYet && (

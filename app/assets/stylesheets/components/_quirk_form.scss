@@ -24,24 +24,6 @@
   &-address {
     font-size: 14px;
   }
-  &-input {
-    @include formInput;
-    margin: 20px auto;
-    border: 2px solid $light-grey;
-    padding-right: 30px;
-  }
-  &-textAreaInput {
-    height: 102px;
-  }
-  &-inputWrapper {
-    position: relative;
-  }
-  &-checkmark {
-    position: absolute;
-    right: 70px;
-    top: 35px;
-    color: $sucessMessage--green;
-  }
   &-button {
     margin: 10px auto 30px auto;
     height: 45px;
@@ -55,5 +37,8 @@
     &:hover {
       color: white;
     }
+  }
+  &-starRating {
+    margin: 12px 0;
   }
 }

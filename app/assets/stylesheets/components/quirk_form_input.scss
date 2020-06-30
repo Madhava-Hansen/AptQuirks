@@ -1,0 +1,21 @@
+@import './base/colors';
+@import './base/mixins';
+
+.QuirkFormInput {
+  position: relative;
+  &-input {
+    @include formInput;
+    margin: 20px auto;
+    border: 2px solid $light-grey;
+    padding-right: 30px;
+  }
+  &-textAreaInput {
+    height: 102px;
+  }
+  &-checkmark {
+    position: absolute;
+    right: 12px;
+    top: 35px;
+    color: $sucessMessage--green;
+  }
+}

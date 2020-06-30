@@ -12,17 +12,17 @@ export const QuirkFormInput = ({
 }) => {
   const Element = isTextArea ? 'textarea' : 'input';
   return (
-    <div className="QuirkForm-inputWrapper">
+    <div className="QuirkFormInput">
       <Element
-        className={`QuirkForm-input ${isTextArea && 'QuirkForm-textAreaInput'}`}
+        className={`QuirkFormInput-input ${isTextArea && 'QuirkFormInput-textAreaInput'}`}
         type="text"
         placeholder={placeholder}
         onChange={update(name)}
         value={value}
       />
-      {isValid && (
-        <FontAwesomeIcon className="QuirkForm-checkmark" icon={faCheck} size="1x" />
-      )}
+      {/* {isValid && (
+        <FontAwesomeIcon className="QuirkFormInput-checkmark" icon={faCheck} size="1x" />
+      )} */}
     </div>
   )
 }

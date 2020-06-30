@@ -6,7 +6,7 @@
       resources :conversations, only: [:create, :show, :index, :destroy]
       resource :session, only: [:create, :destroy, :show]
       resources :apartments, only: [:create, :show, :index] do
-        resources :quirks, only: [:create, :show, :index, :destroy]
+        resources :quirks, only: [:create, :show, :index, :destroy, :update]
         resources :likes, only: [:create, :destroy, :index]
         resources :images, only: [:create, :index, :show]
       end
