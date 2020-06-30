@@ -13,7 +13,10 @@ export const QuirkIndexItem = ({
   const [editBody, setEditBody] = useState();
   const [aptNumber, setAptNumber] = useState();
   const [starRating, setStarRating] = useState();
-  const handleToggleEditMode = () => setEnableEditMode(!enableEditMode);
+  const handleToggleEditMode = () => {
+    const nextEditMode = !enableEditMode;
+    setEnableEditMode(nextEditMode);
+  };
 
   const handleUpdateQuirk = () => {
     const quirk = {quirk: {user_id: currentUser.id, id: id, title: editTitle, body: editBody, apt_number: aptNumber, star_rating: starRating}};
