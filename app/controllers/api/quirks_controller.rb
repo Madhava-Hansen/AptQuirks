@@ -31,7 +31,6 @@ class Api::QuirksController < ApplicationController
 
   def update 
     @quirk = Quirk.find_by_id(params[:quirk][:id])
-    debugger
     if @quirk
       @quirk.update_attributes(quirk_params)
       render json: ['Successfully updated quirk'], status: 200
