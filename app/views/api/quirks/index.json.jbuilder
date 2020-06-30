@@ -10,4 +10,7 @@ json.array! (@quirks) do |quirk|
   json.apt_number quirk.apt_number
   json.star_rating quirk.star_rating
   json.user_id quirk.user_id
+  json.neighborhood_star_rating quirk.neighborhood_star_rating
+  json.landlord_star_rating quirk.landlord_star_rating
+  json.noise_star_rating quirk.noise_star_rating
 end

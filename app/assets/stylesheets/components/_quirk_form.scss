@@ -10,6 +10,8 @@
   background-color: white;
   border-radius: 10px;
   box-sizing: border-box;
+  overflow: scroll;
+  height: 550px;
   &-titleSectionWrapper {
     background-color: $primary--dark;
     color: white;
@@ -40,5 +42,8 @@
   }
   &-starRating {
     margin: 12px 0;
+  }
+  &-ratingTitle {
+    margin-bottom: 12px;
   }
 }

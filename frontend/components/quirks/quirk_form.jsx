@@ -15,9 +15,21 @@ const QuirkForm = ({
   apartmentShow
 }) => {
 
-  const [currentRating, setCurrentRating] = useState(0);
+  const [starRating, setStarRating] = useState();
+  const [neighborhoodStarRating, setNeighborhoodStarRating] = useState();
+  const [landlordStarRating, setLandlordStarRating] = useState();
+  const [noiseStarRating, setNoiseStarRating] = useState();
+  const [onFirstPage, setOnFirstPage] = useState(true);
 
-  const handleChangeRating = rating => setCurrentRating(rating);
+  const handleClickSecondPage = () => setOnFirstPage(false);
+
+  const handleChangeRating = rating => setStarRating(rating);
+
+  const handleChangeNeighborhoodStarRating = rating => setNeighborhoodStarRating(rating);
+
+  const handleChangeNoiseStarRating = rating => setNoiseStarRating(rating);
+
+  const handleChangeLandLordStarRating = rating => setLandlordStarRating(rating);
 
   return (
     <div className="QuirkForm">
@@ -31,45 +43,105 @@ const QuirkForm = ({
       <h1 className="QuirkForm-title">Add Quirk</h1>
       <p>{apartmentShow.street_address}</p>
     </div>
-    <QuirkFormInput 
-      name="title"
-      placeholder="title..."
-      update={update}
-      isValid={title.length >= 6}
-      value={title}
-    />
-    <QuirkFormInput 
-      name="body"
-      placeholder="body..."
-      isTextArea
-      update={update}
-      isValid={body.length >= 15}
-      value={body}
-    />
-    <QuirkFormInput 
-      name="apt_number"
-      placeholder="apt..."
-      update={update}
-      isValid={apt_number.length >= 1}
-      value={apt_number}
-    />
-      <div className="QuirkForm-starRating">
-        <StarRatings 
-          rating={currentRating}
-          starRatedColor="#192841"
-          numberOfStars={5}
-          starDimension="28px"
-          starSpacing="3px"
-          name="Overall Rating"
-          changeRating={handleChangeRating}
-          starHoverColor="#FDCC0D"
+    {onFirstPage ? (
+      <>
+        <QuirkFormInput 
+          name="title"
+          placeholder="title..."
+          update={update}
+          isValid={title.length >= 6}
+          value={title}
         />
-      </div>
-    <button 
-      className="QuirkForm-button form-button"
-      onClick={() => handleAddQuirk(title, body, apt_number, currentRating)}>
-      Submit
-    </button>
+        <QuirkFormInput 
+          name="body"
+          placeholder="body..."
+          isTextArea
+          update={update}
+          isValid={body.length >= 15}
+          value={body}
+        />
+        <QuirkFormInput 
+          name="apt_number"
+          placeholder="apt..."
+          update={update}
+          isValid={apt_number.length >= 1}
+          value={apt_number}
+        />
+      <button 
+        className="QuirkForm-button form-button"
+        onClick={handleClickSecondPage}>
+        Next
+      </button>
+      </>
+    ) : (
+      <>
+        <div className="QuirkForm-starRating">
+          <p className="QuirkForm-ratingTitle">Overall Rating</p>
+          <StarRatings 
+            rating={starRating}
+            starRatedColor="#192841"
+            numberOfStars={5}
+            starDimension="28px"
+            starSpacing="3px"
+            name="Overall Rating"
+            changeRating={handleChangeRating}
+            starHoverColor="#FDCC0D"
+          />
+        </div>
+        <div className="QuirkForm-starRating">
+        <p className="QuirkForm-ratingTitle">Noise Rating</p>
+          <StarRatings 
+            rating={noiseStarRating}
+            starRatedColor="#192841"
+            numberOfStars={5}
+            starDimension="28px"
+            starSpacing="3px"
+            name="Noise Levels"
+            changeRating={handleChangeNoiseStarRating}
+            starHoverColor="#FDCC0D"
+          />
+        </div>
+        <div className="QuirkForm-starRating">
+        <p className="QuirkForm-ratingTitle">Neighborhood Rating</p>
+          <StarRatings 
+            rating={neighborhoodStarRating}
+            starRatedColor="#192841"
+            numberOfStars={5}
+            starDimension="28px"
+            starSpacing="3px"
+            name="Neighborhood"
+            changeRating={handleChangeNeighborhoodStarRating}
+            starHoverColor="#FDCC0D"
+          />
+        </div>
+        <div className="QuirkForm-starRating">
+        <p className="QuirkForm-ratingTitle">Landlord Rating</p>
+          <StarRatings 
+            rating={landlordStarRating}
+            starRatedColor="#192841"
+            numberOfStars={5}
+            starDimension="28px"
+            starSpacing="3px"
+            name="Landlor/Property Management"
+            changeRating={handleChangeLandLordStarRating}
+            starHoverColor="#FDCC0D"
+          />
+        </div>
+      <button 
+        className="QuirkForm-button form-button"
+        onClick={() => handleAddQuirk(
+          title, 
+          body, 
+          apt_number, 
+          starRating, 
+          neighborhoodStarRating, 
+          landlordStarRating, 
+          noiseStarRating
+        )}>
+        Submit
+      </button>
+      </>
+    )}
   </div>
   )
 }

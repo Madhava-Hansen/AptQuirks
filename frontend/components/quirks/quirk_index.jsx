@@ -40,7 +40,7 @@ class QuirkIndex extends React.Component {
     return null;
   }
 
-  handleAddQuirk = (title, body, apt_number, star_rating) => {
+  handleAddQuirk = (title, body, apt_number, star_rating, neighborhood_star_rating, landlord_star_rating, noise_star_rating) => {
     if (!title || !body || !apt_number) {return;};
     const {currentUser: { id, username, thumbnail_url }} = this.props;
     const idsAndPic = {
@@ -49,7 +49,7 @@ class QuirkIndex extends React.Component {
       user_name: username,
       user_pic: thumbnail_url ? thumbnail_url : this.defaultThumbnailUrl,
     };
-    addQuirk({ quirk: {title, body, apt_number, star_rating, ...idsAndPic } }).then(
+    addQuirk({ quirk: {title, body, apt_number, star_rating, neighborhood_star_rating, landlord_star_rating, noise_star_rating, ...idsAndPic } }).then(
       quirk => {
         const newQuirks = this.state.quirks.slice(0);
         newQuirks.push(quirk);

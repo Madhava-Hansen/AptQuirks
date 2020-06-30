@@ -4,7 +4,20 @@ import {QuirkFormInput} from './quirk_form_input';
 import {updateQuirk} from '../../util/quirk_api_util';
 
 export const QuirkIndexItem = ({
-  quirk: { id, user_name, user_pic, user_id, title, apt_number, body, created_at, star_rating },
+  quirk: { 
+    id, 
+    user_name, 
+    user_pic, 
+    user_id, 
+    title, 
+    apt_number, 
+    body, 
+    created_at, 
+    star_rating,
+    neighborhood_star_rating,
+    landlord_star_rating,
+    noise_star_rating
+  },
   currentUser,
   apartmentId
 }) => {
@@ -13,6 +26,9 @@ export const QuirkIndexItem = ({
   const [editBody, setEditBody] = useState();
   const [aptNumber, setAptNumber] = useState();
   const [starRating, setStarRating] = useState();
+  const [neighborhoodStarRating, setNeighborhoodStarRating] = useState();
+  const [landlordStarRating, setLandlordStarRating] = useState();
+  const [noiseStarRating, setNoiseStarRating] = useState();
   const handleToggleEditMode = () => {
     const nextEditMode = !enableEditMode;
     setEnableEditMode(nextEditMode);
@@ -20,12 +36,28 @@ export const QuirkIndexItem = ({
 
   const handleUpdateQuirk = () => {
     const userId = currentUser && currentUser.id;
-    const quirk = {quirk: {user_id: userId, id: id, title: editTitle, body: editBody, apt_number: aptNumber, star_rating: starRating}};
+    const quirk = {quirk: {
+      user_id: userId, 
+      id: id, 
+      title: editTitle, 
+      body: editBody, 
+      apt_number: aptNumber, 
+      star_rating: starRating,
+      neighborhood_star_rating: neighborhoodStarRating,
+      landlord_star_rating: landlordStarRating,
+      noise_star_rating: noiseStarRating
+    }};
     updateQuirk(quirk, apartmentId).then(() => {
       setEnableEditMode(false);
     })
   }
   const handleChangeRating = rating => setStarRating(rating);
+
+  const handleChangeNeighborhoodStarRating = rating => setNeighborhoodStarRating(rating);
+
+  const handleChangeNoiseStarRating = rating => setNoiseStarRating(rating);
+
+  const handleChangeLandLordStarRating = rating => setLandlordStarRating(rating);
 
   const update = type => e => {
     switch (type) {
@@ -48,6 +80,9 @@ export const QuirkIndexItem = ({
     setEditTitle(title);
     setAptNumber(apt_number);
     setStarRating(star_rating || 0);
+    setNeighborhoodStarRating(neighborhood_star_rating || 0);
+    setLandlordStarRating(landlord_star_rating || 0);
+    setNoiseStarRating(noise_star_rating || 0);
   }, [])
 
   return (
@@ -93,6 +128,7 @@ export const QuirkIndexItem = ({
               value={aptNumber}
             />
             <div className="QuirkForm-starRating">
+              <p className="QuirkForm-ratingTitle">Overall Rating</p>
               <StarRatings 
                 rating={starRating}
                 starRatedColor="#192841"
@@ -101,6 +137,45 @@ export const QuirkIndexItem = ({
                 starSpacing="3px"
                 name="Overall Rating"
                 changeRating={handleChangeRating}
+                starHoverColor="#FDCC0D"
+              />
+            </div>
+            <div className="QuirkForm-starRating">
+            <p className="QuirkForm-ratingTitle">Noise Rating</p>
+              <StarRatings 
+                rating={noiseStarRating}
+                starRatedColor="#192841"
+                numberOfStars={5}
+                starDimension="28px"
+                starSpacing="3px"
+                name="Noise Levels"
+                changeRating={handleChangeNoiseStarRating}
+                starHoverColor="#FDCC0D"
+              />
+            </div>
+            <div className="QuirkForm-starRating">
+            <p className="QuirkForm-ratingTitle">Neighborhood Rating</p>
+              <StarRatings 
+                rating={neighborhoodStarRating}
+                starRatedColor="#192841"
+                numberOfStars={5}
+                starDimension="28px"
+                starSpacing="3px"
+                name="Neighborhood"
+                changeRating={handleChangeNeighborhoodStarRating}
+                starHoverColor="#FDCC0D"
+              />
+            </div>
+            <div className="QuirkForm-starRating">
+            <p className="QuirkForm-ratingTitle">Landlord Rating</p>
+              <StarRatings 
+                rating={landlordStarRating}
+                starRatedColor="#192841"
+                numberOfStars={5}
+                starDimension="28px"
+                starSpacing="3px"
+                name="Landlor/Property Management"
+                changeRating={handleChangeLandLordStarRating}
                 starHoverColor="#FDCC0D"
               />
             </div>
