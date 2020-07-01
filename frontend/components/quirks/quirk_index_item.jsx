@@ -191,7 +191,7 @@ export const QuirkIndexItem = ({
                 rating={starRating}
                 starRatedColor="#192841"
                 numberOfStars={5}
-                starDimension="28px"
+                starDimension="20px"
                 starSpacing="3px"
                 name="Overall Rating"
               />
