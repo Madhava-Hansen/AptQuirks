@@ -82,8 +82,8 @@ class Sweepstakes extends React.Component {
   validateEmail = () => this.emailValidationRegex.test(this.state.email.toLowerCase());
 
   validateInputs = () => {
-    const {body, apartmentNum, star_rating, email, username} = this.state;
-    return  this.validateLength(body, 24) && !!apartmentNum && star_rating && this.validateEmail(email) && this.validateLength(username, 6);
+    const {body, usernameExists, star_rating, email, username} = this.state;
+    return  this.validateLength(body, 24) && !!star_rating && this.validateEmail(email) && this.validateLength(username, 6) && !usernameExists;
   }
 
   validateLength = (string, length) => string.length >= length;
