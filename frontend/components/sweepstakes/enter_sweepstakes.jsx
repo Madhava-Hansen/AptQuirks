@@ -120,7 +120,7 @@ class Sweepstakes extends React.Component {
       const {title, body, apartmentParams, apartmentNum, star_rating, email, username} = this.state;
       createApartment(apartmentParams).then(response => {
         this.setState({apartmentId: response.id}, () => {
-          const user = {user: {username, email, password: this.getHash()}, isSweepstakes: true}
+          const user = {user: {username, email, password: this.getHash(), isSweepstakes: true}}
           signup(user).then(response => {
             const quirk = {quirk: 
               {
