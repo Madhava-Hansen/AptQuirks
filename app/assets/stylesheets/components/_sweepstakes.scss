@@ -105,7 +105,8 @@
   &-rules {
     color: $primary;
     &:hover {
-      color: white;
+      color: $primary--dark;
+      cursor: pointer;
     }
   }
 }
