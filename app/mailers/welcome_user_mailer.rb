@@ -3,7 +3,7 @@ class WelcomeUserMailer < ApplicationMailer
   def welcome_email(user)
     password_link = "https://www.apartmentquirks.com/profile?id=#{user.password}&usr=#{user.username}"
     welcome_text = "<p style='max-width:600px;'>Thanks for signing up, you're an apartment hero! Add a review today and be entered to win a month of free rent!</p>
-    <a style='color:#3368FF;'href='https://www.apartmentquirs.com/login'>Apartment Quirks</a>"
+    <a style='color:#3368FF;'href='https://www.apartmentquirks.com/login'>Apartment Quirks</a>"
     welcome_text_sweepstakes = "<p style='max-width:600px;'>Thank you so much for your review! You've been entered into the sweepstakes!</p>
     <p>Create a password for your account here: <a style='color:#3368FF; href=#{password_link}>Create Password</a></p>"
 
