@@ -7,7 +7,6 @@ class WelcomeUserMailer < ApplicationMailer
     welcome_text_sweepstakes = "<p style='max-width:600px;'>Thank you so much for your review! You've been entered into the sweepstakes!</p>
     <p>Create a password for your account here:</p>"
     "<a style='color:#3368FF; href=#{password_link}>Create Password</a>"
-
     body = 
     "<div>
       <h1 style='font-size:30px;'>Welcome to Apartment Quirks!</h1>

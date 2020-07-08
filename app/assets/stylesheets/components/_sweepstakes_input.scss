@@ -1,0 +1,25 @@
+@import '../base/colors';
+
+.SweepstakesInput {
+  position: relative;
+  &-input {
+    border-radius: 0px;
+    border: 1px solid lightgrey;
+    width: 100%;
+    margin: 6px 0;
+    border: 1px solid lightgrey;
+    height: 32px;
+    padding: 24px;
+    padding-left: 12px;
+    box-sizing: border-box;
+  }
+  &-checkmark {
+    position: absolute;
+    right: 10px;
+    top: 23px;
+    color: $sucessMessage--green;
+  }
+  &-textAreaInput {
+    height: 100px;
+  }
+}

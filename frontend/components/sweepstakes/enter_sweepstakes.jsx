@@ -222,7 +222,7 @@ class Sweepstakes extends React.Component {
             {usernameExists && (
               <p className="Sweepstakes-usernameError">username already exists</p>
             )}
-            <p className="Sweepstakes-inputTitle">Email Address (Not shown to anyone)*</p>
+            <p className="Sweepstakes-inputTitle">Email Address (Won't be shared with anyone)*</p>
             <SweepstakesInput
               name="email"
               update={this.update}
@@ -237,12 +237,17 @@ class Sweepstakes extends React.Component {
                     rating={this.state.star_rating}
                     starRatedColor="#192841"
                     numberOfStars={5}
-                    starDimension="35px"
-                    starSpacing="3px"
+                    starDimension="40px"
+                    starSpacing="8px"
                     name="Sweepstakes star rating"
                     changeRating={this.handleChangeStarRating}
                     starHoverColor="#FDCC0D"
                   />
+                  <ul className="Sweepstakes-starRatingText">
+                    <li>Hated it</li>
+                    <li>it was ok</li>
+                    <li>Loved it</li>
+                  </ul>
               </div>
               <div className="SessionForm-termsAndConditionsWrapper">
                 <p className="Sweepstakes-conditions">By submitting I accept the
@@ -255,7 +260,7 @@ class Sweepstakes extends React.Component {
                     target='_blank'
                     href="https://app.termly.io/document/privacy-policy/3a1d9dd9-cb57-4685-9708-1719215c6bec">
                     privacy policy
-                  </a> and the <a className="Sweepstakes-rules">sweepstakes rules.</a>
+                  </a> and the <a target="_blank" href="https://res.cloudinary.com/aptquirks/image/upload/v1594226262/Apartment_Quirks_Giveaway_Terms_and_Conditions_x2ndlz.pdf" className="Sweepstakes-rules">giveaway rules.</a>
                 </p>
               </div>
               <button 

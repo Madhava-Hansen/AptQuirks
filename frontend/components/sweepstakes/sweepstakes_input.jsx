@@ -13,7 +13,7 @@ export const SweepstakesInput = ({
   return (
     <div className="SweepstakesInput">
       <Element
-        className={`SweepstakesInput-input ${isTextArea && 'SweepstakesInput-textAreaInput'}`}
+        className={`SweepstakesInput-input ${isTextArea ? 'SweepstakesInput-textAreaInput' : ''}`}
         type="text"
         onChange={update(name)}
         value={value}
