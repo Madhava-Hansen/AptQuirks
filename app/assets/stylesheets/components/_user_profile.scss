@@ -12,13 +12,28 @@
   margin: 77px auto 16px auto;
   padding-bottom: 40px;
   border-radius: 10px;
-  min-height: 500px;
+  min-height: 560px;
   color: $primary--dark;
+  &-mainContentWrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
+  &-passwordInputWrapper {
+    position: relative;
+  }
+  &-passwordErrorWarning {
+    position: absolute;
+    top: -38px;
+    left: 0;
+    color: $error--primary;
+    font-size: 12px;
+  }
   &-greetingText {
     font-size: 20px;
     padding-right: 12px;
   }
-  &-mainContentWrapper {
+  &-inputsWrapper {
     padding: 10px;
     border-radius: 10px;
     margin: 12px;
@@ -121,7 +136,7 @@
   }
   @media screen and (min-width: 660px) {
     width: 100%;
-    &-mainContentWrapper {
+    &-inputsWrapper {
       width: 326px;
       padding: 0 20px 20px 20px;
       margin: 0 30px 0 30px;

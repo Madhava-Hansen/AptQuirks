@@ -2,27 +2,24 @@ import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
 
-export const QuirkFormInput = ({
+export const SweepstakesInput = ({
   value, 
   name,
   isTextArea, 
-  placeholder, 
   update, 
-  isValid = true,
-  modifierClass
+  isValid
 }) => {
   const Element = isTextArea ? 'textarea' : 'input';
   return (
-    <div className="QuirkFormInput">
+    <div className="SweepstakesInput">
       <Element
-        className={`QuirkFormInput-input ${isTextArea && 'QuirkFormInput-textAreaInput'} ${modifierClass}`}
+        className={`SweepstakesInput-input ${isTextArea && 'SweepstakesInput-textAreaInput'}`}
         type="text"
-        placeholder={placeholder}
         onChange={update(name)}
         value={value}
       />
       {isValid && (
-        <FontAwesomeIcon className="QuirkFormInput-checkmark" icon={faCheck} size="1x" />
+        <FontAwesomeIcon className="SweepstakesInput-checkmark" icon={faCheck} size="1x" />
       )}
     </div>
   )

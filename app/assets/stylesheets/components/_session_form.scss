@@ -16,6 +16,12 @@
   background-color: white;
   border-radius: 10px;
   width: 90%;
+  &-checkmark {
+    position: absolute;
+    right: 10px;
+    top: 19px;
+    color: $sucessMessage--green;
+  }
   &-input {
     margin: 6px 0 12px 0;
     border: 1px solid lightgrey;
@@ -49,12 +55,6 @@
   }
   &-inputWrapper {
     position: relative;
-  }
-  &-checkmark {
-    position: absolute;
-    right: 10px;
-    top: 19px;
-    color: $sucessMessage--green;
   }
   &-termsAndConditionsWrapper {
     display: flex;

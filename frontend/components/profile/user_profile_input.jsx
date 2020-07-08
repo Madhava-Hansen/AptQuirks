@@ -8,7 +8,6 @@ export const UserProfileInput = ({
     return (
       <input
         className="UserProfileInput-formInput"
-        placeholder={`enter ${type}...`}
         onChange={update}
         value={value}
         name={type}

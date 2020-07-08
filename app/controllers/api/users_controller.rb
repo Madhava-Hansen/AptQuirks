@@ -13,14 +13,14 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.where("username = ?", params[:user][:username])
+    @user = User.find_by_username(params[:user][:username])
     if @user
       if !@user.email
         @user.email = "Madhavah@gmail.com"
       end
       render 'api/users/show'
     else
-      render json: ['unable to find user'], status: 401
+      render json: ['user does not exist'], status: 204
     end
   end
 
@@ -54,6 +54,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :url, :thumbnail_url, :id, :city)
+    params.require(:user).permit(:username, :email, :password, :url, :thumbnail_url, :id, :city, :isSweepstakes)
   end
 end

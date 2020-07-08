@@ -3,6 +3,8 @@ import UploadButton from "./upload_button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faEdit, faTimesCircle, faCheck } from '@fortawesome/fontawesome-free-solid'
 import {UserProfileInput} from './user_profile_input';
+import {Link, withRouter} from 'react-router-dom';
+import {login} from '../../util/session_api_util';
 
 class ProfileShow extends React.Component {
   constructor(props) {
@@ -12,19 +14,34 @@ class ProfileShow extends React.Component {
       username: '', 
       email: '', 
       inEditMode: false ,
-      successModalClass: 'hidden'
+      successModalClass: 'hidden',
+      password: ''
     };
     this.defaultUserImage =  "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    const {search} = this.props.location;
+    const removedQuestionMark = search.slice(1, search.length);
+    const queryStrings = {};
+    removedQuestionMark.split('&').forEach(query => {
+      const data = query.split('=');
+      queryStrings[data[0]] = data[1];
+    })
+    if (queryStrings['usr'] && queryStrings['id']) {
+      login({user: {username: queryStrings['usr'], password: queryStrings['id']}}).then(response => {
+        this.setState({inEditMode: true});
+      })
+    }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    const {currentUser: {city, username, email}} = nextProps;
-    if (city !== prevState.city || username !== prevState.username || email !== prevState.email) {
-      return {city, username, email};
+    if (nextProps.currentUser) {
+      const {currentUser: {city, username, email}} = nextProps;
+      if (city !== prevState.city || username !== prevState.username || email !== prevState.email) {
+        return {city, username, email};
+      }
     }
 
     return null;
@@ -32,8 +49,12 @@ class ProfileShow extends React.Component {
 
   handleUpdateUser = e => {
     const {currentUser: {id, email, username, city}, saveUser} = this.props;
-    const user = {user: { id: id, email, username, city}};
-    saveUser(user).then(() => {
+    const {password} = this.state;
+    const userDetails = {user: { id: id, email, username, city}};
+    if (password.length >= 8) {
+      userDetails.user.password = password;
+    }
+    saveUser(userDetails).then(() => {
       this.setState({successModalClass: 'UserProfile-successModalWrapper', inEditMode: false});
       setTimeout(() => {
         this.setState({successModalClass: 'hidden'});
@@ -43,11 +64,15 @@ class ProfileShow extends React.Component {
 
   handleToggleEditMode = () => this.setState({inEditMode: !this.state.inEditMode});
 
-  update = e => this.props.updateUser({[e.target.name]: e.target.value});
+  update = e => {
+    this.props.updateUser({[e.target.name]: e.target.value})
+  };
+
+  updatePassword = e => this.setState({password: e.target.value});
 
   render() {
     const {addPhoto, currentUser} = this.props;
-    const {inEditMode, city, username, email} = this.state;
+    const {inEditMode, city, username, email, password} = this.state;
     return (
       <section className="UserProfileWrapper">
         <section className="UserProfile">
@@ -62,7 +87,9 @@ class ProfileShow extends React.Component {
               onClick={this.handleToggleEditMode}
             />
           </div>
-          <div className="UserProfile-heading">
+          {currentUser ? (
+            <div className="UserProfile-mainContentWrapper">
+              <div className="UserProfile-heading">
               <figure className="UserProfile-pic">
                 <img src={currentUser.thumbnail_url || this.defaultUserImage} alt="profile picture"></img>
               </figure>
@@ -75,7 +102,7 @@ class ProfileShow extends React.Component {
               />
             </div>
           </div>
-          <div className="UserProfile-mainContentWrapper">
+          <div className="UserProfile-inputsWrapper">
           <div className="UserProfile-userInfoItem">
             <div className="UserProfile-title">Username</div>
             {inEditMode ? (
@@ -87,6 +114,24 @@ class ProfileShow extends React.Component {
               />
             ) : (
               <p className="UserProfile-info">{currentUser.username}</p>
+            )}
+          </div>
+          <div className="UserProfile-userInfoItem">
+          <div className="UserProfile-title">Update password</div>
+            {inEditMode ? (
+              <div className="UserProfile-passwordInputWrapper">
+                <UserProfileInput
+                  type="password"
+                  update={this.updatePassword}
+                  handleUpdateUser={this.handleUpdateUser}
+                  value={password}
+                />
+                {(password.length < 8 && password.length > 0) && (
+                  <p className="UserProfile-passwordErrorWarning">password must be minimum of 8 characters</p>
+                )}
+              </div>
+            ) : (
+              <p className="UserProfile-info">Hidden for Safety</p>
             )}
           </div>
           <div className="UserProfile-userInfoItem">
@@ -128,10 +173,14 @@ class ProfileShow extends React.Component {
             Successfully saved! <FontAwesomeIcon className="UserProfile-checkmark" size="1x" icon={faCheck}  />
           </div>
         </div>
+      </div>
+        ) : (
+          <h1>Please <Link to="/login">login</Link> to view your profile</h1>
+        )}
       </section>
     </section>
     );
   }
 }
 
-export default ProfileShow;
+export default withRouter(ProfileShow);

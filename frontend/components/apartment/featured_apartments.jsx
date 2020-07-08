@@ -29,7 +29,7 @@ class ApartmentIndex extends React.Component {
           {apartments.map((apartment, idx) => (
             <FeaturedApartmentsItem
               apartment={apartment}
-              key={apartment.id}
+              key={idx}
               index={idx}
               redirect={this.redirectToAptShow}
             />
