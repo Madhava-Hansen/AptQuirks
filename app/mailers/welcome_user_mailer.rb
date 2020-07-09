@@ -9,7 +9,7 @@ class WelcomeUserMailer < ApplicationMailer
       #{if user.isSweepstakes
       "<p style='max-width:600px;'>Thank you so much for your review! You've been entered into the sweepstakes!</p>
       <p>If you'd like to add a custom password, follow the link below:</p>
-      <a style='color:#3368FF; href='https://www.apartmentquirks.com/profile?id=#{user.password}&usr=#{user.username}'>Create Password</a>"
+      <p>https://www.apartmentquirks.com/profile?id=#{user.password}&usr=#{user.username}</p>"
       else 
         "<p style='max-width:600px;'>Thanks for signing up, you're an apartment hero! Add a review today and be entered to win a month of free rent!</p>
         <a style='color:#3368FF;'href='https://www.apartmentquirks.com/login'>Apartment Quirks</a>"
