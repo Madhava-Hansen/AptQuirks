@@ -182,8 +182,12 @@ export const QuirkIndexItem = ({
           </div>
         ) : (
         <section className="QuirkIndexItem-mainContent">
-          <h4 className="QuirkIndexItem-titleText">{editTitle}</h4>
-          <p className="QuirkIndexItem-apartmentNumber">Apt {aptNumber}</p>
+          {(editTitle && editTitle !== 'empty') && (
+            <h4 className="QuirkIndexItem-titleText">{editTitle}</h4>
+          )}
+          {aptNumber && (
+            <p className="QuirkIndexItem-apartmentNumber">Apt {aptNumber}</p>
+          )}
           <p className="QuirkIndexItem-bodyText">{editBody}</p>
           {!!starRating && (
             <div className="QuirkIndexItem-starRating">

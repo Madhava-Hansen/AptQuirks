@@ -14,7 +14,7 @@ class Sweepstakes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '', 
+      title: 'empty', 
       body: '', 
       apartmentNum: '', 
       username: '', 
@@ -170,7 +170,7 @@ class Sweepstakes extends React.Component {
             <h1 style={{fontFamily: 'Raleway', letterSpacing: '1.5px'}} className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
             <p className="Sweepstakes-subHeading">It will only take a minute and your anonymous review will help New Yorkers find their perfect home!</p>
           </div>
-          {true ? (
+          {revealSuccessMessage ? (
             <>
               <div className="Sweepstakes-successMessageWrapper">
                 <div className="Sweepstakes-successMessageAndIcon">

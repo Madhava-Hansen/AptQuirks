@@ -1,8 +1,8 @@
-export const addQuirk = (quirk) => {
+export const addQuirk = data => {
   return $.ajax({
     method: "POST",
-    url: `/api/apartments/${quirk.apartment_id}/quirks`,
-    data: quirk,
+    url: `/api/apartments/${data.quirk.apartment_id}/quirks`,
+    data: data,
   });
 };
 
