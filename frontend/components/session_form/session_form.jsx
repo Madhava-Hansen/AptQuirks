@@ -126,7 +126,7 @@ class SessionForm extends React.Component {
               type="text"
               isValid={hasValidUsername}
               />
-              {usernameExists && (
+              {(usernameExists && isSignup) && (
                 <p className="SessionForm-usernameError">username already exists</p>
               )}
             </>
