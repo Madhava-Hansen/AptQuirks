@@ -6,6 +6,7 @@ import {signup, fetchUser} from '../../util/session_api_util';
 import {addQuirk} from '../../util/quirk_api_util';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
+import GoogleFontLoader from 'react-google-font-loader';
 
 class Sweepstakes extends React.Component {
 
@@ -143,9 +144,9 @@ class Sweepstakes extends React.Component {
 
   render() {
     const {
-      title, 
+      // title, 
       body, 
-      apartmentNum, 
+      // apartmentNum, 
       revealSuccessMessage, 
       username, 
       email, 
@@ -153,24 +154,39 @@ class Sweepstakes extends React.Component {
     } = this.state;
     return (
       <div className="Sweepstakes">
+        <GoogleFontLoader
+          fonts={[
+            {
+              font: 'Raleway',
+              weights: [700],
+            },
+            {
+              font: 'Muli',
+              weights: [400, 700],
+            },
+          ]}
+        />
         <div className="Sweepstakes-mainContent">
           <div className="Sweepstakes-headingWrapper">
-            <h1 className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
+            <h1 style={{fontFamily: 'Raleway', letterSpacing: '1.5px'}} className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
             <p className="Sweepstakes-subHeading">It will only take a minute and your anonymous review will help New Yorkers find their perfect home!</p>
           </div>
           {revealSuccessMessage ? (
             <>
               <div className="Sweepstakes-successMessageWrapper">
-                <div className="Sweepstakes-successMessage">Successfully Submitted!</div>
-                <FontAwesomeIcon className="Sweepstakes-successCheckmark" icon={faCheck} size="1x" />
+                <siv className="Sweepstakes-successMessageAndIcon">
+                  <div className="Sweepstakes-successMessage">Successfully Submitted!</div>
+                  <FontAwesomeIcon className="Sweepstakes-successCheckmark" icon={faCheck} size="1x" />
+                </siv>
+                <p className="Sweepstakes-shareOurPage">The final step to complete you entry is to share or like us on Facebook!</p>
+                <div style={{display:'flex', justifyContent: 'center', alignItems: 'center', margin: '12px 0', color: 'steelblue'}} className="fb-like" data-href="https://www.facebook.com/apartmentquirks/" data-width="350" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
               </div>
-              <p className="Sweepstakes-shareOurPage">The final step to complete you entry is to share our website on one of your social media pages!</p>
             </>
           ): (
             <div className="Sweepstakes-inputsWrapper">
             <div className="Sweepstakes-autoCompleteWrapper">
               <p className="Sweepstakes-inputTitle">
-                Building Address*
+                Rental Address*
               </p>
               <input
                 className="SweepstakesInput-input"
@@ -183,14 +199,14 @@ class Sweepstakes extends React.Component {
                 <FontAwesomeIcon className="Sweepstakes-autoCompleteCheckmark" icon={faCheck} size="1x" />
               )}
             </div>
-            <p className="Sweepstakes-inputTitle">Review Title (optional)</p>
+            {/* <p className="Sweepstakes-inputTitle">Review Title (optional)</p>
             <SweepstakesInput 
               name="title"
               update={this.update}
               value={title}
               className="SweepstakesInput-input"
               isValid={this.validateLength(title, 6)}
-            />
+            /> */}
             <p className="Sweepstakes-inputTitle">Any advice to other future tenants?*</p>
             <SweepstakesInput 
               name="body"
@@ -200,14 +216,14 @@ class Sweepstakes extends React.Component {
               className="SweepstakesInput-input"
               isValid={this.validateLength(body, 24)}
             />
-            <p className="Sweepstakes-inputTitle">Apartment Number (optional)</p>
+            {/* <p className="Sweepstakes-inputTitle">Apartment Number (optional)</p>
             <SweepstakesInput 
               name="apartmentNum"
               update={this.update}
               value={apartmentNum}
               className="SweepstakesInput-input"
               isValid={this.validateLength(apartmentNum, 1)}
-            />
+            /> */}
             <p className="Sweepstakes-inputTitle">Create an anonymous username*</p>
             <SweepstakesInput
               name="username"

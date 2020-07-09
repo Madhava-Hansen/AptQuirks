@@ -303,7 +303,7 @@
 }
 
 .nav-link:hover {
-  background-color: $primary;
+  background-color: rgba($primary, 0.3);
   color: white;
 }
 
@@ -368,7 +368,7 @@
   }
 
   .nav-link:hover {
-    background-color: $primary;
+    background-color: rgba($primary, 0.3);
   }
 
   .nav-link-pic {
