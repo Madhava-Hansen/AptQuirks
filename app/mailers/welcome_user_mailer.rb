@@ -1,20 +1,18 @@
 class WelcomeUserMailer < ApplicationMailer
   default :from => 'service@apartmentquirks.com'
   def welcome_email(user)
-    password_link = "https://www.apartmentquirks.com/profile?id=#{user.password}&usr=#{user.username}"
-    welcome_text = "<p style='max-width:600px;'>Thanks for signing up, you're an apartment hero! Add a review today and be entered to win a month of free rent!</p>
-    <a style='color:#3368FF;'href='https://www.apartmentquirks.com/login'>Apartment Quirks</a>"
-    welcome_text_sweepstakes = "<p style='max-width:600px;'>Thank you so much for your review! You've been entered into the sweepstakes!</p>
-    <p>Create a password for your account here:</p>"
-    "<a style='color:#3368FF; href=#{password_link}>Create Password</a>"
+    password_link = ""
     body = 
     "<div>
       <h1 style='font-size:30px;'>Welcome to Apartment Quirks!</h1>
       <p>Username: #{user.username}</p>
       #{if user.isSweepstakes
-        welcome_text_sweepstakes
+      "<p style='max-width:600px;'>Thank you so much for your review! You've been entered into the sweepstakes!</p>
+      <p>If you'd like to add a custom password, follow the link below:</p>
+      <a style='color:#3368FF; href='https://www.apartmentquirks.com/profile?id=#{user.password}&usr=#{user.username}'>Create Password</a>"
       else 
-        welcome_text
+        "<p style='max-width:600px;'>Thanks for signing up, you're an apartment hero! Add a review today and be entered to win a month of free rent!</p>
+        <a style='color:#3368FF;'href='https://www.apartmentquirks.com/login'>Apartment Quirks</a>"
       end}
       <p>Feel free to reach out with any questions!</p>
       <br/>
