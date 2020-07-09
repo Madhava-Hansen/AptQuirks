@@ -170,14 +170,14 @@ class Sweepstakes extends React.Component {
             <h1 style={{fontFamily: 'Raleway', letterSpacing: '1.5px'}} className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
             <p className="Sweepstakes-subHeading">It will only take a minute and your anonymous review will help New Yorkers find their perfect home!</p>
           </div>
-          {revealSuccessMessage ? (
+          {true ? (
             <>
               <div className="Sweepstakes-successMessageWrapper">
                 <div className="Sweepstakes-successMessageAndIcon">
                   <div className="Sweepstakes-successMessage">Successfully Submitted!</div>
                   <FontAwesomeIcon className="Sweepstakes-successCheckmark" icon={faCheck} size="1x" />
                 </div>
-                <p className="Sweepstakes-shareOurPage">The final step to complete you entry is to share or like us on Facebook!</p>
+                <p className="Sweepstakes-shareOurPage">The final step to complete your entry is to share or like us on Facebook!</p>
                 <div className="Sweepstakes-shareButtons">
                   <FacebookProvider appId="907197889774664">
                     <Like href="http://www.facebook.com/apartmentquirks" colorScheme="dark" showFaces share />

@@ -33,7 +33,7 @@
     width: 90%;
     margin: 0 auto;
     padding: 12px;  
-    font-size: 28px; 
+    font-size: 24px; 
     text-align: center; 
   }
   &-subHeading {
@@ -69,6 +69,7 @@
     text-align: center;
     color: black;
     font-size: 24px;
+    margin-bottom: 12px;
   }
   &-autoCompleteWrapper {
     position: relative;
@@ -86,20 +87,23 @@
   &-successMessageWrapper {
     border-radius: 10px;
     padding: 19px;
-    margin: 50px auto;
+    margin: 50px 0;
     max-width: 275px;
-    text-align: center;
     font-size: 20px;
-  }
-  &-successMessageAndIcon {
+    text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
+  }
+  &-successMessageAndIcon {
     width: 290px;
+    margin: 12px 0;
   }
   &-shareOurPage {
     max-width: 250px;
-    margin: 18px auto;
+    margin: 0 auto 18px auto;
     font-size: 16px;
     text-align: center;
   }
@@ -133,8 +137,12 @@
     }
   }
   &-shareButtons {
-    margin-left: 18px;
-    max-width: 320px;
+    max-width: 117px;
     overflow: hidden;
+  }
+  @media screen and (min-width: 768px) {
+    &-headingText {
+      font-size: 28px;
+    }
   }
 }
