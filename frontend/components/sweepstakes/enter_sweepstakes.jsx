@@ -6,8 +6,6 @@ import {signup, fetchUser} from '../../util/session_api_util';
 import {addQuirk} from '../../util/quirk_api_util';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
-import {Checkbox} from '../pattern_library/pl_checkbox';
-import {PrivacyPolicyLink} from '../footer/footer_privacy_policy_link';
 
 class Sweepstakes extends React.Component {
 

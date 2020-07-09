@@ -4,6 +4,7 @@ import { receiveErrors } from "../../actions/session_actions";
 import ReCAPTCHA from "react-google-recaptcha";
 import {SessionFormInput} from './session_form_input';
 import {Checkbox} from '../pattern_library/pl_checkbox';
+import {fetchUser} from '../../util/session_api_util';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class SessionForm extends React.Component {
       password: "",
       captchaVerified: undefined,
       hasErrors: false,
-      hasAcceptedTerms: false
+      hasAcceptedTerms: false,
+      usernameExists: false
     };
   }
 
@@ -72,15 +74,32 @@ class SessionForm extends React.Component {
     setTimeout(() => {
       this.props.dispatch(receiveErrors(null));
     }, 4000);
-  };
+  }
+
+  updateUsername = name => e => {
+    this.setState({[name]: e.currentTarget.value});
+    this.validateUsername(e.currentTarget.value);
+  }
+
+  validateUsername = username => {
+    fetchUser({user: {username: username}}).then(response => {
+      if (!response) {
+        this.setState({usernameExists: false});
+      } else {
+        this.setState({usernameExists: true});
+      }
+    })
+  }
 
   validateEmail = () => this.emailValidationRegex.test(this.state.email.toLowerCase());
+
+  validateLength = (string, length) => string.length >= length;
 
   handleToggleCheckbox = () => this.setState({hasAcceptedTerms: !this.state.hasAcceptedTerms});
 
   render() {
     const {formType, errors} = this.props;
-    const {hasAcceptedTerms} = this.state;
+    const {hasAcceptedTerms, usernameExists, password} = this.state;
     const errorClass = errors ? "SessionForm-errors" : "hidden";
     const isSignup = formType === "signup";
     const hasValidUsername = this.state.username.length >= 8 && isSignup;
@@ -100,12 +119,17 @@ class SessionForm extends React.Component {
           <h1 className="SessionForm-header">
             {formType}
           </h1>
-          <SessionFormInput
-           name="username"
-           update={this.update}
-           type="text"
-           isValid={hasValidUsername}
-          />
+            <>
+              <SessionFormInput
+              name="username"
+              update={this.updateUsername}
+              type="text"
+              isValid={hasValidUsername}
+              />
+              {usernameExists && (
+                <p className="SessionForm-usernameError">username already exists</p>
+              )}
+            </>
           {isSignup && (
             <SessionFormInput
               name="email"
@@ -114,12 +138,17 @@ class SessionForm extends React.Component {
               isValid={this.validateEmail()}
             />
           )}
-            <SessionFormInput
-              name="password"
-              update={this.update}
-              type="password"
-              isValid={hasValidPassword}
-            />
+            <>
+              <SessionFormInput
+                name="password"
+                update={this.update}
+                type="password"
+                isValid={hasValidPassword}
+              />
+              {(password.length > 0 && password.length < 8) && (
+                <p className="SessionForm-passwordErrorWarning">password must be minimum of 8 characters</p>
+              )}
+            </>
           {isSignup && (
             <>
               <div className="SessionForm-recaptcha">

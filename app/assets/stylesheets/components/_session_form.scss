@@ -71,4 +71,8 @@
   &-checkboxWrapper {
     margin-right: 10px;
   }
+  &-usernameError,
+  &-passwordErrorWarning {
+    color: $error--primary;
+  }
 }
