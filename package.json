@@ -23,6 +23,7 @@
     "minimist": "^1.2.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-facebook": "^8.1.4",
     "react-google-font-loader": "^1.1.0",
     "react-google-recaptcha": "^2.0.1",
     "react-recaptcha-google": "^1.1.1",

@@ -7,6 +7,7 @@ import {addQuirk} from '../../util/quirk_api_util';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
 import GoogleFontLoader from 'react-google-font-loader';
+import {FacebookProvider, ShareButton, Like} from 'react-facebook';
 
 class Sweepstakes extends React.Component {
 
@@ -144,9 +145,7 @@ class Sweepstakes extends React.Component {
 
   render() {
     const {
-      // title, 
       body, 
-      // apartmentNum, 
       revealSuccessMessage, 
       username, 
       email, 
@@ -174,12 +173,16 @@ class Sweepstakes extends React.Component {
           {revealSuccessMessage ? (
             <>
               <div className="Sweepstakes-successMessageWrapper">
-                <siv className="Sweepstakes-successMessageAndIcon">
+                <div className="Sweepstakes-successMessageAndIcon">
                   <div className="Sweepstakes-successMessage">Successfully Submitted!</div>
                   <FontAwesomeIcon className="Sweepstakes-successCheckmark" icon={faCheck} size="1x" />
-                </siv>
+                </div>
                 <p className="Sweepstakes-shareOurPage">The final step to complete you entry is to share or like us on Facebook!</p>
-                <div style={{display:'flex', justifyContent: 'center', alignItems: 'center', margin: '12px 0', color: 'steelblue'}} className="fb-like" data-href="https://www.facebook.com/apartmentquirks/" data-width="350" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
+                <div className="Sweepstakes-shareButtons">
+                  <FacebookProvider appId="907197889774664">
+                    <Like href="http://www.facebook.com/apartmentquirks" colorScheme="dark" showFaces share />
+                  </FacebookProvider>
+                </div>
               </div>
             </>
           ): (
