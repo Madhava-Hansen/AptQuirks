@@ -181,27 +181,27 @@ export const QuirkIndexItem = ({
             </div>
           </div>
         ) : (
-        <section className="QuirkIndexItem-mainContent">
-          {(editTitle && editTitle !== 'empty') && (
-            <h4 className="QuirkIndexItem-titleText">{editTitle}</h4>
-          )}
-          {aptNumber && (
-            <p className="QuirkIndexItem-apartmentNumber">Apt {aptNumber}</p>
-          )}
-          <p className="QuirkIndexItem-bodyText">{editBody}</p>
-          {!!starRating && (
-            <div className="QuirkIndexItem-starRating">
-              <StarRatings 
-                rating={starRating}
-                starRatedColor="#192841"
-                numberOfStars={5}
-                starDimension="20px"
-                starSpacing="3px"
-                name="Overall Rating"
-              />
-            </div>
-          )}
-      </section>
+          <section className="QuirkIndexItem-mainContent">
+            {(editTitle && editTitle !== 'empty') && (
+              <h4 className="QuirkIndexItem-titleText">{editTitle}</h4>
+            )}
+            {aptNumber && (
+              <p className="QuirkIndexItem-apartmentNumber">Apt {aptNumber}</p>
+            )}
+            <p className="QuirkIndexItem-bodyText">{editBody}</p>
+            {!!starRating && (
+              <div className="QuirkIndexItem-starRating">
+                <StarRatings 
+                  rating={starRating}
+                  starRatedColor="#192841"
+                  numberOfStars={5}
+                  starDimension="20px"
+                  starSpacing="3px"
+                  name="Overall Rating"
+                />
+              </div>
+            )}
+          </section>
       )}
     </li>
   );

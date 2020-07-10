@@ -1,1 +1,1 @@
-json.extract! @apartment, :street_address, :id, :longitude, :latitude
+json.extract! @apartment, :street_address, :id, :longitude, :latitude, :quirks

@@ -2,16 +2,9 @@
 // (c) 2019 Apartments Quirks Inc
 
 .FeaturedApartments {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 100px;
   width: 100%;
   @media screen and (min-width: 768px) {
-    flex-direction: row;
-    max-width: 850px;
+    max-width: 750px;
     margin: 0 auto;
   }
 }

@@ -3,4 +3,5 @@ json.array! @apartments do |apartment|
   json.longitude apartment.longitude
   json.latitude apartment.latitude
   json.id apartment.id
+  json.quirks apartment.quirks
 end

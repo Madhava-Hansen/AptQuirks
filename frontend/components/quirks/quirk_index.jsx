@@ -100,15 +100,15 @@ class QuirkIndex extends React.Component {
             className="QuirksIndex-addQuirkButton"
             onClick={this.handleRevealQuirkForm}
           >
-            add quirk
+            Write a Review
           </button>
-          <p
+          {/* <p
             className="QuirksIndex-whatsAQuirk"
             onClick={this.handleRevealQuirkInfo}
           >
             {" "}
             - What's a quirk?
-          </p>
+          </p> */}
           <p className={this.state.addQuirkErrorClassName}>
             Please login to add a quirk!
           </p>
