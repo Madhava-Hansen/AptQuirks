@@ -8,7 +8,7 @@ const Footer = ({currentUser}) =>
   <footer className="Footer">
     <FooterNavLinks isLoggedIn={currentUser} />
     <div className="Footer-iconsWrapper">
-      <a target="_blank" href="https://www.facebook.com/apartmentquirks/">
+      <a target="_blank" href="https://www.apartmentquirks.com/sweepstakes">
         <FontAwesomeIcon size="2x" icon={["fab", "facebook"]} />
       </a>
       <a target="_blank" href="https://www.instagram.com/nesnahmade">
@@ -17,7 +17,7 @@ const Footer = ({currentUser}) =>
     </div>
     <div className="Footer-share">
       <FacebookProvider appId="907197889774664">
-        <Like href="http://www.facebook.com/apartmentquirks" colorScheme="dark" showFaces share />
+        <Like href="https://www.apartmentquirks.com/sweepstakes" colorScheme="dark" showFaces share />
       </FacebookProvider>
     </div>
     <p className="Footer-email">service@apartmentquirks.com</p>
