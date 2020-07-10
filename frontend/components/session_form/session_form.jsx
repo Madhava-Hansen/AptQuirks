@@ -5,6 +5,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import {SessionFormInput} from './session_form_input';
 import {Checkbox} from '../pattern_library/pl_checkbox';
 import {fetchUser} from '../../util/session_api_util';
+import {Link} from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -165,7 +166,7 @@ class SessionForm extends React.Component {
                     isActive={hasAcceptedTerms}
                   />
                 </div>
-                <p>By clicking I accept the
+                <p>I agree to the
                   <a
                     target="_blank"
                     className="SessionForm-termsAndConditionsLink" 
@@ -178,6 +179,11 @@ class SessionForm extends React.Component {
           <button onClick={this.handleClick} className="form-button">
             Submit
           </button>
+          {isSignup ? (
+            <p className="SessionForm-alreadyHaveAccount">Already have an account? <Link to="/login">Login</Link></p>
+          ): (
+            <p className="SessionForm-alreadyHaveAccount">Don't have an account? <Link to="/signup">Sign up</Link></p>
+          )}
         </div>
       </section>
     );
