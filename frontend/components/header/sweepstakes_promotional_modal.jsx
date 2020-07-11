@@ -26,33 +26,42 @@ const SweepstakesPromotionalModal = ({history}) => {
       <div className="SweepstakesPromotionalModal-modal">
       <h1 className="SweepstakesPromotionalModal-title">Apartment Quirks Giveaway!</h1>
       <div className="SweepstakesPromotionalModal-mainContent">
+        <h1 className="SweepstakesPromotionalModal-advert">Win FREE Rent</h1>
         <FontAwesomeIcon 
-          className="SweepstakesPromotionalModal-closeModalIcon"
-          size="3x"
-          icon={faTimes} 
-          onClick={handleCloseModal}
-        />
-        <div>
-          <p className="SweepstakesPromotionalModal-subTitle">Write a review</p>
-          <StarRatings 
-            rating={4}
-            starRatedColor="#FDCC0D"
-            numberOfStars={5}
-            starDimension="30px"
-            starSpacing="8px"
-          />
-          <p className="SweepstakesPromotionalModal-subTitle">Like and share on Facebook</p>
-          <FontAwesomeIcon 
-            className="SweepstakesPromotionalModal-shareIcon"
+            className="SweepstakesPromotionalModal-closeModalIcon"
             size="3x"
-            icon={faShare} 
+            icon={faTimes} 
+            onClick={handleCloseModal}
           />
-          <p className="SweepstakesPromotionalModal-subTitle">Win free rent!</p>
-          <FontAwesomeIcon 
-            className="SweepstakesPromotionalModal-moneyIcon"
-            size="3x"
-            icon={faHandHoldingUsd} 
-          />
+        <div className="SweepstakesPromotionalModal-infoGraphicsWrapper">
+            <div className="SweepstakesPromotionalModal-infoGraphicItem">
+              <p className="SweepstakesPromotionalModal-subTitle">Write a review</p>
+              <StarRatings 
+                rating={4}
+                starRatedColor="#FDCC0D"
+                numberOfStars={4}
+                starDimension="25px"
+                starSpacing="0px"
+              />
+            </div>
+            <div className="SweepstakesPromotionalModal-infoGraphicItem">
+              <p className="SweepstakesPromotionalModal-subTitle">Like and share</p>
+              <FontAwesomeIcon 
+                className="SweepstakesPromotionalModal-shareIcon"
+                size="3x"
+                icon={faShare} 
+              />
+            </div>
+            <div className="SweepstakesPromotionalModal-infoGraphicItem">
+              <p className="SweepstakesPromotionalModal-subTitle">Win free rent!</p>
+              <FontAwesomeIcon 
+                className="SweepstakesPromotionalModal-moneyIcon"
+                size="3x"
+                icon={faHandHoldingUsd} 
+              />
+            </div>
+          <div>
+          </div>
         </div>
         <Link to="/giveaway">
           <button onClick={handleCloseModal} className="SweepstakesPromotionalModal-reviewButton">Write a Review</button>
