@@ -3,6 +3,7 @@
 
 .UserProfileWrapper {
   @include backgroundVector;
+  background-image: url('https://res.cloudinary.com/aptquirks/image/upload/v1594410412/Toy_taxi_small_rrguxw.jpg');
   padding-bottom: 100px;
 }
 .UserProfile {
@@ -120,7 +121,8 @@
   }
   &-saveButton {
     @include greyButton;
-    color: $primary--dark;
+    background-color: $primary;
+    color: white;
     margin-top: 12px;
   }
   @media screen and (min-width: 550px) {

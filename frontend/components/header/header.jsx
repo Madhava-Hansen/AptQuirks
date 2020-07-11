@@ -3,6 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import GreetingContainer from "../greeting/greeting_container";
 import ApartmentSearchContainer from "../apartment/apartment_search_container";
 import Logo from "./logo";
+import SweepstakesPromotionalModal from './sweepstakes_promotional_modal';
 
 class Header extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class Header extends React.Component {
     if (hidden) {
       return (
         <header className={this.state.classes} id="header">
+          <SweepstakesPromotionalModal />
           <nav className="nav">
             <ul className="nav-left">
               <Logo redirectHome={this.redirectHome} />
@@ -49,6 +51,7 @@ class Header extends React.Component {
     } else {
       return (
         <header className={this.state.classes} id="header">
+          <SweepstakesPromotionalModal />
           <nav className="nav">
             <ul className="nav-left">
               <Logo redirectHome={this.redirectHome} />

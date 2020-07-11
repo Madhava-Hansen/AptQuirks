@@ -1,0 +1,76 @@
+@import '../base/colors';
+
+.SweepstakesPromotionalModal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($primary, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $primary--dark;
+  &-modal {
+    position: relative;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 3px;
+    text-align: center;
+  }
+  &-mainContent {
+    margin: 20px;
+  }
+  &-closeModalIcon {
+    position: absolute;
+    top: 10px;
+    right: -17px;
+    color: white;
+  }
+  &-title {
+    font-size: 33px;
+    width: 100%;
+    padding: 30px;
+    background-color: $primary--dark;
+    color: white;
+    border-radius: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+  &-subTitle {
+    margin: 8px 0 12px 0;
+    font-size: 20px;
+  }
+  &-reviewButton {
+    width: 187px;
+    height:46px;
+    background-color: $primary;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 28px 0 12px 0;
+    &:hover {
+      color: $primary--dark;
+    }
+  }
+  &-termsWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+    width: 390px;
+    color: $primary;
+  }
+  &-noPurchaseNecessary {
+    margin-top: 12px;
+    color: lightgrey;
+  }
+  &-moneyIcon {
+    color: #FDCC0D;
+  }
+}

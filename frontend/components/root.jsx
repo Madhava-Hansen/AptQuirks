@@ -28,7 +28,7 @@ export const Root = ({ store }) => {
           <Route path="/profile" component={UserProfileContainer}></Route>
           <Route path="/inbox" component={ConversationsIndexContainer}></Route>
           <Route path="/compose" component={ComposeMessageContainer}></Route>
-          <Route path="/sweepstakes" component={SweepStakes}></Route>
+          <Route path="/giveaway" component={SweepStakes}></Route>
           <Route path="/messages/:id" component={MessageIndexContainer}></Route>
           <Route path="/" component={FooterContainer}></Route>
         </div>

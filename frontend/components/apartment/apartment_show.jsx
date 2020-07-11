@@ -81,6 +81,8 @@ class ApartmentShow extends React.Component {
           </ErrorBoundary>
         </div>
         <aside className="ApartmentShowWrapper-quirksIndexWrapper">
+          <div>
+          </div>
           <QuirkIndex 
             apartmentShow={currentApartment} 
             apartmentId={currentApartment.id} 
