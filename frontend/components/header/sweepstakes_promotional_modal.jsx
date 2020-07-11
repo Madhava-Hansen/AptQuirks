@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
-import {faTimesCircle, faShare, faHandHoldingUsd} from '@fortawesome/fontawesome-free-solid'
+import {faTimes, faShare, faHandHoldingUsd} from '@fortawesome/fontawesome-free-solid'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {withRouter} from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
@@ -28,8 +28,8 @@ const SweepstakesPromotionalModal = ({history}) => {
       <div className="SweepstakesPromotionalModal-mainContent">
         <FontAwesomeIcon 
           className="SweepstakesPromotionalModal-closeModalIcon"
-          size="lg"
-          icon={faTimesCircle} 
+          size="3x"
+          icon={faTimes} 
           onClick={handleCloseModal}
         />
         <div>
@@ -41,7 +41,7 @@ const SweepstakesPromotionalModal = ({history}) => {
             starDimension="30px"
             starSpacing="8px"
           />
-          <p className="SweepstakesPromotionalModal-subTitle">Like or share on Facebook</p>
+          <p className="SweepstakesPromotionalModal-subTitle">Like and share on Facebook</p>
           <FontAwesomeIcon 
             className="SweepstakesPromotionalModal-shareIcon"
             size="3x"
