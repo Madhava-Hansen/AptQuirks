@@ -155,6 +155,12 @@ class Greeting extends React.Component {
               handleClick={() => this.handleRedirect("profile")}
               linkName={"profile"}
             />
+            <GreetingNavLink
+              currentUrl={this.state.currentUrl}
+              urlParam="giveaway"
+              handleClick={() => this.handleRedirect("giveaway")}
+              linkName={"giveaway"}
+            />
             <NavLink className="logout" to="/home" onClick={this.logout}>
               logout
             </NavLink>
@@ -192,6 +198,12 @@ class Greeting extends React.Component {
               urlParam="login"
               handleClick={() => this.handleRedirect("login")}
               linkName={"login"}
+            />
+            <GreetingNavLink
+              currentUrl={this.state.currentUrl}
+              urlParam="giveaway"
+              handleClick={() => this.handleRedirect("giveaway")}
+              linkName={"giveaway"}
             />
           </ul>
         </div>

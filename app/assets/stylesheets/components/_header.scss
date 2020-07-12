@@ -353,7 +353,7 @@
 
   .nav-right-reveal {
     display: block;
-    height: 230px;
+    height: 248px;
     float: right;
     margin-right: 16px;
     padding: 22px;
@@ -361,10 +361,13 @@
     position: absolute;
     right: 2px;
     top: 50px;
-    border-radius: 5px;
     box-shadow: 2px 2px 1px lightgrey;
     margin-top: 0px;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-link:hover {
@@ -390,7 +393,6 @@
     margin-right: 16px;
     margin-top: 15px;
     background-color: $primary;
-    border-radius: 3px;
   }
 
   .nav-icon:hover {
