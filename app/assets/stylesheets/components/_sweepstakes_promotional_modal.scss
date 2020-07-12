@@ -1,4 +1,5 @@
 @import '../base/colors';
+@import '../base/mixins';
 
 .SweepstakesPromotionalModal {
   position: fixed;
@@ -49,6 +50,7 @@
     }
   }
   &-title {
+    box-shadow: 2px 2px 2px rgba($primary, 0.6);
     font-size: 33px;
     width: 94%;
     padding: 30px;
@@ -83,7 +85,6 @@
     color: $primary;
   }
   &-noPurchaseNecessary {
-    margin-top: 12px;
     color: lightgrey;
   }
   &-moneyIcon {
