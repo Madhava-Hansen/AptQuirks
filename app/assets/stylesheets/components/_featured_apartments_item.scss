@@ -16,6 +16,8 @@
   align-items: center;
   border-radius: 10px;
   box-sizing: border-box;
+  max-width: 450px;
+  flex-grow: 1;
   &:hover {
     top: -3px;
   }
@@ -68,6 +70,7 @@
     max-width: 450px;
     margin: 16px auto;
     padding: 0 12px;
+    max-width: 350px
   }
   &-starRating {
     margin: 12px 0;
