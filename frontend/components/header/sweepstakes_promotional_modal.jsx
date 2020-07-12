@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
-import {faTimes, faShare, faHandHoldingUsd} from '@fortawesome/fontawesome-free-solid'
+import {faTimes, faShare, faMoneyBill} from '@fortawesome/fontawesome-free-solid'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {withRouter} from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
@@ -35,7 +35,7 @@ const SweepstakesPromotionalModal = ({history}) => {
           />
         <div className="SweepstakesPromotionalModal-infoGraphicsWrapper">
             <div className="SweepstakesPromotionalModal-infoGraphicItem">
-              <p className="SweepstakesPromotionalModal-subTitle">Write a review</p>
+              <p className="SweepstakesPromotionalModal-subTitle">Review an apartment</p>
               <StarRatings 
                 rating={4}
                 starRatedColor="#FDCC0D"
@@ -57,7 +57,7 @@ const SweepstakesPromotionalModal = ({history}) => {
               <FontAwesomeIcon 
                 className="SweepstakesPromotionalModal-moneyIcon"
                 size="3x"
-                icon={faHandHoldingUsd} 
+                icon={faMoneyBill} 
               />
             </div>
           <div>
