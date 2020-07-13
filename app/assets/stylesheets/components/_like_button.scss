@@ -15,7 +15,6 @@
     cursor: pointer;
   }
   &-likeCount {
-    margin-top: 6.1px;
     margin-left: 8px;
   }
   &-likeErrorMessage {
@@ -36,12 +35,6 @@
     &-likeButton {
       margin-top: 30px;
       margin-right: 0px;
-    }
-  
-    &-likeCount {
-      margin: 0px;
-      margin-top: 36px;
-      margin-left: 5px;
     }
   }
 }

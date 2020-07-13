@@ -59,21 +59,19 @@ class LikeButton extends React.Component {
     const isLiked = !!this.state.likeId;
     return (
       <div className={`LikeButton ${isLiked ? "LikeButton-isLiked" : ""}`}>
-        <div className={`LikeButton-likeButtonWrapper`}>
-          <div
-            onClick={
-              enableLikes
-                ? isLiked
-                  ? this.handleUnlike
-                  : this.handleLike
-                : this.revealLikeErrorMessage
-            }
-          >
-          <FontAwesomeIcon 
-            size="2x"
-            icon={faThumbsUp} 
-          />
-          </div>
+        <div
+          onClick={
+            enableLikes
+              ? isLiked
+                ? this.handleUnlike
+                : this.handleLike
+              : this.revealLikeErrorMessage
+          }
+        >
+        <FontAwesomeIcon 
+          size="2x"
+          icon={faThumbsUp} 
+        />
         </div>
         <div className="LikeButton-likeCount">
           <LikeCountComponenet
