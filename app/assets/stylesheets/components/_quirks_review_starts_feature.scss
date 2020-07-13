@@ -10,5 +10,20 @@
   flex-direction: column;
   text-align: center;
   font-size: 24px;
+  overflow: hidden;
   @include boxShadow;
+  &-hideStarRatings {
+    display: none;
+  }
+  &-revealStarRatings {
+    display: block;
+  }
+  &-moreLink {
+    color: $primary;
+    font-size: 16px;
+    text-decoration: underline;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

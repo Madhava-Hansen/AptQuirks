@@ -8,6 +8,7 @@ export const QuirkReviewStarsAverages = ({quirks}) => {
     const [averateLandlordStarRating, setAverageLandlordStarRating] = useState();
     const [averateNoiseStarRating, setAverageNoiseStarRating] = useState();
     const [averateNeighborhoodStarRating, setAverageNeighborhoodStarRating] = useState();
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
       getReviewTotals(quirks);
@@ -42,19 +43,25 @@ export const QuirkReviewStarsAverages = ({quirks}) => {
       })
     }
 
+    const toggleIsOpen = () => {
+      const nextState = !isOpen;
+      setIsOpen(nextState);
+    }
+
     return (
-    <div className="QuirkReviewStarsFeature">
+    <div className={`QuirkReviewStarsFeature ${isOpen ? 'QuirkReviewStarsFeature--isOPen' : ''}`}>
       <div className="QuirkForm-starRating">
         <p className="QuirkForm-ratingTitle">Overall Rating</p>
         <StarRatings 
           rating={averateStarRating || 0}
           starRatedColor={starRatingColor}
           numberOfStars={5}
-          starDimension="28px"
+          starDimension={isOpen ? "28px" : "36px"}
           starSpacing="3px"
           name="Overall Rating"
         />
       </div>
+      <div className={isOpen ? `QuirkReviewStarsFeature-revealStarRatings` : 'QuirkReviewStarsFeature-hideStarRatings'}>
       <div className="QuirkForm-starRating">
       <p className="QuirkForm-ratingTitle">Noise Rating</p>
         <StarRatings 
@@ -88,6 +95,8 @@ export const QuirkReviewStarsAverages = ({quirks}) => {
           name="Landlor/Property Management"
         />
       </div>
+      </div>
+      <a className="QuirkReviewStarsFeature-moreLink" onClick={toggleIsOpen}>{isOpen ? 'less' : 'more'}</a>
     </div>
     )
 }
