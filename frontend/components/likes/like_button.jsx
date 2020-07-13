@@ -25,7 +25,7 @@ class LikeButton extends React.Component {
   }
 
   revealLikeErrorMessage = () => {
-    this.setState({ errorClassName: "like-error-message" });
+    this.setState({ errorClassName: "LikeButton-likeErrorMessage" });
     setTimeout(() => {
       this.setState({ errorClassName: "hidden" });
     }, 3000);
@@ -81,7 +81,7 @@ class LikeButton extends React.Component {
             isLiked={isLiked}
           />
         </div>
-        <p className="LikeButton-likeErrorMessage" className={this.state.errorClassName}>
+        <p className={this.state.errorClassName}>
           Please login to like things!
         </p>
       </div>
