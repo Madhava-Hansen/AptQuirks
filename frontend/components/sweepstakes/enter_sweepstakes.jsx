@@ -177,7 +177,7 @@ class Sweepstakes extends React.Component {
                   <div className="Sweepstakes-successMessage">Successfully Submitted!</div>
                   <FontAwesomeIcon className="Sweepstakes-successCheckmark" icon={faCheck} size="1x" />
                 </div>
-                <p className="Sweepstakes-shareOurPage">The final step to complete your entry is to share or like us on Facebook!</p>
+                <p className="Sweepstakes-shareOurPage">The final step to complete your entry is to share and like us on Facebook!</p>
                 <div className="Sweepstakes-shareButtons">
                   <FacebookProvider appId="907197889774664">
                     <Like href="https://www.apartmentquirks.com/sweepstakes" colorScheme="dark" showFaces share />
