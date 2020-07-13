@@ -168,7 +168,7 @@ class Sweepstakes extends React.Component {
         <div className="Sweepstakes-mainContent">
           <div className="Sweepstakes-headingWrapper">
             <h1 style={{fontFamily: 'Raleway', letterSpacing: '1.5px'}} className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
-            <p className="Sweepstakes-subHeading">It will only take a minute and your anonymous review will help New Yorkers find their perfect home!</p>
+            <p className="Sweepstakes-subHeading">It will only take a minute and your anonymous review will help others find their perfect home!</p>
           </div>
           {revealSuccessMessage ? (
             <>

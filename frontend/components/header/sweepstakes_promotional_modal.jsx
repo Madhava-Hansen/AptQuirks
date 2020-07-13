@@ -9,9 +9,11 @@ const SweepstakesPromotionalModal = ({history}) => {
 
   const [isOpenClass, setIsOpenClass] = useState('hidden');
 
-  const handleCloseModal = () => {
-    setIsOpenClass('hidden');
-    sessionStorage.setItem('sweepstakesModalClosed', true)
+  const handleCloseModal = e => {
+    if (['SweepstakesPromotionalModal', "SweepstakesPromotionalModal-reviewButton"].includes(e.target.classList[0])) {
+      setIsOpenClass('hidden');
+      sessionStorage.setItem('sweepstakesModalClosed', true);
+    }
   }
 
   useEffect(() => {
@@ -22,8 +24,8 @@ const SweepstakesPromotionalModal = ({history}) => {
     }
   }, [])
   return (
-    <div className={`SweepstakesPromotionalModal ${isOpenClass}`}>
-      <div className="SweepstakesPromotionalModal-modal">
+    <div onClick={handleCloseModal} className={`SweepstakesPromotionalModal ${isOpenClass}`}>
+      <div value="main" className="SweepstakesPromotionalModal-modal">
       <h1 className="SweepstakesPromotionalModal-title">Apartment Quirks Giveaway!</h1>
       <div className="SweepstakesPromotionalModal-mainContent">
         <h1 className="SweepstakesPromotionalModal-advert">Win FREE Rent</h1>

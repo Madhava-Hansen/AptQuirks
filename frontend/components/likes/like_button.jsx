@@ -1,6 +1,8 @@
 import React from "react";
 import LikeCountComponenet from "./like_count_component";
 import {fetchLikes, like, unlike} from '../../util/like_api_util';
+import {faThumbsUp} from '@fortawesome/fontawesome-free-solid'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -56,10 +58,9 @@ class LikeButton extends React.Component {
     const enableLikes = this.state.haveFetchedLikes && this.props.userId;
     const isLiked = !!this.state.likeId;
     return (
-      <div className="like">
-        <div className="like-button">
-          <button
-            className={isLiked ? "liked-button" : ""}
+      <div className={`LikeButton ${isLiked ? "LikeButton-isLiked" : ""}`}>
+        <div className={`LikeButton-likeButtonWrapper`}>
+          <div
             onClick={
               enableLikes
                 ? isLiked
@@ -68,16 +69,19 @@ class LikeButton extends React.Component {
                 : this.revealLikeErrorMessage
             }
           >
-            like
-          </button>
+          <FontAwesomeIcon 
+            size="2x"
+            icon={faThumbsUp} 
+          />
+          </div>
         </div>
-        <div className="like-count">
+        <div className="LikeButton-likeCount">
           <LikeCountComponenet
             count={this.state.likes ? this.state.likes.length : 0}
             isLiked={isLiked}
           />
         </div>
-        <p id="like-error-message" className={this.state.errorClassName}>
+        <p className="LikeButton-likeErrorMessage" className={this.state.errorClassName}>
           Please login to like things!
         </p>
       </div>
