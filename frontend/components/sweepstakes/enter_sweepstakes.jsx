@@ -262,7 +262,7 @@ class Sweepstakes extends React.Component {
                   />
                   <ul className="Sweepstakes-starRatingText">
                     <li>Hated it</li>
-                    <li>it was ok</li>
+                    <li>It was ok</li>
                     <li>Loved it</li>
                   </ul>
               </div>

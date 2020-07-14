@@ -3,11 +3,12 @@
 
 .QuirkFormInput {
   position: relative;
+  text-align: left;
   &-input {
-    @include formInput;
-    margin: 20px auto;
-    border: 2px solid $light-grey;
-    padding-right: 30px;
+    margin: 4px 0 20px 0;
+    border: 1px solid lightgrey;
+    width: 100%;
+    height: 50px;
   }
   &-textAreaInput {
     height: 102px;

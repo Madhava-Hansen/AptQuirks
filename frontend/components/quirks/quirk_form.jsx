@@ -44,17 +44,17 @@ const QuirkForm = ({
       <p>{apartmentShow.street_address}</p>
     </div>
     {onFirstPage ? (
-      <>
+      <div className="QuirkForm-inputsWrapper">
         <QuirkFormInput 
           name="title"
-          placeholder="title..."
+          title="Review Title"
           update={update}
           isValid={title.length >= 6}
           value={title}
         />
         <QuirkFormInput 
           name="body"
-          placeholder="body..."
+          title="Any advice to other future tenants?*"
           isTextArea
           update={update}
           isValid={body.length >= 15}
@@ -62,7 +62,7 @@ const QuirkForm = ({
         />
         <QuirkFormInput 
           name="apt_number"
-          placeholder="apt..."
+          title="Apartment Number (Optional)"
           update={update}
           isValid={apt_number.length >= 1}
           value={apt_number}
@@ -72,7 +72,7 @@ const QuirkForm = ({
         onClick={handleClickSecondPage}>
         Next
       </button>
-      </>
+      </div>
     ) : (
       <>
         <div className="QuirkForm-starRating">

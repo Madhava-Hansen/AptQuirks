@@ -6,18 +6,18 @@ export const QuirkFormInput = ({
   value, 
   name,
   isTextArea, 
-  placeholder, 
   update, 
   isValid = true,
-  modifierClass
+  modifierClass,
+  title
 }) => {
   const Element = isTextArea ? 'textarea' : 'input';
   return (
     <div className="QuirkFormInput">
+      <p>{title}</p>
       <Element
-        className={`QuirkFormInput-input ${isTextArea && 'QuirkFormInput-textAreaInput'} ${modifierClass}`}
+        className={`QuirkFormInput-input ${isTextArea ? 'QuirkFormInput-textAreaInput' : ''} ${modifierClass ? modifierClass : ''}`}
         type="text"
-        placeholder={placeholder}
         onChange={update(name)}
         value={value}
       />
