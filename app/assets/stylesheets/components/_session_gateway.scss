@@ -1,0 +1,85 @@
+@import "../base/colors";
+
+.SessionGateway {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: rgba($primary, 0.5);
+  border-radius: 5px;
+  &-mainContent {
+    max-width: 380px;
+    background-color: white;
+    margin: 0 12px;
+    width: 100%;
+    border-radius: 5px;
+  }
+  &-linksWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  &-titleText {
+    width: 100%;
+    padding: 30px;
+    background-color: $primary--dark;
+    box-sizing: border-box;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    border-radius: 5px;
+  }
+  &-closeModalIcon {
+    position: absolute;
+    top: 70px;
+    left: 15px;
+    color: white;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &-subTitle {
+    width: 260px;
+    text-align: center;
+    color: $primary--dark;
+  }
+  &-buttonLogin,
+  &-buttonSignup {
+    width: 180px;
+    border-radius: 50px;
+    font-size: 20px;
+    border: 1px solid $primary;
+    padding: 12px;
+    text-align: center;
+    margin: 12px;
+  }
+  &-orText {
+    font-size: 18px;
+  }
+  &-buttonLogin {
+    color: white;
+    background-color: $primary;
+    &:hover {
+      color: $primary;
+      background-color: white;
+    }
+  }
+  &-buttonSignup {
+    color: $primary;
+    background-color: white;
+    &:hover {
+      color: white;
+      background-color: $primary;
+    }
+  }
+}

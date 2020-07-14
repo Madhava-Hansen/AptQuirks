@@ -2,14 +2,15 @@ import React from "react";
 import ApartmentMap from "../apartment_map/apartment_map";
 import QuirkIndex from "../quirks/quirk_index";
 import {QuirkReviewStarsAverages} from '../quirks/quirk_review_stars_feature';
-import LikeButtonContainer from "../likes/like_button_container";
+import LikeButton from "../likes/like_button";
 import ImageIndexContainer from "../images/image_index_container";
 import ErrorBoundary from "../error_boundary/error_boundary";
 
 class ApartmentShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentApartment: {}, quirks: [] };
+    this.state = { currentApartment: {}, quirks: [], sessionDoorwayOpen: false };
+    
   }
 
   componentDidMount() {
@@ -45,6 +46,10 @@ class ApartmentShow extends React.Component {
     return null;
   }
 
+  handleRevealSessionDoorway = () => {
+    this.setState({sessionDoorwayOpen: true});
+  }
+
   getQuirksForReviewsFeature = quirks => this.setState({quirks});
 
   hasApartmentData = currentApartment =>
@@ -71,7 +76,7 @@ class ApartmentShow extends React.Component {
               </div>
 
               <div className="group">
-                <LikeButtonContainer />
+                <LikeButton />
               </div>
             </article>
           )}

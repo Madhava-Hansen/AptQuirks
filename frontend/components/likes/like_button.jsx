@@ -3,6 +3,7 @@ import LikeCountComponenet from "./like_count_component";
 import {fetchLikes, like, unlike} from '../../util/like_api_util';
 import {faThumbsUp} from '@fortawesome/fontawesome-free-solid'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {SessionGateway} from '../session_form/session_gateway';
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class LikeButton extends React.Component {
       likeId: null,
       haveFetchedLikes: false,
       errorClassName: "hidden",
+      sessionGatewayEnabled: false
     };
   }
 
@@ -24,12 +26,15 @@ class LikeButton extends React.Component {
     })
   }
 
-  revealLikeErrorMessage = () => {
-    this.setState({ errorClassName: "LikeButton-likeErrorMessage" });
-    setTimeout(() => {
-      this.setState({ errorClassName: "hidden" });
-    }, 3000);
+  handleOpenSessionGateway = () => {
+    this.setState({sessionGatewayEnabled: true});
   };
+
+  hendleCloseSessionGateway = e => {
+    if (["SessionGateway", "SessionGateway-buttonSignup", "SessionGateway-buttonLogin"].includes(e.target.classList[0]) || ["SessionGateway-closeModalIcon"].includes(e.currentTarget.classList[0])) {
+      this.setState({sessionGatewayEnabled: false});
+    }
+  }
 
   handleLike = () => {
     like({
@@ -59,13 +64,16 @@ class LikeButton extends React.Component {
     const isLiked = !!this.state.likeId;
     return (
       <div className={`LikeButton ${isLiked ? "LikeButton-isLiked" : ""}`}>
+        {this.state.sessionGatewayEnabled && (
+          <SessionGateway hendleCloseSessionGateway={this.hendleCloseSessionGateway} />
+        )}
         <div
           onClick={
             enableLikes
               ? isLiked
                 ? this.handleUnlike
                 : this.handleLike
-              : this.revealLikeErrorMessage
+              : this.handleOpenSessionGateway
           }
         >
         <FontAwesomeIcon 
