@@ -6,8 +6,7 @@ import {signup, fetchUser} from '../../util/session_api_util';
 import {addQuirk} from '../../util/quirk_api_util';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
-import GoogleFontLoader from 'react-google-font-loader';
-import {FacebookProvider, ShareButton, Like} from 'react-facebook';
+import {FacebookProvider, Like} from 'react-facebook';
 
 class Sweepstakes extends React.Component {
 
@@ -153,21 +152,9 @@ class Sweepstakes extends React.Component {
     } = this.state;
     return (
       <div className="Sweepstakes">
-        <GoogleFontLoader
-          fonts={[
-            {
-              font: 'Raleway',
-              weights: [700],
-            },
-            {
-              font: 'Muli',
-              weights: [400, 700],
-            },
-          ]}
-        />
         <div className="Sweepstakes-mainContent">
           <div className="Sweepstakes-headingWrapper">
-            <h1 style={{fontFamily: 'Raleway', letterSpacing: '1.5px'}} className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
+            <h1 className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
             <p className="Sweepstakes-subHeading">It will only take a minute and your anonymous review will help others find their perfect home!</p>
           </div>
           {revealSuccessMessage ? (
