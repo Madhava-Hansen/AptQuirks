@@ -15,7 +15,8 @@ class ProfileShow extends React.Component {
       email: '', 
       inEditMode: false ,
       successModalClass: 'hidden',
-      password: ''
+      password: '',
+      currentUser: null
     };
     this.defaultUserImage =  "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
   }
@@ -31,7 +32,7 @@ class ProfileShow extends React.Component {
     })
     if (queryStrings['usr'] && queryStrings['id']) {
       login({user: {username: queryStrings['usr'], password: queryStrings['id']}}).then(response => {
-        this.setState({inEditMode: true});
+        this.setState({inEditMode: true, username: response.username, email: response.email, city: response.city, currentUser: true});
       })
     }
   }
@@ -40,7 +41,7 @@ class ProfileShow extends React.Component {
     if (nextProps.currentUser) {
       const {currentUser: {city, username, email}} = nextProps;
       if (city !== prevState.city || username !== prevState.username || email !== prevState.email) {
-        return {city, username, email};
+        return {city, username, email, currentUser: nextProps.currentUser};
       }
     }
 
@@ -71,8 +72,8 @@ class ProfileShow extends React.Component {
   updatePassword = e => this.setState({password: e.target.value});
 
   render() {
-    const {addPhoto, currentUser} = this.props;
-    const {inEditMode, city, username, email, password} = this.state;
+    const {addPhoto} = this.props;
+    const {inEditMode, city, username, email, password, currentUser} = this.state;
     return (
       <section className="UserProfileWrapper">
         <section className="UserProfile">
@@ -113,7 +114,7 @@ class ProfileShow extends React.Component {
                 value={username}
               />
             ) : (
-              <p className="UserProfile-info">{currentUser.username}</p>
+              <p className="UserProfile-info">{username}</p>
             )}
           </div>
           <div className="UserProfile-userInfoItem">
@@ -144,7 +145,7 @@ class ProfileShow extends React.Component {
                 value={email}
               />
             ) : (
-              <p className="UserProfile-info">{currentUser.email}</p>
+              <p className="UserProfile-info">{email}</p>
             )}
           </div>
           <div className="UserProfile-userInfoItem">

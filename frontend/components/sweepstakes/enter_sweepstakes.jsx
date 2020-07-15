@@ -22,6 +22,7 @@ class Sweepstakes extends React.Component {
       apartmentParams: null,
       hasSelectedAddress: false,
       usernameExists: false,
+      isAdTraffic: false
     };
     this.autocomplete = null;
     this.emailValidationRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -48,6 +49,16 @@ class Sweepstakes extends React.Component {
       this.handleSelectAutocomplete()
       this.setState({hasSelectedAddress: true});
     });
+    const {search} = this.props.location;
+    const removedQuestionMark = search.slice(1, search.length);
+    const queryStrings = {};
+    removedQuestionMark.split('&').forEach(query => {
+      const data = query.split('=');
+      queryStrings[data[0]] = data[1];
+    })
+    if (queryStrings['src'] === 'giveaway') {
+      this.setState({isAdTraffic: true});
+    }
   }
   
   handleSelectAutocomplete = () => {
@@ -150,13 +161,23 @@ class Sweepstakes extends React.Component {
       username, 
       email, 
       usernameExists, 
+      isAdTraffic
     } = this.state;
     return (
       <div className="Sweepstakes">
         <div className="Sweepstakes-mainContent">
           <div className="Sweepstakes-headingWrapper">
-            <h1 className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
-            <p className="Sweepstakes-subHeading">It will only take a minute and your anonymous review will help others find their perfect home!</p>
+            {isAdTraffic ? (
+              <>
+                <p className="Sweepstakes-headingText">Hi there apartment hero! You're 1 minute away from being entered to win free rent!</p>
+                <p className="Sweepstakes-subHeading">Just need a few pieces of info from you below :)</p>
+              </>
+            ) : (
+              <>
+                <h1 className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
+                <p className="Sweepstakes-subHeading">It will only take a minute and your anonymous review will help others find their perfect home!</p>
+              </>
+            )}
           </div>
           {revealSuccessMessage ? (
             <>
