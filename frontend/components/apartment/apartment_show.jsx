@@ -2,7 +2,7 @@ import React from "react";
 import ApartmentMap from "../apartment_map/apartment_map";
 import QuirkIndex from "../quirks/quirk_index";
 import {QuirkReviewStarsAverages} from '../quirks/quirk_review_stars_feature';
-import LikeButton from "../likes/like_button";
+import LikeButtonContainer from "../likes/like_button_container";
 import ImageIndexContainer from "../images/image_index_container";
 import ErrorBoundary from "../error_boundary/error_boundary";
 
@@ -76,7 +76,7 @@ class ApartmentShow extends React.Component {
               </div>
 
               <div className="group">
-                <LikeButton />
+                <LikeButtonContainer />
               </div>
             </article>
           )}
