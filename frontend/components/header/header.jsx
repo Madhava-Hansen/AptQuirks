@@ -9,11 +9,22 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.redirectHome = this.redirectHome.bind(this);
-    this.state = { classes: "group header" };
+    this.state = { classes: "group header", isGiveawayTraffic: false };
   }
 
   componentDidMount() {
     this.addScrollEvent();
+    const {search} = this.props.location;
+    const removedQuestionMark = search.slice(1, search.length);
+    const queryStrings = {};
+    removedQuestionMark.split('&').forEach(query => {
+      const data = query.split('=');
+      queryStrings[data[0]] = data[1];
+    })
+    debugger;
+    if (queryStrings['src'] === 'giveaway') {
+      this.setState({isGiveawayTraffic: true});
+    }
   }
 
   addScrollEvent() {
@@ -39,7 +50,9 @@ class Header extends React.Component {
     if (hidden) {
       return (
         <header className={this.state.classes} id="header">
-          <SweepstakesPromotionalModal />
+          {!this.state.isGiveawayTraffic && (
+            <SweepstakesPromotionalModal />
+          )}
           <nav className="nav">
             <ul className="nav-left">
               <Logo redirectHome={this.redirectHome} />
@@ -51,7 +64,9 @@ class Header extends React.Component {
     } else {
       return (
         <header className={this.state.classes} id="header">
-          <SweepstakesPromotionalModal />
+          {!this.state.isGiveawayTraffic && (
+            <SweepstakesPromotionalModal />
+          )}
           <nav className="nav">
             <ul className="nav-left">
               <Logo redirectHome={this.redirectHome} />
