@@ -9,7 +9,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.redirectHome = this.redirectHome.bind(this);
-    this.state = { classes: "group header", isGiveawayTraffic: false };
+    this.state = { classes: "group header"};
   }
 
   componentDidMount() {
@@ -49,7 +49,7 @@ class Header extends React.Component {
     if (hidden) {
       return (
         <header className={this.state.classes} id="header">
-          {!this.state.isGiveawayTraffic && (
+          {!sessionStorage.getItem('blockGiveawayModal') && (
             <SweepstakesPromotionalModal />
           )}
           <nav className="nav">
@@ -63,7 +63,7 @@ class Header extends React.Component {
     } else {
       return (
         <header className={this.state.classes} id="header">
-          {!this.state.isGiveawayTraffic && (
+          {!sessionStorage.getItem('blockGiveawayModal') && (
             <SweepstakesPromotionalModal />
           )}
           <nav className="nav">
