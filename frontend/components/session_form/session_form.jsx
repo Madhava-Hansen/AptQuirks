@@ -150,7 +150,7 @@ class SessionForm extends React.Component {
                 type="password"
                 isValid={hasValidPassword}
               />
-              {(password.length > 0 && password.length < 8) && (
+              {(password.length > 0 && password.length < 8 && isSignup) && (
                 <p className="SessionForm-passwordErrorWarning">password must be minimum of 8 characters</p>
               )}
             </>
