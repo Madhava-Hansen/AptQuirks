@@ -4,7 +4,7 @@ class WelcomeUserMailer < ApplicationMailer
     password_link = ""
     body = 
     "<div>
-      <h1 style='font-size:30px;'>Welcome apartment hero!</h1>
+      <h1 style='font-size:20px;'>Welcome apartment hero!</h1>
       <p>Username: #{user.username}</p>
       #{if user.isSweepstakes
       "<p style='max-width:600px;'>Thank you so much for your review! You've been entered into the sweepstakes!</p>
