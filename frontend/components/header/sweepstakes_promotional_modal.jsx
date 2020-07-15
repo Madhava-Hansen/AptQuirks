@@ -10,7 +10,6 @@ const SweepstakesPromotionalModal = ({history}) => {
   const [isOpenClass, setIsOpenClass] = useState('hidden');
 
   const handleCloseModal = e => {
-    debugger;
     if (['SweepstakesPromotionalModal', "SweepstakesPromotionalModal-reviewButton"].includes(e.target.classList[0]) || ["SweepstakesPromotionalModal-closeModalIcon"].includes(e.currentTarget.classList[0])) {
       setIsOpenClass('hidden');
       sessionStorage.setItem('sweepstakesModalClosed', true);
