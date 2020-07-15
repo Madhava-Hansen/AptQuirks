@@ -169,7 +169,7 @@ class Sweepstakes extends React.Component {
           <div className="Sweepstakes-headingWrapper">
             {isAdTraffic ? (
               <>
-                <p className="Sweepstakes-headingText">Hi there apartment hero! You're 1 minute away from being entered to win free rent!</p>
+                <p className="Sweepstakes-headingText">Hi there, apartment hero! You're 1 minute away from being entered to win free rent!</p>
                 <p className="Sweepstakes-subHeading">Review your apartment with the form below. </p>
               </>
             ) : (
