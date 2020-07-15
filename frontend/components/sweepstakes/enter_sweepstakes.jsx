@@ -28,6 +28,7 @@ class Sweepstakes extends React.Component {
     this.emailValidationRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     this.defaultThumbnailUrl =
     "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
+    this.starRatingColor = "#FDCC0D";
   }
 
   componentDidMount() {
@@ -261,13 +262,13 @@ class Sweepstakes extends React.Component {
                 <p className="QuirkForm-ratingTitle">How would you rate your overall experience?*</p>
                   <StarRatings 
                     rating={this.state.star_rating}
-                    starRatedColor="#192841"
+                    starRatedColor={this.starRatingColor}
                     numberOfStars={5}
                     starDimension="40px"
                     starSpacing="8px"
                     name="Sweepstakes star rating"
                     changeRating={this.handleChangeStarRating}
-                    starHoverColor="#FDCC0D"
+                    starHoverColor={this.starRatingColor}
                   />
                   <ul className="Sweepstakes-starRatingText">
                     <li>Hated it</li>
