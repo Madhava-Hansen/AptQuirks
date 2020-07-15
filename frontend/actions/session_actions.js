@@ -30,36 +30,36 @@ export const updateUserDetails = user => dispatch => {
 
 export const login = user => dispatch =>
   APIUtil.login(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
-    (err) => dispatch(receiveErrors(err.responseJSON))
+    user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveErrors(err.responseJSON))
   );
 
 export const signup = user => dispatch =>
   APIUtil.signup(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
-    (err) => dispatch(receiveErrors(err.responseJSON))
+    user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveErrors(err.responseJSON))
   );
 
 export const logout = () => dispatch =>
   APIUtil.logout().then(
     () => dispatch(receiveCurrentUser(null)),
-    (err) => dispatch(receiveErrors(err.responseJSON))
+    err => dispatch(receiveErrors(err.responseJSON))
   );
 
 export const saveUser = user => dispatch =>
   APIUtil.saveUser(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
-    (errors) => dispatch(receiveErrors(errors.responseJSON))
+    user => dispatch(receiveCurrentUser(user)),
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 
 export const verifyCaptcha = response => dispatch =>
   APIUtil.verifyCaptcha(response).then(
-    (responseObject) => dispatch(receiveCaptchaResponse(responseObject)),
-    (errors) => dispatch(receiveErrors(errors.responseJSON))
+    responseObject => dispatch(receiveCaptchaResponse(responseObject)),
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 
 export const addPhoto = user => dispatch =>
   APIUtil.addPhoto(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
-    (err) => dispatch(receiveErrors(err.responseJSON))
+    user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveErrors(err.responseJSON))
   );

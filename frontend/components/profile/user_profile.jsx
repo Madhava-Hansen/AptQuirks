@@ -4,7 +4,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faEdit, faTimesCircle, faCheck } from '@fortawesome/fontawesome-free-solid'
 import {UserProfileInput} from './user_profile_input';
 import {Link, withRouter} from 'react-router-dom';
-import {login} from '../../util/session_api_util';
 
 class ProfileShow extends React.Component {
   constructor(props) {
@@ -31,9 +30,7 @@ class ProfileShow extends React.Component {
       queryStrings[data[0]] = data[1];
     })
     if (queryStrings['usr'] && queryStrings['id']) {
-      login({user: {username: queryStrings['usr'], password: queryStrings['id']}}).then(response => {
-        this.setState({inEditMode: true, username: response.username, email: response.email, city: response.city, currentUser: true});
-      })
+      this.props.login({user: {username: queryStrings['usr'], password: queryStrings['id']}});
     }
   }
 
@@ -41,7 +38,7 @@ class ProfileShow extends React.Component {
     if (nextProps.currentUser) {
       const {currentUser: {city, username, email}} = nextProps;
       if (city !== prevState.city || username !== prevState.username || email !== prevState.email) {
-        return {city, username, email, currentUser: nextProps.currentUser};
+        return {city, username, email, currentUser: nextProps.currentUser, inEditMode: true};
       }
     }
 
