@@ -21,9 +21,8 @@ class Header extends React.Component {
       const data = query.split('=');
       queryStrings[data[0]] = data[1];
     })
-    debugger;
     if (queryStrings['src'] === 'giveaway') {
-      this.setState({isGiveawayTraffic: true});
+      sessionStorage.setItem('blockGiveawayModal', true);
     }
   }
 
