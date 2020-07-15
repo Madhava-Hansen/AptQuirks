@@ -3,23 +3,13 @@ import React from "react";
 class AddImageButton extends React.Component {
   constructor(props) {
     super(props);
-    this.upload = this.upload.bind(this);
-    this.notLoggedIn = this.notLoggedIn.bind(this);
   }
 
-  notLoggedIn() {
-    let error = document.getElementById("image-upload-errors");
-    error.className = "reveal-image-upload-error";
-    window.setTimeout(() => {
-      error.className = "hidden";
-    }, 3000);
-  }
-
-  upload(e) {
+  upload = e => {
     e.preventDefault();
     const { currentUser, apartmentShow, addImage } = this.props;
     if (!currentUser) {
-      this.notLoggedIn();
+      this.props.handleOpenSessionGateway();
       return;
     }
     cloudinary.openUploadWidget(
@@ -34,7 +24,7 @@ class AddImageButton extends React.Component {
               thumbnail_url: images[0].thumbnail_url,
             },
           };
-          this.props.addImage(photoParams);
+          addImage(photoParams);
         }
       }
     );

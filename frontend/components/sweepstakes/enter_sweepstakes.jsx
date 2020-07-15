@@ -30,6 +30,7 @@ class Sweepstakes extends React.Component {
   }
 
   componentDidMount() {
+    scrollTo(0, 0);
     const defaultBounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(40.571531, -74.22678),
       new google.maps.LatLng(40.90475, -73.716368)

@@ -22,6 +22,10 @@ class SessionForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    scrollTo(0, 0);
+  }
+
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.captchaVerified !== prevState.captchaVerified) {
       return { captchaVerified: nextProps.captchaVerified };

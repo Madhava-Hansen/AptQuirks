@@ -4,6 +4,8 @@ import AddImageButton from "./add_image_button";
 import {withRouter} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimesCircle, faAngleRight, faAngleLeft} from '@fortawesome/fontawesome-free-solid'
+import {SessionGateway} from '../session_form/session_gateway';
+
 
 class ImageIndex extends React.Component {
   constructor(props) {
@@ -14,6 +16,7 @@ class ImageIndex extends React.Component {
       slideshowClass: "hidden",
       slideshowIndex: 0,
       noImageClass: "hidden",
+      sessionGatewayEnabled: false
     };
   }
 
@@ -112,6 +115,16 @@ class ImageIndex extends React.Component {
     this.setState({ slideshowIndex: index });
   };
 
+  handleOpenSessionGateway = () => {
+    this.setState({sessionGatewayEnabled: true});
+  };
+
+  hendleCloseSessionGateway = e => {
+    if (["SessionGateway", "SessionGateway-buttonSignup", "SessionGateway-buttonLogin"].includes(e.target.classList[0]) || ["SessionGateway-closeModalIcon"].includes(e.currentTarget.classList[0])) {
+      this.setState({sessionGatewayEnabled: false});
+    }
+  }
+
   render() {
     const { imageIndex, addImage, apartmentShow, currentUser } = this.props;
     let images;
@@ -134,11 +147,15 @@ class ImageIndex extends React.Component {
     } else {
       return (
         <div className="image-index-container">
+          {this.state.sessionGatewayEnabled && (
+            <SessionGateway hendleCloseSessionGateway={this.hendleCloseSessionGateway} />
+          )}
           <div className="image-header-container">
             <AddImageButton
               addImage={addImage}
               apartmentShow={apartmentShow}
               currentUser={currentUser}
+              handleOpenSessionGateway={this.handleOpenSessionGateway}
             />
             <div onClick={this.toggleSlideshow} className="slideshow">
               view slideshow
