@@ -7,6 +7,7 @@ import {addQuirk} from '../../util/quirk_api_util';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
 import {FacebookProvider, Like} from 'react-facebook';
+import {TwitterShareButton, TwitterIcon} from 'react-share';
 
 class Sweepstakes extends React.Component {
 
@@ -165,10 +166,11 @@ class Sweepstakes extends React.Component {
       usernameExists, 
       isAdTraffic
     } = this.state;
+
     return (
       <div className="Sweepstakes">
         <div className="Sweepstakes-mainContent">
-          {!revealSuccessMessage && (
+          {!true && (
           <div className="Sweepstakes-headingWrapper">
             {isAdTraffic ? (
               <>
@@ -183,20 +185,25 @@ class Sweepstakes extends React.Component {
               )}
             </div>
           )}
-          {revealSuccessMessage ? (
+          {true ? (
             <>
               <div className="Sweepstakes-successMessageWrapper">
                 <div className="Sweepstakes-successMessageAndIcon">
                   <div className="Sweepstakes-successMessage">Successfully Submitted!</div>
                   <FontAwesomeIcon className="Sweepstakes-successCheckmark" icon={faCheck} size="1x" />
                 </div>
-                <p className="Sweepstakes-shareOurPage">Like or share us on facebook and you're all set!</p>
+                <p className="Sweepstakes-shareOurPage">Like or share and you're all set!</p>
                 <div className="Sweepstakes-shareButtons">
                   <FacebookProvider appId="907197889774664">
                     <Like href="https://www.apartmentquirks.com/giveaway" colorScheme="dark" showFaces share />
                   </FacebookProvider>
                 </div>
                 <a className="Sweepstakes-facebookLink" href="https://www.facebook.com/apartmentquirks">facebook.com/apartmentquirks</a>
+                <div className="Sweepstakes-tweetWrapper">
+                  <TwitterShareButton url="https://www.apartmentquirks.com/giveaway">
+                    <TwitterIcon size={32} />
+                  </TwitterShareButton>             
+                </div>
               </div>
             </>
           ): (
