@@ -21,8 +21,8 @@
 
 .image-index-item {
   border-image-repeat: repeat;
-  width: calc(50% - 16px);
-  margin: 8px;
+  width: calc(50% - 12px);
+  margin: 6px;
   height: 0;
   padding-top: 32%;
   border-radius: 3px;
@@ -143,6 +143,14 @@
   margin-top: 120px;
   border-radius: 5px;
   box-shadow: 1px 1px 1px lightgrey;
+}
+
+@media screen and (min-width: 525px) {
+  .image-index-item {
+    border-image-repeat: repeat;
+    width: calc(50% - 16px);
+    margin: 8px;
+  }
 }
 
 @media screen and (min-width: 700px) {
