@@ -15,14 +15,6 @@
   margin-top: 60px;
   border-radius: 10px;
   min-height: 80vh;
-  &-headingWrapper {
-    background-color: $primary--dark;
-    color: white;
-    padding: 6px;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px 10px 0 0;
-  }
   &-mainContent {
     background-color: white;
     border-radius: 10px;
@@ -30,19 +22,21 @@
     margin: 0 12px;
     padding-bottom: 12px;
   }
+  &-headingWrapper {
+    background-color: $primary--dark;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px 10px 0 0;
+  }
   &-headingText {
-    width: 90%;
-    margin: 0 auto;
-    padding: 12px;  
     font-size: 20px; 
+    padding: 12px 0;
     letter-spacing: 2px;
     font-weight: 600;
   }
   &-subHeading {
-    margin: 0 auto;
     line-height: 1.5;
     max-width: 330px;
-    margin-left: 14px;
     font-size: 13px;
   }
   &-inputTitle {
@@ -151,7 +145,6 @@
   }
   @media screen and (min-width: 768px) {
     &-subHeading {
-      margin-left: 22px;
       font-size: 14px;
     }
     &-headingText { 
