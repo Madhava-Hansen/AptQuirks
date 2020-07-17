@@ -148,6 +148,7 @@ class Sweepstakes extends React.Component {
             }
             addQuirk(quirk).then(() => {
               this.setState({revealSuccessMessage: true});
+              scrollTo(0, 0);
             })
           })
         });
@@ -167,19 +168,21 @@ class Sweepstakes extends React.Component {
     return (
       <div className="Sweepstakes">
         <div className="Sweepstakes-mainContent">
+          {!revealSuccessMessage && (
           <div className="Sweepstakes-headingWrapper">
             {isAdTraffic ? (
               <>
                 <p className="Sweepstakes-headingText">Hi there, apartment hero! You're 1 minute away from being entered to win free rent!</p>
                 <p className="Sweepstakes-subHeading">Review your apartment with the form below. </p>
               </>
-            ) : (
-              <>
-                <h1 className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
-                <p className="Sweepstakes-subHeading">It will only take a minute and your anonymous review will help others find their perfect home!</p>
-              </>
-            )}
-          </div>
+              ) : (
+                <>
+                  <h1 className="Sweepstakes-headingText">Review your apartment for a chance to win a month of free rent!</h1>
+                  <p className="Sweepstakes-subHeading">It will only take a minute and your anonymous review will help others find their perfect home!</p>
+                </>
+              )}
+            </div>
+          )}
           {revealSuccessMessage ? (
             <>
               <div className="Sweepstakes-successMessageWrapper">
