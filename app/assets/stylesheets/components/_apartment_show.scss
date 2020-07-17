@@ -29,11 +29,16 @@ $desktop-breakpoint: 1090px;
     margin-bottom: 12px;
   }
   &-mapWrapper {
-    height: 300px;
+    height: 225px;
     margin-bottom: 10px;
   }
   &-quirksIndexWrapper {
     margin: 0 20px;
+  }
+  @media screen and (min-width: 550px) {
+    &-mapWrapper {
+      height: 300px;
+    }
   }
   @media screen and (min-width: 768px) {
     &-apartmentDetailsContainer {
