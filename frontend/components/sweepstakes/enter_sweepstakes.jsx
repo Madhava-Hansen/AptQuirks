@@ -170,7 +170,7 @@ class Sweepstakes extends React.Component {
     return (
       <div className="Sweepstakes">
         <div className="Sweepstakes-mainContent">
-          {!true && (
+          {!revealSuccessMessage && (
           <div className="Sweepstakes-headingWrapper">
             {isAdTraffic ? (
               <>
@@ -185,7 +185,7 @@ class Sweepstakes extends React.Component {
               )}
             </div>
           )}
-          {true ? (
+          {revealSuccessMessage ? (
             <>
               <div className="Sweepstakes-successMessageWrapper">
                 <div className="Sweepstakes-successMessageAndIcon">

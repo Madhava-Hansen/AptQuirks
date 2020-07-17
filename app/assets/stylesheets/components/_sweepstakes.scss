@@ -34,7 +34,7 @@
     width: 90%;
     margin: 0 auto;
     padding: 12px;  
-    font-size: 24px; 
+    font-size: 20px; 
     letter-spacing: 2px;
     font-weight: 600;
   }
@@ -42,7 +42,8 @@
     margin: 0 auto;
     line-height: 1.5;
     max-width: 330px;
-    margin-left: 22px;
+    margin-left: 14px;
+    font-size: 13px;
   }
   &-inputTitle {
     margin-top: 8px;
@@ -147,5 +148,14 @@
   }
   &-tweetWrapper {
     margin: 12px auto;
+  }
+  @media screen and (min-width: 768px) {
+    &-subHeading {
+      margin-left: 22px;
+      font-size: 14px;
+    }
+    &-headingText { 
+      font-size: 24px; 
+    }
   }
 }
