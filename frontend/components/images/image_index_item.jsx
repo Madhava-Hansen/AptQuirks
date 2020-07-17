@@ -2,8 +2,15 @@ import React from "react";
 
 const ImageIndexItem = ({ image, toggleSlideshow, id }) => {
   return (
-    <div id={id} onClick={toggleSlideshow} className="image-index-item">
-      <img src={image.url} alt="img"></img>
+    <div 
+      onClick={toggleSlideshow}
+      className="image-index-item"
+      id={id}
+      style={{
+        backgroundImage: `url(${image.url})`, 
+        backgroundPosition: 'cover', 
+        backgroundSize: 'cover'
+      }}>
     </div>
   );
 };
