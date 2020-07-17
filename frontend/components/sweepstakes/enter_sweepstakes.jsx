@@ -193,7 +193,7 @@ class Sweepstakes extends React.Component {
                 <p className="Sweepstakes-shareOurPage">Like or share us on facebook and you're all set!</p>
                 <div className="Sweepstakes-shareButtons">
                   <FacebookProvider appId="907197889774664">
-                    <Like href="https://www.apartmentquirks.com/sweepstakes" colorScheme="dark" showFaces share />
+                    <Like href="https://www.apartmentquirks.com/giveaway" colorScheme="dark" showFaces share />
                   </FacebookProvider>
                 </div>
                 <a className="Sweepstakes-facebookLink" href="https://www.facebook.com/apartmentquirks">facebook.com/apartmentquirks</a>
