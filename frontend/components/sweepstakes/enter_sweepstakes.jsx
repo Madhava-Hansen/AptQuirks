@@ -192,11 +192,10 @@ class Sweepstakes extends React.Component {
                   <div className="Sweepstakes-successMessage">Successfully Submitted!</div>
                   <FontAwesomeIcon className="Sweepstakes-successCheckmark" icon={faCheck} size="1x" />
                 </div>
-                <p className="Sweepstakes-shareOurPage">Like or share and you're all set!</p>
+                <p className="Sweepstakes-shareOurPage">Like or share and you'll be entered 2X. That's a second chance to win free rent!</p>
                 <div className="Sweepstakes-shareButtons">
-                  <FacebookProvider appId="907197889774664">
-                    <Like href="https://www.apartmentquirks.com/giveaway" colorScheme="dark" showFaces share />
-                  </FacebookProvider>
+                  <div className="fb-like" data-href="https://www.facebook.com/apartmentquirks/" data-width="300px" data-layout="button" data-action="like" data-size="small" data-share="false"></div>                  
+                  <div className="fb-like" data-href="https://www.apartmentquirks.com/giveaway" data-width="300px" data-layout="button" data-action="recommend" data-size="small" data-share="true"></div>
                 </div>
                 <a className="Sweepstakes-facebookLink" href="https://www.facebook.com/apartmentquirks">facebook.com/apartmentquirks</a>
                 <div className="Sweepstakes-tweetWrapper">

@@ -15,7 +15,7 @@ class ProfileShow extends React.Component {
       inEditMode: false ,
       successModalClass: 'hidden',
       password: '',
-      currentUser: null
+      currentUser: ''
     };
     this.defaultUserImage =  "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
   }
@@ -96,7 +96,7 @@ class ProfileShow extends React.Component {
                 buttonName={"change photo"} 
                 currentUser={currentUser} 
                 addPhoto={addPhoto} 
-                class="UserProfile-imageUploadButton"
+                className="UserProfile-imageUploadButton"
               />
             </div>
           </div>

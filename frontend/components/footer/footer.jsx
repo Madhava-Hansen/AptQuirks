@@ -16,9 +16,7 @@ const Footer = ({currentUser}) =>
       </a>
     </div>
     <div className="Footer-share">
-      <FacebookProvider appId="907197889774664">
-        <Like href="https://www.apartmentquirks.com/sweepstakes" colorScheme="dark" showFaces share />
-      </FacebookProvider>
+      <div className="fb-like" data-href="https://www.facebook.com/apartmentquirks/" data-width="300px" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
     </div>
     <p className="Footer-email">service@apartmentquirks.com</p>
     <p className="Footer-copyright">

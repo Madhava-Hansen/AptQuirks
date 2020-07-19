@@ -38,16 +38,21 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    if params[:user][:username] == ""
-      limit = 0
-    else 
-      limit = 6
-    end
-    @users = User.where("username ~ ?", params[:user][:username]).limit(limit)
-    if @users
+    if current_user && current_user.username === ENV['ADMIN_USERNAME']
+      @users = User.all
       render 'api/users/index'
-    else
-      render json: ["no users with that username"], status: 404
+    else 
+      if params[:user][:username] == ""
+        limit = 0
+      else 
+        limit = 6
+      end
+      @users = User.where("username ~ ?", params[:user][:username]).limit(limit)
+      if @users
+        render 'api/users/index'
+      else
+        render json: ["no users with that username"], status: 404
+      end
     end
   end
 

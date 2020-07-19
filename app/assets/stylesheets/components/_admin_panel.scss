@@ -1,0 +1,29 @@
+.AdminPanel {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  color: black;
+  &-pageTitle {
+    font-size: 30px;
+  }
+  &-usersData {
+    margin: 20px;
+    padding: 20px;
+  }
+  &-usersDataTitle {
+    margin: 12px auto;
+    font-size: 20px;
+  }
+  &-usersDataTotalUsers {
+    margin: 12px auto;
+    font-size: 20px;
+  }
+  &-quirksData {
+    margin: 20px;
+    padding: 20px;
+  }
+}

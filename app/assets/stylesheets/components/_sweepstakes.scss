@@ -132,8 +132,8 @@
     }
   }
   &-shareButtons {
-    max-width: 114px;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   &-facebookLink {
     margin: 12px;
@@ -142,6 +142,11 @@
   }
   &-tweetWrapper {
     margin: 12px auto;
+  }
+  @media screen and (min-width: 450px) {
+    &-successMessageWrapper {
+      min-width: 320px;
+    }
   }
   @media screen and (min-width: 768px) {
     &-subHeading {
