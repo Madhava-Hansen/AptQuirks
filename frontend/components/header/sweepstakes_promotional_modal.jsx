@@ -47,7 +47,7 @@ const SweepstakesPromotionalModal = ({history}) => {
               />
             </div>
             <div className="SweepstakesPromotionalModal-infoGraphicItem">
-              <p className="SweepstakesPromotionalModal-subTitle">Like or share</p>
+              <p className="SweepstakesPromotionalModal-subTitle">Like or share (optional)</p>
               <FontAwesomeIcon 
                 className="SweepstakesPromotionalModal-shareIcon"
                 size="3x"
