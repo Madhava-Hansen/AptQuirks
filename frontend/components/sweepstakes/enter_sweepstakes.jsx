@@ -6,7 +6,6 @@ import {signup, fetchUser} from '../../util/session_api_util';
 import {addQuirk} from '../../util/quirk_api_util';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
-import {FacebookProvider, Like} from 'react-facebook';
 import {TwitterShareButton, TwitterIcon} from 'react-share';
 
 class Sweepstakes extends React.Component {
@@ -170,7 +169,7 @@ class Sweepstakes extends React.Component {
     return (
       <div className="Sweepstakes">
         <div className="Sweepstakes-mainContent">
-          {!revealSuccessMessage && (
+          {!true && (
           <div className="Sweepstakes-headingWrapper">
             {isAdTraffic ? (
               <>
@@ -185,7 +184,7 @@ class Sweepstakes extends React.Component {
               )}
             </div>
           )}
-          {revealSuccessMessage ? (
+          {true ? (
             <>
               <div className="Sweepstakes-successMessageWrapper">
                 <div className="Sweepstakes-successMessageAndIcon">
@@ -194,14 +193,18 @@ class Sweepstakes extends React.Component {
                 </div>
                 <p className="Sweepstakes-shareOurPage">Like or share and you'll be entered 2X. That's a second chance to win free rent!</p>
                 <div className="Sweepstakes-shareButtons">
-                  <div className="fb-like" data-href="https://www.facebook.com/apartmentquirks/" data-width="300px" data-layout="button" data-action="like" data-size="small" data-share="false"></div>                  
-                  <div className="fb-like" data-href="https://www.apartmentquirks.com/giveaway" data-width="300px" data-layout="button" data-action="recommend" data-size="small" data-share="true"></div>
+                  <div className="fb-like" data-href="https://www.apartmentquirks.com/giveaway" data-width="300px" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
                 </div>
-                <a className="Sweepstakes-facebookLink" href="https://www.facebook.com/apartmentquirks">facebook.com/apartmentquirks</a>
-                <div className="Sweepstakes-tweetWrapper">
+                <div className="Sweepstakes-socialIconsWrapper">
                   <TwitterShareButton url="https://www.apartmentquirks.com/giveaway">
                     <TwitterIcon size={32} />
-                  </TwitterShareButton>             
+                  </TwitterShareButton>     
+                  <a className="Sweepstakes-socialIcon" target="_blank" href="https://www.facebook.com/apartmentquirks">
+                    <FontAwesomeIcon size="2x" icon={["fab", "facebook"]} />
+                  </a>
+                  <a className="Sweepstakes-socialIcon" target="_blank" href="https://www.instagram.com/nesnahmade">
+                    <FontAwesomeIcon size="2x" icon={["fab", "instagram"]} />
+                  </a>
                 </div>
               </div>
             </>

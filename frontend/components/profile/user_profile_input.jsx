@@ -9,7 +9,7 @@ export const UserProfileInput = ({
       <input
         className="UserProfileInput-formInput"
         onChange={update}
-        value={value}
+        value={value || ''}
         name={type}
         type="text"
       ></input>

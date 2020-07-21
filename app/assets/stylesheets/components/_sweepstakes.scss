@@ -140,8 +140,15 @@
     color: $primary;
     font-size: 14px;
   }
-  &-tweetWrapper {
-    margin: 12px auto;
+  &-socialIconsWrapper {
+    margin: 16px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $primary;
+  }
+  &-socialIcon {
+    width: 70px;
   }
   @media screen and (min-width: 450px) {
     &-successMessageWrapper {

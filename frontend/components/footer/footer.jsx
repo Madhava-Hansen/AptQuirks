@@ -2,13 +2,12 @@ import React from "react";
 import {withRouter} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {FooterNavLinks} from "./footer_nav_links";
-import {FacebookProvider, Like} from 'react-facebook';
 
 const Footer = ({currentUser}) => 
   <footer className="Footer">
     <FooterNavLinks isLoggedIn={currentUser} />
     <div className="Footer-iconsWrapper">
-      <a target="_blank" href="https://www.apartmentquirks.com/sweepstakes">
+      <a target="_blank" href="https://www.facebook.com/apartmentquirks">
         <FontAwesomeIcon size="2x" icon={["fab", "facebook"]} />
       </a>
       <a target="_blank" href="https://www.instagram.com/nesnahmade">
