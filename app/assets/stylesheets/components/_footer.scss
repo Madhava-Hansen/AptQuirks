@@ -5,9 +5,11 @@
   &-iconsWrapper {
     display: flex;
     justify-content: space-between;
-    width: 66px;
+    width: 106px;
     margin: 12px auto;
     color: $primary;
+  }
+  &-socialIcon {
     &:hover {
       color: white;
     }

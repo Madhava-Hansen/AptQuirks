@@ -23,6 +23,13 @@ export const GreetingSocialLink = ({ handleClick, isSocialOpen }) => (
           icon={["fab", "instagram"]}
         />
       </a>
+      <a target="_blank" href="https://twitter.com/apartmentquirks">
+        <FontAwesomeIcon 
+          className="social-icon-popover"
+          size="2x" 
+          icon={["fab", "twitter"]} 
+        />
+      </a>
     </div>
   </li>
 );

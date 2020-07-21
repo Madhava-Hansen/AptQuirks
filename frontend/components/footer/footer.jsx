@@ -7,11 +7,14 @@ const Footer = ({currentUser}) =>
   <footer className="Footer">
     <FooterNavLinks isLoggedIn={currentUser} />
     <div className="Footer-iconsWrapper">
-      <a target="_blank" href="https://www.facebook.com/apartmentquirks">
+      <a className="Footer-socialIcon" target="_blank" href="https://www.facebook.com/apartmentquirks">
         <FontAwesomeIcon size="2x" icon={["fab", "facebook"]} />
       </a>
-      <a target="_blank" href="https://www.instagram.com/nesnahmade">
+      <a className="Footer-socialIcon" target="_blank" href="https://www.instagram.com/nesnahmade">
         <FontAwesomeIcon size="2x" icon={["fab", "instagram"]} />
+      </a>
+      <a className="Footer-socialIcon" target="_blank" href="https://twitter.com/apartmentquirks">
+        <FontAwesomeIcon size="2x" icon={["fab", "twitter"]} />
       </a>
     </div>
     <div className="Footer-share">
