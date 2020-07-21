@@ -8,11 +8,13 @@ class WelcomeUserMailer < ApplicationMailer
       <p>Username: #{user.username}</p>
       #{if user.isSweepstakes
       "<p style='max-width:600px;'>Thank you so much for your review! You've been entered into the sweepstakes!</p>
-      <p>If you'd like to add a custom password, follow the link below:</p>
-      <p>https://www.apartmentquirks.com/profile?id=#{user.password}&usr=#{user.username}</p>"
+      <p>If you'd like to set up an account with Apartment Quirks, you can use the temporary password below to login and create a password.</p>
+      <p>Temporary password: #{user.password}</p>
+      </br>
+      <p>Keep this email for your records. It will be used to confirm your entry if you win!</p>"
       else 
         "<p style='max-width:600px;'>Thanks for signing up, you're an apartment hero! Add a review today and be entered to win a month of free rent!</p>
-        <a style='color:#3368FF;'href='https://www.apartmentquirks.com/login'>Apartment Quirks</a>"
+        <a style='color:#3368FF;'href='https://www.apartmentquirks.com/login'>Apartment Quirks Login</a>"
       end}
       <p>Feel free to reach out with any questions!</p>
       <br/>
@@ -26,7 +28,7 @@ class WelcomeUserMailer < ApplicationMailer
     </div>"
     to = SendGrid::Email.new(email: user.email)
     from = SendGrid::Email.new(email: 'service@apartmentquirks.com')
-    subject = 'Welcome to Apartment Quirks'
+    subject = user.isSweepstakes ? "Apartment Quirks Giveaway entry confirmation!" : "Welcome to Apartment Quirks"
     content = SendGrid::Content.new(type: 'text/html', value: body)
     mail = SendGrid::Mail.new(from, subject, to, content)
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
