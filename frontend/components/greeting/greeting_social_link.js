@@ -16,7 +16,7 @@ export const GreetingSocialLink = ({ handleClick, isSocialOpen }) => (
           icon={["fab", "facebook"]}
         />
       </a>
-      <a target="_blank" href="https://www.instagram.com/nesnahmade">
+      <a target="_blank" href="https://www.instagram.com/apartmentquirksco/">
         <FontAwesomeIcon
           className="social-icon-popover"
           size="2x"

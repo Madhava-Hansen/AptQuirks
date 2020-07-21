@@ -10,7 +10,7 @@ const Footer = ({currentUser}) =>
       <a className="Footer-socialIcon" target="_blank" href="https://www.facebook.com/apartmentquirks">
         <FontAwesomeIcon size="2x" icon={["fab", "facebook"]} />
       </a>
-      <a className="Footer-socialIcon" target="_blank" href="https://www.instagram.com/nesnahmade">
+      <a className="Footer-socialIcon" target="_blank" href="https://www.instagram.com/apartmentquirksco/">
         <FontAwesomeIcon size="2x" icon={["fab", "instagram"]} />
       </a>
       <a className="Footer-socialIcon" target="_blank" href="https://twitter.com/apartmentquirks">
