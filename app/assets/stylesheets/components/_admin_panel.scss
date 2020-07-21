@@ -2,10 +2,10 @@
   min-height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
-  align-items: center;
   background-color: white;
+  max-width: 1200px;
   color: black;
   &-pageTitle {
     font-size: 30px;
@@ -25,5 +25,17 @@
   &-quirksData {
     margin: 20px;
     padding: 20px;
+  }
+  &-userIndexItem {
+    margin: 20px;
+    padding: 12px;
+  }
+  &-username {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  &-email {
+    font-weight: bold;
+    font-size: 24px;
   }
 }
