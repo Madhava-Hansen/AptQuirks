@@ -163,7 +163,8 @@ class Sweepstakes extends React.Component {
       username, 
       email, 
       usernameExists, 
-      isAdTraffic
+      isAdTraffic,
+      apartmentNum
     } = this.state;
 
     return (
@@ -240,16 +241,16 @@ class Sweepstakes extends React.Component {
               update={this.update}
               value={body}
               className="SweepstakesInput-input"
-              isValid={this.validateLength(body, 24)}
+              isValid={this.validateLength(body, 150)}
             />
-            {/* <p className="Sweepstakes-inputTitle">Apartment Number (optional)</p>
+            <p className="Sweepstakes-inputTitle">Apartment Number (optional)</p>
             <SweepstakesInput 
               name="apartmentNum"
               update={this.update}
               value={apartmentNum}
               className="SweepstakesInput-input"
               isValid={this.validateLength(apartmentNum, 1)}
-            /> */}
+            />
             <p className="Sweepstakes-inputTitle">Create an anonymous username*</p>
             <SweepstakesInput
               name="username"
