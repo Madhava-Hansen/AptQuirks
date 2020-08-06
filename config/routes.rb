@@ -11,6 +11,7 @@
         resources :images, only: [:create, :index, :show]
       end
     end
+    get '/third_party_apis' => "third_party_ap_is#show"
     get '*path' => "static_pages#root"
     root 'static_pages#root'
   end

@@ -3,6 +3,7 @@ import {QuirkIndexItem} from "./quirk_index_item";
 import {withRouter} from "react-router-dom";
 import {fetchQuirks, addQuirk} from '../../util/quirk_api_util';
 import QuirkForm from './quirk_form';
+import {Walkscore} from '../third_party_api_features/walkscore';
 
 class QuirkIndex extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class QuirkIndex extends React.Component {
       title: "",
       body: "",
       apt_number: "",
-      noQuirksYet: false
+      noQuirksYet: false,
+      apartmentShow: {street_address: ''}
     };
     this.defaultThumbnailUrl =
     "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
@@ -33,10 +35,23 @@ class QuirkIndex extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps) {
-    const { quirksIndex } = nextProps;
+    const { quirksIndex, apartmentShow } = nextProps;
+    let hasApartmentData = false;
+    if (apartmentShow && apartmentShow.street_address) {
+      hasApartmentData = true;
+    }
     if (quirksIndex && quirksIndex.quirks) {
       this.props.getQuirksForReviewsFeature(quirksIndex.quirks);
-      return {quirks: quirksIndex.quirks};
+      if (hasApartmentData) {
+        return {
+          quirks: quirksIndex.quirks,
+          apartmentShow: apartmentShow
+        }
+      } else {
+        return {quirks: quirksIndex.quirks};
+      }
+    } else if (hasApartmentData) {
+      return {apartmentShow: apartmentShow};
     }
 
     return null;
@@ -78,8 +93,8 @@ class QuirkIndex extends React.Component {
   update = type => e => this.setState({ [type]: e.currentTarget.value });
 
   render() {
-    const {apartmentId, history, apartmentShow, currentUser} = this.props;
-    const {revealQuirkForm} = this.state;
+    const {apartmentId, history, currentUser} = this.props;
+    const {revealQuirkForm, apartmentShow} = this.state;
     return (
       <aside className="QuirksIndex">
         {revealQuirkForm && (
@@ -127,12 +142,15 @@ class QuirkIndex extends React.Component {
               <p className="QuirksIndex-whatsAQuirkPopover">
                 A quirk is a story about what it was like living at a house or
                 apartment. Help other people out by telling your story about
-                living at {this.props.apartmentShow.street_address}!
+                living at {apartmentShow.street_address}!
               </p>
             </div>
           </div>
         </div>
           <ul className="QuirksIndex-quirksWrapper">
+            {apartmentShow && (
+              <Walkscore data={{third_party_ap_is: {address: apartmentShow.street_address}}} />
+            )}
             {this.state.quirks.map(quirk => (
               <QuirkIndexItem apartmentId={apartmentId} currentUser={currentUser} quirk={quirk} key={quirk.id} />
             ))}
