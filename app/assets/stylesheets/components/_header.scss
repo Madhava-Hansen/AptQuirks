@@ -229,6 +229,8 @@
 
 .nav {
   list-style: none;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-right button {
@@ -387,12 +389,11 @@
   }
 
   .nav-icon {
-    display: inline-block;
-    float: right;
+    display: block;
     width: 30px;
     margin-right: 16px;
     margin-top: 15px;
-    background-color: $primary;
+    color: $primary;
   }
 
   .nav-icon:hover {

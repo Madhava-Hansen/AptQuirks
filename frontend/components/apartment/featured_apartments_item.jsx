@@ -24,6 +24,12 @@ const ApartmentIndexItem = ({ apartment, redirect, index }) => {
           <img className="FeaturedApartmentsItem-userPic" src={featuredQuirk.user_pic}></img>
           <p className="FeaturedApartmentsItem-username">{featuredQuirk.user_name}</p>
         </section>
+        {/* <div className="FeaturedApartmentsItem-addressWrapper">
+          <h1 className="FeaturedApartmentsItem-streetAddress">
+            {streetAddress}
+          </h1>
+          <h3 className="FeaturedApartmentsItem-cityStateZip">{cityStateZip}</h3>
+        </div> */}
         <h4 className="FeaturedApartmentsItem-titleText">{featuredQuirk.title}</h4>
         <p className="FeaturedApartmentsItem-bodyText">{featuredQuirk.body}</p>
         {!!featuredQuirk.star_rating && (
@@ -38,12 +44,6 @@ const ApartmentIndexItem = ({ apartment, redirect, index }) => {
             />
           </div>
         )}
-        <div className="FeaturedApartmentsItem-addressWrapper">
-          <h1 className="FeaturedApartmentsItem-streetAddress">
-            {streetAddress}
-          </h1>
-          <h3 className="FeaturedApartmentsItem-cityStateZip">{cityStateZip}</h3>
-        </div>
       </div>
     </li>
   );

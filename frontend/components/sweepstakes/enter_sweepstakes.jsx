@@ -290,6 +290,11 @@ class Sweepstakes extends React.Component {
                     <li>Loved it</li>
                   </ul>
               </div>
+              <button 
+                className="Sweepstakes-button"
+                onClick={this.handleSubmitReview}>
+                Submit Review!
+              </button>
               <div className="SessionForm-termsAndConditionsWrapper">
                 <p className="Sweepstakes-conditions">By submitting I accept the
                   <a
@@ -304,11 +309,6 @@ class Sweepstakes extends React.Component {
                   </a> and the <a target="_blank" href="https://res.cloudinary.com/aptquirks/image/upload/v1595306504/Apartment_Quirks_Giveaway_Rules_Doc_pdt8wt.pdf" className="Sweepstakes-rules">giveaway rules.</a>
                 </p>
               </div>
-              <button 
-                className="Sweepstakes-button"
-                onClick={this.handleSubmitReview}>
-                Submit Review!
-              </button>
             </div>
           </div>
           )}

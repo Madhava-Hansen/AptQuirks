@@ -31,7 +31,8 @@
   &-headingText {
     font-size: 20px; 
     padding: 12px 0;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    line-height: 1;
     font-weight: 600;
   }
   &-subHeading {
@@ -57,6 +58,7 @@
     height: 50px;
     font-size: 17px;
     border: none;
+    margin-top: 32px;
   }
   &-starRating {
     margin: 20px auto 0 auto;

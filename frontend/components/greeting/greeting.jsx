@@ -1,7 +1,9 @@
 import React from "react";
-import { NavLink, withRouter } from "react-router-dom";
-import { GreetingNavLink } from "./greeting_nav_link";
-import { GreetingSocialLink } from "./greeting_social_link";
+import {NavLink, withRouter} from "react-router-dom";
+import {GreetingNavLink} from "./greeting_nav_link";
+import {GreetingSocialLink} from "./greeting_social_link";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBars} from '@fortawesome/fontawesome-free-solid';
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -89,11 +91,13 @@ class Greeting extends React.Component {
     if (currentUser) {
       return (
         <div className="nav-div">
-          <img
+          <FontAwesomeIcon 
+            onClick={this.handleToggleMobileNav}
+            size="2x"
+            icon={faBars}
             id="mobile-nav"
             className="nav-icon group"
-            src="https://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"
-          ></img>
+          />
           <ul className={this.state.navRight}>
             <li className="nav-link-pic">
               <figure id="header-profile-pic" className="header-profile-pic">

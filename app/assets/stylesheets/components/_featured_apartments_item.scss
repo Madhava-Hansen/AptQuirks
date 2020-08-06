@@ -25,12 +25,13 @@
     margin: 0 auto;
   }
   &-addressWrapper {
-    color: rgba($primary, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 20px;
+    font-size: 14px;
+    margin: 12px auto;
+    color: grey;
   }
   &-streetAddress {
     font-weight: normal;
@@ -46,7 +47,8 @@
   &-titleText {
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin: 0 auto 10px auto;
+    max-width: 320px;
   }
   &-userInfo {
     width: 260px;
