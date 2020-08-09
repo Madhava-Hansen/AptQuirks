@@ -5,13 +5,15 @@ import {Link} from 'react-router-dom';
 
 export const AdminPanel = () => {
 
-  const [totalUsers, setTotalUsers] = useState(0);
+  const [totalUsers, setTotalUsers] = useState([]);
 
   useEffect(() => {
     fetchUsers({user: {username: null}}).then(users => {
       setTotalUsers(users);
     })
   }, [])
+
+  const getFilteredUsers = totalUsers.filter(user => user.email !== 'madhavah@gmail.com');
 
   return (
     <div className="AdminPanel">
@@ -20,9 +22,9 @@ export const AdminPanel = () => {
           <h1 className="AdminPanel-pageTitle">Admin Panel</h1>
           <div className="AdminPanel-usersData">
             <h1 className="AdminPanel-usersDataTitle">Total Users</h1>
-            <h2 className="AdminPanel-usersDataTotalUsers">{totalUsers.length}</h2>
+            <h2 className="AdminPanel-usersDataTotalUsers">{getFilteredUsers.length}</h2>
           </div>
-          {totalUsers.map(user => {
+          {getFilteredUsers.map(user => {
               return (
                 <div className="AdminPanel-userIndexItem">
                   <div className="AdminPanel-username">{`Username: ${user.username}`}</div>
