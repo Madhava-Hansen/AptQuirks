@@ -148,7 +148,6 @@ class Sweepstakes extends React.Component {
             }
             addQuirk(quirk).then(() => {
               this.setState({revealSuccessMessage: true});
-              fbq('track', 'Giveaway Entry');
               scrollTo(0, 0);
             })
           })
