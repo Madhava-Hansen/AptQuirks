@@ -7,7 +7,6 @@ import {addQuirk} from '../../util/quirk_api_util';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
 import {TwitterShareButton, TwitterIcon} from 'react-share';
-import ReactPixel from 'react-facebook-pixel';
 
 class Sweepstakes extends React.Component {
 
@@ -149,13 +148,8 @@ class Sweepstakes extends React.Component {
             }
             addQuirk(quirk).then(() => {
               this.setState({revealSuccessMessage: true});
+              fbq('track', 'Giveaway Entry');
               scrollTo(0, 0);
-              const options = {
-                autoConfig: true, // set pixel's autoConfig
-                debug: false, // enable logs
-              };
-              ReactPixel.init('398399727035268', options);
-              ReactPixel.track(event, data); // For tracking default events, more info about events and data https://developers.facebook.com/docs/ads-for-websites/pixel-events/v2.9
             })
           })
         });
@@ -181,8 +175,8 @@ class Sweepstakes extends React.Component {
           <div className="Sweepstakes-headingWrapper">
             {isAdTraffic ? (
               <>
-                <p className="Sweepstakes-headingText">Hi there, apartment hero! You're 1 minute away from being entered to win free rent!</p>
-                <p className="Sweepstakes-subHeading">Review your apartment with the form below. </p>
+                <p className="Sweepstakes-headingText">Enter the giveaway below!</p>
+                <p className="Sweepstakes-subHeading">Review an apartment and you'll be all set.</p>
               </>
               ) : (
                 <>
@@ -220,7 +214,7 @@ class Sweepstakes extends React.Component {
             <div className="Sweepstakes-inputsWrapper">
             <div className="Sweepstakes-autoCompleteWrapper">
               <p className="Sweepstakes-inputTitle">
-                Rental Address*
+                Rental Address
               </p>
               <input
                 className="SweepstakesInput-input"
@@ -241,24 +235,7 @@ class Sweepstakes extends React.Component {
               className="SweepstakesInput-input"
               isValid={this.validateLength(title, 6)}
             /> */}
-            <p className="Sweepstakes-inputTitle">Any advice to other future tenants?*</p>
-            <SweepstakesInput 
-              name="body"
-              isTextArea
-              update={this.update}
-              value={body}
-              className="SweepstakesInput-input"
-              isValid={this.validateLength(body, 120)}
-            />
-            <p className="Sweepstakes-inputTitle">Apartment Number (optional)</p>
-            <SweepstakesInput 
-              name="apartmentNum"
-              update={this.update}
-              value={apartmentNum}
-              className="SweepstakesInput-input"
-              isValid={this.validateLength(apartmentNum, 1)}
-            />
-            <p className="Sweepstakes-inputTitle">Create an anonymous username*</p>
+            <p className="Sweepstakes-inputTitle">Anonymous username (Ironman, Pitbull, Post Malone?)</p>
             <SweepstakesInput
               name="username"
               update={this.updateUsername}
@@ -270,7 +247,7 @@ class Sweepstakes extends React.Component {
             {usernameExists && (
               <p className="Sweepstakes-usernameError">username already exists</p>
             )}
-            <p className="Sweepstakes-inputTitle">Email Address (Won't be shared with anyone)*</p>
+            <p className="Sweepstakes-inputTitle">Email Address (We'll need to get in touch if you win!)*</p>
             <SweepstakesInput
               name="email"
               update={this.update}
@@ -278,9 +255,26 @@ class Sweepstakes extends React.Component {
               className="SweepstakesInput-input"
               isValid={this.validateEmail(email)}
             />
+            <p className="Sweepstakes-inputTitle">Apartment Number (optional)</p>
+            <SweepstakesInput 
+              name="apartmentNum"
+              update={this.update}
+              value={apartmentNum}
+              className="SweepstakesInput-input"
+              isValid={this.validateLength(apartmentNum, 1)}
+            />
+            <p className="Sweepstakes-inputTitle">Any advice to other future tenants?</p>
+            <SweepstakesInput 
+              name="body"
+              isTextArea
+              update={this.update}
+              value={body}
+              className="SweepstakesInput-input"
+              isValid={this.validateLength(body, 120)}
+            />
             <div className="Sweepstakes-bottomSectionWrapper">
               <div className="Sweepstakes-starRating">
-                <p className="QuirkForm-ratingTitle">How would you rate your overall experience?*</p>
+                <p className="QuirkForm-ratingTitle">How would you rate your overall experience?</p>
                   <StarRatings 
                     rating={this.state.star_rating}
                     starRatedColor={this.starRatingColor}
