@@ -1,4 +1,6 @@
 import React from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBuilding} from '@fortawesome/fontawesome-free-solid';
 
 class Logo extends React.Component {
   constructor(props) {
@@ -9,7 +11,10 @@ class Logo extends React.Component {
     return (
       <li className="logo" onClick={this.props.redirectHome}>
         <div className="logo-icon">
-          <h1 className="logo-icon-letter">Q</h1>
+          <FontAwesomeIcon 
+            size="2x"
+            icon={faBuilding}
+          />
         </div>
         <h1 className="logo-text">Apartment Quirks</h1>
       </li>

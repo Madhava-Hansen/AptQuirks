@@ -29,19 +29,30 @@ class Greeting extends React.Component {
     }
   }
 
-  handleDropdownReveal = (event) => {
+  handleDropdownReveal = event => {
+    const classList = event.target.classList;
     if (event.target.id === "social-link") {
       return;
+    } else if (this.getIsMobileIcon(classList) || event.target.farthestViewportElement && event.target.farthestViewportElement.className.baseVal.includes("mobile-nav")) {
+      this.handleMobileDropdown();
     } else if (event.target.id === "pic") {
       this.toggleDropdown();
-    } else if (event.target.id === "mobile-nav") {
-      this.handleMobileDropdown(event);
     } else if (this.state.dropdown === "dropdown-class group") {
       this.setState({ dropdown: "hidden" });
     } else if (this.state.navRight === "nav-right-reveal") {
       this.setState({ navRight: "nav-right" });
     }
   };
+
+  getIsMobileIcon = classList => {
+    for (let i = 0; i < classList.length; i++) {
+      if (classList[i] === 'mobile-nav') {
+        return true;
+      }
+    }
+
+    return false;
+  }
 
   handleMobileDropdown = () => {
     if (this.state.navRight === "nav-right") {
@@ -91,13 +102,13 @@ class Greeting extends React.Component {
     if (currentUser) {
       return (
         <div className="nav-div">
-          <FontAwesomeIcon 
-            onClick={this.handleToggleMobileNav}
-            size="2x"
-            icon={faBars}
-            id="mobile-nav"
-            className="nav-icon group"
-          />
+          <div id="mobile-nav" className="nav-icon group">
+            <FontAwesomeIcon 
+              size="2x"
+              icon={faBars}
+              className="mobile-nav"
+            />
+          </div>
           <ul className={this.state.navRight}>
             <li className="nav-link-pic">
               <figure id="header-profile-pic" className="header-profile-pic">
@@ -174,11 +185,13 @@ class Greeting extends React.Component {
     } else {
       return (
         <div className="nav-div">
-          <img
-            id="mobile-nav"
-            className="nav-icon group"
-            src="https://res.cloudinary.com/aptquirks/image/upload/v1506655159/list-button_cdopk3.png"
-          ></img>
+          <div id="mobile-nav" className="nav-icon group">
+            <FontAwesomeIcon 
+              size="2x"
+              icon={faBars}
+              className="mobile-nav"  
+            />
+          </div>
           <ul className={this.state.navRight}>
             <GreetingNavLink
               currentUrl={this.state.currentUrl}

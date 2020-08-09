@@ -148,9 +148,9 @@ class QuirkIndex extends React.Component {
           </div>
         </div>
           <ul className="QuirksIndex-quirksWrapper">
-            {apartmentShow && (
+            {/* {apartmentShow && (
               <Walkscore data={{third_party_ap_is: {address: apartmentShow.street_address}}} />
-            )}
+            )} */}
             {this.state.quirks.map(quirk => (
               <QuirkIndexItem apartmentId={apartmentId} currentUser={currentUser} quirk={quirk} key={quirk.id} />
             ))}
