@@ -7,6 +7,7 @@ import {addQuirk} from '../../util/quirk_api_util';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
 import {TwitterShareButton, TwitterIcon} from 'react-share';
+import ReactPixel from 'react-facebook-pixel';
 
 class Sweepstakes extends React.Component {
 
@@ -127,7 +128,7 @@ class Sweepstakes extends React.Component {
  }
 
 
-  handleSubmitReview = () => {
+  handleSubmitReview = event => {
     if (this.validateInputs()) {
       const {title, body, apartmentParams, apartmentNum, star_rating, email, username} = this.state;
       createApartment(apartmentParams).then(response => {
@@ -149,6 +150,12 @@ class Sweepstakes extends React.Component {
             addQuirk(quirk).then(() => {
               this.setState({revealSuccessMessage: true});
               scrollTo(0, 0);
+              const options = {
+                autoConfig: true, // set pixel's autoConfig
+                debug: false, // enable logs
+              };
+              ReactPixel.init('398399727035268', options);
+              ReactPixel.track(event, data); // For tracking default events, more info about events and data https://developers.facebook.com/docs/ads-for-websites/pixel-events/v2.9
             })
           })
         });
@@ -192,7 +199,7 @@ class Sweepstakes extends React.Component {
                   <div className="Sweepstakes-successMessage">Successfully Submitted!</div>
                   <FontAwesomeIcon className="Sweepstakes-successCheckmark" icon={faCheck} size="1x" />
                 </div>
-                <p className="Sweepstakes-shareOurPage">Like or share and you'll be entered 2X. That's a second chance to win free rent!</p>
+                <p className="Sweepstakes-shareOurPage">Like or share our Sweepstakes on any social media platform and you'll be entered a second time!</p>
                 <div className="Sweepstakes-shareButtons">
                   <div className="fb-like" data-href="https://www.apartmentquirks.com/giveaway" data-width="300px" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
                 </div>
@@ -241,7 +248,7 @@ class Sweepstakes extends React.Component {
               update={this.update}
               value={body}
               className="SweepstakesInput-input"
-              isValid={this.validateLength(body, 150)}
+              isValid={this.validateLength(body, 120)}
             />
             <p className="Sweepstakes-inputTitle">Apartment Number (optional)</p>
             <SweepstakesInput 
