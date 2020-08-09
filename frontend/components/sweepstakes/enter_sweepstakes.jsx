@@ -269,7 +269,7 @@ class Sweepstakes extends React.Component {
               update={this.update}
               value={body}
               className="SweepstakesInput-input"
-              isValid={this.validateLength(body, 50)}
+              isValid={this.validateLength(body, 20)}
             />
             <div className="Sweepstakes-bottomSectionWrapper">
               <div className="Sweepstakes-starRating">
