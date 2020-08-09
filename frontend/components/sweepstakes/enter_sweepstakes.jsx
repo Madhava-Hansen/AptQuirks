@@ -127,7 +127,7 @@ class Sweepstakes extends React.Component {
  }
 
 
-  handleSubmitReview = event => {
+  handleSubmitReview = () => {
     if (this.validateInputs()) {
       const {title, body, apartmentParams, apartmentNum, star_rating, email, username} = this.state;
       createApartment(apartmentParams).then(response => {
@@ -269,7 +269,7 @@ class Sweepstakes extends React.Component {
               update={this.update}
               value={body}
               className="SweepstakesInput-input"
-              isValid={this.validateLength(body, 120)}
+              isValid={this.validateLength(body, 50)}
             />
             <div className="Sweepstakes-bottomSectionWrapper">
               <div className="Sweepstakes-starRating">
