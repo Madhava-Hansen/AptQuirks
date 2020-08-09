@@ -33,13 +33,5 @@ class WelcomeUserMailer < ApplicationMailer
     mail = SendGrid::Mail.new(from, subject, to, content)
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
     response = sg.client.mail._('send').post(request_body: mail.to_json)
-
-    to_cc = SendGrid::Email.new(email: 'madhavah@gmail.com')
-    from_cc = SendGrid::Email.new(email: 'service@apartmentquirks.com')
-    subject_cc = user.isSweepstakes ? "New User Submitted Sweepstakes!" : "New User Signed up!"
-    content_cc = SendGrid::Content.new(type: 'text/html', value: body)
-    mail_cc = SendGrid::Mail.new(from: from_cc, subject: subject_cc, to: to_cc, content: content_cc)
-    sg_cc = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-    response_cc = sg_cc.client.mail._('send').post(request_body: mail.to_json)
   end
 end
