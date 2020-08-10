@@ -20,8 +20,7 @@ class Api::QuirksController < ApplicationController
   end
 
   def index
-    quirks = Quirk.where("apartment_id = ?", params[:apartment_id])
-    @quirks = quirks.sort_by &:created_at
+    @quirks = Quirk.where("apartment_id = ?", params[:apartment_id]).reverse_order
     if @quirks
       render 'api/quirks/index'
     else
