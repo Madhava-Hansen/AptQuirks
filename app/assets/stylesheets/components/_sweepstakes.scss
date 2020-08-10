@@ -17,10 +17,8 @@
   &-mainContent {
     background-color: white;
     border-radius: 10px;
-    max-width: 500px;
     margin: 0 12px;
     padding-bottom: 12px;
-    min-width: 90%;
   }
   &-headingWrapper {
     background-color: $primary--dark;
@@ -39,6 +37,18 @@
     line-height: 1.5;
     max-width: 330px;
     font-size: 13px;
+  }
+  &-mainContent,
+  &-progressBar {
+    min-width: 90%;
+    max-width: 500px;
+  }
+  &-progressBar {
+    position: fixed;
+    top: 65px;
+    margin: 0 auto;
+    z-index: 1;
+    animation: fadeIn 1s;
   }
   &-inputTitle {
     color: $primary--dark;
@@ -159,7 +169,8 @@
     }
   }
   @media screen and (min-width: 520px) {
-    &-mainContent {
+    &-mainContent,
+    &-progressBar {
       min-width: 500px;
     }
   }
@@ -171,4 +182,9 @@
       font-size: 24px; 
     }
   }
+}
+
+@keyframes fadeIn {
+  from {opacity: 0%;}
+  to {opacity: 100%;}
 }

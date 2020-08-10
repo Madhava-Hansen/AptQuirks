@@ -7,6 +7,7 @@ import {addQuirk} from '../../util/quirk_api_util';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from '@fortawesome/fontawesome-free-solid'
 import {TwitterShareButton, TwitterIcon} from 'react-share';
+import ProgressBar from '@ramonak/react-progress-bar';
 
 class Sweepstakes extends React.Component {
 
@@ -23,7 +24,8 @@ class Sweepstakes extends React.Component {
       hasSelectedAddress: false,
       usernameExists: false,
       isAdTraffic: false,
-      failedValidation: false
+      failedValidation: false,
+      currentProgress: 0
     };
     this.autocomplete = null;
     this.emailValidationRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -49,7 +51,9 @@ class Sweepstakes extends React.Component {
     );
     this.autocomplete.addListener("place_changed", () => {
       this.handleSelectAutocomplete()
-      this.setState({hasSelectedAddress: true});
+      this.setState({hasSelectedAddress: true}, () => {
+        this.updateProgress();
+      });
     });
     const {search} = this.props.location;
     const removedQuestionMark = search.slice(1, search.length);
@@ -88,9 +92,17 @@ class Sweepstakes extends React.Component {
     return finalFullAddress;
   }
   
-  update = name => e => this.setState({[name]: e.currentTarget.value});
+  update = name => e => {
+    this.setState({[name]: e.currentTarget.value}, () => {
+      this.updateProgress();
+    });
+  };
 
-  handleChangeStarRating = rating => this.setState({star_rating: rating});
+  handleChangeStarRating = rating => {
+    this.setState({star_rating: rating}, () => {
+      this.updateProgress();
+    });
+  };
 
   validateEmail = () => this.emailValidationRegex.test(this.state.email.toLowerCase());
 
@@ -102,7 +114,9 @@ class Sweepstakes extends React.Component {
   validateLength = (string, length) => string.length >= length;
 
   updateUsername = name => e => {
-    this.setState({[name]: e.currentTarget.value});
+    this.setState({[name]: e.currentTarget.value}, () => {
+      this.updateProgress();
+    });
     this.validateUsername(e.currentTarget.value);
   }
 
@@ -125,6 +139,26 @@ class Sweepstakes extends React.Component {
     }
 
     return result;
+ }
+
+ updateProgress = () => {
+   let currentProgress = 0;
+   if (this.validateLength(this.state.username, 6)) {
+     currentProgress += 20;
+   }
+   if (this.validateLength(this.state.body, 20)) {
+    currentProgress += 20;
+   }
+   if (this.validateEmail(this.state.email)) {
+     currentProgress += 20;
+   }
+   if (this.state.hasSelectedAddress) {
+     currentProgress += 20;
+   }
+   if (this.state.star_rating > 0) {
+     currentProgress += 20;
+   }
+   this.setState({currentProgress: currentProgress});
  }
 
 
@@ -167,11 +201,16 @@ class Sweepstakes extends React.Component {
       email, 
       usernameExists, 
       isAdTraffic,
-      apartmentNum
+      apartmentNum,
+      currentProgress
     } = this.state;
-
     return (
       <div className="Sweepstakes">
+        {(!revealSuccessMessage && currentProgress > 0) && (
+          <div className="Sweepstakes-progressBar">
+            <ProgressBar bgcolor="#4BB543" completed={currentProgress}/>
+          </div>
+        )}
         <div className="Sweepstakes-mainContent">
           {!revealSuccessMessage && (
           <div className="Sweepstakes-headingWrapper">
@@ -222,7 +261,6 @@ class Sweepstakes extends React.Component {
                 className="SweepstakesInput-input"
                 id="autocompleteSweepstakes"
                 type="text"
-                placeholder=""
               >
               </input>
               {this.state.hasSelectedAddress && (
