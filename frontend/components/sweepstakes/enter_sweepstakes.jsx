@@ -22,7 +22,8 @@ class Sweepstakes extends React.Component {
       apartmentParams: null,
       hasSelectedAddress: false,
       usernameExists: false,
-      isAdTraffic: false
+      isAdTraffic: false,
+      failedValidation: false
     };
     this.autocomplete = null;
     this.emailValidationRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -153,6 +154,8 @@ class Sweepstakes extends React.Component {
           })
         });
       })
+    } else {
+      this.setState({failedValidation: true});
     }
   }
 

@@ -38,9 +38,8 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    # if current_user && current_user.username === ENV['ADMIN_USERNAME']
-    if true
-      @users = User.all
+    if current_user && current_user.username === ENV['ADMIN_USERNAME']
+      @users = User.all.reverse_order
       render 'api/users/index'
     else 
       if params[:user][:username] == ""
@@ -48,7 +47,7 @@ class Api::UsersController < ApplicationController
       else 
         limit = 6
       end
-      @users = User.where("username ~ ?", params[:user][:username]).limit(limit)
+      @users = User.where("username ~ ?", params[:user][:username]).limit(limit).reverse_order
       if @users
         render 'api/users/index'
       else
