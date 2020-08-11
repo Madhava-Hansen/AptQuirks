@@ -53,6 +53,8 @@ class Sweepstakes extends React.Component {
       this.handleSelectAutocomplete()
       this.setState({hasSelectedAddress: true}, () => {
         this.updateProgress();
+        fbq('trackCustom', 'addressSelectionChange');
+
       });
     });
     const {search} = this.props.location;
@@ -93,6 +95,7 @@ class Sweepstakes extends React.Component {
   }
   
   update = name => e => {
+    fbq('trackCustom', 'inputChange', {inputName: `${name}: value: ${e.currentTarget.value}`});
     this.setState({[name]: e.currentTarget.value}, () => {
       this.updateProgress();
     });
@@ -101,6 +104,8 @@ class Sweepstakes extends React.Component {
   handleChangeStarRating = rating => {
     this.setState({star_rating: rating}, () => {
       this.updateProgress();
+      fbq('trackCustom', 'starRatingSelection');
+
     });
   };
 
@@ -116,6 +121,8 @@ class Sweepstakes extends React.Component {
   updateUsername = name => e => {
     this.setState({[name]: e.currentTarget.value}, () => {
       this.updateProgress();
+      fbq('trackCustom', 'usernameInputChange', {inputName: name, inputValue: e.currentTarget.value});
+
     });
     this.validateUsername(e.currentTarget.value);
   }

@@ -48,7 +48,6 @@
     top: 65px;
     margin: 0 auto;
     z-index: 1;
-    animation: fadeIn 1s;
   }
   &-inputTitle {
     color: $primary--dark;
@@ -182,9 +181,4 @@
       font-size: 24px; 
     }
   }
-}
-
-@keyframes fadeIn {
-  from {opacity: 0%;}
-  to {opacity: 100%;}
 }
