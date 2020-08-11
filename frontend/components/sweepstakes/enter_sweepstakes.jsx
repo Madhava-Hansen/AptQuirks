@@ -95,7 +95,7 @@ class Sweepstakes extends React.Component {
   }
   
   update = name => e => {
-    fbq('trackCustom', 'inputChange', {inputName: `${name}: value: ${e.currentTarget.value}`});
+    fbq('trackCustom', 'inputChange', {inputName: `${name}: value: ${e.currentTarget ? e.currentTarget.value : 'empty value'}`});
     this.setState({[name]: e.currentTarget.value}, () => {
       this.updateProgress();
     });
