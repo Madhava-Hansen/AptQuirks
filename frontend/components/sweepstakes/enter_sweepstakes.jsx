@@ -95,8 +95,9 @@ class Sweepstakes extends React.Component {
   }
   
   update = name => e => {
-    fbq('trackCustom', 'inputChange', {inputName: `${name}: value: ${e.currentTarget ? e.currentTarget.value : 'empty value'}`});
-    this.setState({[name]: e.currentTarget.value}, () => {
+    const value = e.currentTarget.value;
+    fbq('trackCustom', 'inputChange', {inputName: `${name}: value: ${value}`});
+    this.setState({[name]: value}, () => {
       this.updateProgress();
     });
   };
@@ -119,10 +120,9 @@ class Sweepstakes extends React.Component {
   validateLength = (string, length) => string.length >= length;
 
   updateUsername = name => e => {
+    fbq('trackCustom', 'usernameInputChange', {inputName: name, inputValue: e.currentTarget.value});
     this.setState({[name]: e.currentTarget.value}, () => {
       this.updateProgress();
-      fbq('trackCustom', 'usernameInputChange', {inputName: name, inputValue: e.currentTarget.value});
-
     });
     this.validateUsername(e.currentTarget.value);
   }
