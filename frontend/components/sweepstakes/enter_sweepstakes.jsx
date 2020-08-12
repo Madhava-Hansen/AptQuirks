@@ -114,7 +114,7 @@ class Sweepstakes extends React.Component {
 
   validateInputs = () => {
     const {body, usernameExists, star_rating, email, username} = this.state;
-    return  this.validateLength(body, 24) && !!star_rating && this.validateEmail(email) && this.validateLength(username, 6) && !usernameExists;
+    return  this.validateLength(body, 20) && !!star_rating && this.validateEmail(email) && this.validateLength(username, 6) && !usernameExists;
   }
 
   validateLength = (string, length) => string.length >= length;
