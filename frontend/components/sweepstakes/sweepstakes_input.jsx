@@ -7,13 +7,14 @@ export const SweepstakesInput = ({
   name,
   isTextArea, 
   update, 
-  isValid
+  isValid,
+  modifierClass
 }) => {
   const Element = isTextArea ? 'textarea' : 'input';
   return (
     <div className="SweepstakesInput">
       <Element
-        className={`SweepstakesInput-input ${isTextArea ? 'SweepstakesInput-textAreaInput' : ''}`}
+        className={`SweepstakesInput-input ${isTextArea ? 'SweepstakesInput-textAreaInput' : ''} ${modifierClass}`}
         type="text"
         onChange={update(name)}
         value={value}

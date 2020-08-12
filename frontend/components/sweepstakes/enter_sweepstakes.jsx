@@ -209,8 +209,18 @@ class Sweepstakes extends React.Component {
       usernameExists, 
       isAdTraffic,
       apartmentNum,
-      currentProgress
+      currentProgress,
+      star_rating,
+      failedValidation,
+      hasSelectedAddress
     } = this.state;
+
+    const hasValidUsername = this.validateLength(username, 6);
+    const hasValidEmail = this.validateEmail(email);
+    const hasValidBody = this.validateLength(body, 20);
+    const hasValidApartmentNumber = this.validateLength(apartmentNum, 1);
+    const hasValidStarRating = star_rating > 0;
+
     return (
       <div className="Sweepstakes">
         {(!revealSuccessMessage && currentProgress > 0) && (
@@ -265,7 +275,7 @@ class Sweepstakes extends React.Component {
                 Rental Address
               </p>
               <input
-                className="SweepstakesInput-input"
+                className={`SweepstakesInput-input ${hasSelectedAddress ? 'SweepstakesInput--isValid' : failedValidation ? 'SweepstakesInput--failedValidation' : ''}`}
                 id="autocompleteSweepstakes"
                 type="text"
               >
@@ -288,8 +298,8 @@ class Sweepstakes extends React.Component {
               update={this.updateUsername}
               type="text"
               value={username}
-              className="SweepstakesInput-input"
-              isValid={!usernameExists && this.validateLength(username, 6)}
+              modifierClass={`${hasValidUsername ? 'SweepstakesInput--isValid' : failedValidation ? 'SweepstakesInput--failedValidation' : ''}`}
+              isValid={!usernameExists && hasValidUsername}
             />
             {usernameExists && (
               <p className="Sweepstakes-usernameError">username already exists</p>
@@ -299,16 +309,16 @@ class Sweepstakes extends React.Component {
               name="email"
               update={this.update}
               type="email"
-              className="SweepstakesInput-input"
-              isValid={this.validateEmail(email)}
+              modifierClass={`${hasValidEmail ? 'SweepstakesInput--isValid' : failedValidation ? 'SweepstakesInput--failedValidation' : ''}`}
+              isValid={hasValidEmail}
             />
             <p className="Sweepstakes-inputTitle">Apartment Number (optional)</p>
             <SweepstakesInput 
               name="apartmentNum"
               update={this.update}
               value={apartmentNum}
-              className="SweepstakesInput-input"
-              isValid={this.validateLength(apartmentNum, 1)}
+              modifierClass={`${hasValidApartmentNumber ? 'SweepstakesInput--isValid' : ''}`}
+              isValid={hasValidApartmentNumber}
             />
             <p className="Sweepstakes-inputTitle">Any advice to other future tenants?</p>
             <SweepstakesInput 
@@ -316,11 +326,11 @@ class Sweepstakes extends React.Component {
               isTextArea
               update={this.update}
               value={body}
-              className="SweepstakesInput-input"
-              isValid={this.validateLength(body, 20)}
+              modifierClass={`${hasValidBody ? 'SweepstakesInput--isValid' : failedValidation ? 'SweepstakesInput--failedValidation' : ''}`}
+              isValid={hasValidBody}
             />
             <div className="Sweepstakes-bottomSectionWrapper">
-              <div className="Sweepstakes-starRating">
+              <div className={`Sweepstakes-starRating ${hasValidStarRating ? 'SweepstakesInput--isValid' : failedValidation ? 'SweepstakesInput--failedValidation' : ''}`}>
                 <p className="QuirkForm-ratingTitle">How would you rate your overall experience?</p>
                   <StarRatings 
                     rating={this.state.star_rating}
@@ -338,6 +348,36 @@ class Sweepstakes extends React.Component {
                     <li>Loved it</li>
                   </ul>
               </div>
+              {(failedValidation && !this.validateInputs()) && (
+                <div className="Sweepstakes-errorDisplayWrapper">
+                <p className="Sweepstakes-errorsTitle">Please fix the following errors and then submit again.</p>
+                {!hasSelectedAddress && (
+                  <p className="Sweepstakes-errorItem">
+                    * Please select a rental address.
+                  </p>
+                )}
+                {!this.validateLength(username, 6) && (
+                  <p className="Sweepstakes-errorItem">
+                    * Username must be at least 6 characters long.
+                  </p>
+                )}
+                {!this.validateEmail(email) && (
+                  <p className="Sweepstakes-errorItem">
+                    * Please enter a valid email.
+                  </p>                
+                )}
+                {!this.validateLength(body, 20) && (
+                  <p className="Sweepstakes-errorItem">
+                    * Advice to other future tenants must be a minimum of 20 characters.
+                  </p> 
+                )}
+                {!this.state.star_rating && (
+                  <p className="Sweepstakes-errorItem">
+                    * Please select a star rating.
+                  </p>                
+                )}
+              </div>
+              )}
               <button 
                 className="Sweepstakes-button"
                 onClick={this.handleSubmitReview}>

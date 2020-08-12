@@ -22,4 +22,10 @@
   &-textAreaInput {
     height: 100px;
   }
+  &--isValid {
+    border: 1px solid $sucessMessage--green;
+  }
+  &--failedValidation {
+    border: 1px solid $error--primary;
+  }
 }
