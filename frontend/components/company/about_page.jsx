@@ -1,6 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 export const AboutPage = () => {
+  
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, [])
+
   return (
     <div className="AboutPage">
       <div className="AboutPage-mainContent">
