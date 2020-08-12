@@ -166,6 +166,12 @@ class Greeting extends React.Component {
             />
             <GreetingNavLink
               currentUrl={this.state.currentUrl}
+              urlParam="about"
+              handleClick={() => this.handleRedirect("about")}
+              linkName={"about"}
+            />
+            <GreetingNavLink
+              currentUrl={this.state.currentUrl}
               urlParam="profile"
               handleClick={() => this.handleRedirect("profile")}
               linkName={"profile"}
@@ -215,6 +221,12 @@ class Greeting extends React.Component {
               urlParam="login"
               handleClick={() => this.handleRedirect("login")}
               linkName={"login"}
+            />
+            <GreetingNavLink
+              currentUrl={this.state.currentUrl}
+              urlParam="about"
+              handleClick={() => this.handleRedirect("about")}
+              linkName={"about"}
             />
             <GreetingNavLink
               currentUrl={this.state.currentUrl}

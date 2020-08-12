@@ -10,6 +10,7 @@ import FooterContainer from "./footer/footer_container";
 import MessageIndexContainer from "./messages/message_index_container";
 import ComposeMessageContainer from "./messages/compose_message_container";
 import SweepStakes from './sweepstakes/enter_sweepstakes';
+import {AboutPage} from './company/about_page'
 import {AdminPanel} from './admin/admin_panel';
 import App from "./app";
 
@@ -32,6 +33,7 @@ export const Root = ({ store }) => {
           <Route path="/giveaway" component={SweepStakes}></Route>
           <Route path="/messages/:id" component={MessageIndexContainer}></Route>
           <Route path="/admin" component={AdminPanel}></Route>
+          <Route path="/about" component={AboutPage}></Route>
           <Route path="/" component={FooterContainer}></Route>
         </div>
       </BrowserRouter>

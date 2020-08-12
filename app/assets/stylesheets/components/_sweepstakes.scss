@@ -72,6 +72,7 @@
   &-starRating {
     margin: 0 auto;
     padding: 16px;
+    box-sizing: border-box;
   }
   &-successMessage {
     text-align: center;
@@ -169,6 +170,7 @@
     border: 1px solid $error--primary;
     border-radius: 10px;
     padding: 12px;
+    box-sizing: border-box;
   }
   &-errorsTitle {
     color: black;
