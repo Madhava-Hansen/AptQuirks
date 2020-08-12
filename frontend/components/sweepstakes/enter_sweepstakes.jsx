@@ -380,6 +380,7 @@ class Sweepstakes extends React.Component {
               )}
               <button 
                 className="Sweepstakes-button"
+                style={{backgroundColor: `${this.validateInputs() ? 'steelblue' : 'lightgrey'}`}}
                 onClick={this.handleSubmitReview}>
                 Submit Review!
               </button>
