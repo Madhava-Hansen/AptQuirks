@@ -6,6 +6,7 @@ import {FooterNavLinks} from "./footer_nav_links";
 const Footer = ({currentUser}) => 
   <footer className="Footer">
     <FooterNavLinks isLoggedIn={currentUser} />
+    <p className="Footer-foundingDate">Founded 2016</p>
     <div className="Footer-iconsWrapper">
       <a className="Footer-socialIcon" target="_blank" href="https://www.facebook.com/apartmentquirks">
         <FontAwesomeIcon size="2x" icon={["fab", "facebook"]} />
