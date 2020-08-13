@@ -395,7 +395,7 @@ class Sweepstakes extends React.Component {
                     target='_blank'
                     href="https://app.termly.io/document/privacy-policy/3a1d9dd9-cb57-4685-9708-1719215c6bec">
                     privacy policy
-                  </a> and the <a target="_blank" href="https://res.cloudinary.com/aptquirks/image/upload/v1595306504/Apartment_Quirks_Giveaway_Rules_Doc_pdt8wt.pdf" className="Sweepstakes-rules">giveaway rules.</a>
+                  </a> and the <a target="_blank" href="https://res.cloudinary.com/aptquirks/image/upload/v1597334972/Apartment_Quirks_Giveawy_Rules_t4jxqc.pdf" className="Sweepstakes-rules">giveaway rules.</a>
                 </p>
               </div>
             </div>
