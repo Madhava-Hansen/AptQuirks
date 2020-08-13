@@ -4,7 +4,7 @@ class ThirdPartyApIsController < ApplicationController
     lon = params[:third_party_ap_is][:lon]
     lat = params[:third_party_ap_is][:lat]
     if encoded_address && lon && lat
-      uri = URI.parse("https://api.walkscore.com/score?format=json&address=#{encoded_address}&lat=#{lat}&lon=#{lon}&transit=1&bike=1&wsapikey=#{'f1901fbff4feac8d83c69793520293d4'}")
+      uri = URI.parse("https://api.walkscore.com/score?format=json&address=#{encoded_address}&lat=#{lat}&lon=#{lon}&transit=1&bike=1&wsapikey=#{ENV['WALKSCORE_API_KEY']}")
       response = Net::HTTP.get_response(uri);
       data = JSON.parse(response.body)
       
