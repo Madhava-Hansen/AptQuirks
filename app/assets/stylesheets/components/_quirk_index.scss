@@ -15,7 +15,7 @@
     background-color: $primary--dark;
   }
   &-quirksWrapper {
-    margin: 0 30px;
+    margin: 0 16px;
   }
   &-addQuirkButton {
     @include greyButton;
@@ -100,6 +100,9 @@
     border-radius: 0px 10px 10px 0px;
     &-quirkInfoAbsolute {
       width: 300px;
+    }
+    &-quirksWrapper {
+      margin: 0 30px;
     }
   }
   @media screen and (min-width: 1090px) {

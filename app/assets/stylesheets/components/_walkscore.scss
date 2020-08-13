@@ -1,0 +1,30 @@
+.Walkscore {
+  margin-bottom: 50px;
+  border: 1px solid rgba(lightgrey, 0.5);
+  padding-top: 20px;
+  border-radius: 10px;
+  &-scoreWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  &-logo {
+    width: 120px;
+    margin-right: 16px;
+    margin: 0 auto 12px auto;
+  }
+  &-badgeWrapper {
+    width: 25%;
+    margin: 12px;
+    min-width: 70px;
+    max-width: 105px;
+  }
+  &-badgeDescription {
+    text-align: center;
+  }
+  &-walkscoreNumber {
+    font-size: 30px;
+  }
+}

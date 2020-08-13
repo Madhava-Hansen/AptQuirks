@@ -89,7 +89,7 @@ class ApartmentShow extends React.Component {
           <div>
           </div>
           <QuirkIndex 
-            apartmentShow={currentApartment} 
+            currentApartment={currentApartment} 
             apartmentId={currentApartment.id} 
             currentUser={this.props.currentUser} 
             getQuirksForReviewsFeature={this.getQuirksForReviewsFeature}

@@ -12,7 +12,7 @@ const QuirkForm = ({
   apt_number,
   handleAddQuirk,
   handleHideQuirkForm,
-  apartmentShow
+  currentApartment
 }) => {
 
   const [starRating, setStarRating] = useState();
@@ -41,7 +41,7 @@ const QuirkForm = ({
     />
     <div className="QuirkForm-titleSectionWrapper">
       <h1 className="QuirkForm-title">Add Quirk</h1>
-      <p>{apartmentShow.street_address}</p>
+      <p>{currentApartment.street_address}</p>
     </div>
     {onFirstPage ? (
       <div className="QuirkForm-inputsWrapper">

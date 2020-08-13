@@ -17,7 +17,7 @@ class QuirkIndex extends React.Component {
       body: "",
       apt_number: "",
       noQuirksYet: false,
-      apartmentShow: {street_address: ''}
+      currentApartment: {address: '', latitude: null, longitude: null}
     };
     this.defaultThumbnailUrl =
     "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
@@ -34,24 +34,10 @@ class QuirkIndex extends React.Component {
     })
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    const { quirksIndex, apartmentShow } = nextProps;
-    let hasApartmentData = false;
-    if (apartmentShow && apartmentShow.street_address) {
-      hasApartmentData = true;
-    }
-    if (quirksIndex && quirksIndex.quirks) {
-      this.props.getQuirksForReviewsFeature(quirksIndex.quirks);
-      if (hasApartmentData) {
-        return {
-          quirks: quirksIndex.quirks,
-          apartmentShow: apartmentShow
-        }
-      } else {
-        return {quirks: quirksIndex.quirks};
-      }
-    } else if (hasApartmentData) {
-      return {apartmentShow: apartmentShow};
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const {currentApartment} = nextProps;
+    if (currentApartment && JSON.stringify(currentApartment.address) !== JSON.stringify(prevState.currentApartment.address)) {
+      return {currentApartment};
     }
 
     return null;
@@ -94,7 +80,7 @@ class QuirkIndex extends React.Component {
 
   render() {
     const {apartmentId, history, currentUser} = this.props;
-    const {revealQuirkForm, apartmentShow} = this.state;
+    const {revealQuirkForm, currentApartment} = this.state;
     return (
       <aside className="QuirksIndex">
         {revealQuirkForm && (
@@ -102,7 +88,7 @@ class QuirkIndex extends React.Component {
             <QuirkForm 
               apartmentId={apartmentId}
               history={history}
-              apartmentShow={apartmentShow}
+              currentApartment={currentApartment}
               handleAddQuirk={this.handleAddQuirk}
               handleHideQuirkForm={this.handleHideQuirkForm}
               update={this.update}
@@ -142,15 +128,15 @@ class QuirkIndex extends React.Component {
               <p className="QuirksIndex-whatsAQuirkPopover">
                 A quirk is a story about what it was like living at a house or
                 apartment. Help other people out by telling your story about
-                living at {apartmentShow.street_address}!
+                living at {currentApartment.street_address}!
               </p>
             </div>
           </div>
         </div>
           <ul className="QuirksIndex-quirksWrapper">
-            {/* {apartmentShow && (
-              <Walkscore data={{third_party_ap_is: {address: apartmentShow.street_address}}} />
-            )} */}
+            {currentApartment && currentApartment.address && (
+              <Walkscore data={{third_party_ap_is: {address: currentApartment.address, lat: currentApartment.latitude, lon: currentApartment.longitude}}} />
+            )}
             {this.state.quirks.map(quirk => (
               <QuirkIndexItem apartmentId={apartmentId} currentUser={currentUser} quirk={quirk} key={quirk.id} />
             ))}
