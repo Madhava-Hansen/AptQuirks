@@ -28,7 +28,7 @@ const SweepstakesPromotionalModal = ({history}) => {
       <div value="main" className="SweepstakesPromotionalModal-modal">
       <h1 className="SweepstakesPromotionalModal-title">Apartment Quirks Giveaway!</h1>
       <div className="SweepstakesPromotionalModal-mainContent">
-        <h1 className="SweepstakesPromotionalModal-advert">Win FREE Rent</h1>
+        <h1 className="SweepstakesPromotionalModal-advert">Win free Rent</h1>
         <div onClick={handleCloseModal} className="SweepstakesPromotionalModal-closeModalIcon">
           <FontAwesomeIcon 
             size="3x"
