@@ -1,8 +1,8 @@
-@import '../base/mixins';
+@import "../base/mixins";
 
 .AboutPage {
   @include backgroundVector;
-  background-image: url('https://res.cloudinary.com/aptquirks/image/upload/v1594410412/Toy_taxi_small_rrguxw.jpg');
+  background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1594410412/Toy_taxi_small_rrguxw.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,9 +11,9 @@
     background-color: white;
     padding: 30px;
     border-radius: 3px;
+    text-align: center;
   }
   &-headingText {
-    text-align: center;
     margin: 12px auto;
     font-weight: bold;
     font-size: 24px;
@@ -29,6 +29,7 @@
   &-body {
     font-size: 14.5px;
     line-height: 1.5;
+    padding-bottom: 12px;
   }
   @media screen and (min-width: 620px) {
     &-mainContent {
