@@ -1,9 +1,9 @@
 import React from "react";
-import {QuirkIndexItem} from "./quirk_index_item";
-import {withRouter} from "react-router-dom";
-import {fetchQuirks, addQuirk} from '../../util/quirk_api_util';
-import QuirkForm from './quirk_form';
-import {Walkscore} from '../third_party_api_features/walkscore';
+import { QuirkIndexItem } from "./quirk_index_item";
+import { withRouter } from "react-router-dom";
+import { fetchQuirks, addQuirk } from "../../util/quirk_api_util";
+import QuirkForm from "./quirk_form";
+import { Walkscore } from "../third_party_api_features/walkscore";
 
 class QuirkIndex extends React.Component {
   constructor(props) {
@@ -17,75 +17,105 @@ class QuirkIndex extends React.Component {
       body: "",
       apt_number: "",
       noQuirksYet: false,
-      currentApartment: {address: '', latitude: null, longitude: null}
+      currentApartment: { address: "", latitude: null, longitude: null },
     };
     this.defaultThumbnailUrl =
-    "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
+      "https://res.cloudinary.com/aptquirks/image/upload/c_limit,h_60,w_90/v1496452554/zmocgurx82ptorrqjcpz.png";
   }
 
   componentDidMount() {
-    fetchQuirks(this.props.apartmentId || sessionStorage.getItem("apartmentId")).then(quirks => {
-      this.setState({quirks}, () => {
+    fetchQuirks(
+      this.props.apartmentId || sessionStorage.getItem("apartmentId")
+    ).then((quirks) => {
+      this.setState({ quirks }, () => {
         this.props.getQuirksForReviewsFeature(this.state.quirks);
         if (this.state.quirks.length === 0) {
-          this.setState({noQuirksYet: true});
+          this.setState({ noQuirksYet: true });
         }
-      })
-    })
+      });
+    });
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    const {currentApartment} = nextProps;
-    if (currentApartment && JSON.stringify(currentApartment.address) !== JSON.stringify(prevState.currentApartment.address)) {
-      return {currentApartment};
+    const { currentApartment } = nextProps;
+    if (
+      currentApartment &&
+      JSON.stringify(currentApartment.address) !==
+        JSON.stringify(prevState.currentApartment.address)
+    ) {
+      return { currentApartment };
     }
 
     return null;
   }
 
-  handleAddQuirk = (title, body, apt_number, star_rating, neighborhood_star_rating, landlord_star_rating, noise_star_rating) => {
-    if (!title || !body || !apt_number) {return;};
-    const {currentUser: { id, username, thumbnail_url }} = this.props;
+  handleAddQuirk = (
+    title,
+    body,
+    apt_number,
+    star_rating,
+    neighborhood_star_rating,
+    landlord_star_rating,
+    noise_star_rating
+  ) => {
+    if (!title || !body || !apt_number) {
+      return;
+    }
+    const {
+      currentUser: { id, username, thumbnail_url },
+    } = this.props;
     const idsAndPic = {
-      apartment_id: this.apartmentId || sessionStorage.getItem('apartmentId'),
+      apartment_id: this.apartmentId || sessionStorage.getItem("apartmentId"),
       user_id: id,
       user_name: username,
       user_pic: thumbnail_url ? thumbnail_url : this.defaultThumbnailUrl,
     };
-    addQuirk({ quirk: {title, body, apt_number, star_rating, neighborhood_star_rating, landlord_star_rating, noise_star_rating, ...idsAndPic } }).then(
-      quirk => {
-        const newQuirks = this.state.quirks.slice(0);
-        newQuirks.push(quirk);
-        this.setState({revealQuirkForm: false, quirks: newQuirks});
-      });
-  }
+    addQuirk({
+      quirk: {
+        title,
+        body,
+        apt_number,
+        star_rating,
+        neighborhood_star_rating,
+        landlord_star_rating,
+        noise_star_rating,
+        ...idsAndPic,
+      },
+    }).then((quirk) => {
+      const newQuirks = this.state.quirks.slice(0);
+      newQuirks.push(quirk);
+      this.setState({ revealQuirkForm: false, quirks: newQuirks });
+    });
+  };
 
   handleRevealQuirkInfo = () =>
     this.setState({ revealQuirk: !this.state.revealQuirk });
 
   handleRevealQuirkForm = () => {
     if (this.props.currentUser) {
-      this.setState({revealQuirkForm: true});
+      this.setState({ revealQuirkForm: true });
     } else {
-      this.setState({addQuirkErrorClassName: 'QuirksIndex-addQuirkErrorMessage'});
+      this.setState({
+        addQuirkErrorClassName: "QuirksIndex-addQuirkErrorMessage",
+      });
       setTimeout(() => {
-        this.setState({addQuirkErrorClassName: 'hidden'});
-      }, 3000)
+        this.setState({ addQuirkErrorClassName: "hidden" });
+      }, 3000);
     }
   };
 
-  handleHideQuirkForm = () => this.setState({revealQuirkForm: false});
+  handleHideQuirkForm = () => this.setState({ revealQuirkForm: false });
 
-  update = type => e => this.setState({ [type]: e.currentTarget.value });
+  update = (type) => (e) => this.setState({ [type]: e.currentTarget.value });
 
   render() {
-    const {apartmentId, history, currentUser} = this.props;
-    const {revealQuirkForm, currentApartment} = this.state;
+    const { apartmentId, history, currentUser } = this.props;
+    const { revealQuirkForm, currentApartment } = this.state;
     return (
       <aside className="QuirksIndex">
         {revealQuirkForm && (
           <div className="QuirksIndex-addQuirkFormWrapper">
-            <QuirkForm 
+            <QuirkForm
               apartmentId={apartmentId}
               history={history}
               currentApartment={currentApartment}
@@ -133,17 +163,32 @@ class QuirkIndex extends React.Component {
             </div>
           </div>
         </div>
-          <ul className="QuirksIndex-quirksWrapper">
-            {currentApartment && currentApartment.address && (
-              <Walkscore data={{third_party_ap_is: {address: currentApartment.address, lat: currentApartment.latitude, lon: currentApartment.longitude}}} />
-            )}
-            {this.state.quirks.map(quirk => (
-              <QuirkIndexItem apartmentId={apartmentId} currentUser={currentUser} quirk={quirk} key={quirk.id} />
-            ))}
-          </ul>
-          {this.state.noQuirksYet && (
-            <h1 className="QuirksIndex-noQuirksYetMessage">Be the first person to add a quirk!</h1>
+        <ul className="QuirksIndex-quirksWrapper">
+          {currentApartment && currentApartment.address && (
+            <Walkscore
+              data={{
+                third_party_ap_is: {
+                  address: currentApartment.address,
+                  lat: currentApartment.latitude,
+                  lon: currentApartment.longitude,
+                },
+              }}
+            />
           )}
+          {this.state.quirks.map((quirk) => (
+            <QuirkIndexItem
+              apartmentId={apartmentId}
+              currentUser={currentUser}
+              quirk={quirk}
+              key={quirk.id}
+            />
+          ))}
+        </ul>
+        {this.state.noQuirksYet && (
+          <h1 className="QuirksIndex-noQuirksYetMessage">
+            Be the first person to write a review!
+          </h1>
+        )}
       </aside>
     );
   }

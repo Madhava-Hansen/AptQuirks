@@ -1,27 +1,35 @@
-import React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCheck} from '@fortawesome/fontawesome-free-solid'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/fontawesome-free-solid";
 
 export const SweepstakesInput = ({
-  value, 
+  value,
   name,
-  isTextArea, 
-  update, 
+  isTextArea,
+  update,
   isValid,
-  modifierClass
+  modifierClass,
+  placeholder = "",
 }) => {
-  const Element = isTextArea ? 'textarea' : 'input';
+  const Element = isTextArea ? "textarea" : "input";
   return (
     <div className="SweepstakesInput">
       <Element
-        className={`SweepstakesInput-input ${isTextArea ? 'SweepstakesInput-textAreaInput' : ''} ${modifierClass}`}
+        className={`SweepstakesInput-input ${
+          isTextArea ? "SweepstakesInput-textAreaInput" : ""
+        } ${modifierClass}`}
         type="text"
         onChange={update(name)}
         value={value}
+        placeholder={placeholder}
       />
       {isValid && (
-        <FontAwesomeIcon className="SweepstakesInput-checkmark" icon={faCheck} size="1x" />
+        <FontAwesomeIcon
+          className="SweepstakesInput-checkmark"
+          icon={faCheck}
+          size="1x"
+        />
       )}
     </div>
-  )
-}
+  );
+};
