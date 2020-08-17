@@ -375,8 +375,10 @@ class Sweepstakes extends React.Component {
                 isValid={!usernameExists && hasValidUsername}
               />
               <p className="Sweepstakes-inputLengthTracker">
-                {6 - username.length > 0 ? 6 - username.length : ""} more
-                characters required
+                {6 - username.length > 0
+                  ? `${6 - username.length} more
+                characters required`
+                  : ""}
               </p>
               {usernameExists && (
                 <p className="Sweepstakes-usernameError">
@@ -430,8 +432,10 @@ class Sweepstakes extends React.Component {
                 placeholder="What did you like about living here? What did you not like about living here?"
               />
               <p className="Sweepstakes-inputLengthTracker">
-                {120 - body.length > 0 ? 120 - body.length : ""} more characters
-                required
+                {120 - body.length > 0
+                  ? `${120 - body.length} more characters
+                required`
+                  : ""}
               </p>
               <div className="Sweepstakes-bottomSectionWrapper">
                 <div
