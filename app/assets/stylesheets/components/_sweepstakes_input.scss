@@ -8,10 +8,10 @@
     margin: 6px 0;
     border: 1px solid lightgrey;
     height: 32px;
-    padding: 12px;
-    padding-right: 32px;
+    padding: 12px 32px 12px 12px;
     box-sizing: border-box;
     font-weight: normal;
+    min-height: 40px;
   }
   &-checkmark {
     position: absolute;

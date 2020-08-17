@@ -261,9 +261,6 @@ class Sweepstakes extends React.Component {
                   <p className="Sweepstakes-headingText">
                     Enter the giveaway below!
                   </p>
-                  <p className="Sweepstakes-subHeading">
-                    Review an apartment and you'll be all set.
-                  </p>
                 </>
               ) : (
                 <>
@@ -376,6 +373,9 @@ class Sweepstakes extends React.Component {
                 }`}
                 isValid={!usernameExists && hasValidUsername}
               />
+              <p className="Sweepstakes-inputLengthTracker">
+                {6 - username.length > 0 ? 6 - username.length : ""}
+              </p>
               {usernameExists && (
                 <p className="Sweepstakes-usernameError">
                   username already exists
@@ -427,6 +427,9 @@ class Sweepstakes extends React.Component {
                 isValid={hasValidBody}
                 placeholder="What did you like about living here? What did you not like about living here?"
               />
+              <p className="Sweepstakes-inputLengthTracker">
+                {120 - body.length > 0 ? 120 - body.length : ""}
+              </p>
               <div className="Sweepstakes-bottomSectionWrapper">
                 <div
                   className={`Sweepstakes-starRating ${
