@@ -6,13 +6,13 @@
   background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1594828922/giveaway_image_l9bnng.jpg");
   background-position: center;
   background-size: cover;
-  padding: 30px 0 30px 0;
+  padding: 30px 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
   color: $primary--dark;
   text-align: left;
-  margin-top: 60px;
+  margin-top: 30px;
   min-height: 80vh;
   &-mainContent {
     background-color: white;
@@ -21,10 +21,9 @@
     padding-bottom: 12px;
   }
   &-headingWrapper {
-    background-color: $primary--dark;
-    color: white;
-    padding: 20px 20px;
-    border-radius: 10px 10px 0 0;
+    background-color: white;
+    color: $primary--dark;
+    padding: 20px 20px 0 20px;
   }
   &-headingText {
     font-size: 20px;
@@ -40,7 +39,7 @@
   }
   &-mainContent,
   &-progressBar {
-    min-width: 90%;
+    min-width: 100%;
     max-width: 500px;
   }
   &-progressBar {
@@ -190,9 +189,17 @@
     }
   }
   @media screen and (min-width: 520px) {
+    padding-bottom: 30px;
+    margin-top: 60px;
     &-mainContent,
     &-progressBar {
       min-width: 500px;
+    }
+    &-headingWrapper {
+      background-color: $primary--dark;
+      color: white;
+      padding: 20px;
+      border-radius: 10px 10px 0 0;
     }
   }
   @media screen and (min-width: 768px) {
