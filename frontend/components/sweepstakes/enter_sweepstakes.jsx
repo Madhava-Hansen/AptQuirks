@@ -25,6 +25,8 @@ class Sweepstakes extends React.Component {
       isAdTraffic: false,
       failedValidation: false,
       currentProgress: 0,
+      usernameTouched: false,
+      bodyTouched: false,
     };
     this.autocomplete = null;
     this.emailValidationRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -101,6 +103,9 @@ class Sweepstakes extends React.Component {
     this.setState({ [name]: value }, () => {
       this.updateProgress();
     });
+    if (name === "body") {
+      this.setState({ bodyTouched: true });
+    }
   };
 
   handleChangeStarRating = (rating) => {
@@ -131,9 +136,12 @@ class Sweepstakes extends React.Component {
       inputName: name,
       inputValue: e.currentTarget.value,
     });
-    this.setState({ [name]: e.currentTarget.value }, () => {
-      this.updateProgress();
-    });
+    this.setState(
+      { [name]: e.currentTarget.value, usernameTouched: true },
+      () => {
+        this.updateProgress();
+      }
+    );
     this.validateUsername(e.currentTarget.value);
   };
 
@@ -238,6 +246,8 @@ class Sweepstakes extends React.Component {
       star_rating,
       failedValidation,
       hasSelectedAddress,
+      usernameTouched,
+      bodyTouched,
     } = this.state;
 
     const hasValidUsername = this.validateLength(username, 6);
@@ -374,12 +384,14 @@ class Sweepstakes extends React.Component {
                 }`}
                 isValid={!usernameExists && hasValidUsername}
               />
-              <p className="Sweepstakes-inputLengthTracker">
-                {6 - username.length > 0
-                  ? `${6 - username.length} more
-                characters required`
-                  : ""}
-              </p>
+              {usernameTouched && (
+                <p className="Sweepstakes-inputLengthTracker">
+                  {6 - username.length > 0
+                    ? `${6 - username.length} more
+                  characters required`
+                    : ""}
+                </p>
+              )}
               {usernameExists && (
                 <p className="Sweepstakes-usernameError">
                   username already exists
@@ -431,12 +443,15 @@ class Sweepstakes extends React.Component {
                 isValid={hasValidBody}
                 placeholder="What did you like about living here? What did you not like about living here?"
               />
-              <p className="Sweepstakes-inputLengthTracker">
-                {120 - body.length > 0
-                  ? `${120 - body.length} more characters
+              {bodyTouched && (
+                <p className="Sweepstakes-inputLengthTracker">
+                  {120 - body.length > 0
+                    ? `${120 - body.length} more characters
                 required`
-                  : ""}
-              </p>
+                    : ""}
+                </p>
+              )}
+
               <div className="Sweepstakes-bottomSectionWrapper">
                 <div
                   className={`Sweepstakes-starRating ${
