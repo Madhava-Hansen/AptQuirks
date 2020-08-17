@@ -478,8 +478,8 @@ class Sweepstakes extends React.Component {
                     )}
                     {!this.validateLength(body, this.bodyLengthMinimum) && (
                       <p className="Sweepstakes-errorItem">
-                        * Advice to other future tenants must be a minimum of 20
-                        characters.
+                        * Advice to other future tenants must be a minimum of
+                        120 characters.
                       </p>
                     )}
                     {!this.state.star_rating && (
