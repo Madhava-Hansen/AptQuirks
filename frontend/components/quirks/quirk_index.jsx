@@ -95,12 +95,7 @@ class QuirkIndex extends React.Component {
     if (this.props.currentUser) {
       this.setState({ revealQuirkForm: true });
     } else {
-      this.setState({
-        addQuirkErrorClassName: "QuirksIndex-addQuirkErrorMessage",
-      });
-      setTimeout(() => {
-        this.setState({ addQuirkErrorClassName: "hidden" });
-      }, 3000);
+      this.props.history.push("/giveaway");
     }
   };
 
