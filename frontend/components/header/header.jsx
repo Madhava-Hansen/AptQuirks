@@ -3,26 +3,26 @@ import { withRouter, Link } from "react-router-dom";
 import GreetingContainer from "../greeting/greeting_container";
 import ApartmentSearchContainer from "../apartment/apartment_search_container";
 import Logo from "./logo";
-import SweepstakesPromotionalModal from './sweepstakes_promotional_modal';
+// import SweepstakesPromotionalModal from "./sweepstakes_promotional_modal";
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.redirectHome = this.redirectHome.bind(this);
-    this.state = { classes: "group header"};
+    this.state = { classes: "group header" };
   }
 
   componentDidMount() {
     this.addScrollEvent();
-    const {search} = this.props.location;
+    const { search } = this.props.location;
     const removedQuestionMark = search.slice(1, search.length);
     const queryStrings = {};
-    removedQuestionMark.split('&').forEach(query => {
-      const data = query.split('=');
+    removedQuestionMark.split("&").forEach((query) => {
+      const data = query.split("=");
       queryStrings[data[0]] = data[1];
-    })
-    if (queryStrings['src'] === 'giveaway') {
-      sessionStorage.setItem('blockGiveawayModal', true);
+    });
+    if (queryStrings["src"] === "giveaway") {
+      sessionStorage.setItem("blockGiveawayModal", true);
     }
   }
 
@@ -49,9 +49,9 @@ class Header extends React.Component {
     if (hidden) {
       return (
         <header className={this.state.classes} id="header">
-          {!sessionStorage.getItem('blockGiveawayModal') && (
+          {/* {!sessionStorage.getItem('blockGiveawayModal') && (
             <SweepstakesPromotionalModal />
-          )}
+          )} */}
           <nav className="nav">
             <ul className="nav-left">
               <Logo redirectHome={this.redirectHome} />
@@ -63,9 +63,9 @@ class Header extends React.Component {
     } else {
       return (
         <header className={this.state.classes} id="header">
-          {!sessionStorage.getItem('blockGiveawayModal') && (
+          {/* {!sessionStorage.getItem("blockGiveawayModal") && (
             <SweepstakesPromotionalModal />
-          )}
+          )} */}
           <nav className="nav">
             <ul className="nav-left">
               <Logo redirectHome={this.redirectHome} />

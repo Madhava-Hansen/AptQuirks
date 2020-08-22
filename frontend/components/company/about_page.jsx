@@ -13,18 +13,22 @@ export const AboutPage = () => {
         </h1>
         <h3 className="AboutPage-subHeading">Founded 2017</h3>
         <p className="AboutPage-body">
-          Apartment Quirks is the original apartment review site. We empower our
-          users with knowledge about apartments to help them make better choices
-          when renting. After years of apartment hunting in NYC, we decided
-          there had to be a better way. So, we created a place where renters
-          could share their experiences about living in apartments. This insider
-          information is the meat and potatoes of what makes Apartment Quirks so
-          powerful for renters. It reduces the anxiety, the unknown, the worry
-          that comes along with blindly hoping the apartment you rented doesn’t
-          have a laundry list of hidden problems. Does the shower temperature
+          Landlords ask a lot from renters when they are screening potential
+          tenants but tenants are left completely in the dark. Apartment Quirks
+          was created to empower people with knowledge about landlords,
+          apartments, neighborhoods and everything else relating to hunting for
+          an apartment. Our goal is to help people get to know an apartment
+          before they sign a lease. On Apartment Quirks, people can share their
+          experiences about living in apartments, rate their landlords, rate
+          their neighborhoods, rate their building and talk about anything else
+          that could be an issue with an apartment. This insider information is
+          the meat and potatoes of what makes Apartment Quirks so powerful for
+          renters. It reduces the anxiety, the unknown, the worry that comes
+          along with commiting to an apartment for a whole year without really
+          knowing what you're getting yourself into. Does the shower temperature
           change suddenly, are there bug or rodent problems in the building, are
-          the neighbors noisy, is the super lazy? Don’t rent blindly, get to
-          know your next apartment, before you sign a lease.
+          the neighbors noisy, is the super unhelpful? Don’t rent blindly, get
+          to know your next apartment, before you sign a lease.
         </p>
       </div>
     </div>
