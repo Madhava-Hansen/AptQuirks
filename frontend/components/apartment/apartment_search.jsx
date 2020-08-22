@@ -90,7 +90,7 @@ class ApartmentSearch extends React.Component {
         <form className={formClass} onSubmit={this.handleSubmit}>
           <label>
             <input
-              placeholder="Search for an address..."
+              placeholder="Search for any address..."
               className="ApartmentSearch-searchInputHome"
               id="autocomplete"
               type="text"
