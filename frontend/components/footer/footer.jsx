@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FooterNavLinks } from "./footer_nav_links";
+import CookieConsent from "react-cookie-consent";
 
 const Footer = ({ currentUser }) => (
   <footer className="Footer">
@@ -45,6 +46,24 @@ const Footer = ({ currentUser }) => (
     <p className="Footer-copyright">
       {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
     </p>
+    {!localStorage.getItem("acceptedCookes") && (
+      <CookieConsent
+        location="bottom"
+        buttonText="Accept"
+        style={{ background: "#192841", color: "white" }}
+        buttonStyle={{
+          backgroundColor: "white",
+          color: "#192841",
+          fontSize: "13px",
+        }}
+        expires={150}
+        onAccept={() => {
+          localStorage.setItem("acceptedCookes", "true");
+        }}
+      >
+        This website uses cookies to enhance the user experience.{" "}
+      </CookieConsent>
+    )}
   </footer>
 );
 
