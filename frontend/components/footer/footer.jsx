@@ -44,7 +44,7 @@ const Footer = ({ currentUser }) => (
     </div>
     <p className="Footer-email">service@apartmentquirks.com</p>
     <p className="Footer-copyright">
-      {`${String.fromCharCode(169)} 2020 Apartment Quirks Inc.`}
+      {`${String.fromCharCode(169)} 2020 Apartment Quirks`}
     </p>
     {!localStorage.getItem("acceptedCookes") && (
       <CookieConsent
