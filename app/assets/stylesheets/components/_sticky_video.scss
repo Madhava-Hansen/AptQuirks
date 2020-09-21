@@ -1,0 +1,9 @@
+.StickyVideo {
+  position: fixed;
+  bottom: 4px;
+  right: 8px;
+  &-video {
+    width: 220px;
+    height: 200px;
+  }
+}
