@@ -44,6 +44,7 @@
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "jest": "^26.4.2",
     "prettier": "2.0.2",
     "redux-logger": "^3.0.6",
     "uglifyjs-webpack-plugin": "^2.2.0",
@@ -51,10 +52,10 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev-build": "webpack --config webpack.config.js --watch",
     "build": "webpack --mode production",
-    "reload": "guard -P livereload"
+    "reload": "guard -P livereload",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
