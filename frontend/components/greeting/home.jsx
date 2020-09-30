@@ -22,7 +22,7 @@ class Home extends React.Component {
           <img
             className="Homepage-homepageHeroImage"
             onLoad={this.handleImageIsLoaded}
-            srcset="https://res.cloudinary.com/aptquirks/image/upload/v1601331359/homepage-mobile-size_lemnix.jpg 622w,
+            srcSet="https://res.cloudinary.com/aptquirks/image/upload/v1601331359/homepage-mobile-size_lemnix.jpg 622w,
             https://res.cloudinary.com/aptquirks/image/upload/v1601330332/homepage-mid-size_xkq06b.jpg 1500w,
             https://res.cloudinary.com/aptquirks/image/upload/v1578704085/pexels-photo-271816_tuarlv.jpg, 2500w"
             sizes="(max-width: 450px) 622px,(max-width: 900px) 1500px, 2500px"

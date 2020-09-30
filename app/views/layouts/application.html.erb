@@ -40,8 +40,8 @@
     <%= yield %>
   </body>
   <div id="fb-root"></div>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['maps_key']}&libraries=places" %>
   <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['maps_key']}&libraries=places" %>
   <script src="//widget.cloudinary.com/global/all.js" type="text/javascript" async></script>
   <script type="text/javascript" async>
       window.cloudinary_options = {

@@ -65,6 +65,8 @@ end
 
 group :production do
   gem 'rails_12factor'
+  # enable gzip compression for browsers that support it
+  gem 'heroku-deflater'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
