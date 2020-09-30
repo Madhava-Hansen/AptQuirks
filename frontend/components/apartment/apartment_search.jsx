@@ -65,29 +65,9 @@ class ApartmentSearch extends React.Component {
   }
 
   render() {
-    let atHome = this.props.location.pathname === "/home" ? true : false;
-    let buttonClass;
-    let inputClass;
-    let maginifineGlassId;
-    let formClass;
-    let searchBarClass;
-    if (atHome) {
-      buttonClass = "search-button-home";
-      inputClass = "search-input-home";
-      maginifineGlassId = "home-magnifine-glass";
-      formClass = "search-form-home";
-      searchBarClass = "search-bar-container";
-    } else {
-      buttonClass = "search-button";
-      inputClass = "search-input";
-      maginifineGlassId = "maginifine-glass";
-      formClass = "search-form";
-      searchBarClass = "header-search-bar-container";
-    }
     return (
-      // <div className={ searchBarClass }>
       <div className="ApartmentSearch">
-        <form className={formClass} onSubmit={this.handleSubmit}>
+        <form className="search-form-home" onSubmit={this.handleSubmit}>
           <label>
             <input
               placeholder="Search for any address..."
@@ -96,10 +76,10 @@ class ApartmentSearch extends React.Component {
               type="text"
             ></input>
           </label>
-          <button className={buttonClass} type="submit" value="submit">
+          <button className="search-button-home" type="submit" value="submit">
             <img
               src="https://res.cloudinary.com/aptquirks/image/upload/v1497653777/c0hrzxnw4ss1lvazuyui.png"
-              id={maginifineGlassId}
+              id="home-magnifine-glass"
               alt="magnifine glass"
             ></img>
           </button>

@@ -1,9 +1,9 @@
 import React from "react";
-import {NavLink, withRouter} from "react-router-dom";
-import {GreetingNavLink} from "./greeting_nav_link";
-import {GreetingSocialLink} from "./greeting_social_link";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars} from '@fortawesome/fontawesome-free-solid';
+import { NavLink, withRouter } from "react-router-dom";
+import { GreetingNavLink } from "./greeting_nav_link";
+import { GreetingSocialLink } from "./greeting_social_link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/fontawesome-free-solid";
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -29,11 +29,17 @@ class Greeting extends React.Component {
     }
   }
 
-  handleDropdownReveal = event => {
+  handleDropdownReveal = (event) => {
     const classList = event.target.classList;
     if (event.target.id === "social-link") {
       return;
-    } else if (this.getIsMobileIcon(classList) || event.target.farthestViewportElement && event.target.farthestViewportElement.className.baseVal.includes("mobile-nav")) {
+    } else if (
+      this.getIsMobileIcon(classList) ||
+      (event.target.farthestViewportElement &&
+        event.target.farthestViewportElement.className.baseVal.includes(
+          "mobile-nav"
+        ))
+    ) {
       this.handleMobileDropdown();
     } else if (event.target.id === "pic") {
       this.toggleDropdown();
@@ -44,15 +50,15 @@ class Greeting extends React.Component {
     }
   };
 
-  getIsMobileIcon = classList => {
+  getIsMobileIcon = (classList) => {
     for (let i = 0; i < classList.length; i++) {
-      if (classList[i] === 'mobile-nav') {
+      if (classList[i] === "mobile-nav") {
         return true;
       }
     }
 
     return false;
-  }
+  };
 
   handleMobileDropdown = () => {
     if (this.state.navRight === "nav-right") {
@@ -103,11 +109,7 @@ class Greeting extends React.Component {
       return (
         <div className="nav-div">
           <div id="mobile-nav" className="nav-icon group">
-            <FontAwesomeIcon 
-              size="2x"
-              icon={faBars}
-              className="mobile-nav"
-            />
+            <FontAwesomeIcon size="2x" icon={faBars} className="mobile-nav" />
           </div>
           <ul className={this.state.navRight}>
             <li className="nav-link-pic">
@@ -192,11 +194,7 @@ class Greeting extends React.Component {
       return (
         <div className="nav-div">
           <div id="mobile-nav" className="nav-icon group">
-            <FontAwesomeIcon 
-              size="2x"
-              icon={faBars}
-              className="mobile-nav"  
-            />
+            <FontAwesomeIcon size="2x" icon={faBars} className="mobile-nav" />
           </div>
           <ul className={this.state.navRight}>
             <GreetingNavLink
@@ -241,4 +239,4 @@ class Greeting extends React.Component {
   }
 }
 
-export default withRouter(Greeting);
+export default React.memo(withRouter(Greeting));
