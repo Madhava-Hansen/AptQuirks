@@ -18,7 +18,8 @@ plugins = plugins.concat(
   process.env.NODE_ENV === "production" ? prodPlugins : devPlugins
 );
 
-let mode = process.env.NODE_ENV === "production" ? "production" : "development";
+const mode =
+  process.env.NODE_ENV === "production" ? "production" : "development";
 
 module.exports = {
   context: __dirname,
@@ -26,6 +27,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "app", "assets", "javascripts"),
     filename: "bundle.js",
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
   },
   plugins: plugins,
   mode: mode,
