@@ -28,11 +28,6 @@ module.exports = {
     path: path.resolve(__dirname, "app", "assets", "javascripts"),
     filename: "bundle.js",
   },
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-    },
-  },
   plugins: plugins,
   mode: mode,
   resolve: {
