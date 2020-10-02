@@ -1,9 +1,13 @@
 .StickyVideo {
+  display: none;
   position: fixed;
   bottom: 4px;
   right: 8px;
   &-video {
     width: 220px;
     height: 200px;
+  }
+  @media screen and (min-width: 769px) {
+    display: block;
   }
 }
