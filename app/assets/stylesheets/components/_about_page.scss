@@ -1,11 +1,10 @@
 @import "../base/mixins";
 
 .AboutPage {
-  @include backgroundVector;
-  background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1594410412/Toy_taxi_small_rrguxw.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 55px;
   &-mainContent {
     max-width: 80%;
     background-color: white;
@@ -32,6 +31,9 @@
     padding-bottom: 12px;
   }
   @media screen and (min-width: 620px) {
+    @include backgroundVector;
+    background-image: url("https://res.cloudinary.com/aptquirks/image/upload/v1594410412/Toy_taxi_small_rrguxw.jpg");
+    margin-top: 0px;
     &-mainContent {
       max-width: 600px;
     }
