@@ -17,7 +17,7 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@ramonak/react-progress-bar": "^1.0.3",
     "acorn": "^5.7.4",
-    "ajv": "^5.5.2",
+    "ajv": "^6.12.3",
     "braces": "^2.3.2",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.19",
