@@ -16,7 +16,7 @@ gem 'bcrypt'
 
 gem 'figaro'
 # Use Puma as the app server
-gem 'puma', '~> 3.12.6'
+gem 'puma', '~> 4.3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
